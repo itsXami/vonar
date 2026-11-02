@@ -58,21 +58,25 @@ private:
     bool dragging = false, hovering = false;
 };
 
+// Parameter name above, knob, value always visible below (Zenology-style readability).
 class Knob final : public juce::Component
 {
 public:
-    Knob (juce::AudioProcessorValueTreeState& state, int param, const juce::String& caption, bool big = false);
+    Knob (juce::AudioProcessorValueTreeState& state, int param, const juce::String& caption, juce::Colour accent,
+          bool big = false);
 
     void resized() override;
     void paint (juce::Graphics&) override {}
-    void updateCaption();
+    void updateValue();
+    void setCaption (const juce::String& c) { label.setText (c, juce::dontSendNotification); }
 
     FineSlider slider;
-    juce::Label label;
+    juce::Label label;  // parameter name (editable for macros)
+    juce::Label value;  // current value
     bool isBig;
 
 private:
-    juce::String captionText;
+    juce::Colour accent;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> attachment;
 };
 
@@ -100,9 +104,10 @@ private:
 class AmountSlider final : public juce::Component
 {
 public:
-    AmountSlider (juce::AudioProcessorValueTreeState& state, int param);
-    void resized() override { slider.setBounds (getLocalBounds()); }
+    AmountSlider (juce::AudioProcessorValueTreeState& state, int param, juce::Colour accent);
+    void resized() override;
     FineSlider slider;
+    juce::Label value;
 
 private:
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> attachment;

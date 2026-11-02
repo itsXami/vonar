@@ -6,14 +6,21 @@ namespace volt::ui
 {
 namespace colours
 {
-    inline const juce::Colour background { 0xff0e1013 };
-    inline const juce::Colour panel { 0xff16191e };
-    inline const juce::Colour panelBorder { 0xff23272e };
-    inline const juce::Colour track { 0xff2a2f37 };
-    inline const juce::Colour text { 0xffd3d7de };
-    inline const juce::Colour dimText { 0xff7c8490 };
-    inline const juce::Colour accent { 0xffffb52e }; // the single accent colour
-    inline const juce::Colour field { 0xff1d2127 };
+    inline const juce::Colour background { 0xff111317 };
+    inline const juce::Colour panel { 0xff1a1d23 };
+    inline const juce::Colour panelBorder { 0xff2a2e36 };
+    inline const juce::Colour track { 0xff2e333c };
+    inline const juce::Colour text { 0xffe6e9ee };
+    inline const juce::Colour dimText { 0xff8d95a3 };
+    inline const juce::Colour field { 0xff23272e };
+
+    // One colour per kind of section, so it is obvious at a glance what each control belongs to.
+    inline const juce::Colour osc { 0xff35c9b5 };     // oscillators, unison, sub, noise
+    inline const juce::Colour filter { 0xffff8a3d };  // filter
+    inline const juce::Colour env { 0xff7bd66a };     // envelopes (amp, filter env, pitch env)
+    inline const juce::Colour mod { 0xffa98bff };     // LFOs, modulation matrix, arp, voice
+    inline const juce::Colour fx { 0xff4fa8ff };      // effects and output
+    inline const juce::Colour macro { 0xffffd23f };   // macros
 }
 
 class VoltLookAndFeel final : public juce::LookAndFeel_V4
@@ -36,7 +43,15 @@ public:
     juce::Font getPopupMenuFont() override;
     juce::Font getLabelFont (juce::Label&) override;
     juce::Font getSliderPopupFont (juce::Slider&) override;
+    juce::Font getAlertWindowTitleFont() override;
+    juce::Font getAlertWindowMessageFont() override;
+    juce::Font getAlertWindowFont() override;
+    juce::Typeface::Ptr getTypefaceForFont (const juce::Font&) override;
 
+    // Inter Regular / SemiBold, embedded (SIL OFL).
     static juce::Font font (float size, bool bold = false);
+    // Section colour stored on a component (falls back to the oscillator colour).
+    static juce::Colour accentOf (const juce::Component& c);
+    static void setAccent (juce::Component& c, juce::Colour colour);
 };
 } // namespace volt::ui

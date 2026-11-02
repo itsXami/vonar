@@ -36,6 +36,13 @@ juce_add_binary_data(VOLT_Presets
     SOURCES     ${VOLT_PRESET_FILES})
 set_target_properties(VOLT_Presets PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
+# UI font (Inter, SIL Open Font License – see resources/fonts/OFL-Inter.txt)
+juce_add_binary_data(VOLT_Fonts
+    HEADER_NAME VoltFontData.h
+    NAMESPACE   VoltFontData
+    SOURCES     resources/fonts/Inter-Regular.ttf resources/fonts/Inter-SemiBold.ttf)
+set_target_properties(VOLT_Fonts PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
 # ---------------------------------------------------------------------------
 # Core sources shared by the plugin, the tests and the renderer.
 # ---------------------------------------------------------------------------
@@ -57,6 +64,7 @@ target_compile_definitions(VoltCore INTERFACE
     VOLT_VERSION_STRING="${PROJECT_VERSION}")
 target_link_libraries(VoltCore INTERFACE
     VOLT_Presets
+    VOLT_Fonts
     juce::juce_audio_utils
     juce::juce_audio_formats
     juce::juce_dsp
