@@ -7,7 +7,7 @@
     "Industrial",
     "Siren"
   ],
-  "description": "Wailing siren that sweeps a full octave with tube grit and a long hall.",
+  "description": "Wailing siren that swings an octave up and down with tube grit and a long hall.",
   "macros": [
     "Sweep",
     "Grit",
