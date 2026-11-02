@@ -25,3 +25,35 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
   i zwracał kod wyjścia.
 - **Licencja JUCE:** JUCE 8 jest dostępny na AGPLv3 albo licencji komercyjnej/Starter. Repozytorium jest prywatne;
   przed publiczną dystrybucją binariów trzeba wybrać jedną z tych ścieżek (odnotowane w README).
+
+## Etap 2 – silnik
+
+- **Pełna tabela parametrów od razu (108 parametrów, `Source/Params.cpp`).** ID są stringami (np. `flt_cutoff`,
+  `oscA_pos`) z wersją 1 w `juce::ParameterID`. Enum `volt::P` jest tylko wewnętrznym indeksem; host i presety
+  używają wyłącznie ID. Zdefiniowanie wszystkich parametrów w etapie 2 gwarantuje, że ID nie zmienią się w kolejnych etapach.
+- **Unison: liczba głosów osobno dla Osc A i B (`oscA_voices`, `oscB_voices`), Detune i Spread wspólne
+  (`uni_detune`, `uni_spread`).** Specyfikacja wymienia jedno główne pokrętło „Unison Detune”; wspólny Detune/Spread
+  daje jedno pokrętło bez dublowania parametrów. Detune: przesunięcie skrajnych głosów = detune² półtonu (max ±100 ct).
+- **Wavetable: 32 tablice × 32 klatki × 10 mipmap.** Mip *m* zawiera harmoniczne ≤ 512/2^m (rozmiar cyklu
+  max(256, 2048/2^m) + próbka ochronna). Mip wybierany per głos/blok tak, by najwyższa harmoniczna była < Nyquist.
+  Klatki budowane przez własne FFT (widmo → odwrotne FFT na mip), normalizowane do szczytu 1 na klatkę.
+  Generowane raz na proces (~0,3 s, ok. 20 MB), współdzielone przez wszystkie instancje.
+- **Odczyt wavetable: interpolacja liniowa w próbkach i między klatkami.** Test aliasingu (nuta 100, ~2,6 kHz, 44,1 kHz)
+  daje najgorszy składnik nieharmoniczny ok. −59 dB.
+- **Przetwarzanie w pod-blokach po 32 próbki (control rate).** Modulacje, obwiednia filtra, LFO i glide liczone są
+  na granicach pod-bloków, a w środku interpolowane liniowo (inkrementy faz, pozycja wavetable, wzmocnienia, współczynniki
+  filtra). Obwiednia amplitudy liczona per próbka. Zdarzenia MIDI dzielą pod-bloki → próbkowa dokładność.
+- **Wygładzanie parametrów:** wszystkie parametry typu float wygładzane jednobiegunowo (τ = 12 ms) na pod-blokach,
+  cutoff w domenie logarytmicznej (wysokość MIDI) – brak zipper noise przy automatyzacji.
+- **Filtr:** SVF TPT (LP12/HP/BP/Notch), LP24 = dwa SVF (rezonans na drugim), Ladder = 4-biegunowy ZDF z liniowym
+  rozwiązaniem pętli i nasyceniem `tanh` na wejściu sprzężenia (k = 3,96·res, częściowa kompensacja basu),
+  Formant = 3 równoległe BP z tabelą samogłosek A-E-I-O-U (podręcznikowe wartości formantów głosu basowego).
+  W trybie Formant Cutoff przesuwa formanty (×0,5…×2 wokół 1 kHz), Resonance zawęża pasma.
+- **Drive filtra** wchodzi płynnie od zera (mieszanie czystego i `tanh`), z kompensacją głośności.
+- **Obwiednie:** atak liniowy, decay/release wykładnicze (czas = spadek o 40 dB); retrigger startuje od bieżącego
+  poziomu (bez kliknięć przy kradzieży głosu i w trybie Mono).
+- **Sub** podąża za wysokością Osc A (oktawa/półtony/dostrojenie/modulacje) o oktawę niżej.
+- **Mono:** last-note priority, retrigger i glide zawsze. **Legato:** bez retriggera i z glide tylko przy nakładających
+  się nutach. **Poly:** glide od ostatnio zagranej nuty; kradzież: najstarszy głos w release, inaczej najstarszy.
+- **Bez obsługi pitch bend i pedału sustain (CC64)** – nie ma ich w specyfikacji. Obsługiwane są Mod Wheel (CC1),
+  Aftertouch (channel i poly) jako źródła modulacji oraz CC120/CC123 (All Sound/Notes Off) dla higieny transportu.
