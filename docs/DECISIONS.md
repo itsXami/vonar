@@ -170,7 +170,7 @@ Użytkownik ocenił pierwszą wersję jako „wyglądającą bardzo AI” i popr
 z naciskiem na to, żeby łatwo było widzieć, co czym jest. Ustalone z użytkownikiem:
 - **Kolor na sekcję zamiast jednego akcentu** (świadoma zmiana względem pierwotnej specyfikacji): oscylatory/unison/sub
   turkus, filtr pomarańcz, obwiednie zieleń (także obwiednia filtra wewnątrz sekcji filtra), LFO/modulacja/arp/voice
-  fiolet, efekty i wyjście niebieski, makra żółty. Kolor ma nagłówek sekcji, łuki pokrętło­w, strzałki list i przyciski.
+  fiolet, efekty i wyjście niebieski, makra żółty. Kolor ma nagłówek sekcji, łuki pokręteł, strzałki list i przyciski.
   Pasek z kluczem kolorów pod logo.
 - **Okno 1200×740** (było ~1000×620), skalowanie 75–200% bez zmian (900×555 … 2400×1480).
 - **Wartość zawsze widoczna pod każdym pokrętłem**, nazwa parametru nad nim (styl Zenology), normalna pisownia
