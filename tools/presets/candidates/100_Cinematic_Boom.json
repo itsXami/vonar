@@ -1,0 +1,51 @@
+{
+  "name": "Cinematic Boom",
+  "category": "FX",
+  "tags": [
+    "Kanye West",
+    "MBDTF",
+    "Epic",
+    "Impact",
+    "Cinematic"
+  ],
+  "description": "Deep sub boom with a noise crack and a long dark tail.",
+  "macros": [
+    "Boom",
+    "Crack",
+    "Tone",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Sine Drive",
+    "oscA_pos": 0.5,
+    "oscA_oct": -1,
+    "oscA_level": 0.9,
+    "noise_level": 0.25,
+    "flt_cutoff": 1500.0,
+    "amp_decay": 1.8,
+    "amp_sustain": 0.0,
+    "amp_release": 0.5,
+    "penv_amount": 24.0,
+    "penv_decay": 0.15,
+    "dist_type": "Tube",
+    "dist_drive": 0.4,
+    "dist_mix": 0.5,
+    "rev_size": 0.85,
+    "rev_damping": 0.7,
+    "rev_mix": 0.3,
+    "out_gain": 2.1,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Sub Level",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Noise Level",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

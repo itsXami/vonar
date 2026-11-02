@@ -1,6 +1,6 @@
 // VOLT offline preset renderer.
 //
-//   VOLT_Render [--out DIR] [--preset TEXT] [--no-previews] [--block N]
+//   VOLT_Render [--out DIR] [--dir PRESET_DIR] [--preset TEXT] [--no-previews] [--block N]
 //   VOLT_Render --snapshot FILE.png [SCALE]
 //
 // Loads every factory preset into the real plugin processor, plays a category-specific test phrase
@@ -59,6 +59,14 @@ Phrase phraseFor (const juce::String& category)
         p.name = "held chord Cm (arp)";
         for (int n : { 48, 55, 60, 63 })
             add (0.0, 2.6, n, 0.85f);
+    }
+    else if (category == "Guitar")
+    {
+        p.name = "strummed Em chord x2";
+        const int notes[] = { 40, 47, 52, 55, 59, 64 };
+        for (int k = 0; k < 2; ++k)
+            for (int i = 0; i < 6; ++i)
+                add (k * 1.2 + i * 0.018, k * 1.2 + 1.05, notes[i], 0.75f + 0.04f * (float) i);
     }
     else if (category == "FX")
     {
@@ -166,16 +174,15 @@ struct Result
     juce::StringArray failures;
 };
 
-Result renderPreset (VoltAudioProcessor& proc, int index, int block, const juce::File& previewDir)
+Result renderPreset (VoltAudioProcessor& proc, int index, const volt::PresetInfo& info, int block, const juce::File& previewDir)
 {
     auto& pm = proc.getPresetManager();
-    const auto& info = pm.getPresets()[(size_t) index];
     Result res;
     res.index = index;
     res.name = info.name;
     res.category = info.category;
 
-    pm.loadPreset (index);
+    pm.applyPreset (info);
     FixedPlayHead playHead;
     proc.setPlayHead (&playHead);
     proc.prepareToPlay (kSampleRate, block);
@@ -315,6 +322,7 @@ int main (int argc, char** argv)
 
     juce::File outDir = juce::File::getCurrentWorkingDirectory().getChildFile ("render-out");
     juce::String filter;
+    juce::File presetDir;
     bool previews = true;
     int block = 512;
     for (int i = 0; i < args.size(); ++i)
@@ -322,6 +330,7 @@ int main (int argc, char** argv)
         if (args[i] == "--out" && i + 1 < args.size()) outDir = juce::File::getCurrentWorkingDirectory().getChildFile (args[++i]);
         else if (args[i] == "--preset" && i + 1 < args.size()) filter = args[++i];
         else if (args[i] == "--no-previews") previews = false;
+        else if (args[i] == "--dir" && i + 1 < args.size()) presetDir = juce::File::getCurrentWorkingDirectory().getChildFile (args[++i]);
         else if (args[i] == "--block" && i + 1 < args.size()) block = juce::jlimit (16, 4096, args[++i].getIntValue());
     }
     outDir.createDirectory();
@@ -338,12 +347,35 @@ int main (int argc, char** argv)
     auto& pm = proc.getPresetManager();
     const int count = pm.getNumFactoryPresets();
 
-    std::vector<Result> results;
-    for (int i = 0; i < count; ++i)
+    // Presets to render: the embedded factory set, or every *.json in --dir (candidates under review).
+    std::vector<volt::PresetInfo> list;
+    if (presetDir != juce::File())
     {
-        if (filter.isNotEmpty() && ! pm.getPresets()[(size_t) i].name.containsIgnoreCase (filter))
+        auto files = presetDir.findChildFiles (juce::File::findFiles, false, "*.json");
+        files.sort();
+        for (const auto& f : files)
+        {
+            volt::PresetInfo info;
+            juce::StringArray errors;
+            volt::PresetManager::parsePreset (f.loadFileAsString(), info, errors);
+            for (const auto& e : errors)
+                if (! e.contains ("invalid category"))
+                    std::printf ("warning: %s: %s\n", f.getFileName().toRawUTF8(), e.toRawUTF8());
+            list.push_back (std::move (info));
+        }
+    }
+    else
+    {
+        for (int i = 0; i < count; ++i)
+            list.push_back (pm.getPresets()[(size_t) i]);
+    }
+
+    std::vector<Result> results;
+    for (int i = 0; i < (int) list.size(); ++i)
+    {
+        if (filter.isNotEmpty() && ! list[(size_t) i].name.containsIgnoreCase (filter))
             continue;
-        results.push_back (renderPreset (proc, i, block, previewDir));
+        results.push_back (renderPreset (proc, i, list[(size_t) i], block, previewDir));
         const auto& r = results.back();
         std::printf ("%3d %-28s %-6s peak %6.1f  rms %6.1f  lufs %6.1f  cent %6.0f  tail %4.1fs  lim %4.1f  %s\n", i,
                      r.name.toRawUTF8(), r.category.toRawUTF8(), r.peakDb, r.rmsDb, r.lufs, r.centroid, r.tailTime,

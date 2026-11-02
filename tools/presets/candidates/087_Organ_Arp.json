@@ -1,0 +1,50 @@
+{
+  "name": "Organ Arp",
+  "category": "Arp",
+  "tags": [
+    "Kanye West",
+    "Donda",
+    "Gospel",
+    "Organ",
+    "Gospel"
+  ],
+  "description": "Drawbar organ rolling in up-down eighths like a gospel run.",
+  "macros": [
+    "Drawbars",
+    "Rotor",
+    "Drive",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Drawbars",
+    "oscA_pos": 0.5,
+    "oscA_oct": 1,
+    "flt_type": "LP12",
+    "flt_cutoff": 7000.0,
+    "amp_release": 0.08,
+    "arp_on": true,
+    "arp_mode": "UpDown",
+    "arp_rate": "1/8T",
+    "arp_octaves": 2,
+    "arp_gate": 0.8,
+    "dist_type": "Tube",
+    "dist_mix": 0.3,
+    "mfx_rate": 0.8,
+    "mfx_mix": 0.3,
+    "rev_mix": 0.18,
+    "out_gain": 3.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Mod FX Mix",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

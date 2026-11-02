@@ -1,0 +1,49 @@
+{
+  "name": "Arp Shimmer Pad",
+  "category": "Pad",
+  "tags": [
+    "Kanye West",
+    "Graduation",
+    "Stadium",
+    "Arp",
+    "Shimmer"
+  ],
+  "description": "Held chords turn into a fast random shimmer of notes across three octaves.",
+  "macros": [
+    "Sparkle",
+    "Width",
+    "Echo",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Hyper Saw",
+    "oscA_pos": 0.2,
+    "oscA_voices": 3,
+    "flt_cutoff": 4000.0,
+    "amp_attack": 0.02,
+    "amp_release": 1.2,
+    "arp_on": true,
+    "arp_mode": "Random",
+    "arp_octaves": 3,
+    "arp_gate": 0.9,
+    "dly_mode": "PingPong",
+    "dly_time": "1/8D",
+    "dly_mix": 0.2,
+    "rev_size": 0.85,
+    "rev_mix": 0.3,
+    "out_gain": -5.9,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Mod FX Mix",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

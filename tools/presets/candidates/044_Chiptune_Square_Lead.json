@@ -1,0 +1,51 @@
+{
+  "name": "Chiptune Square Lead",
+  "category": "Lead",
+  "tags": [
+    "Daft Punk",
+    "Discovery",
+    "French House",
+    "8-bit",
+    "Playful"
+  ],
+  "description": "Eight-bit square lead with a pitch blip and fast vibrato.",
+  "macros": [
+    "Pulse",
+    "Bits",
+    "Vibrato",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "oscA_table": "PWM",
+    "oscA_pos": 0.45,
+    "flt_type": "LP12",
+    "flt_cutoff": 9000.0,
+    "amp_release": 0.08,
+    "penv_amount": 12.0,
+    "penv_decay": 0.03,
+    "lfo1_rate": 7.0,
+    "dist_type": "Bitcrush",
+    "dist_drive": 0.2,
+    "dist_mix": 0.3,
+    "dly_time": "1/8",
+    "dly_mix": 0.1,
+    "out_gain": -1.8,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Mix",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Pitch",
+    "mod3_amt": 0.01,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.006
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Bell Sync Lead",
+  "category": "Lead",
+  "tags": [
+    "Daft Punk",
+    "Tron: Legacy",
+    "Cinematic",
+    "Cinematic",
+    "Bright"
+  ],
+  "description": "Synced square layered with a metallic bell for a laser-sharp theme.",
+  "macros": [
+    "Sync",
+    "Bell",
+    "Echo",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "glide": 0.03,
+    "oscA_table": "Sync Square",
+    "oscA_pos": 0.2,
+    "oscB_table": "Bell Metal",
+    "oscB_pos": 0.3,
+    "oscB_oct": 1,
+    "oscB_level": 0.3,
+    "flt_cutoff": 6000.0,
+    "amp_release": 0.3,
+    "fenv_decay": 0.5,
+    "dly_mode": "PingPong",
+    "dly_time": "1/8D",
+    "dly_mix": 0.15,
+    "rev_mix": 0.15,
+    "out_gain": -4.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Level B",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Filter Env",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.3
+  }
+}

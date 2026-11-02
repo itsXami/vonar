@@ -1,0 +1,51 @@
+{
+  "name": "Bell String Pad",
+  "category": "Pad",
+  "tags": [
+    "Kanye West",
+    "MBDTF",
+    "Epic",
+    "Strings",
+    "Bell"
+  ],
+  "description": "Strings that bloom out of a bell attack for haunting chords.",
+  "macros": [
+    "Bell",
+    "Bow",
+    "Tone",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Strings",
+    "oscA_pos": 0.4,
+    "oscA_voices": 3,
+    "oscB_table": "Bell Metal",
+    "oscB_pos": 0.2,
+    "oscB_level": 0.45,
+    "flt_cutoff": 3500.0,
+    "amp_attack": 0.02,
+    "amp_decay": 1.5,
+    "amp_sustain": 0.6,
+    "amp_release": 1.4,
+    "lfo1_rate": 4.5,
+    "rev_size": 0.8,
+    "rev_mix": 0.25,
+    "out_gain": -3.8,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Level B",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.002
+  }
+}
