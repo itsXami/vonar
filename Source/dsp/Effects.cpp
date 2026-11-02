@@ -541,8 +541,8 @@ void OutputStage::process (float* L, float* R, int n, float gainDb) noexcept
     {
         g += dg;
         float l = L[i] * g, r = R[i] * g;
-        if (! std::isfinite (l)) l = 0.0f;
-        if (! std::isfinite (r)) r = 0.0f;
+        if (! std::isfinite (l)) { l = 0.0f; ++nonFinite; }
+        if (! std::isfinite (r)) { r = 0.0f; ++nonFinite; }
         const float pk = std::max (std::abs (l), std::abs (r));
         envelope = pk > envelope ? pk : pk + releaseK * (envelope - pk);
         if (envelope > ceiling)

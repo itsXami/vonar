@@ -146,12 +146,14 @@ public:
     void reset();
     void process (float* L, float* R, int n, float gainDb) noexcept;
     float getMaxReductionDb() const noexcept { return maxReductionDb; }
-    void resetMaxReduction() noexcept { maxReductionDb = 0.0f; }
+    void resetMaxReduction() noexcept { maxReductionDb = 0.0f; nonFinite = 0; }
+    int getNonFiniteCount() const noexcept { return nonFinite; }
 
 private:
     float envelope = 0.0f, releaseK = 0.999f;
     Ramp gainRamp;
     float maxReductionDb = 0.0f;
+    int nonFinite = 0;
 };
 
 class FxChain
@@ -161,6 +163,7 @@ public:
     void reset();
     void process (float* L, float* R, int n, const FxParams& p) noexcept;
     float getLimiterReductionDb() const noexcept { return output.getMaxReductionDb(); }
+    int getNonFiniteCount() const noexcept { return output.getNonFiniteCount(); }
     void resetLimiterMeter() noexcept { output.resetMaxReduction(); }
 
 private:
