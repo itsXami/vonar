@@ -1,0 +1,49 @@
+{
+  "name": "Triplet Bell Arp",
+  "category": "Arp",
+  "tags": [
+    "Daft Punk",
+    "Discovery",
+    "French House",
+    "Bell",
+    "Triplet"
+  ],
+  "description": "Sparkling bell arpeggio in sixteenth-note triplets over three octaves.",
+  "macros": [
+    "Bell",
+    "Tone",
+    "Echo",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "FM Bell",
+    "oscA_pos": 0.3,
+    "flt_type": "LP12",
+    "flt_cutoff": 8000.0,
+    "amp_decay": 0.4,
+    "amp_sustain": 0.0,
+    "amp_release": 0.3,
+    "arp_on": true,
+    "arp_rate": "1/16T",
+    "arp_octaves": 3,
+    "arp_gate": 0.4,
+    "dly_mode": "PingPong",
+    "dly_time": "1/8",
+    "dly_mix": 0.15,
+    "rev_mix": 0.18,
+    "out_gain": -0.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

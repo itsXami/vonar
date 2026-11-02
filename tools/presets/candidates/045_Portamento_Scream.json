@@ -1,0 +1,50 @@
+{
+  "name": "Portamento Scream",
+  "category": "Lead",
+  "tags": [
+    "Kanye West",
+    "Yeezus",
+    "Industrial",
+    "Distorted",
+    "Glide"
+  ],
+  "description": "Screaming synced lead that slides between notes with heavy clipping.",
+  "macros": [
+    "Scream",
+    "Clip",
+    "Slide",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.15,
+    "oscA_table": "Sync Saw",
+    "oscA_pos": 0.3,
+    "flt_type": "Ladder",
+    "flt_cutoff": 2600.0,
+    "flt_res": 0.4,
+    "amp_release": 0.2,
+    "lfo2_rate": 0.6,
+    "dist_type": "Hard",
+    "dist_drive": 0.55,
+    "dist_mix": 0.85,
+    "squash": 0.3,
+    "out_gain": -6.7,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Drive",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Resonance",
+    "mod3_amt": 0.25,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 2",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.2
+  }
+}

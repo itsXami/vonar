@@ -77,6 +77,18 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
   uruchomień, backtrace bez ramek VOLT); pluginval 2.0.0-beta3 nie crashuje (40/40). Decyzja o zmianie wersji w CI
   czeka na użytkownika.
 
+## Przegląd presetów z użytkownikiem (w toku)
+- Strona odsłuchu 121 presetów fabrycznych: https://claude.ai/artifact/GSXfynmqsquptfcDrNtqAL (kolekcja `ratings`,
+  dokument `pNNN` = indeks presetu). Wynik: 77 zostaw, 10 popraw, 34 usuń. Uwagi: Long Glide 808 „nic nie słychać”,
+  Tom Drop 808 „za cicho”. Użytkownik zauważył, że pady brzmią podobnie (jeden przepis w generatorze).
+- Druga partia: 100 kandydatów (20 gitar, 20 pianin/klawiszy, 25 leadów, 10 basów, 8 padów, 7 arpów, 5 brass, 5 FX)
+  w `tools/presets/candidates/` (generator `tools/presets/generate_candidates.py`, trymy `candidate_trims.json`),
+  render `VOLT_Render --dir tools/presets/candidates` → 100/100 przechodzi. Strona wyboru:
+  https://claude.ai/artifact/4zcEKaiVxnxW9hdwkG4Tis (kolekcja `ratings`, `pNNN` = numer pliku kandydata 001–100).
+- Do zrobienia po wyborze użytkownika: usunąć „Usuń” z pierwszej partii, poprawić „Popraw”, dodać wybranych
+  kandydatów do `presets/`, kategoria „Guitar” w pluginie, kategorie/filtr wg ery artysty w przeglądarce presetów,
+  aktualizacja testów (liczność 121 przestanie obowiązywać), potem dalsze zmiany wyglądu.
+
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
 - `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.
