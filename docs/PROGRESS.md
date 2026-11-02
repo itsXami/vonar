@@ -22,7 +22,7 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 |---|------|--------|
 | 1 | Szkielet CMake + JUCE, pusty plugin, CI, artefakt Windows | ✅ CI zielone (Linux+Windows) |
 | 2 | Silnik: oscylatory, głosy, filtr, obwiednie | ✅ lokalnie, testy DSP zielone |
-| 3 | Modulacja, makra, arpeggiator, efekty | – |
+| 3 | Modulacja, makra, arpeggiator, efekty | ✅ lokalnie, testy zielone, pluginval lokalnie OK |
 | 4 | Interfejs i przeglądarka presetów | – |
 | 5 | Render CLI i testy | – |
 | 6 | 121 presetów z korektą wg raportów | – |
@@ -34,6 +34,10 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 - Etap 2: `Source/dsp/` – Wavetables (32 tablice), Voice (2 osc + unison 8, sub, szum, filtr, ADSR×2, pitch env,
   LFO per głos), VoiceFilter (7 typów), SynthEngine (16 głosów, Poly/Mono/Legato, glide, macierz modulacji 8 slotów).
   Arpeggiator.h i Effects.h to na razie zaślepki (etap 3). Testy: `tests/DspTests.cpp`.
+
+- Etap 3: `Arpeggiator.h`, `Effects.h/.cpp` (Distortion, ModFx, Pump, StereoDelay, ReverbFx, SquashCompressor,
+  OutputStage), podpięte w `SynthEngine::renderChunk`. Testy: `tests/FxTests.cpp` (arp, FX, modulacja, wydajność:
+  najgorszy przypadek ~18% jednego rdzenia przy 48 kHz na maszynie deweloperskiej).
 
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.

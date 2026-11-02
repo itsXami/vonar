@@ -64,11 +64,11 @@ void SynthEngine::handleMidi (const juce::MidiMessage& m) noexcept
 {
     if (m.isNoteOn())
     {
-        noteOn (m.getNoteNumber(), m.getFloatVelocity());
+        midiNoteOn (m.getNoteNumber(), m.getFloatVelocity());
     }
     else if (m.isNoteOff())
     {
-        noteOff (m.getNoteNumber());
+        midiNoteOff (m.getNoteNumber());
     }
     else if (m.isController())
     {
@@ -96,8 +96,25 @@ void SynthEngine::handleMidi (const juce::MidiMessage& m) noexcept
     }
 }
 
+void SynthEngine::midiNoteOn (int note, float velocity) noexcept
+{
+    if (raw.b (ArpOn))
+        arp.noteOn (note, velocity);
+    else
+        noteOn (note, velocity);
+}
+
+void SynthEngine::midiNoteOff (int note) noexcept
+{
+    if (raw.b (ArpOn))
+        arp.noteOff (note);
+    else
+        noteOff (note);
+}
+
 void SynthEngine::allNotesOff (bool hard) noexcept
 {
+    arp.reset();
     for (auto& v : voices)
     {
         if (hard)
@@ -332,7 +349,30 @@ void SynthEngine::renderChunk (float* L, float* R, int n) noexcept
 
     float gdst[choices::NumModDests] {};
     computeGlobalMods (gdst);
-    fx.process (L, R, n);
+
+    FxParams fp;
+    fp.distType = raw.i (DistType);
+    fp.distDrive = sm[DistDrive] + gdst[choices::DstDistDrive];
+    fp.distTone = sm[DistTone];
+    fp.distMix = sm[DistMix] + gdst[choices::DstDistMix];
+    fp.mfxType = raw.i (MfxType);
+    fp.mfxRate = sm[MfxRate];
+    fp.mfxDepth = sm[MfxDepth];
+    fp.mfxMix = sm[MfxMix] + gdst[choices::DstModFxMix];
+    fp.pumpAmount = sm[PumpAmount];
+    fp.pumpBeats = pumpBeats[(size_t) juce::jlimit (0, (int) pumpBeats.size() - 1, raw.i (PumpRate))];
+    fp.dlyMode = raw.i (DlyMode);
+    fp.dlyBeats = delayBeats[(size_t) juce::jlimit (0, choices::delayTimes().size() - 1, raw.i (DlyTime))];
+    fp.dlyFeedback = sm[DlyFeedback];
+    fp.dlyMix = sm[DlyMix] + gdst[choices::DstDelayMix];
+    fp.revSize = sm[RevSize];
+    fp.revDamp = sm[RevDamp];
+    fp.revMix = sm[RevMix] + gdst[choices::DstReverbMix];
+    fp.squash = sm[Squash];
+    fp.outGainDb = sm[OutGain];
+    fp.ppq = chunkPpq;
+    fp.bpm = transport.bpm;
+    fx.process (L, R, n, fp);
 
     chunkPpq += (double) n / sampleRate * (transport.bpm / 60.0);
 }
@@ -359,6 +399,19 @@ void SynthEngine::process (float* outL, float* outR, int numSamples, const juce:
             allNotesOff (false);
         lastMode = mode;
     }
+    const bool arpOn = raw.b (ArpOn);
+    if (arpOn != lastArpOn)
+    {
+        allNotesOff (false);
+        lastArpOn = arpOn;
+    }
+
+    const double bpm = juce::jlimit (20.0, 999.0, transport.bpm);
+    const double beatsPerSample = bpm / 60.0 / sampleRate;
+    const double blockBeat = chunkPpq;
+    const double arpStep = arpRateBeats[(size_t) juce::jlimit (0, choices::arpRates().size() - 1, raw.i (ArpRate))];
+    const int arpMode = raw.i (ArpMode), arpOct = raw.i (ArpOct);
+    const float arpGate = raw[ArpGate];
 
     auto it = midi.begin();
     const auto end = midi.end();
@@ -373,6 +426,15 @@ void SynthEngine::process (float* outL, float* outR, int numSamples, const juce:
         int next = numSamples;
         if (it != end)
             next = std::min (next, std::max ((*it).samplePosition, pos + 1));
+        if (arpOn)
+        {
+            const int a = arp.tick (blockBeat + (double) pos * beatsPerSample, transport.playing, beatsPerSample, arpStep,
+                                    arpMode, arpOct, arpGate,
+                                    [this] (int nn, float v) { noteOn (nn, v); },
+                                    [this] (int nn) { noteOff (nn); });
+            if (a < numSamples)
+                next = std::min (next, pos + a);
+        }
         const int n = std::min (kChunk, next - pos);
         renderChunk (outL + pos, outR + pos, n);
         pos += n;
