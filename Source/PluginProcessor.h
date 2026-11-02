@@ -3,6 +3,7 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "Params.h"
 #include "dsp/SynthEngine.h"
+#include "PresetManager.h"
 
 class VoltAudioProcessor final : public juce::AudioProcessor
 {
@@ -36,10 +37,22 @@ public:
 
     juce::AudioProcessorValueTreeState apvts;
 
+    volt::PresetManager& getPresetManager() noexcept { return *presetManager; }
+
+    // Oscilloscope feed (audio thread pushes, UI pulls; lock-free single producer / single consumer).
+    int pullScope (float* dest, int maxSamples);
+
+    float getUiScale() const { return (float) (double) apvts.state.getProperty ("uiScale", 1.0); }
+    void setUiScale (float s) { apvts.state.setProperty ("uiScale", (double) s, nullptr); }
+
     // Debug / test access
     volt::SynthEngine& getEngine() noexcept { return engine; }
 
 private:
+    std::unique_ptr<volt::PresetManager> presetManager;
+    juce::AbstractFifo scopeFifo { 8192 };
+    std::vector<float> scopeData = std::vector<float> (8192, 0.0f);
+
     volt::ParamReader reader;
     volt::ParamSnapshot snapshot;
     volt::SynthEngine engine;

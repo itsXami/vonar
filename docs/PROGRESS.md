@@ -23,7 +23,7 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 | 1 | Szkielet CMake + JUCE, pusty plugin, CI, artefakt Windows | ✅ CI zielone (Linux+Windows) |
 | 2 | Silnik: oscylatory, głosy, filtr, obwiednie | ✅ lokalnie, testy DSP zielone |
 | 3 | Modulacja, makra, arpeggiator, efekty | ✅ lokalnie, testy zielone, pluginval lokalnie OK |
-| 4 | Interfejs i przeglądarka presetów | – |
+| 4 | Interfejs i przeglądarka presetów | ✅ lokalnie (zrzut w docs/ui-snapshot.png), pluginval z testem edytora OK |
 | 5 | Render CLI i testy | – |
 | 6 | 121 presetów z korektą wg raportów | – |
 | 7 | README (PL) i docs/PRESETS.md | – |
@@ -39,9 +39,14 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
   OutputStage), podpięte w `SynthEngine::renderChunk`. Testy: `tests/FxTests.cpp` (arp, FX, modulacja, wydajność:
   najgorszy przypadek ~18% jednego rdzenia przy 48 kHz na maszynie deweloperskiej).
 
+- Etap 4: `Source/ui/` (LookAndFeel, Controls, Views, PresetBar), `PluginEditor.*` (układ całego ekranu),
+  `PresetManager.*`. Standalone uruchamia się pod xvfb bez awarii (nie da się tu przetestować interakcji myszą).
+
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
 - `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.
 - `Source/dsp/Voice.*`, `VoiceFilter.h`, `Modulators.h` (ADSR, LFO), `DspUtil.h`, `Formants.h`.
 - `Source/dsp/SynthEngine.*` – MIDI, alokacja głosów, modulacja globalna, łańcuch FX.
+- `Source/PresetManager.*` – presety fabryczne (BinaryData) i użytkownika, stan presetu w drzewie APVTS.
+- `Source/ui/*`, `Source/PluginEditor.*` – interfejs.
 - `tests/` – testy jednostkowe (JUCE UnitTest), `tools/render/` – renderer presetów.

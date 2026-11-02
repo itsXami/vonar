@@ -7,6 +7,18 @@ VoltAudioProcessor::VoltAudioProcessor()
 {
     reader.attach (apvts);
     volt::WavetableBank::get(); // build the shared tables off the audio thread
+    presetManager = std::make_unique<volt::PresetManager> (apvts);
+    presetManager->loadPresetByName ("Init");
+}
+
+int VoltAudioProcessor::pullScope (float* dest, int maxSamples)
+{
+    int start1, size1, start2, size2;
+    scopeFifo.prepareToRead (maxSamples, start1, size1, start2, size2);
+    if (size1 > 0) std::copy (scopeData.begin() + start1, scopeData.begin() + start1 + size1, dest);
+    if (size2 > 0) std::copy (scopeData.begin() + start2, scopeData.begin() + start2 + size2, dest + size1);
+    scopeFifo.finishedRead (size1 + size2);
+    return size1 + size2;
 }
 
 void VoltAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -47,6 +59,17 @@ void VoltAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::M
     engine.process (buffer.getWritePointer (0), buffer.getWritePointer (1), n, midi, snapshot, t);
     for (int c = 2; c < buffer.getNumChannels(); ++c)
         buffer.clear (c, 0, n);
+
+    // Oscilloscope: mono sum, dropped when the UI is not reading.
+    int start1, size1, start2, size2;
+    scopeFifo.prepareToWrite (n, start1, size1, start2, size2);
+    const float* l = buffer.getReadPointer (0);
+    const float* r = buffer.getReadPointer (1);
+    for (int i = 0; i < size1; ++i)
+        scopeData[(size_t) (start1 + i)] = 0.5f * (l[i] + r[i]);
+    for (int i = 0; i < size2; ++i)
+        scopeData[(size_t) (start2 + i)] = 0.5f * (l[size1 + i] + r[size1 + i]);
+    scopeFifo.finishedWrite (size1 + size2);
 }
 
 juce::AudioProcessorEditor* VoltAudioProcessor::createEditor() { return new VoltAudioProcessorEditor (*this); }
