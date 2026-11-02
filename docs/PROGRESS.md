@@ -51,6 +51,25 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 
 - Etap 7: README.md (PL), docs/PRESETS.md (generowany).
 
+
+## Weryfikacja CI (commit 2301848, PR run 41471116114)
+- Linux: build, `ctest` (wszystkie testy jednostkowe), render 121/121 presetów (mediana −15,0 LUFS), pluginval
+  strictness 5: **SUCCESS**.
+- Windows x64: build VST3 + Standalone (MSVC), pluginval strictness 5 (w tym testy edytora): **SUCCESS**.
+- Artefakty: `VOLT-windows-x64` (README.md, VOLT.exe, VOLT.vst3/…), `VOLT-preset-previews` (121 plików FLAC),
+  `VOLT-render-report` (report.md + report.json).
+
+## Definicja ukończenia – stan
+- [x] CI przechodzi na obu systemach, artefakty się generują.
+- [x] pluginval przechodzi (Linux i Windows, strictness 5).
+- [x] Wszystkie 121 presetów ładuje się i przechodzi testy renderu.
+- [x] README opisuje, co zweryfikowano automatycznie, a co wymaga odsłuchu i testu w FL Studio.
+
+## Otwarte (wymaga człowieka z Windows + FL Studio)
+- Odsłuch presetów (`VOLT-preset-previews.zip`) i ewentualne poprawki brzmień w `tools/presets/generate_presets.py`.
+- Test w FL Studio: skanowanie, zapis/odczyt projektu, automatyzacja, sync tempa, UI (Shift, dwuklik, skalowanie, HiDPI).
+- Po każdej zmianie presetów: procedura z etapu 6 (render → `--trim` → render) i commit JSON-ów + `gain_trims.json`.
+
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
 - `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.
