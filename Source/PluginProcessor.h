@@ -1,6 +1,8 @@
 #pragma once
 
 #include <juce_audio_processors/juce_audio_processors.h>
+#include "Params.h"
+#include "dsp/SynthEngine.h"
 
 class VoltAudioProcessor final : public juce::AudioProcessor
 {
@@ -21,7 +23,7 @@ public:
     bool acceptsMidi() const override { return true; }
     bool producesMidi() const override { return false; }
     bool isMidiEffect() const override { return false; }
-    double getTailLengthSeconds() const override { return 0.0; }
+    double getTailLengthSeconds() const override { return 2.0; }
 
     int getNumPrograms() override { return 1; }
     int getCurrentProgram() override { return 0; }
@@ -34,7 +36,13 @@ public:
 
     juce::AudioProcessorValueTreeState apvts;
 
+    // Debug / test access
+    volt::SynthEngine& getEngine() noexcept { return engine; }
+
 private:
-    static juce::AudioProcessorValueTreeState::ParameterLayout createLayout();
+    volt::ParamReader reader;
+    volt::ParamSnapshot snapshot;
+    volt::SynthEngine engine;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VoltAudioProcessor)
 };

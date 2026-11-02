@@ -20,8 +20,8 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 ## Etapy
 | # | Etap | Status |
 |---|------|--------|
-| 1 | Szkielet CMake + JUCE, pusty plugin, CI, artefakt Windows | w toku |
-| 2 | Silnik: oscylatory, głosy, filtr, obwiednie | – |
+| 1 | Szkielet CMake + JUCE, pusty plugin, CI, artefakt Windows | ✅ CI zielone (Linux+Windows) |
+| 2 | Silnik: oscylatory, głosy, filtr, obwiednie | ✅ lokalnie, testy DSP zielone |
 | 3 | Modulacja, makra, arpeggiator, efekty | – |
 | 4 | Interfejs i przeglądarka presetów | – |
 | 5 | Render CLI i testy | – |
@@ -30,3 +30,14 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 
 ## Dziennik
 - Etap 1: szkielet buduje się lokalnie na Linuksie (GCC 13, Ninja); pluginval strictness 5 lokalnie: SUCCESS.
+- Etap 1: CI run 41461908895 – oba joby zielone, pluginval na Windows uruchomiony, artefakt VOLT-windows-x64 (~6 MB).
+- Etap 2: `Source/dsp/` – Wavetables (32 tablice), Voice (2 osc + unison 8, sub, szum, filtr, ADSR×2, pitch env,
+  LFO per głos), VoiceFilter (7 typów), SynthEngine (16 głosów, Poly/Mono/Legato, glide, macierz modulacji 8 slotów).
+  Arpeggiator.h i Effects.h to na razie zaślepki (etap 3). Testy: `tests/DspTests.cpp`.
+
+## Mapa kodu
+- `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
+- `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.
+- `Source/dsp/Voice.*`, `VoiceFilter.h`, `Modulators.h` (ADSR, LFO), `DspUtil.h`, `Formants.h`.
+- `Source/dsp/SynthEngine.*` – MIDI, alokacja głosów, modulacja globalna, łańcuch FX.
+- `tests/` – testy jednostkowe (JUCE UnitTest), `tools/render/` – renderer presetów.

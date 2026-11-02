@@ -3,19 +3,16 @@
 
 VoltAudioProcessor::VoltAudioProcessor()
     : AudioProcessor (BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true)),
-      apvts (*this, nullptr, "VOLT", createLayout())
+      apvts (*this, nullptr, "VOLT", volt::createParameterLayout())
 {
+    reader.attach (apvts);
+    volt::WavetableBank::get(); // build the shared tables off the audio thread
 }
 
-juce::AudioProcessorValueTreeState::ParameterLayout VoltAudioProcessor::createLayout()
+void VoltAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    juce::AudioProcessorValueTreeState::ParameterLayout layout;
-    layout.add (std::make_unique<juce::AudioParameterFloat> (juce::ParameterID { "out_gain", 1 }, "Output Gain",
-                                                             juce::NormalisableRange<float> (-24.0f, 12.0f), 0.0f));
-    return layout;
+    engine.prepare (sampleRate, juce::jmax (1, samplesPerBlock));
 }
-
-void VoltAudioProcessor::prepareToPlay (double, int) {}
 
 bool VoltAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
@@ -23,10 +20,33 @@ bool VoltAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) con
         && layouts.getMainInputChannelSet().isDisabled();
 }
 
-void VoltAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer&)
+void VoltAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midi)
 {
     juce::ScopedNoDenormals noDenormals;
-    buffer.clear();
+    const int n = buffer.getNumSamples();
+    if (buffer.getNumChannels() < 2)
+    {
+        buffer.clear();
+        return;
+    }
+
+    volt::TransportInfo t;
+    if (auto* ph = getPlayHead())
+    {
+        if (auto pos = ph->getPosition())
+        {
+            if (auto bpm = pos->getBpm())
+                t.bpm = *bpm;
+            if (auto ppq = pos->getPpqPosition())
+                t.ppq = *ppq;
+            t.playing = pos->getIsPlaying() && pos->getPpqPosition().hasValue();
+        }
+    }
+
+    reader.read (snapshot);
+    engine.process (buffer.getWritePointer (0), buffer.getWritePointer (1), n, midi, snapshot, t);
+    for (int c = 2; c < buffer.getNumChannels(); ++c)
+        buffer.clear (c, 0, n);
 }
 
 juce::AudioProcessorEditor* VoltAudioProcessor::createEditor() { return new VoltAudioProcessorEditor (*this); }
