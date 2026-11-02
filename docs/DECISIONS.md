@@ -115,3 +115,23 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
 - **Katalog presetów użytkownika:** `userApplicationDataDirectory/VOLT/Presets` – na Windows `%APPDATA%\VOLT\Presets`.
 - **`VOLT_Render --snapshot plik.png [skala]`** zapisuje zrzut edytora bez ekranu (narzędzie deweloperskie do
   sprawdzania układu na Linuksie w chmurze); zrzut: `docs/ui-snapshot.png`.
+
+## Etap 5 – renderer presetów i testy
+
+- **`VOLT_Render` używa prawdziwego `VoltAudioProcessor`** (APVTS, `PresetManager`, wygładzanie, FX), z `AudioPlayHead`
+  zwracającym 120 BPM i grający transport – Pump, arpeggiator, LFO i delay w trybie sync zachowują się jak w DAW.
+  Render 48 kHz, blok 512.
+- **Frazy testowe wg kategorii:** Bass – nuta C2 1,6 s; Lead – sekwencja C4-Eb4-G4-Bb4-C5; Pad/Keys/Brass – akord
+  Cmaj7 2,4 s; Arp – trzymany akord Cm 2,6 s; FX – nuta C4 2 s. Po ostatnim note-off renderowane jest 8 s ogona.
+- **Kryteria niezaliczenia:** NaN/Inf (liczone także przed sanityzacją w stopniu wyjściowym), cisza (szczyt < −40 dBFS),
+  szczyt > 0 dBFS, |DC| > 0,01 w części aktywnej, RMS ostatnich 0,5 s ogona > −60 dBFS, redukcja limitera > 3 dB
+  (limiter ma tylko chronić – zła wartość oznacza zły gain staging), głośność poza [−24, −9] LUFS albo odchylenie
+  > 5 LU od mediany wszystkich presetów (spójność poziomów).
+- **Głośność** liczona jako nieważona bramką głośność zintegrowana z filtrem K (ITU-R BS.1770) w części aktywnej frazy;
+  raport zawiera też RMS, szczyt, centroid widmowy (średnie widmo, FFT 4096, okno Hanna), czas ogona i redukcję limitera.
+- **Podglądy audio:** FLAC 48 kHz/16 bit, fraza + 1,6 s ogona z 0,25 s wyciszeniem (FLAC odtwarza Windows 10/11
+  i FL Studio; mniejszy niż WAV). Pliki `previews/NNN_Nazwa.flac`, raport `report.md` i `report.json`.
+- **Testy presetów (`tests/PresetTests.cpp`):** parsowanie bez błędów, unikalne nazwy, Init pierwszy, lista zakazanych
+  słów w nazwach (artyści, albumy, tytuły utworów), kategoria, tagi, opis jednym zdaniem, każde z 4 makr podpięte
+  w macierzy i opisane etykietą. Testy stanu: pełny round-trip parametrów, nazwy presetu i etykiet makr; zapis
+  i ponowne wczytanie presetu użytkownika.

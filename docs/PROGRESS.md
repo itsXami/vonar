@@ -24,7 +24,7 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 | 2 | Silnik: oscylatory, głosy, filtr, obwiednie | ✅ lokalnie, testy DSP zielone |
 | 3 | Modulacja, makra, arpeggiator, efekty | ✅ lokalnie, testy zielone, pluginval lokalnie OK |
 | 4 | Interfejs i przeglądarka presetów | ✅ lokalnie (zrzut w docs/ui-snapshot.png), pluginval z testem edytora OK |
-| 5 | Render CLI i testy | – |
+| 5 | Render CLI i testy | ✅ lokalnie |
 | 6 | 121 presetów z korektą wg raportów | – |
 | 7 | README (PL) i docs/PRESETS.md | – |
 
@@ -41,6 +41,9 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 
 - Etap 4: `Source/ui/` (LookAndFeel, Controls, Views, PresetBar), `PluginEditor.*` (układ całego ekranu),
   `PresetManager.*`. Standalone uruchamia się pod xvfb bez awarii (nie da się tu przetestować interakcji myszą).
+
+- Etap 5: `tools/render/RenderMain.cpp` (render, raport, podglądy FLAC, `--snapshot`), `tests/PresetTests.cpp`.
+  Uruchomienie: `VOLT_Render --out render-out [--preset tekst] [--no-previews]`; kod wyjścia 1 przy błędach.
 
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.

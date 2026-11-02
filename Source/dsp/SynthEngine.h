@@ -31,6 +31,7 @@ public:
     int getNumActiveVoices() const noexcept;
     float getLimiterReduction() const noexcept { return fx.getLimiterReductionDb(); }
     void resetLimiterMeter() noexcept { fx.resetLimiterMeter(); }
+    int getNonFiniteCount() const noexcept { return fx.getNonFiniteCount(); }
 
 private:
     void handleMidi (const juce::MidiMessage& m) noexcept;
