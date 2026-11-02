@@ -1,0 +1,50 @@
+{
+  "name": "Overload 808",
+  "category": "Bass",
+  "tags": [
+    "Kanye West",
+    "Yeezus",
+    "Industrial",
+    "808",
+    "Distorted"
+  ],
+  "description": "Long 808 that breaks up into a raspy, clipped tail.",
+  "macros": [
+    "Drive",
+    "Tone",
+    "Rasp",
+    "Sub"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.1,
+    "oscA_table": "Sine Drive",
+    "oscA_pos": 0.3,
+    "oscA_oct": -1,
+    "oscA_level": 0.9,
+    "flt_cutoff": 2600.0,
+    "amp_decay": 2.5,
+    "amp_sustain": 0.0,
+    "amp_release": 0.5,
+    "penv_amount": 7.0,
+    "penv_decay": 0.05,
+    "dist_type": "Hard",
+    "dist_drive": 0.6,
+    "dist_tone": 0.5,
+    "dist_mix": 0.75,
+    "out_gain": 5.8,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Drive",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "WT Pos A",
+    "mod3_amt": 0.5,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Sub Level",
+    "mod4_amt": 0.3
+  }
+}

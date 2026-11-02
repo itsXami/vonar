@@ -1,0 +1,46 @@
+{
+  "name": "Pulpit Chords",
+  "category": "Pad",
+  "tags": [
+    "Kanye West",
+    "Donda",
+    "Gospel",
+    "Organ",
+    "Epic"
+  ],
+  "description": "Huge organ-and-saw chord bed that feels like a full congregation.",
+  "macros": [
+    "Organ",
+    "Bright",
+    "Width",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_voices": 4,
+    "oscB_table": "Drawbars",
+    "oscB_pos": 0.6,
+    "oscB_oct": 1,
+    "oscB_level": 0.45,
+    "uni_detune": 0.3,
+    "flt_cutoff": 3500.0,
+    "amp_attack": 0.15,
+    "amp_release": 1.2,
+    "mfx_mix": 0.3,
+    "rev_size": 0.8,
+    "rev_mix": 0.25,
+    "out_gain": -5.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Level B",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

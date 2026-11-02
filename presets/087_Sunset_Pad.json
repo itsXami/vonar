@@ -1,0 +1,50 @@
+{
+  "name": "Sunset Pad",
+  "category": "Pad",
+  "tags": [
+    "Daft Punk",
+    "Discovery",
+    "French House",
+    "Warm",
+    "Sweet"
+  ],
+  "description": "Golden warm pad with a soft swell and slow chorus.",
+  "macros": [
+    "Warmth",
+    "Shimmer",
+    "Width",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "PWM Saw",
+    "oscA_pos": 0.3,
+    "oscA_voices": 3,
+    "oscB_pos": 0.4,
+    "oscB_oct": 1,
+    "oscB_level": 0.25,
+    "flt_cutoff": 2500.0,
+    "amp_attack": 0.6,
+    "amp_release": 1.5,
+    "lfo1_rate": 0.15,
+    "mfx_mix": 0.4,
+    "rev_size": 0.75,
+    "rev_mix": 0.25,
+    "out_gain": -3.1,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Level B",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.15
+  }
+}

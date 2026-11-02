@@ -135,3 +135,24 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
   słów w nazwach (artyści, albumy, tytuły utworów), kategoria, tagi, opis jednym zdaniem, każde z 4 makr podpięte
   w macierzy i opisane etykietą. Testy stanu: pełny round-trip parametrów, nazwy presetu i etykiet makr; zapis
   i ponowne wczytanie presetu użytkownika.
+
+## Etap 6 – presety
+
+- **Presety generowane skryptem `tools/presets/generate_presets.py`** (czytelna definicja każdego brzmienia w Pythonie
+  → rzadki JSON w `presets/`). Skrypt sprawdza poprawność nazw tablic, źródeł i celów modulacji, liczności grup
+  oraz limit 8 slotów modulacji. Zapisane JSON-y są artefaktem źródłowym w repo (plugin osadza je przez BinaryData).
+- **Każdy preset ma 4 makra podpięte w macierzy i opisane** (np. Grit, Snarl, Sync, Crush). Makra startują z wartością 0,
+  więc preset brzmi „bazowo”, a makra dodają charakter.
+- **Korekta poziomów na podstawie raportów:** `generate_presets.py --trim render-out/report.json` przesuwa `out_gain`
+  każdego presetu w kierunku −15 LUFS (filtr K, część aktywna frazy). Trymy są zapisane w `tools/presets/gain_trims.json`,
+  więc generator odtwarza dokładnie te same pliki. Wykonano kilka iteracji render → korekta → render.
+- **Zmiany brzmień wymuszone raportem:** presety z wąskim BP (Funky Filter Keys, Funk Clav Keys) przełączone na LP24
+  z rezonansem (BP tracił za dużo energii), krótkie stab-y i pluck-i (Chicago Organ Stab, Breaker Keys, Gloss Pluck,
+  Funky Filter Keys, Funk Clav Keys) dostały dłuższy decay / sustain i lekki Squash, bo przy równej głośności ich szczyty
+  wymuszały > 3 dB pracy limitera; Scrapyard Hit i Grinding Sweep dostały wyższe poziomy źródeł.
+- **Wynik końcowy:** 121/121 presetów przechodzi render; głośność −17,2…−14,9 LUFS (mediana −15,0), maksymalna redukcja
+  limitera 2,4 dB, najdłuższy ogon 3,0 s.
+- **Nazwy presetów nie zawierają nazwisk, albumów ani tytułów** – pilnuje tego test z listą zakazanych słów; inspiracja
+  jest wyłącznie w tagach (np. „Kanye West”, „Yeezus”, „Daft Punk”, „Discovery”) i w `docs/PRESETS.md`.
+- **Organy (Drawbars/Drive Organ):** stopa 16′ jest 1. harmoniczną tablicy, więc presety organowe mają Oct +1, żeby
+  grać w typowym rejestrze 8′.
