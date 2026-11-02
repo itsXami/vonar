@@ -25,7 +25,7 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 | 3 | Modulacja, makra, arpeggiator, efekty | ✅ lokalnie, testy zielone, pluginval lokalnie OK |
 | 4 | Interfejs i przeglądarka presetów | ✅ lokalnie (zrzut w docs/ui-snapshot.png), pluginval z testem edytora OK |
 | 5 | Render CLI i testy | ✅ lokalnie |
-| 6 | 121 presetów z korektą wg raportów | – |
+| 6 | 121 presetów z korektą wg raportów | ✅ 121/121 przechodzi render lokalnie |
 | 7 | README (PL) i docs/PRESETS.md | – |
 
 ## Dziennik
@@ -44,6 +44,10 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 
 - Etap 5: `tools/render/RenderMain.cpp` (render, raport, podglądy FLAC, `--snapshot`), `tests/PresetTests.cpp`.
   Uruchomienie: `VOLT_Render --out render-out [--preset tekst] [--no-previews]`; kod wyjścia 1 przy błędach.
+
+- Etap 6: `tools/presets/generate_presets.py` + `gain_trims.json` → `presets/*.json` (Init + 120).
+  Procedura korekty: `python3 tools/presets/generate_presets.py` → build → `VOLT_Render --out render-out --no-previews`
+  → `python3 tools/presets/generate_presets.py --trim render-out/report.json` → build → render (powtarzać do 121/121).
 
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.

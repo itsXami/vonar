@@ -58,6 +58,23 @@ struct PresetTests final : juce::UnitTest
             expect (ok, VoltPresetData::originalFilenames[i] + juce::String (": ") + errors.joinIntoString ("; "));
         }
 
+        beginTest ("Exactly 121 factory presets: Init + 60 + 60 in the specified groups");
+        expectEquals (count, 121);
+        auto countTag = [&] (const juce::String& tag) {
+            int n = 0;
+            for (int i = 0; i < count; ++i)
+                n += pm.getPresets()[(size_t) i].tags.contains (tag) ? 1 : 0;
+            return n;
+        };
+        expectEquals (countTag ("Kanye West"), 60);
+        expectEquals (countTag ("Daft Punk"), 60);
+        const std::pair<const char*, int> groups[] = { { "Yeezus", 24 }, { "Graduation", 10 }, { "808s & Heartbreak", 10 },
+                                                       { "MBDTF", 10 }, { "Donda", 6 }, { "Homework", 14 }, { "Discovery", 18 },
+                                                       { "Human After All", 8 }, { "Tron: Legacy", 12 },
+                                                       { "Random Access Memories", 8 } };
+        for (const auto& [tag, n] : groups)
+            expectEquals (countTag (tag), n, tag);
+
         beginTest ("Names unique, Init first, no artist / album / track names");
         expectGreaterThan (count, 0);
         expectEquals (pm.getPresets()[0].name, juce::String ("Init"));

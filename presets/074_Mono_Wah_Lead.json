@@ -1,0 +1,49 @@
+{
+  "name": "Mono Wah Lead",
+  "category": "Lead",
+  "tags": [
+    "Daft Punk",
+    "Homework",
+    "Acid",
+    "Filter"
+  ],
+  "description": "Band-pass lead that opens like a wah pedal on every note.",
+  "macros": [
+    "Wah",
+    "Res",
+    "Grit",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "glide": 0.03,
+    "flt_type": "BP",
+    "flt_cutoff": 600.0,
+    "flt_res": 0.5,
+    "flt_envamt": 0.5,
+    "fenv_attack": 0.03,
+    "fenv_decay": 0.35,
+    "fenv_sustain": 0.2,
+    "dist_drive": 0.35,
+    "dist_mix": 0.3,
+    "dly_time": "1/8D",
+    "dly_mix": 0.12,
+    "out_gain": 8.5,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Resonance",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.5,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.2
+  }
+}

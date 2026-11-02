@@ -1,0 +1,49 @@
+{
+  "name": "Vintage String Ensemble",
+  "category": "Pad",
+  "tags": [
+    "Daft Punk",
+    "Random Access Memories",
+    "Analog",
+    "Strings",
+    "Vintage"
+  ],
+  "description": "Classic string machine with thick ensemble chorus.",
+  "macros": [
+    "Bow",
+    "Tone",
+    "Ensemble",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Strings",
+    "oscA_pos": 0.3,
+    "oscA_voices": 4,
+    "oscB_table": "Analog Saw",
+    "oscB_oct": 1,
+    "oscB_level": 0.25,
+    "uni_detune": 0.3,
+    "flt_type": "LP12",
+    "flt_cutoff": 4000.0,
+    "amp_attack": 0.15,
+    "amp_release": 1.0,
+    "mfx_rate": 0.6,
+    "mfx_depth": 0.7,
+    "mfx_mix": 0.5,
+    "rev_mix": 0.18,
+    "out_gain": -2.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.5,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}
