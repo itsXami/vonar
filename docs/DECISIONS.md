@@ -57,3 +57,35 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
   się nutach. **Poly:** glide od ostatnio zagranej nuty; kradzież: najstarszy głos w release, inaczej najstarszy.
 - **Bez obsługi pitch bend i pedału sustain (CC64)** – nie ma ich w specyfikacji. Obsługiwane są Mod Wheel (CC1),
   Aftertouch (channel i poly) jako źródła modulacji oraz CC120/CC123 (All Sound/Notes Off) dla higieny transportu.
+
+## Etap 3 – modulacja, makra, arpeggiator, efekty
+
+- **Macierz modulacji: 8 slotów (źródło, cel, ilość −1…1), obliczana per głos co 32 próbki.** Skale celów przy
+  ilości 1: pitch ±24 st, cutoff ±60 st, pozostałe ±pełny zakres parametru (pozycje WT, rezonans, drive, formant,
+  poziomy, panoramy, Distortion Drive, miksy FX). Cele „Pitch” = obie oscylatory (+sub), „Pitch A/B” = pojedyncza.
+  Cele globalne (Distortion Drive, Dist/Mod FX/Delay/Reverb Mix) używają LFO w wersji free-running (globalnej),
+  kontrolerów, makr oraz Filter Env/Velocity/Key Track najnowszego brzmiącego głosu.
+- **„FX Mix” ze specyfikacji rozpisany na cztery cele:** Dist Mix, Mod FX Mix, Delay Mix, Reverb Mix.
+- **LFO:** Retrigger = osobna faza per głos resetowana przy nucie; bez Retrigger wszystkie głosy dzielą jedno globalne LFO.
+  Tempo sync przy grającym transporcie liczy fazę bezpośrednio z PPQ hosta (stała synchronizacja z taktem).
+- **Arpeggiator** działa przed alokacją głosów (więc działa w Poly/Mono/Legato). Przy grającym transporcie siatka
+  kroków liczona z PPQ hosta; przy zatrzymanym – kotwiczona w chwili pierwszego naciśnięcia (brak skróconego pierwszego kroku).
+  Zdarzenia kroków i gate-off są próbkowo dokładne (silnik dzieli pod-bloki na granicach zdarzeń arpeggiatora).
+- **Distortion:** 4× oversampling (`juce::dsp::Oversampling`, 2 stopnie half-band IIR) dla Soft/Tube/Hard/Fold;
+  Bitcrush bez oversamplingu (aliasing jest tu efektem zamierzonym). Drive 0–36 dB z kompensacją głośności,
+  Tone = filtr LP 600 Hz–19 kHz, filtr DC po kształtowaniu (Tube jest asymetryczny).
+- **Mod FX:** Chorus (11 ms ± 6,5 ms, kanały w kwadraturze), Flanger (1,2–5,2 ms, sprzężenie 0,55–0,85),
+  Phaser (6 all-passów, sprzężenie 0,55). Mix to crossfade dry/wet; dla phasera i flangera „wet” zawiera już
+  sumę z sygnałem suchym, więc Mix 100% = najgłębszy efekt.
+- **Pump:** obwiednia ducking zsynchronizowana z PPQ (1/2, 1/4, 1/8, 1/16), zjazd w 2% cyklu (bez kliku),
+  powrót gładki do ~64% cyklu. Leży przed Delay/Reverb – ogony nie pompują.
+- **Delay:** tylko tempo-sync (podziały 1/32…1/1, w tym triole i kropkowane), Stereo lub Ping-Pong,
+  w pętli sprzężenia LP 7 kHz, HP 120 Hz i miękkie nasycenie (stabilny przy feedback 0,95).
+- **Reverb:** `juce::Reverb` (algorytm Freeverb z JUCE), Size mapowany na roomSize 0,30–0,92 – górna granica
+  ograniczona, żeby ogon zawsze zanikał (test: −70 dB po 8 s przy Size 100%).
+- **Prawo miksu Delay/Reverb:** dry = min(1, 2·(1−mix)), wet = min(1, 2·mix) – przy 50% oba sygnały w pełni.
+- **Squash:** 3 pasma (Linkwitz-Riley 150 Hz / 2,5 kHz), próg −8…−30 dB, ratio 1…6, wspólny make-up;
+  przy dużym Amount ciche fragmenty mogą wyjść głośniej niż głośne (zachowanie typu „OTT”).
+- **Output:** gain −24…+12 dB (wygładzany) + ochronny limiter szczytowy bez latencji (natychmiastowy atak,
+  release 120 ms, sufit −0,5 dBFS, twarde obcięcie jako ostatnie zabezpieczenie i zerowanie NaN/Inf).
+  Silnik raportuje maksymalną redukcję limitera – renderer presetów używa jej do kontroli gain stagingu.

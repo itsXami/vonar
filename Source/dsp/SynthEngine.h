@@ -30,10 +30,13 @@ public:
 
     int getNumActiveVoices() const noexcept;
     float getLimiterReduction() const noexcept { return fx.getLimiterReductionDb(); }
+    void resetLimiterMeter() noexcept { fx.resetLimiterMeter(); }
 
 private:
     void handleMidi (const juce::MidiMessage& m) noexcept;
-    void noteOn (int note, float velocity) noexcept;   // after the arpeggiator
+    void midiNoteOn (int note, float velocity) noexcept;  // before the arpeggiator
+    void midiNoteOff (int note) noexcept;
+    void noteOn (int note, float velocity) noexcept;      // after the arpeggiator
     void noteOff (int note) noexcept;
     void allNotesOff (bool hard) noexcept;
     void beginChunk (int n) noexcept;
