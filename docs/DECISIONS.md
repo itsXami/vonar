@@ -156,3 +156,10 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
   jest wyłącznie w tagach (np. „Kanye West”, „Yeezus”, „Daft Punk”, „Discovery”) i w `docs/PRESETS.md`.
 - **Organy (Drawbars/Drive Organ):** stopa 16′ jest 1. harmoniczną tablicy, więc presety organowe mają Oct +1, żeby
   grać w typowym rejestrze 8′.
+
+## Etap 7 – dokumentacja
+
+- **README po polsku** z instalacją w FL Studio, skróconą instrukcją i jawnym podziałem: co sprawdza CI, a co wymaga
+  odsłuchu i ręcznego testu w FL Studio na Windows.
+- **`docs/PRESETS.md` jest generowany** przez `tools/presets/generate_presets.py` z tych samych danych co presety
+  (lista nie rozjedzie się z plikami JSON). Wstęp po polsku, opisy presetów po angielsku – takie same jak w interfejsie.

@@ -134,7 +134,7 @@ P(G, "Static Throat", "Lead", "Fuzzy formant lead that growls through vowel shap
   voice_mode="Mono", glide=0.04, oscA_table="Buzz", oscA_pos=0.9, oscB_table="Talk Box", oscB_level=0.5, oscB_pos=0.4,
   flt_type="Formant", flt_cutoff=1100.0, flt_res=0.55, flt_vowel=0.2, lfo1_rate=1.5, lfo1_shape="Triangle",
   dist_type="Fold", dist_drive=0.35, dist_mix=0.6, rev_mix=0.12)
-P(G, "Air Raid", "FX", "Wailing siren that sweeps a full octave with tube grit and a long hall.",
+P(G, "Air Raid", "FX", "Wailing siren that swings an octave up and down with tube grit and a long hall.",
   [("Sweep", [("Pitch", 0.25)]), ("Grit", [("Dist Drive", 0.4)]), ("Hall", [("Reverb Mix", 0.3)]), ("Echo", [("Delay Mix", 0.35)])],
   mods=[("LFO 1", "Pitch", 0.5)], tags=["Siren"],
   voice_mode="Mono", oscA_table="Sine Drive", oscA_pos=0.6, oscA_level=0.75, lfo1_shape="Triangle", lfo1_rate=0.45,
@@ -897,7 +897,66 @@ def main():
         with open(path, "w") as f:
             json.dump(doc, f, indent=2)
             f.write("\n")
+    write_docs()
     print(f"wrote {len(PRESETS)} presets (+ Init) to {PRESET_DIR}")
+
+
+GROUP_INFO = [
+    ("yeezus", "Kanye West – Yeezus", "Industrialna agresja: przesterowane i zgniecione bitcrusherem basy, buzz i acid, "
+     "krzykliwe leady, syreny i szorstkie, przesterowane 808. Najważniejsza i najmocniej brzmiąca grupa."),
+    ("graduation", "Kanye West – Graduation", "Stadionowe supersawy, błyszczące plucki i jasne leady."),
+    ("808s", "Kanye West – 808s & Heartbreak", "Zimne, oszczędne pady, syntetyczne pseudowokale i długie 808 z glide."),
+    ("mbdtf", "Kanye West – My Beautiful Dark Twisted Fantasy", "Dramatyczne brassy, ciemne syntetyczne smyczki i epickie basy."),
+    ("donda", "Kanye West – Gospel / Donda", "Organy, chóralne pady i potężne akordy."),
+    ("homework", "Daft Punk – Homework", "Surowy acid squelch, filtrowane basy i szorstkie leady."),
+    ("discovery", "Daft Punk – Discovery", "Filter house z Pumpem, leady w stylu talkboxa (filtr Formant), disco strings, leady lat 80., słodkie pady."),
+    ("haa", "Daft Punk – Human After All", "Szorstkie, „gitarowe”, mechaniczne riffy i fuzz."),
+    ("tron", "Daft Punk – Tron: Legacy", "Monumentalne brassy, pulsujące basy i arpeggia."),
+    ("ram", "Daft Punk – Random Access Memories", "Ciepłe analogowe polisynthy, funkowe klawisze i modularne basy."),
+]
+
+
+def write_docs():
+    lines = [
+        "# VOLT – presety fabryczne",
+        "",
+        "121 presetów: **Init** + 60 inspirowanych Kanye Westem + 60 inspirowanych Daft Punk. *Nazwy* presetów nie zawierają",
+        "nazwisk artystów, nazw albumów ani tytułów utworów – inspiracja jest zapisana wyłącznie w tagach i w tym dokumencie.",
+        "Presety oddają charakter brzmień danej ery (barwa, obróbka, ruch); żaden nie odtwarza melodii.",
+        "",
+        "Wszystkie presety generuje `tools/presets/generate_presets.py` (ten plik też). Poziomy skorygowano rendererem offline",
+        "do ok. −15 LUFS (szczegóły w `docs/DECISIONS.md`). Każdy preset ma podpięte wszystkie cztery makra – ich etykiety",
+        "są w tabelach. Opisy presetów są po angielsku, bo tak wyświetla je interfejs pluginu.",
+        "",
+        "Kategorie: Bass, Lead, Pad, Keys, Arp, Brass, FX. Podglądy audio każdego presetu generuje CI",
+        "(artefakt `VOLT-preset-previews`).",
+        "",
+        "## Init",
+        "",
+        "| # | Preset | Kategoria | Makra | Opis |",
+        "|---|---|---|---|---|",
+        "| 000 | Init | Lead | Bright / Morph / Grit / Space | Neutral starting point with one saw oscillator and the four macros pre-wired to tone, morph, grit and space. |",
+        "",
+    ]
+    index = 1
+    for key, title, blurb in GROUP_INFO:
+        group = [p for p in PRESETS if p["group"] == key]
+        lines += [f"## {title} ({len(group)})", "", blurb, "",
+                  "| # | Preset | Kategoria | Tagi | Makra | Opis |", "|---|---|---|---|---|---|"]
+        for p in group:
+            num = PRESETS.index(p) + 1
+            tags = ", ".join(p["tags"])
+            lines.append(f"| {num:03d} | {p['name']} | {p['category']} | {tags} | {' / '.join(p['macros'])} | {p['description']} |")
+        lines.append("")
+    lines += ["## Liczba presetów w kategoriach", "", "| Kategoria | Presety |", "|---|---|"]
+    cats = {}
+    for p in [{"category": "Lead"}] + PRESETS:
+        cats[p["category"]] = cats.get(p["category"], 0) + 1
+    for c in ["Bass", "Lead", "Pad", "Keys", "Arp", "Brass", "FX"]:
+        lines.append(f"| {c} | {cats.get(c, 0)} |")
+    lines.append("")
+    with open(os.path.join(ROOT, "docs", "PRESETS.md"), "w") as f:
+        f.write("\n".join(lines))
 
 
 if __name__ == "__main__":
