@@ -89,3 +89,29 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
 - **Output:** gain −24…+12 dB (wygładzany) + ochronny limiter szczytowy bez latencji (natychmiastowy atak,
   release 120 ms, sufit −0,5 dBFS, twarde obcięcie jako ostatnie zabezpieczenie i zerowanie NaN/Inf).
   Silnik raportuje maksymalną redukcję limitera – renderer presetów używa jej do kontroli gain stagingu.
+
+## Etap 4 – interfejs i przeglądarka presetów
+
+- **Jeden ekran 1000×620 w pikselach logicznych**, skalowany przez `AffineTransform` (75–200%): lista w pasku
+  górnym albo przeciąganie narożnika (stałe proporcje). Wybrana skala zapisywana jest we właściwości stanu `uiScale`.
+- **Styl:** ciemne panele, jeden kolor akcentu (bursztynowy `#FFB52E`), pokrętła rysowane wektorowo
+  w `VoltLookAndFeel` (łuk wartości, dla parametrów symetrycznych od środka), bez bitmap.
+- **Pokrętła (`FineSlider`):** przeciąganie względne (pion/poziom), **Shift** = ok. 7× dokładniej, **dwuklik** = wartość
+  domyślna parametru, tooltip „nazwa: wartość”; podczas najechania/przeciągania etykieta pod pokrętłem pokazuje wartość.
+- **Główne (duże) pokrętła:** Cutoff, Resonance, Filter Drive, Distortion, Wavetable A i B, Unison Detune,
+  Macro 1–4, Pump, Delay (mix), Reverb (mix), Output – zgodnie ze specyfikacją. Pozostałe parametry są małymi
+  pokrętłami / listami na tym samym ekranie (bez zakładek).
+- **Podgląd wavetable** rysuje kilka klatek „w głąb” i bieżącą klatkę w kolorze akcentu; **oscyloskop** jest zasilany
+  przez `juce::AbstractFifo` (lock-free, wątek audio nie czeka na UI).
+- **Przeglądarka presetów w górnym pasku:** poprzedni/następny (w obrębie aktualnego filtra), menu z podziałem
+  na kategorie, filtr kategorii, filtr tagów, wyszukiwarka (nazwa, tagi, opis), zapis presetu użytkownika (okno
+  z nazwą, kategorią, tagami, opisem). Nazwa fabryczna nie może zostać nadpisana.
+- **Stan sesji:** APVTS + właściwości `presetName`, `presetCategory`, `macroLabel1..4`, `uiScale` w drzewie stanu.
+  Etykiety makr edytuje się dwuklikiem pod pokrętłem makra.
+- **Presety fabryczne zapisane rzadko** (tylko wartości różne od domyślnych; brakujące = domyślne), presety użytkownika
+  zapisywane są w całości (wszystkie parametry), żeby były odporne na ewentualne zmiany wartości domyślnych.
+  Wybory (choice) zapisywane po nazwie, nie po indeksie. Walidacja: nieznane ID, złe nazwy wyborów i wartości
+  spoza zakresu są raportowane (test jednostkowy wymaga zera błędów dla presetów fabrycznych).
+- **Katalog presetów użytkownika:** `userApplicationDataDirectory/VOLT/Presets` – na Windows `%APPDATA%\VOLT\Presets`.
+- **`VOLT_Render --snapshot plik.png [skala]`** zapisuje zrzut edytora bez ekranu (narzędzie deweloperskie do
+  sprawdzania układu na Linuksie w chmurze); zrzut: `docs/ui-snapshot.png`.
