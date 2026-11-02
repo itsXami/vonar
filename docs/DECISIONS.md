@@ -163,3 +163,20 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
   odsłuchu i ręcznego testu w FL Studio na Windows.
 - **`docs/PRESETS.md` jest generowany** przez `tools/presets/generate_presets.py` z tych samych danych co presety
   (lista nie rozjedzie się z plikami JSON). Wstęp po polsku, opisy presetów po angielsku – takie same jak w interfejsie.
+
+## Przebudowa interfejsu (po uwagach użytkownika)
+
+Użytkownik ocenił pierwszą wersję jako „wyglądającą bardzo AI” i poprosił o coś pomiędzy Zenology a Vitalem,
+z naciskiem na to, żeby łatwo było widzieć, co czym jest. Ustalone z użytkownikiem:
+- **Kolor na sekcję zamiast jednego akcentu** (świadoma zmiana względem pierwotnej specyfikacji): oscylatory/unison/sub
+  turkus, filtr pomarańcz, obwiednie zieleń (także obwiednia filtra wewnątrz sekcji filtra), LFO/modulacja/arp/voice
+  fiolet, efekty i wyjście niebieski, makra żółty. Kolor ma nagłówek sekcji, łuki pokrętło­w, strzałki list i przyciski.
+  Pasek z kluczem kolorów pod logo.
+- **Okno 1200×740** (było ~1000×620), skalowanie 75–200% bez zmian (900×555 … 2400×1480).
+- **Wartość zawsze widoczna pod każdym pokrętłem**, nazwa parametru nad nim (styl Zenology), normalna pisownia
+  zamiast drobnych wersalików; suwaki macierzy modulacji pokazują wartość w procentach.
+- **Krzywa filtra** (charakterystyka amplitudowa dla bieżącego typu, Cutoff, Resonance i Vowel; te same wzory co
+  w `VoiceFilter`, prototyp analogowy, bez drive i modulacji). Pozostałe grafiki (krzywe obwiedni, kształt LFO,
+  pierścienie modulacji) nie zostały wybrane.
+- **Czcionka Inter** (Regular i SemiBold) osadzona przez BinaryData – licencja SIL OFL w `resources/fonts/OFL-Inter.txt`.
+  Domyślna czcionka JUCE na Windows (Verdana) wyglądała przestarzale.

@@ -22,7 +22,9 @@ Minimalistyczny syntezator wavetable (VST3 + Standalone) z jednym ekranem, duży
 - **Efekty (w tej kolejności):** Distortion (Soft, Tube, Hard, Fold, Bitcrush; 4× oversampling) → Mod FX
   (Chorus, Phaser, Flanger) → Pump (ducking zsynchronizowany z tempem) → Delay (stereo / ping-pong, sync) →
   Reverb → Squash (3-pasmowy kompresor na jednym pokrętle) → Output Gain + limiter ochronny.
-- **Interfejs:** jeden ekran ~1000×620, skalowanie 75–200%, przeglądarka presetów w górnym pasku.
+- **Interfejs:** jeden ekran 1200×740 (skalowanie 75–200%), każda sekcja ma własny kolor (oscylatory turkus,
+  filtr pomarańcz, obwiednie zieleń, LFO i modulacja fiolet, efekty niebieski, makra żółty), wartość zawsze widoczna
+  pod pokrętłem, krzywa filtra, przeglądarka presetów w górnym pasku.
 
 ## Instalacja w FL Studio (Windows x64)
 
@@ -49,7 +51,11 @@ Uwagi:
 **Pokrętła**
 - przeciąganie w górę/dół (lub w prawo/lewo) zmienia wartość, **Shift** = precyzyjna zmiana,
 - **dwuklik** przywraca wartość domyślną, kółko myszy też działa,
-- po najechaniu pojawia się **tooltip z nazwą i wartością**, a etykieta pod pokrętłem pokazuje wartość.
+- nazwa parametru jest nad pokrętłem, a **aktualna wartość zawsze pod nim**; po najechaniu pojawia się tooltip.
+
+**Kolory sekcji** mówią, do czego należy kontrolka: turkus – oscylatory, unison, sub i szum; pomarańcz – filtr;
+zieleń – obwiednie (także obwiednia filtra w sekcji filtra); fiolet – LFO, macierz modulacji, arpeggiator, tryb
+głosu; niebieski – efekty i wyjście; żółty – makra. Kolorowe paski pod logo to legenda.
 
 **Sekcje ekranu (od góry):**
 1. **Pasek presetów:** `<` `>` poprzedni/następny (w obrębie aktywnego filtra), kliknięcie nazwy otwiera menu
@@ -58,12 +64,13 @@ Uwagi:
 2. **OSC A / OSC B:** wybór wavetable, podgląd tablicy, duże pokrętło **WAVETABLE** (pozycja/morfing),
    OCT, SEMI, FINE, LEVEL, PAN, UNISON (liczba głosów). **UNISON / SUB:** DETUNE i SPREAD (wspólne dla obu
    oscylatorów), poziom SUB i NOISE, kształt sub.
-3. **FILTER:** typ, CUTOFF, RESONANCE, DRIVE, KEY TRK, ENV AMT, VOWEL (aktywne w trybie Formant) i obwiednia filtra.
+3. **FILTER:** typ, wykres charakterystyki filtra, Cutoff, Resonance, Drive, Keytrack, Env Amt, Vowel (aktywne
+   w trybie Formant) i obwiednia filtra (zielona).
 4. **AMP ENV, PITCH ENV, LFO 1/2** (SYNC przełącza Rate na podział nutowy, RETRIG restartuje LFO z każdą nutą),
    **VOICE** (Poly/Mono/Legato, Glide).
-5. **MACROS** (dwuklik na etykiecie zmienia nazwę), **ARP**, **DISTORTION**, **MOD FX**, **PUMP**, **DELAY**.
-6. **MODULATION** (8 slotów: źródło → cel, suwak ilości −100…+100%), **REVERB**, **SQUASH**, **OUTPUT**
-   z oscyloskopem.
+5. **MACROS** (dwuklik na nazwie makra zmienia ją), **ARPEGGIATOR**, **DISTORTION**, **MOD FX**, **PUMP**.
+6. **MODULATION** (8 slotów: źródło → cel, suwak ilości −100…+100% z wartością), **DELAY**, **REVERB**,
+   **SQUASH**, **OUTPUT**; oscyloskop jest w sekcji **SCOPE**.
 
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
 Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.
@@ -156,6 +163,7 @@ w `docs/PROGRESS.md`).
 
 - VOLT korzysta z frameworka **JUCE 8**, dostępnego na licencji AGPLv3 albo licencji komercyjnej (w tym bezpłatnej
   „Starter” dla małych przychodów). Przed publiczną dystrybucją binariów trzeba wybrać jedną z tych ścieżek.
+- Czcionka interfejsu **Inter** jest na licencji SIL Open Font License 1.1 (`resources/fonts/OFL-Inter.txt`).
 - Wszystkie wavetable, presety i grafika powstały w tym projekcie (wavetable generuje kod). Nie użyto kodu, tablic,
   presetów ani grafik innych syntezatorów.
 - Nazwy artystów i albumów pojawiają się wyłącznie w tagach i w dokumentacji jako opis inspiracji. Projekt nie jest

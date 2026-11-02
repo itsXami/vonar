@@ -203,28 +203,33 @@ void PresetBar::refresh()
 
 void PresetBar::paint (juce::Graphics& g)
 {
-    g.setColour (colours::panel);
+    g.setColour (juce::Colour (0xff16191e));
     g.fillRect (getLocalBounds());
     g.setColour (colours::panelBorder);
     g.drawHorizontalLine (getHeight() - 1, 0.0f, (float) getWidth());
-    g.setColour (colours::accent);
-    g.setFont (VoltLookAndFeel::font (26.0f, true));
-    g.drawText ("VOLT", 14, 0, 80, getHeight(), juce::Justification::centredLeft);
-    g.setColour (colours::dimText);
-    g.setFont (VoltLookAndFeel::font (10.0f));
-    g.drawText ("WAVETABLE SYNTH", 14, getHeight() - 14, 120, 12, juce::Justification::centredLeft);
+
+    g.setColour (colours::text);
+    g.setFont (VoltLookAndFeel::font (25.0f, true));
+    g.drawText ("VOLT", 16, 6, 90, 28, juce::Justification::centredLeft);
+    // colour key: one short bar per section colour
+    const juce::Colour keys[] = { colours::osc, colours::filter, colours::env, colours::mod, colours::fx, colours::macro };
+    for (int i = 0; i < 6; ++i)
+    {
+        g.setColour (keys[i]);
+        g.fillRoundedRectangle (17.0f + (float) i * 13.0f, 36.0f, 10.0f, 3.0f, 1.5f);
+    }
 }
 
 void PresetBar::resized()
 {
-    const int y = 9, h = 26;
-    prevButton.setBounds (132, y, 26, h);
-    nextButton.setBounds (160, y, 26, h);
-    nameButton.setBounds (190, y, 270, h);
-    categoryBox.setBounds (468, y, 96, h);
-    tagBox.setBounds (570, y, 130, h);
-    search.setBounds (706, y, 140, h);
-    saveButton.setBounds (852, y, 56, h);
-    scaleBox.setBounds (914, y, 74, h);
+    const int y = 11, h = 27;
+    prevButton.setBounds (150, y, 28, h);
+    nextButton.setBounds (180, y, 28, h);
+    nameButton.setBounds (214, y, 330, h);
+    categoryBox.setBounds (552, y, 110, h);
+    tagBox.setBounds (668, y, 150, h);
+    search.setBounds (824, y, 176, h);
+    saveButton.setBounds (1008, y, 72, h);
+    scaleBox.setBounds (1086, y, 98, h);
 }
 } // namespace volt::ui

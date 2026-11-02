@@ -70,6 +70,13 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 - Test w FL Studio: skanowanie, zapis/odczyt projektu, automatyzacja, sync tempa, UI (Shift, dwuklik, skalowanie, HiDPI).
 - Po każdej zmianie presetów: procedura z etapu 6 (render → `--trim` → render) i commit JSON-ów + `gain_trims.json`.
 
+## Po ukończeniu – zmiany na prośbę użytkownika
+- Poprawka: jedyny program VST3 ma nazwę „Default” (walidator VST3 Steinberga w pluginval 2.0 odrzucał pustą nazwę).
+- Przebudowa UI: kolor na sekcję, 1200×740, wartości zawsze widoczne, krzywa filtra, czcionka Inter (DECISIONS.md).
+- Otwarte: pluginval 1.0.4 na Linuksie ma rzadki crash we własnym kodzie hosta (RunLoop VST3, ok. 1 na 10–15
+  uruchomień, backtrace bez ramek VOLT); pluginval 2.0.0-beta3 nie crashuje (40/40). Decyzja o zmianie wersji w CI
+  czeka na użytkownika.
+
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
 - `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.

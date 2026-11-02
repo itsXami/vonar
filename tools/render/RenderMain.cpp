@@ -292,7 +292,7 @@ int snapshot (const juce::File& out, float scale)
     proc.setUiScale (scale);
     proc.prepareToPlay (48000.0, 512);
     std::unique_ptr<juce::AudioProcessorEditor> ed (proc.createEditor());
-    ed->setSize (juce::roundToInt (1000 * scale), juce::roundToInt (620 * scale));
+    ed->setSize (juce::roundToInt (volt::ui::MainPanel::kWidth * scale), juce::roundToInt (volt::ui::MainPanel::kHeight * scale));
     auto img = ed->createComponentSnapshot (ed->getLocalBounds(), true, 1.0f);
     out.deleteFile();
     juce::FileOutputStream os (out);
