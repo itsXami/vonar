@@ -293,12 +293,14 @@ Result renderPreset (VoltAudioProcessor& proc, int index, const volt::PresetInfo
     return res;
 }
 
-int snapshot (const juce::File& out, float scale)
+int snapshot (const juce::File& out, float scale, int tab)
 {
     VoltAudioProcessor proc;
     proc.setUiScale (scale);
     proc.prepareToPlay (48000.0, 512);
     std::unique_ptr<juce::AudioProcessorEditor> ed (proc.createEditor());
+    if (auto* ve = dynamic_cast<VoltAudioProcessorEditor*> (ed.get()))
+        ve->getPanel().setTab (tab);
     ed->setSize (juce::roundToInt (volt::ui::MainPanel::kWidth * scale), juce::roundToInt (volt::ui::MainPanel::kHeight * scale));
     auto img = ed->createComponentSnapshot (ed->getLocalBounds(), true, 1.0f);
     out.deleteFile();
@@ -318,7 +320,8 @@ int main (int argc, char** argv)
         args.add (argv[i]);
 
     if (args[0] == "--snapshot")
-        return snapshot (juce::File::getCurrentWorkingDirectory().getChildFile (args[1]), args.size() > 2 ? args[2].getFloatValue() : 1.0f);
+        return snapshot (juce::File::getCurrentWorkingDirectory().getChildFile (args[1]), args.size() > 2 ? args[2].getFloatValue() : 1.0f,
+                         args.size() > 3 ? args[3].getIntValue() : 0);
 
     juce::File outDir = juce::File::getCurrentWorkingDirectory().getChildFile ("render-out");
     juce::String filter;

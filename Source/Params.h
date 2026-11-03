@@ -12,8 +12,10 @@ enum P : int
     VoiceMode, Glide,
 
     // Oscillator A (block of kOscParamCount), then oscillator B with identical layout.
-    OscA_Table, OscA_Pos, OscA_Oct, OscA_Semi, OscA_Fine, OscA_Level, OscA_Pan, OscA_Voices,
-    OscB_Table, OscB_Pos, OscB_Oct, OscB_Semi, OscB_Fine, OscB_Level, OscB_Pan, OscB_Voices,
+    OscA_Table, OscA_Pos, OscA_Oct, OscA_Semi, OscA_Fine, OscA_Level, OscA_Pan, OscA_Voices, OscA_Type, OscA_Warp, OscA_WarpAmt,
+    OscB_Table, OscB_Pos, OscB_Oct, OscB_Semi, OscB_Fine, OscB_Level, OscB_Pan, OscB_Voices, OscB_Type, OscB_Warp, OscB_WarpAmt,
+
+    StrDecay, StrTone,
 
     UniDetune, UniSpread,
     SubShape, SubLevel, NoiseLevel,
@@ -23,6 +25,7 @@ enum P : int
     AmpA, AmpD, AmpS, AmpR,
     FenvA, FenvD, FenvS, FenvR,
     PenvAmt, PenvDecay,
+    MenvA, MenvD, MenvS, MenvR,
 
     Lfo1_Shape, Lfo1_Sync, Lfo1_Rate, Lfo1_Div, Lfo1_Depth, Lfo1_Retrig,
     Lfo2_Shape, Lfo2_Sync, Lfo2_Rate, Lfo2_Div, Lfo2_Depth, Lfo2_Retrig,
@@ -35,6 +38,10 @@ enum P : int
     Mod6_Src, Mod6_Dst, Mod6_Amt,
     Mod7_Src, Mod7_Dst, Mod7_Amt,
     Mod8_Src, Mod8_Dst, Mod8_Amt,
+    Mod9_Src, Mod9_Dst, Mod9_Amt,
+    Mod10_Src, Mod10_Dst, Mod10_Amt,
+    Mod11_Src, Mod11_Dst, Mod11_Amt,
+    Mod12_Src, Mod12_Dst, Mod12_Amt,
 
     Macro1, Macro2, Macro3, Macro4,
 
@@ -54,14 +61,14 @@ enum P : int
 constexpr int kOscParamCount = OscB_Table - OscA_Table;
 constexpr int kLfoParamCount = Lfo2_Shape - Lfo1_Shape;
 constexpr int kModSlotParamCount = 3;
-constexpr int kNumModSlots = 8;
+constexpr int kNumModSlots = 12;
 constexpr int kNumMacros = 4;
 
 enum class ParamType { Float, Int, Bool, Choice };
 
 struct ParamSpec
 {
-    const char* id;
+    juce::String id;
     juce::String name;
     ParamType type;
     float minValue, maxValue, defaultValue;
@@ -79,7 +86,9 @@ juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
 namespace choices
 {
     enum VoiceModes { Poly, Mono, Legato };
-    enum FilterTypes { LP12, LP24, HP, BP, Notch, Ladder, Formant };
+    enum FilterTypes { LP12, LP24, HP, BP, Notch, Ladder, Formant, CombPlus, CombMinus };
+    enum OscTypes { Wavetable, String };
+    enum WarpModes { WarpOff, WarpSync, WarpBend, WarpSqueeze, WarpMirror, WarpQuantize, WarpFM, WarpRM };
     enum LfoShapes { Sine, Triangle, Saw, Square, SampleHold };
     enum SubShapes { SubSine, SubTriangle };
     enum ArpModes { Up, Down, UpDown, Random };
@@ -88,11 +97,12 @@ namespace choices
     enum DelayModes { Stereo, PingPong };
 
     enum ModSources { SrcNone, SrcLfo1, SrcLfo2, SrcFilterEnv, SrcVelocity, SrcModWheel, SrcAftertouch,
-                      SrcKeyTrack, SrcMacro1, SrcMacro2, SrcMacro3, SrcMacro4, NumModSources };
+                      SrcKeyTrack, SrcMacro1, SrcMacro2, SrcMacro3, SrcMacro4, SrcModEnv, SrcRandom, NumModSources };
 
     enum ModDests { DstNone, DstPosA, DstPosB, DstPitch, DstPitchA, DstPitchB, DstCutoff, DstRes, DstDrive,
                     DstFormant, DstLevelA, DstLevelB, DstSubLevel, DstNoiseLevel, DstPanA, DstPanB,
-                    DstDistDrive, DstDistMix, DstModFxMix, DstDelayMix, DstReverbMix, NumModDests };
+                    DstDistDrive, DstDistMix, DstModFxMix, DstDelayMix, DstReverbMix, DstWarpA, DstWarpB, DstDetune,
+                    NumModDests };
 
     const juce::StringArray& tempoDivisions();  // LFO sync divisions
     double divisionToBeats (const juce::String& name);

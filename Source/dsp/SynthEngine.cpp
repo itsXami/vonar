@@ -334,6 +334,8 @@ void SynthEngine::computeGlobalMods (float* dst) const noexcept
     src[choices::SrcKeyTrack] = newest != nullptr ? clampf ((newest->currentPitch - 60.0f) / 60.0f, -1.0f, 1.0f) : 0.0f;
     for (int m = 0; m < kNumMacros; ++m)
         src[choices::SrcMacro1 + m] = ctx.macros[m];
+    src[choices::SrcModEnv] = newest != nullptr ? newest->lastMenv : 0.0f;
+    src[choices::SrcRandom] = newest != nullptr ? newest->randomValue : 0.0f;
 
     for (int i = 0; i < ctx.numSlots; ++i)
         dst[ctx.slots[(size_t) i].dst] += ctx.slots[(size_t) i].amt * src[ctx.slots[(size_t) i].src];

@@ -7,6 +7,7 @@
 #include "../Params.h"
 
 #include <array>
+#include <vector>
 
 namespace volt
 {
@@ -40,13 +41,25 @@ struct VoiceContext
     float glideAlpha = 1.0f;              // per-chunk glide smoothing coefficient
 };
 
+// Karplus-Strong string: a delay line excited by one cycle of the oscillator's wavetable, with a damping
+// low-pass and a decay gain in the loop. One per unison voice.
+struct PluckString
+{
+    std::vector<float> buf;
+    int write = 0;
+    float lp = 0.0f;
+    bool excited = false;
+
+    void prepare (int maxLen) { buf.assign ((size_t) maxLen, 0.0f); reset(); }
+    void reset() noexcept { std::fill (buf.begin(), buf.end(), 0.0f); write = 0; lp = 0.0f; excited = false; }
+};
+
 class Voice
 {
 public:
     void prepare (double sampleRate, uint32_t seed);
     void reset();
 
-    // retrigger: (re)start the envelopes. resetOsc: voice was idle, start oscillator phases fresh.
     void start (int note, float velocity, float startPitch, bool retrigger, const VoiceContext& ctx);
     void glideTo (int newNote) noexcept { note = newNote; targetPitch = (float) newNote; }
     void release() noexcept;
@@ -67,32 +80,47 @@ public:
     float currentPitch = 60.0f;
 
     // Last per-voice modulation source values (used for global FX targets).
-    float lastFenv = 0.0f, lastLfo[2] {};
+    float lastFenv = 0.0f, lastMenv = 0.0f, lastLfo[2] {}, randomValue = 0.0f;
 
 private:
     struct OscState
     {
         std::array<float, kMaxUnison> phase {}, inc {}, gl {}, gr {};
-        float pos = 0.0f;
+        float pos = 0.0f, warp = 0.0f;
         int voices = 0;
         bool init = false;
+        std::array<PluckString, kMaxUnison> strings;
     };
 
-    void computeOsc (int o, const VoiceContext& ctx, float pitch, float pos, float level, float pan, OscState& st,
+    void computeOsc (int o, const VoiceContext& ctx, float pitch, float level, float pan, float detune,
                      std::array<float, kMaxUnison>& newInc, std::array<float, kMaxUnison>& newGl,
                      std::array<float, kMaxUnison>& newGr, int& voicesOut) noexcept;
+    void exciteStrings (int o, const VoiceContext& ctx) noexcept;
+    template <int Mode>
+    void wavetableLoop (const Wavetable& wt, int mip, int n, int nv, float fromPos, float dPos, float dWarp, const float* modBuf,
+                        const std::array<float, kMaxUnison>& ni, const std::array<float, kMaxUnison>& ngl,
+                        const std::array<float, kMaxUnison>& ngr, OscState& st) noexcept;
+    void renderWavetable (int o, const VoiceContext& ctx, int n, float pos, float warpAmt, const std::array<float, kMaxUnison>& ni,
+                          const std::array<float, kMaxUnison>& ngl, const std::array<float, kMaxUnison>& ngr) noexcept;
+    void renderString (int o, const VoiceContext& ctx, int n, const std::array<float, kMaxUnison>& ni,
+                       const std::array<float, kMaxUnison>& ngl, const std::array<float, kMaxUnison>& ngr) noexcept;
 
     double sr = 44100.0;
-    XorShift rng;
-    Adsr amp, fenv;
+    XorShift rng, randomRng;
+    Adsr amp, fenv, menv;
     float penv = 0.0f;
     Lfo lfo[2];
     VoiceFilter filter;
     OscState osc[2];
+    // Chunk-start snapshot of each oscillator's first unison voice (modulator for FM / RM warps).
+    float modPhase[2] {}, modInc[2] {}, modPos[2] {};
+    int modMip[2] {};
     float subPhase = 0.0f, subInc = 0.0f, subLevel = 0.0f, noiseLevel = 0.0f;
     bool gate = false;
+    bool pendingExcite = false;
     float targetPitch = 60.0f;
     bool levelsInit = false;
+    int maxStringLen = 0;
 
     float bufL[kChunk] {}, bufR[kChunk] {};
 };

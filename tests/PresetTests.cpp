@@ -100,7 +100,7 @@ struct PresetTests final : juce::UnitTest
                 bool routed = false;
                 for (int s = 0; s < kNumModSlots; ++s)
                 {
-                    const auto src = p.params[spec (Mod1_Src + s * kModSlotParamCount).id].toString();
+                    const auto src = p.params[juce::Identifier (spec (Mod1_Src + s * kModSlotParamCount).id)].toString();
                     const double amt = (double) p.params.getProperty (spec (Mod1_Amt + s * kModSlotParamCount).id, 0.0);
                     if (src == "Macro " + juce::String (m + 1) && std::abs (amt) > 1.0e-4)
                         routed = true;

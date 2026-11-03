@@ -7,51 +7,74 @@
 
 namespace volt::ui
 {
-// The single 1200 x 740 screen. Everything is laid out in logical pixels; the editor scales it.
+// A group of colour-coded sections (one tab, or the always-visible bottom strip).
+class Page final : public juce::Component
+{
+public:
+    struct Section { juce::String title; juce::Rectangle<int> bounds; juce::Colour colour; };
+    struct Note { juce::String text; juce::Rectangle<int> bounds; juce::Colour colour; bool bold; };
+
+    void paint (juce::Graphics&) override;
+    std::vector<Section> sections;
+    std::vector<Note> notes;
+};
+
+// 1200 x 740 logical pixels: preset bar, tab bar (SYNTH / MODULATION / EFFECTS), the selected tab, and a bottom
+// strip with macros, output and scope that is always visible. The editor scales the whole panel.
 class MainPanel final : public juce::Component
 {
 public:
     static constexpr int kWidth = 1200, kHeight = 740;
+    enum Tab { SynthTab, ModTab, FxTab };
 
     explicit MainPanel (VoltAudioProcessor& p);
     void paint (juce::Graphics&) override;
     void resized() override {}
     void refresh(); // called by the editor timer (30 Hz)
+    void setTab (int tab);
+    int getTab() const noexcept { return currentTab; }
 
     PresetBar presetBar;
 
 private:
-    struct Section { juce::String title; juce::Rectangle<int> bounds; juce::Colour colour; };
-
-    // Controls take the colour of the section declared last (or an explicit one).
     Knob& knob (int param, const juce::String& caption, juce::Rectangle<int> r, bool big = false);
     Knob& knob (int param, const juce::String& caption, juce::Rectangle<int> r, juce::Colour c, bool big = false);
     ParamCombo& combo (int param, juce::Rectangle<int> r);
     ParamToggle& toggle (int param, const juce::String& text, juce::Rectangle<int> r);
-    void section (const juce::String& title, juce::Rectangle<int> r, juce::Colour c)
-    {
-        sections.push_back ({ title, r, c });
-        current = c;
-    }
-    void subLabel (const juce::String& text, juce::Rectangle<int> r, juce::Colour c) { subLabels.push_back ({ text, r, c }); }
+    void section (const juce::String& title, juce::Rectangle<int> r, juce::Colour c);
+    void note (const juce::String& text, juce::Rectangle<int> r, juce::Colour c, bool bold = false);
+    void add (std::unique_ptr<juce::Component> c, juce::Rectangle<int> r);
+
+    void buildSynthTab();
+    void buildModTab();
+    void buildFxTab();
+    void buildBottom();
     void buildOsc (int o, juce::Rectangle<int> r);
     void buildLfo (int l, juce::Rectangle<int> r);
 
     VoltAudioProcessor& processor;
     juce::AudioProcessorValueTreeState& state;
+    Page synthPage, modPage, fxPage, bottomPage;
+    Page* target = &synthPage;
+    juce::TextButton tabButtons[3];
+    int currentTab = 0;
+
     std::vector<std::unique_ptr<juce::Component>> owned;
-    std::vector<Section> sections;
-    std::vector<Section> subLabels;
     juce::Colour current = colours::osc;
-    std::unique_ptr<WavetableView> wtView[2];
-    std::unique_ptr<FilterResponseView> filterView;
-    ScopeView scope;
+    WavetableView* wtView[2] {};
+    FilterResponseView* filterView = nullptr;
+    ScopeView* scope = nullptr;
     Knob* macroKnobs[kNumMacros] {};
     Knob* lfoRate[2] {};
     ParamCombo* lfoDiv[2] {};
     std::atomic<float>* lfoSync[2] {};
     std::atomic<float>* fltType = nullptr;
+    std::atomic<float>* oscType[2] {};
+    std::atomic<float>* oscWarp[2] {};
     Knob* vowelKnob = nullptr;
+    Knob* warpKnob[2] {};
+    Knob* posKnob[2] {};
+    Knob* stringKnobs[2] {};
 };
 } // namespace volt::ui
 
