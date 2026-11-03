@@ -209,3 +209,18 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   pokrętłami, Mod Env, macierz 12 slotów), EFFECTS (6 efektów w kolejności łańcucha, numerowanych 1–6). Pasek
   presetów u góry oraz makra, wyjście i oscyloskop na dole są widoczne zawsze. Wybrana zakładka zapisywana jest
   we właściwości stanu `uiTab`. To świadome odejście od pierwotnego „jednego ekranu bez zakładek”, na prośbę użytkownika.
+
+## Scalenie biblioteki presetów (po odsłuchu użytkownika)
+
+- **Werdykty użytkownika zapisane w repo** (`tools/presets/selection.json`), a bibliotekę buduje
+  `tools/presets/build_library.py` z obu partii. Dzięki temu decyzje są odtwarzalne, a generatory pozostają
+  jedynym źródłem treści presetów.
+- **Do biblioteki trafia wszystko, czego użytkownik nie odrzucił** – także presety oznaczone „Popraw” (14), bo
+  użytkownik poprosił, żeby na razie niczego nie poprawiać; są oznaczone w `docs/PRESETS.md` jako „do poprawki”.
+- **Kolejność według ery** (Yeezus → … → Random Access Memories), w ramach ery według kategorii – w menu presetów
+  i przy przewijaniu `<` `>` brzmienia jednej ery są obok siebie. Filtr ery działa przez filtr tagów.
+- **Nowa kategoria „Guitar”** w `PresetManager::categories()` (renderer gra dla niej dwukrotne szarpnięcie akordu).
+- **Determinizm renderu:** faza LFO Mod FX jest zerowana przy resecie – wcześniej render presetu zależał od
+  poprzednio renderowanego (różnice do 1,4 dB pracy limitera między uruchomieniami).
+- **Test liczności** nie wymaga już 121 presetów: sprawdza, że załadowano każdy osadzony plik, że jest ich > 100
+  i że jest kategoria Guitar.

@@ -1,0 +1,52 @@
+{
+  "name": "Formant Whistle",
+  "category": "Lead",
+  "tags": [
+    "Kanye West",
+    "808s & Heartbreak",
+    "Cold",
+    "Whistle",
+    "Soft"
+  ],
+  "description": "Airy whistle lead shaped by an 'oo' formant with gentle vibrato.",
+  "macros": [
+    "Air",
+    "Vowel",
+    "Vibrato",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.06,
+    "oscA_table": "Basic Shapes",
+    "oscA_pos": 0.05,
+    "oscA_oct": 1,
+    "noise_level": 0.08,
+    "flt_type": "Formant",
+    "flt_cutoff": 1700.0,
+    "flt_res": 0.6,
+    "flt_vowel": 0.95,
+    "amp_attack": 0.03,
+    "amp_release": 0.3,
+    "lfo1_rate": 5.2,
+    "rev_size": 0.7,
+    "rev_mix": 0.22,
+    "out_gain": -4.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Noise Level",
+    "mod1_amt": 0.2,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Formant",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Pitch",
+    "mod3_amt": 0.01,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.005
+  }
+}

@@ -6,7 +6,7 @@ Output gain trims measured by the offline renderer live in tools/presets/gain_tr
 here, so `python3 tools/presets/generate_presets.py` always reproduces the committed files.
 
 Usage:
-    python3 tools/presets/generate_presets.py              # write presets/
+    python3 tools/presets/generate_presets.py              # rebuild the library (see build_library.py)
     python3 tools/presets/generate_presets.py --trim report.json   # update trims from a render report, then write
 """
 import json
@@ -879,30 +879,9 @@ def main():
                 "discovery": 18, "haa": 8, "tron": 12, "ram": 8}
     assert counts == expected, counts
 
-    for old in os.listdir(PRESET_DIR):
-        if old.endswith(".json") and not old.startswith("000_"):
-            os.remove(os.path.join(PRESET_DIR, old))
-
-    for i, p in enumerate(PRESETS, start=1):
-        params = dict(p["params"])
-        trim = trims.get(p["name"], 0.0)
-        if abs(trim) > 0.05:
-            params["out_gain"] = trim
-        sparse = {}
-        for k in DEFAULTS:  # stable key order
-            if k in params and params[k] != DEFAULTS[k]:
-                v = params[k]
-                sparse[k] = round(v, 5) if isinstance(v, float) else v
-        doc = {
-            "name": p["name"], "category": p["category"], "tags": p["tags"], "description": p["description"],
-            "macros": p["macros"], "version": 1, "params": sparse,
-        }
-        path = os.path.join(PRESET_DIR, f"{i:03d}_{slug(p['name'])}.json")
-        with open(path, "w") as f:
-            json.dump(doc, f, indent=2)
-            f.write("\n")
-    write_docs()
-    print(f"wrote {len(PRESETS)} presets (+ Init) to {PRESET_DIR}")
+    # presets/ and docs/PRESETS.md are written by build_library.py (both batches + the user's selection).
+    import build_library
+    build_library.main()
 
 
 GROUP_INFO = [
@@ -918,49 +897,6 @@ GROUP_INFO = [
     ("tron", "Daft Punk – Tron: Legacy", "Monumentalne brassy, pulsujące basy i arpeggia."),
     ("ram", "Daft Punk – Random Access Memories", "Ciepłe analogowe polisynthy, funkowe klawisze i modularne basy."),
 ]
-
-
-def write_docs():
-    lines = [
-        "# VOLT – presety fabryczne",
-        "",
-        "121 presetów: **Init** + 60 inspirowanych Kanye Westem + 60 inspirowanych Daft Punk. *Nazwy* presetów nie zawierają",
-        "nazwisk artystów, nazw albumów ani tytułów utworów – inspiracja jest zapisana wyłącznie w tagach i w tym dokumencie.",
-        "Presety oddają charakter brzmień danej ery (barwa, obróbka, ruch); żaden nie odtwarza melodii.",
-        "",
-        "Wszystkie presety generuje `tools/presets/generate_presets.py` (ten plik też). Poziomy skorygowano rendererem offline",
-        "do ok. −15 LUFS (szczegóły w `docs/DECISIONS.md`). Każdy preset ma podpięte wszystkie cztery makra – ich etykiety",
-        "są w tabelach. Opisy presetów są po angielsku, bo tak wyświetla je interfejs pluginu.",
-        "",
-        "Kategorie: Bass, Lead, Pad, Keys, Arp, Brass, FX. Podglądy audio każdego presetu generuje CI",
-        "(artefakt `VOLT-preset-previews`).",
-        "",
-        "## Init",
-        "",
-        "| # | Preset | Kategoria | Makra | Opis |",
-        "|---|---|---|---|---|",
-        "| 000 | Init | Lead | Bright / Morph / Grit / Space | Neutral starting point with one saw oscillator and the four macros pre-wired to tone, morph, grit and space. |",
-        "",
-    ]
-    index = 1
-    for key, title, blurb in GROUP_INFO:
-        group = [p for p in PRESETS if p["group"] == key]
-        lines += [f"## {title} ({len(group)})", "", blurb, "",
-                  "| # | Preset | Kategoria | Tagi | Makra | Opis |", "|---|---|---|---|---|---|"]
-        for p in group:
-            num = PRESETS.index(p) + 1
-            tags = ", ".join(p["tags"])
-            lines.append(f"| {num:03d} | {p['name']} | {p['category']} | {tags} | {' / '.join(p['macros'])} | {p['description']} |")
-        lines.append("")
-    lines += ["## Liczba presetów w kategoriach", "", "| Kategoria | Presety |", "|---|---|"]
-    cats = {}
-    for p in [{"category": "Lead"}] + PRESETS:
-        cats[p["category"]] = cats.get(p["category"], 0) + 1
-    for c in ["Bass", "Lead", "Pad", "Keys", "Arp", "Brass", "FX"]:
-        lines.append(f"| {c} | {cats.get(c, 0)} |")
-    lines.append("")
-    with open(os.path.join(ROOT, "docs", "PRESETS.md"), "w") as f:
-        f.write("\n".join(lines))
 
 
 if __name__ == "__main__":

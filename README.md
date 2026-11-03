@@ -1,7 +1,8 @@
 # VOLT
 
 Minimalistyczny syntezator wavetable (VST3 + Standalone) z jednym ekranem, dużymi pokrętłami i biblioteką
-121 presetów inspirowanych brzmieniami Kanye Westa i Daft Punk. Główny cel: **Windows x64 i FL Studio**.
+136 presetów (Init + 135 wybranych po odsłuchu) inspirowanych brzmieniami Kanye Westa i Daft Punk, w tym gitary
+i pianina. Główny cel: **Windows x64 i FL Studio**.
 
 ![Interfejs VOLT – zakładka SYNTH](docs/ui-snapshot.png)
 
@@ -87,7 +88,9 @@ Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user pre
 **Świadomie pominięte** (nie ma ich w specyfikacji): pitch bend i pedał sustain (CC64). Obsługiwane są Mod Wheel
 i Aftertouch (jako źródła modulacji) oraz All Notes/Sound Off.
 
-Lista presetów z opisami i inspiracjami: [`docs/PRESETS.md`](docs/PRESETS.md).
+Lista presetów z opisami i inspiracjami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pad,
+Keys, Arp, Brass, FX. Lista w menu presetów jest ułożona według ery inspiracji; konkretną erę (np. „Yeezus”,
+„Discovery”) wybierzesz w filtrze tagów.
 
 ## Co zostało zweryfikowane automatycznie, a co wymaga odsłuchu i testu w FL Studio
 
@@ -98,8 +101,8 @@ Lista presetów z opisami i inspiracjami: [`docs/PRESETS.md`](docs/PRESETS.md).
   limit 16 głosów, Mono/Legato, wzorce i timing arpeggiatora, każdy typ przesteru, Pump, Delay, zanik pogłosu,
   Squash, sufit limitera, makra i macierz modulacji, fuzzing losowych parametrów (brak NaN/Inf), wydajność
   najgorszego przypadku, zapis/odczyt stanu sesji (wszystkie parametry, nazwa presetu, etykiety makr),
-  zapis i wczytanie presetu użytkownika, poprawność wszystkich 121 presetów (pola, kategorie, makra, zakazane nazwy),
-- **render offline wszystkich 121 presetów** (`VOLT_Render`): test nie przechodzi przy ciszy, NaN/Inf, szczycie
+  zapis i wczytanie presetu użytkownika, poprawność wszystkich presetów fabrycznych (pola, kategorie, makra, zakazane nazwy),
+- **render offline wszystkich presetów fabrycznych** (`VOLT_Render`): test nie przechodzi przy ciszy, NaN/Inf, szczycie
   > 0 dBFS, dużym DC, ogonie, który nie zanika, zbyt mocnej pracy limitera i niespójnej głośności; raport zawiera
   RMS, szczyt, głośność (LUFS), centroid widmowy i czas ogona (artefakt `VOLT-render-report`),
 - **pluginval** (strictness 5) na Linuksie i Windows, w tym otwieranie edytora, zapis/odczyt stanu i automatyzacja
