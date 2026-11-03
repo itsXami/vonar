@@ -149,6 +149,7 @@ void ModFx::reset()
     std::fill (bufL.begin(), bufL.end(), 0.0f);
     std::fill (bufR.begin(), bufR.end(), 0.0f);
     writePos = 0;
+    phase = 0.0; // deterministic start (offline renders do not depend on the previously played sound)
     fbL = fbR = 0.0f;
     for (int i = 0; i < 6; ++i)
         apL[i] = apR[i] = 0.0f;

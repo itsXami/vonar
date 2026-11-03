@@ -5,7 +5,7 @@ namespace volt
 {
 const juce::StringArray& PresetManager::categories()
 {
-    static const juce::StringArray c { "Bass", "Lead", "Pad", "Keys", "Arp", "Brass", "FX" };
+    static const juce::StringArray c { "Bass", "Lead", "Guitar", "Pad", "Keys", "Arp", "Brass", "FX" };
     return c;
 }
 

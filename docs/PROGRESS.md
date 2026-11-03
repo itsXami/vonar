@@ -47,7 +47,8 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 
 - Etap 6: `tools/presets/generate_presets.py` + `gain_trims.json` → `presets/*.json` (Init + 120).
   Procedura korekty: `python3 tools/presets/generate_presets.py` → build → `VOLT_Render --out render-out --no-previews`
-  → `python3 tools/presets/generate_presets.py --trim render-out/report.json` → build → render (powtarzać do 121/121).
+  → `python3 tools/presets/generate_presets.py --trim render-out/report.json` → build → render (powtarzać do 100%).
+  Uwaga: od scalenia partii `generate_presets.py` przebudowuje całą bibliotekę przez `build_library.py`.
 
 - Etap 7: README.md (PL), docs/PRESETS.md (generowany).
 
@@ -85,9 +86,14 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
   w `tools/presets/candidates/` (generator `tools/presets/generate_candidates.py`, trymy `candidate_trims.json`),
   render `VOLT_Render --dir tools/presets/candidates` → 100/100 przechodzi. Strona wyboru:
   https://claude.ai/artifact/4zcEKaiVxnxW9hdwkG4Tis (kolekcja `ratings`, `pNNN` = numer pliku kandydata 001–100).
-- Do zrobienia po wyborze użytkownika: usunąć „Usuń” z pierwszej partii, poprawić „Popraw”, dodać wybranych
-  kandydatów do `presets/`, kategoria „Guitar” w pluginie, kategorie/filtr wg ery artysty w przeglądarce presetów,
-  aktualizacja testów (liczność 121 przestanie obowiązywać), potem dalsze zmiany wyglądu.
+- ZROBIONE: biblioteka złożona z obu partii wg `tools/presets/selection.json` (werdykty z obu stron) przez
+  `tools/presets/build_library.py`: Init + 135 (pierwsza partia bez 34 „Usuń”, kandydaci bez 51 odrzuconych;
+  presety „Popraw” – 10 + 4 – zostały w obecnej formie na prośbę użytkownika „nie poprawiaj żadnych na razie”).
+  Kategoria „Guitar” dodana w pluginie. Lista ułożona wg ery. Render 136/136, −17,2…−13,6 LUFS, limiter ≤ 2,9 dB.
+  Jedyna zmiana poziomu: Crystal Keys out_gain −1 dB (limiter 3,1 dB > progu), brzmienie bez zmian.
+- DO ZROBIENIA: poprawić presety z listy „fix” w selection.json (uwagi: Long Glide 808 „nic nie słychać”,
+  Tom Drop 808 „za cicho”), nowe presety korzystające z silnika v2 (warp, String, Comb), osobny filtr ery w
+  przeglądarce presetów (na razie przez filtr tagów), dalsze zmiany wyglądu.
 
 ## Silnik v2 + zakładki (na prośbę użytkownika)
 - Warp (8 trybów) i typ String na oscylator, Comb+/Comb−, Mod Env, Random, 12 slotów, 8 nowych tablic, zakładki UI.
