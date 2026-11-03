@@ -17,7 +17,8 @@ public:
         : state (s),
           tableParam (state.getRawParameterValue (spec (OscA_Table + oscIndex * kOscParamCount).id)),
           posParam (state.getRawParameterValue (spec (OscA_Pos + oscIndex * kOscParamCount).id)),
-          levelParam (state.getRawParameterValue (spec (OscA_Level + oscIndex * kOscParamCount).id))
+          levelParam (state.getRawParameterValue (spec (OscA_Level + oscIndex * kOscParamCount).id)),
+          typeParam (state.getRawParameterValue (spec (OscA_Type + oscIndex * kOscParamCount).id))
     {
         setInterceptsMouseClicks (false, false);
     }
@@ -27,8 +28,10 @@ public:
         const int t = juce::roundToInt (tableParam->load());
         const float p = posParam->load();
         const bool on = levelParam->load() > 0.0001f;
-        if (t != lastTable || std::abs (p - lastPos) > 1.0e-4f || on != lastOn)
+        const bool str = juce::roundToInt (typeParam->load()) == choices::String;
+        if (t != lastTable || std::abs (p - lastPos) > 1.0e-4f || on != lastOn || str != lastString)
         {
+            lastString = str;
             lastTable = t;
             lastPos = p;
             lastOn = on;
@@ -77,6 +80,12 @@ public:
         const float d = lastPos;
         g.setColour (lastOn ? colours::osc : colours::dimText);
         g.strokePath (pathFor (cur, depthX * d, depthY * (1.0f - d)), juce::PathStrokeType (2.0f));
+        if (lastString)
+        {
+            g.setFont (VoltLookAndFeel::font (11.0f, true));
+            g.setColour (colours::osc);
+            g.drawText ("STRING  -  pluck shape", getLocalBounds().reduced (8, 4), juce::Justification::topRight);
+        }
     }
 
 private:
@@ -84,6 +93,8 @@ private:
     std::atomic<float>* tableParam;
     std::atomic<float>* posParam;
     std::atomic<float>* levelParam;
+    std::atomic<float>* typeParam;
+    bool lastString = false;
     int lastTable = -1;
     float lastPos = -1.0f;
     bool lastOn = true;
@@ -134,6 +145,15 @@ public:
                 const float kl = 3.96f * juce::jlimit (0.0f, 1.0f, r);
                 const cf p = (1.0f + s) * (1.0f + s);
                 h = (1.0f + 0.35f * kl) / (p * p + kl);
+                break;
+            }
+            case choices::CombPlus:
+            case choices::CombMinus:
+            {
+                const float mag = 0.2f + 0.775f * std::sqrt (juce::jlimit (0.0f, 1.0f, r));
+                const float fb = t == choices::CombPlus ? mag : -mag;
+                const cf z = std::polar (1.0f, -juce::MathConstants<float>::twoPi * f / juce::jmax (fc, 1.0f));
+                h = (1.0f - 0.85f * mag) / (1.0f - fb * z);
                 break;
             }
             case choices::Formant:

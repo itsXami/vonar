@@ -22,26 +22,30 @@ TARGET_LUFS = -15.0
 TABLES = ["Basic Shapes", "Analog Saw", "Analog Square", "Hollow", "Hyper Saw", "Saw Octaves", "PWM", "PWM Saw",
           "Sync Saw", "Sync Square", "Drawbars", "Drive Organ", "Pipe Organ", "Vowels", "Choir", "Talk Box",
           "Formant Sweep", "Bell Metal", "Metal Comb", "Ring Mod", "FM Bass", "FM Bell", "FM Brass", "FM Digital",
-          "Fold", "Crush", "Buzz", "Rasp", "Acid", "Brass", "Strings", "Sine Drive"]
+          "Fold", "Crush", "Buzz", "Rasp", "Acid", "Brass", "Strings", "Sine Drive",
+          "Pluck Body", "Hammer Piano", "Reed", "Glass Harmonics", "Vocal Fry", "Even Saturate", "Noise Cycle",
+          "Dual Formant"]
 SOURCES = ["LFO 1", "LFO 2", "Filter Env", "Velocity", "Mod Wheel", "Aftertouch", "Key Track",
-           "Macro 1", "Macro 2", "Macro 3", "Macro 4"]
+           "Macro 1", "Macro 2", "Macro 3", "Macro 4", "Mod Env", "Random"]
 DESTS = ["WT Pos A", "WT Pos B", "Pitch", "Pitch A", "Pitch B", "Cutoff", "Resonance", "Filter Drive", "Formant",
          "Level A", "Level B", "Sub Level", "Noise Level", "Pan A", "Pan B", "Dist Drive", "Dist Mix", "Mod FX Mix",
-         "Delay Mix", "Reverb Mix"]
+         "Delay Mix", "Reverb Mix", "Warp A", "Warp B", "Detune"]
 
 # Plugin defaults (must match Source/Params.cpp); used to keep the JSON sparse.
 DEFAULTS = {
     "voice_mode": "Poly", "glide": 0.0,
     "oscA_table": "Analog Saw", "oscA_pos": 0.0, "oscA_oct": 0, "oscA_semi": 0, "oscA_fine": 0.0, "oscA_level": 0.8,
-    "oscA_pan": 0.0, "oscA_voices": 1,
+    "oscA_pan": 0.0, "oscA_voices": 1, "oscA_type": "Wavetable", "oscA_warp": "Off", "oscA_warp_amt": 0.0,
     "oscB_table": "Basic Shapes", "oscB_pos": 0.0, "oscB_oct": 0, "oscB_semi": 0, "oscB_fine": 0.0, "oscB_level": 0.0,
-    "oscB_pan": 0.0, "oscB_voices": 1,
+    "oscB_pan": 0.0, "oscB_voices": 1, "oscB_type": "Wavetable", "oscB_warp": "Off", "oscB_warp_amt": 0.0,
+    "str_decay": 1.5, "str_tone": 0.6,
     "uni_detune": 0.25, "uni_spread": 0.5, "sub_shape": "Sine", "sub_level": 0.0, "noise_level": 0.0,
     "flt_type": "LP24", "flt_cutoff": 20000.0, "flt_res": 0.1, "flt_drive": 0.0, "flt_keytrack": 0.0,
     "flt_envamt": 0.0, "flt_vowel": 0.0,
     "amp_attack": 0.002, "amp_decay": 0.3, "amp_sustain": 1.0, "amp_release": 0.15,
     "fenv_attack": 0.002, "fenv_decay": 0.4, "fenv_sustain": 0.5, "fenv_release": 0.3,
     "penv_amount": 0.0, "penv_decay": 0.12,
+    "menv_attack": 0.002, "menv_decay": 0.5, "menv_sustain": 0.0, "menv_release": 0.3,
     "lfo1_shape": "Sine", "lfo1_sync": False, "lfo1_rate": 2.0, "lfo1_div": "1/4", "lfo1_depth": 1.0, "lfo1_retrig": False,
     "lfo2_shape": "Sine", "lfo2_sync": False, "lfo2_rate": 2.0, "lfo2_div": "1/4", "lfo2_depth": 1.0, "lfo2_retrig": False,
     "macro1": 0.0, "macro2": 0.0, "macro3": 0.0, "macro4": 0.0,
@@ -53,7 +57,7 @@ DEFAULTS = {
     "rev_size": 0.5, "rev_damping": 0.5, "rev_mix": 0.0,
     "squash": 0.0, "out_gain": 0.0,
 }
-for i in range(1, 9):
+for i in range(1, 13):
     DEFAULTS[f"mod{i}_src"] = "None"
     DEFAULTS[f"mod{i}_dst"] = "None"
     DEFAULTS[f"mod{i}_amt"] = 0.0
@@ -81,7 +85,7 @@ def P(group, name, category, desc, macros, mods=(), tags=(), **params):
         for dest, amt in routes:
             slots.append((f"Macro {i + 1}", dest, amt))
     slots.extend(mods)
-    assert len(slots) <= 8, f"{name}: {len(slots)} modulation slots"
+    assert len(slots) <= 12, f"{name}: {len(slots)} modulation slots"
     for i, (src, dst, amt) in enumerate(slots):
         assert src in SOURCES and dst in DESTS, (name, src, dst)
         params[f"mod{i + 1}_src"] = src

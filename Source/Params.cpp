@@ -48,26 +48,27 @@ double divisionToBeats (const juce::String& name)
 namespace
 {
 const juce::StringArray modSourceNames { "None", "LFO 1", "LFO 2", "Filter Env", "Velocity", "Mod Wheel",
-                                         "Aftertouch", "Key Track", "Macro 1", "Macro 2", "Macro 3", "Macro 4" };
+                                         "Aftertouch", "Key Track", "Macro 1", "Macro 2", "Macro 3", "Macro 4",
+                                         "Mod Env", "Random" };
 
 const juce::StringArray modDestNames { "None", "WT Pos A", "WT Pos B", "Pitch", "Pitch A", "Pitch B", "Cutoff",
                                        "Resonance", "Filter Drive", "Formant", "Level A", "Level B", "Sub Level",
                                        "Noise Level", "Pan A", "Pan B", "Dist Drive", "Dist Mix", "Mod FX Mix",
-                                       "Delay Mix", "Reverb Mix" };
+                                       "Delay Mix", "Reverb Mix", "Warp A", "Warp B", "Detune" };
 
-ParamSpec F (const char* id, const juce::String& name, float mn, float mx, float def, float centre = 0.0f, const char* unit = "")
+ParamSpec F (const juce::String& id, const juce::String& name, float mn, float mx, float def, float centre = 0.0f, const char* unit = "")
 {
     return { id, name, ParamType::Float, mn, mx, def, centre, unit, {} };
 }
-ParamSpec I (const char* id, const juce::String& name, int mn, int mx, int def, const char* unit = "")
+ParamSpec I (const juce::String& id, const juce::String& name, int mn, int mx, int def, const char* unit = "")
 {
     return { id, name, ParamType::Int, (float) mn, (float) mx, (float) def, 0.0f, unit, {} };
 }
-ParamSpec B (const char* id, const juce::String& name, bool def)
+ParamSpec B (const juce::String& id, const juce::String& name, bool def)
 {
     return { id, name, ParamType::Bool, 0.0f, 1.0f, def ? 1.0f : 0.0f, 0.0f, "", {} };
 }
-ParamSpec C (const char* id, const juce::String& name, const juce::StringArray& items, int def)
+ParamSpec C (const juce::String& id, const juce::String& name, const juce::StringArray& items, int def)
 {
     return { id, name, ParamType::Choice, 0.0f, (float) (items.size() - 1), (float) def, 0.0f, "", items };
 }
@@ -84,10 +85,13 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (Glide, F ("glide", "Glide", 0.0f, 2.0f, 0.0f, 0.25f, "s"));
 
     struct OscIds { const char* table; const char* pos; const char* oct; const char* semi; const char* fine;
-                    const char* level; const char* pan; const char* voices; const char* label; };
+                    const char* level; const char* pan; const char* voices; const char* type; const char* warp;
+                    const char* warpAmt; const char* label; };
     const OscIds oscs[2] = {
-        { "oscA_table", "oscA_pos", "oscA_oct", "oscA_semi", "oscA_fine", "oscA_level", "oscA_pan", "oscA_voices", "Osc A" },
-        { "oscB_table", "oscB_pos", "oscB_oct", "oscB_semi", "oscB_fine", "oscB_level", "oscB_pan", "oscB_voices", "Osc B" } };
+        { "oscA_table", "oscA_pos", "oscA_oct", "oscA_semi", "oscA_fine", "oscA_level", "oscA_pan", "oscA_voices",
+          "oscA_type", "oscA_warp", "oscA_warp_amt", "Osc A" },
+        { "oscB_table", "oscB_pos", "oscB_oct", "oscB_semi", "oscB_fine", "oscB_level", "oscB_pan", "oscB_voices",
+          "oscB_type", "oscB_warp", "oscB_warp_amt", "Osc B" } };
 
     for (int o = 0; o < 2; ++o)
     {
@@ -101,7 +105,13 @@ std::array<ParamSpec, NumParams> buildSpecs()
         set (base + 5, F (oscs[o].level, l + " Level", 0.0f, 1.0f, o == 0 ? 0.8f : 0.0f));
         set (base + 6, F (oscs[o].pan, l + " Pan", -1.0f, 1.0f, 0.0f));
         set (base + 7, I (oscs[o].voices, l + " Unison", 1, 8, 1));
+        set (base + 8, C (oscs[o].type, l + " Type", { "Wavetable", "String" }, 0));
+        set (base + 9, C (oscs[o].warp, l + " Warp", { "Off", "Sync", "Bend", "Squeeze", "Mirror", "Quantize", "FM", "RM" }, 0));
+        set (base + 10, F (oscs[o].warpAmt, l + " Warp Amount", 0.0f, 1.0f, 0.0f));
     }
+
+    set (StrDecay, F ("str_decay", "String Decay", 0.05f, 10.0f, 1.5f, 1.0f, "s"));
+    set (StrTone, F ("str_tone", "String Tone", 0.0f, 1.0f, 0.6f));
 
     set (UniDetune, F ("uni_detune", "Unison Detune", 0.0f, 1.0f, 0.25f));
     set (UniSpread, F ("uni_spread", "Unison Spread", 0.0f, 1.0f, 0.5f));
@@ -109,7 +119,7 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (SubLevel, F ("sub_level", "Sub Level", 0.0f, 1.0f, 0.0f));
     set (NoiseLevel, F ("noise_level", "Noise Level", 0.0f, 1.0f, 0.0f));
 
-    set (FltType, C ("flt_type", "Filter Type", { "LP12", "LP24", "HP", "BP", "Notch", "Ladder", "Formant" }, 1));
+    set (FltType, C ("flt_type", "Filter Type", { "LP12", "LP24", "HP", "BP", "Notch", "Ladder", "Formant", "Comb+", "Comb-" }, 1));
     set (FltCutoff, F ("flt_cutoff", "Cutoff", 20.0f, 20000.0f, 20000.0f, 1000.0f, "Hz"));
     set (FltRes, F ("flt_res", "Resonance", 0.0f, 1.0f, 0.1f));
     set (FltDrive, F ("flt_drive", "Filter Drive", 0.0f, 1.0f, 0.0f));
@@ -127,6 +137,10 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (FenvR, F ("fenv_release", "Filter Env Release", 0.002f, 12.0f, 0.3f, 0.8f, "s"));
     set (PenvAmt, F ("penv_amount", "Pitch Env Amount", -48.0f, 48.0f, 0.0f, 0.0f, "st"));
     set (PenvDecay, F ("penv_decay", "Pitch Env Decay", 0.005f, 3.0f, 0.12f, 0.25f, "s"));
+    set (MenvA, F ("menv_attack", "Mod Env Attack", 0.0005f, 10.0f, 0.002f, 0.4f, "s"));
+    set (MenvD, F ("menv_decay", "Mod Env Decay", 0.002f, 10.0f, 0.5f, 0.6f, "s"));
+    set (MenvS, F ("menv_sustain", "Mod Env Sustain", 0.0f, 1.0f, 0.0f));
+    set (MenvR, F ("menv_release", "Mod Env Release", 0.002f, 12.0f, 0.3f, 0.8f, "s"));
 
     const char* lfoIds[2][6] = { { "lfo1_shape", "lfo1_sync", "lfo1_rate", "lfo1_div", "lfo1_depth", "lfo1_retrig" },
                                  { "lfo2_shape", "lfo2_sync", "lfo2_rate", "lfo2_div", "lfo2_depth", "lfo2_retrig" } };
@@ -143,22 +157,14 @@ std::array<ParamSpec, NumParams> buildSpecs()
         set (base + 5, B (lfoIds[l][5], lfoNames[l][5], false));
     }
 
-    static const char* modIds[kNumModSlots][3] = {
-        { "mod1_src", "mod1_dst", "mod1_amt" }, { "mod2_src", "mod2_dst", "mod2_amt" },
-        { "mod3_src", "mod3_dst", "mod3_amt" }, { "mod4_src", "mod4_dst", "mod4_amt" },
-        { "mod5_src", "mod5_dst", "mod5_amt" }, { "mod6_src", "mod6_dst", "mod6_amt" },
-        { "mod7_src", "mod7_dst", "mod7_amt" }, { "mod8_src", "mod8_dst", "mod8_amt" } };
-    static const char* modNames[kNumModSlots][3] = {
-        { "Mod 1 Source", "Mod 1 Target", "Mod 1 Amount" }, { "Mod 2 Source", "Mod 2 Target", "Mod 2 Amount" },
-        { "Mod 3 Source", "Mod 3 Target", "Mod 3 Amount" }, { "Mod 4 Source", "Mod 4 Target", "Mod 4 Amount" },
-        { "Mod 5 Source", "Mod 5 Target", "Mod 5 Amount" }, { "Mod 6 Source", "Mod 6 Target", "Mod 6 Amount" },
-        { "Mod 7 Source", "Mod 7 Target", "Mod 7 Amount" }, { "Mod 8 Source", "Mod 8 Target", "Mod 8 Amount" } };
     for (int m = 0; m < kNumModSlots; ++m)
     {
         const int base = Mod1_Src + m * kModSlotParamCount;
-        set (base + 0, C (modIds[m][0], modNames[m][0], modSourceNames, 0));
-        set (base + 1, C (modIds[m][1], modNames[m][1], modDestNames, 0));
-        set (base + 2, F (modIds[m][2], modNames[m][2], -1.0f, 1.0f, 0.0f));
+        const juce::String n (m + 1);
+        const juce::String src = "mod" + n + "_src", dst = "mod" + n + "_dst", amt = "mod" + n + "_amt";
+        set (base + 0, C (src, "Mod " + n + " Source", modSourceNames, 0));
+        set (base + 1, C (dst, "Mod " + n + " Target", modDestNames, 0));
+        set (base + 2, F (amt, "Mod " + n + " Amount", -1.0f, 1.0f, 0.0f));
     }
 
     set (Macro1, F ("macro1", "Macro 1", 0.0f, 1.0f, 0.0f));
@@ -198,7 +204,7 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (OutGain, F ("out_gain", "Output Gain", -24.0f, 12.0f, 0.0f, 0.0f, "dB"));
 
     for ([[maybe_unused]] auto& p : s)
-        jassert (p.id != nullptr);
+        jassert (p.id.isNotEmpty());
     return s;
 }
 } // namespace

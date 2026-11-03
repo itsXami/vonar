@@ -163,7 +163,7 @@ void PresetManager::applyPreset (const PresetInfo& p)
         float value = s.defaultValue;
         if (p.params.hasProperty (s.id))
         {
-            const auto& v = p.params[s.id];
+            const auto& v = p.params[juce::Identifier (s.id)];
             switch (s.type)
             {
                 case ParamType::Choice:

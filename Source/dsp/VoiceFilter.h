@@ -4,6 +4,8 @@
 #include "Formants.h"
 #include "../Params.h"
 
+#include <vector>
+
 namespace volt
 {
 // Per-voice stereo filter: TPT state-variable (LP12/LP24/HP/BP/Notch), a zero-delay ladder with
@@ -12,12 +14,22 @@ namespace volt
 class VoiceFilter
 {
 public:
-    void prepare (double sr) noexcept { sampleRate = sr; reset(); }
+    void prepare (double sr)
+    {
+        sampleRate = sr;
+        combLen = (int) (sr / 16.0) + 4;
+        for (auto& c : comb)
+            c.assign ((size_t) combLen, 0.0f);
+        reset();
+    }
 
     void reset() noexcept
     {
         for (auto& c : ch)
             c = {};
+        for (auto& c : comb)
+            std::fill (c.begin(), c.end(), 0.0f);
+        combW[0] = combW[1] = 0;
         first = true;
     }
 
@@ -35,7 +47,7 @@ private:
 
     struct Coeffs
     {
-        float g = 0.1f, k = 1.0f, drive = 0.0f;
+        float g = 0.1f, k = 1.0f, drive = 0.0f, delay = 100.0f, fb = 0.0f;
         float fg[3] {}, fk[3] {}, fgain[3] {};
     };
 
@@ -58,6 +70,9 @@ private:
 
     double sampleRate = 44100.0;
     Channel ch[2];
+    std::vector<float> comb[2];
+    int combW[2] {};
+    int combLen = 0;
     Coeffs prev;
     int lastType = -1;
     bool first = true;
@@ -76,6 +91,13 @@ inline VoiceFilter::Coeffs VoiceFilter::computeCoeffs (int type, float cutoffHz,
         c.k = 3.96f * res;
     else
         c.k = 1.0f / (0.5f * std::pow (40.0f, res)); // Q 0.5 .. 20
+
+    if (type == choices::CombPlus || type == choices::CombMinus)
+    {
+        c.delay = clampf (sr / fc, 2.0f, (float) (combLen - 3));
+        const float mag = 0.2f + 0.775f * std::sqrt (res);
+        c.fb = type == choices::CombPlus ? mag : -mag;
+    }
 
     if (type == choices::Formant)
     {
@@ -103,6 +125,8 @@ inline void VoiceFilter::process (int type, float* L, float* R, int n, float cut
     {
         for (auto& c : ch)
             c = {};
+        for (auto& c : comb)
+            std::fill (c.begin(), c.end(), 0.0f);
         lastType = type;
         first = true;
     }
@@ -125,6 +149,10 @@ inline void VoiceFilter::process (int type, float* L, float* R, int n, float cut
         float* x = bufs[c];
         float g = from.g, k = from.k, d = from.drive;
         const float dg = (to.g - from.g) * inv, dk = (to.k - from.k) * inv, dd = (to.drive - from.drive) * inv;
+        float cd = from.delay, cfb = from.fb;
+        const float dcd = (to.delay - from.delay) * inv, dcfb = (to.fb - from.fb) * inv;
+        float* cbuf = comb[c].empty() ? nullptr : comb[c].data();
+        int cw = combW[c];
 
         float fg[3], fk[3], fgain[3], dfg[3], dfk[3], dfgain[3];
         for (int i = 0; i < 3; ++i)
@@ -191,6 +219,26 @@ inline void VoiceFilter::process (int type, float* L, float* R, int n, float cut
                     out = y4 * (1.0f + 0.35f * k);
                     break;
                 }
+                case choices::CombPlus:
+                case choices::CombMinus:
+                {
+                    cd += dcd;
+                    cfb += dcfb;
+                    if (cbuf == nullptr) { out = in; break; }
+                    float rp = (float) cw - cd;
+                    if (rp < 0.0f)
+                        rp += (float) combLen;
+                    const int i0 = (int) rp;
+                    const float fr = rp - (float) i0;
+                    const int i1 = i0 + 1 >= combLen ? 0 : i0 + 1;
+                    const float delayed = cbuf[i0] + fr * (cbuf[i1] - cbuf[i0]);
+                    const float y = in + cfb * delayed;
+                    cbuf[cw] = fastTanh (y * 0.5f) * 2.0f; // soft-limited feedback keeps max resonance stable
+                    if (++cw >= combLen)
+                        cw = 0;
+                    out = y * (1.0f - 0.85f * std::abs (cfb));
+                    break;
+                }
                 case choices::Formant:
                 default:
                 {
@@ -207,6 +255,7 @@ inline void VoiceFilter::process (int type, float* L, float* R, int n, float cut
             }
             x[i] = out;
         }
+        combW[c] = cw;
     }
 }
 } // namespace volt

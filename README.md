@@ -3,26 +3,36 @@
 Minimalistyczny syntezator wavetable (VST3 + Standalone) z jednym ekranem, dużymi pokrętłami i biblioteką
 121 presetów inspirowanych brzmieniami Kanye Westa i Daft Punk. Główny cel: **Windows x64 i FL Studio**.
 
-![Interfejs VOLT](docs/ui-snapshot.png)
+![Interfejs VOLT – zakładka SYNTH](docs/ui-snapshot.png)
+
+Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
 
 ## Funkcje w skrócie
 
 - **Silnik:** 16 głosów, tryby Poly / Mono / Legato, glide.
-- **Oscylatory A i B:** 32 wavetable generowane kodem (analogowe, supersaw, PWM, organowe, wokalne/formantowe,
-  metaliczne, FM, zgrzytliwe), płynny morfing pozycji, mipmapy przeciw aliasingowi, oktawa / półtony / dostrojenie /
-  poziom / panorama, unison do 8 głosów (Detune i Spread).
+- **Oscylatory A i B:** 40 wavetable generowanych kodem (analogowe, supersaw, PWM, organowe, wokalne/formantowe,
+  metaliczne, FM, zgrzytliwe, struny, fortepian, stroik, szkło), płynny morfing pozycji, mipmapy przeciw aliasingowi,
+  oktawa / półtony / dostrojenie / poziom / panorama, unison do 8 głosów (Detune i Spread).
+- **Warp każdego oscylatora:** Sync, Bend, Squeeze, Mirror, Quantize, FM i RM od drugiego oscylatora (z modulowanym
+  Amount).
+- **Oscylator String:** model szarpanej struny (Karplus-Strong) pobudzany kształtem wavetable – gitary, harfy, plucki;
+  wspólne pokrętła Decay i Tone.
 - **Sub** (sinus/trójkąt, oktawę pod Osc A) i **szum**.
 - **Filtr na głos:** LP12, LP24, HP, BP, Notch, Ladder (rezonans w stylu acid), Formant (morfing samogłosek
-  A-E-I-O-U, brzmienia w stylu talkboxa); Cutoff, Resonance, Drive, Key Track, Env Amount.
-- **Obwiednie:** Amp ADSR, Filter ADSR, Pitch Env (Amount, Decay) do 808 i zjazdów wysokości.
+  A-E-I-O-U, brzmienia w stylu talkboxa), Comb+ i Comb− (metaliczne rezonanse); Cutoff, Resonance, Drive,
+  Key Track, Env Amount.
+- **Obwiednie:** Amp ADSR, Filter ADSR, Mod Env (wolna obwiednia do dowolnego celu), Pitch Env (Amount, Decay)
+  do 808 i zjazdów wysokości.
 - **2 LFO** (sine, tri, saw, square, S&H; tempo sync, Rate, Depth, Retrigger).
-- **Macierz modulacji:** 8 slotów (źródło, cel, ilość) wybieranych z list.
+- **Macierz modulacji:** 12 slotów (źródło, cel, ilość) wybieranych z list; źródła m.in. LFO, obwiednie, Velocity,
+  Mod Wheel, Aftertouch, Key Track, Random (inna wartość dla każdej nuty), makra.
 - **4 makra** z etykietami zapisywanymi w presecie.
 - **Arpeggiator:** Up, Down, UpDown, Random; tempo, oktawy, gate.
 - **Efekty (w tej kolejności):** Distortion (Soft, Tube, Hard, Fold, Bitcrush; 4× oversampling) → Mod FX
   (Chorus, Phaser, Flanger) → Pump (ducking zsynchronizowany z tempem) → Delay (stereo / ping-pong, sync) →
   Reverb → Squash (3-pasmowy kompresor na jednym pokrętle) → Output Gain + limiter ochronny.
-- **Interfejs:** jeden ekran 1200×740 (skalowanie 75–200%), każda sekcja ma własny kolor (oscylatory turkus,
+- **Interfejs:** okno 1200×740 (skalowanie 75–200%) z zakładkami SYNTH / MODULATION / EFFECTS; makra, wyjście
+  i oscyloskop są zawsze widoczne na dole; każda sekcja ma własny kolor (oscylatory turkus,
   filtr pomarańcz, obwiednie zieleń, LFO i modulacja fiolet, efekty niebieski, makra żółty), wartość zawsze widoczna
   pod pokrętłem, krzywa filtra, przeglądarka presetów w górnym pasku.
 
@@ -57,20 +67,19 @@ Uwagi:
 zieleń – obwiednie (także obwiednia filtra w sekcji filtra); fiolet – LFO, macierz modulacji, arpeggiator, tryb
 głosu; niebieski – efekty i wyjście; żółty – makra. Kolorowe paski pod logo to legenda.
 
-**Sekcje ekranu (od góry):**
+**Układ okna:** u góry pasek presetów i zakładki, na dole zawsze widoczne MACROS (dwuklik na nazwie zmienia ją),
+OUTPUT i SCOPE.
 1. **Pasek presetów:** `<` `>` poprzedni/następny (w obrębie aktywnego filtra), kliknięcie nazwy otwiera menu
    presetów pogrupowane w kategorie, filtry kategorii i tagów, wyszukiwarka (nazwa, tagi, opis), **SAVE** zapisuje
    preset użytkownika, lista **75–200%** zmienia rozmiar okna (można też przeciągnąć narożnik).
-2. **OSC A / OSC B:** wybór wavetable, podgląd tablicy, duże pokrętło **WAVETABLE** (pozycja/morfing),
-   OCT, SEMI, FINE, LEVEL, PAN, UNISON (liczba głosów). **UNISON / SUB:** DETUNE i SPREAD (wspólne dla obu
-   oscylatorów), poziom SUB i NOISE, kształt sub.
-3. **FILTER:** typ, wykres charakterystyki filtra, Cutoff, Resonance, Drive, Keytrack, Env Amt, Vowel (aktywne
-   w trybie Formant) i obwiednia filtra (zielona).
-4. **AMP ENV, PITCH ENV, LFO 1/2** (SYNC przełącza Rate na podział nutowy, RETRIG restartuje LFO z każdą nutą),
-   **VOICE** (Poly/Mono/Legato, Glide).
-5. **MACROS** (dwuklik na nazwie makra zmienia ją), **ARPEGGIATOR**, **DISTORTION**, **MOD FX**, **PUMP**.
-6. **MODULATION** (8 slotów: źródło → cel, suwak ilości −100…+100% z wartością), **DELAY**, **REVERB**,
-   **SQUASH**, **OUTPUT**; oscyloskop jest w sekcji **SCOPE**.
+2. **Zakładka SYNTH:** OSC A / OSC B (wavetable, typ Wavetable/String, podgląd, pozycja, tryb warp i Warp Amount,
+   Octave, Semitones, Fine, Level, Pan, Unison), FILTER (typ, wykres, Cutoff, Resonance, Drive, Keytrack, Env Amt,
+   Vowel i zielona obwiednia filtra), UNISON / SUB / NOISE, STRING (Decay i Tone dla oscylatorów w trybie String),
+   AMP ENVELOPE, PITCH ENVELOPE, VOICE (Poly/Mono/Legato, Glide), ARPEGGIATOR.
+3. **Zakładka MODULATION:** LFO 1 i LFO 2 (kształt, Sync, Retrigger, Rate/podział, Depth), MOD ENVELOPE oraz
+   MODULATION MATRIX: 12 slotów źródło → cel z suwakiem ilości −100…+100%.
+4. **Zakładka EFFECTS:** sześć efektów w kolejności łańcucha: 1 Distortion, 2 Mod FX, 3 Pump, 4 Delay, 5 Reverb,
+   6 Squash.
 
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
 Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.

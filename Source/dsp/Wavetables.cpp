@@ -354,6 +354,88 @@ std::vector<TableDef> definitions()
         return std::tanh (g * sine (x)) / std::tanh (g);
     } });
 
+    // ---------------- second set: distinct acoustic-ish and textural sources ----------------
+    d.push_back ({ "Pluck Body", [] (double t, Spectrum& c) {
+        // Ideal plucked string: harmonic h is weighted by sin(pi * h * pickPosition) / h^2, pick moves along t.
+        const double beta = 0.04 + 0.42 * t;
+        for (int h = 1; h <= kWtMaxHarmonics; ++h)
+            addSine (c, h, std::abs (std::sin (kPi * h * beta)) / std::pow ((double) h, 1.6));
+    }, {} });
+
+    d.push_back ({ "Hammer Piano", [] (double t, Spectrum& c) {
+        // Hammer-struck string: soft roll-off, a resonance region around harmonics 4-9, brighter with t.
+        const double hc = 3.0 + 40.0 * t * t;
+        for (int h = 1; h <= kWtMaxHarmonics; ++h)
+        {
+            const double res = 1.0 + 0.8 * std::exp (-std::pow ((h - 6.0) / 3.0, 2.0));
+            const double strike = std::abs (std::sin (kPi * h / 7.3)) * 0.6 + 0.4;
+            addSine (c, h, res * strike / (h * (1.0 + std::pow (h / hc, 2.0))));
+        }
+    }, {} });
+
+    d.push_back ({ "Reed", [] (double t, Spectrum& c) {
+        // Clarinet (odd harmonics) morphing to a saxophone-like full spectrum with a formant bump.
+        for (int h = 1; h <= kWtMaxHarmonics; ++h)
+        {
+            const double odd = (h % 2 == 1) ? 1.0 : t * 0.9;
+            const double bump = 1.0 + 1.5 * std::exp (-std::pow ((h - 5.0 - 6.0 * t) / 3.0, 2.0));
+            addSine (c, h, odd * bump / std::pow ((double) h, 1.3));
+        }
+    }, {} });
+
+    d.push_back ({ "Glass Harmonics", [] (double t, Spectrum& c) {
+        // Sparse square-number partials (1, 4, 9, 16, ...) fading in for a glassy, bell-like tone.
+        addSine (c, 1, 1.0);
+        for (int k = 2; k <= 12; ++k)
+        {
+            const int h = k * k;
+            const double on = juce::jlimit (0.0, 1.0, t * 12.0 - (k - 2));
+            addSine (c, h, on * 0.7 / std::sqrt ((double) k));
+        }
+    }, {} });
+
+    d.push_back ({ "Vocal Fry", [] (double t, Spectrum& c) {
+        // Narrow glottal pulse train shaped by a moving open vowel: raspy, buzzy voice.
+        const auto v = vowelAt ((float) (0.2 + 0.6 * t));
+        for (int h = 1; h <= kWtMaxHarmonics; ++h)
+            addSine (c, h, formantGain (v, 95.0 * h, 1.0) * 1.2 / std::pow ((double) h, 0.55), (h % 3) * 0.7);
+    }, {} });
+
+    d.push_back ({ "Even Saturate", {}, [] (double x, double t) {
+        // Asymmetric (even-harmonic) saturation of a sine, like an overdriven valve stage.
+        const double g = 0.5 + 6.0 * t;
+        const double v = std::tanh (g * sine (x) + 0.6 * t) - std::tanh (0.6 * t);
+        return v / std::tanh (g + 0.6 * t);
+    } });
+
+    d.push_back ({ "Noise Cycle", {}, [] (double x, double t) {
+        // A fixed random cycle (smoothed noise) that gets rougher with t: textured, airy loops.
+        static const std::vector<double> pts = [] {
+            std::vector<double> v (64);
+            Lcg r (2024);
+            for (auto& p : v)
+                p = 2.0 * r.next() - 1.0;
+            return v;
+        }();
+        const int segs = 4 + (int) (60.0 * t);
+        const double u = frac (x) * segs;
+        const int k = (int) u;
+        const double f = u - k;
+        const double a = pts[(size_t) (k % 64)], b = pts[(size_t) ((k + 1) % segs % 64)];
+        const double sm = f * f * (3.0 - 2.0 * f);
+        return lerp (a, b, sm) * 0.8 + 0.2 * sine (x);
+    } });
+
+    d.push_back ({ "Dual Formant", [] (double t, Spectrum& c) {
+        // Two resonant peaks moving in opposite directions over a saw source: wah / talk-like crossings.
+        const double p1 = 2.0 + 18.0 * t, p2 = 24.0 - 18.0 * t;
+        for (int h = 1; h <= kWtMaxHarmonics; ++h)
+        {
+            const double d1 = (h - p1) / (0.15 * p1 + 0.8), d2 = (h - p2) / (0.15 * p2 + 0.8);
+            addSine (c, h, (0.1 + 2.0 / (1.0 + d1 * d1) + 2.0 / (1.0 + d2 * d2)) / h, (h % 2 == 0) ? kPi : 0.0);
+        }
+    }, {} });
+
     return d;
 }
 

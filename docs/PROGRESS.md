@@ -89,6 +89,13 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
   kandydatów do `presets/`, kategoria „Guitar” w pluginie, kategorie/filtr wg ery artysty w przeglądarce presetów,
   aktualizacja testów (liczność 121 przestanie obowiązywać), potem dalsze zmiany wyglądu.
 
+## Silnik v2 + zakładki (na prośbę użytkownika)
+- Warp (8 trybów) i typ String na oscylator, Comb+/Comb−, Mod Env, Random, 12 slotów, 8 nowych tablic, zakładki UI.
+  Szczegóły i uzasadnienia w DECISIONS.md („Rozbudowa silnika”). Testy: `tests/EngineV2Tests.cpp`.
+- Istniejące presety brzmią identycznie (render przed/po: 0,0 LU różnicy). Kandydaci z drugiej partii jeszcze nie
+  korzystają z nowych funkcji – przy kolejnych presetach warto ich używać (warp, String, Comb, Random).
+- Generator presetów zna nowe parametry (`generate_presets.py`: DEFAULTS, TABLES, SOURCES, DESTS, limit 12 slotów).
+
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
 - `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.

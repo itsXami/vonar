@@ -180,3 +180,32 @@ z naciskiem na to, żeby łatwo było widzieć, co czym jest. Ustalone z użytko
   pierścienie modulacji) nie zostały wybrane.
 - **Czcionka Inter** (Regular i SemiBold) osadzona przez BinaryData – licencja SIL OFL w `resources/fonts/OFL-Inter.txt`.
   Domyślna czcionka JUCE na Windows (Verdana) wyglądała przestarzale.
+
+## Rozbudowa silnika (silnik v2) i zakładki – na prośbę użytkownika
+
+Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił o mocne rozbudowanie silnika
+(z dopuszczeniem zakładek jak w Vitalu zamiast jednego ekranu).
+- **Tryby warp na oscylator** (`oscA_warp`, `oscA_warp_amt`, analogicznie B): Sync (wirtualny hard sync ×1…×8),
+  Bend (krzywa fazy), Squeeze (phase distortion), Mirror (odbicie cyklu, crossfade), Quantize (schodkowanie fazy),
+  FM i RM od drugiego oscylatora (modulatorem jest pierwszy głos unisonu drugiego oscylatora z jego tablicą,
+  pozycją i wysokością – działa też, gdy drugi oscylator ma poziom 0, czyli jako „cichy operator”).
+  Pętle renderujące są szablonem na tryb (`wavetableLoop<Mode>`), żeby nie płacić za `switch` w każdej próbce.
+  Przy Sync/FM/Mirror mip wybierany jest z uwzględnieniem efektywnego mnożnika częstotliwości.
+- **Oscylator String** (`oscA_type`: Wavetable/String): Karplus-Strong na każdy głos unisonu. Pobudzenie = jeden
+  okres bieżącej klatki wavetable + 15% szumu (pozycja wavetable zmienia charakter szarpnięcia), w pętli
+  jednobiegunowy LP (Tone) i wzmocnienie dające zanik −60 dB po czasie Decay. Strojenie kompensuje opóźnienie grupowe
+  filtra pętli (test: błąd < 1,2% dla E2, A3, A4). Legato bez retriggera nie szarpie struny ponownie.
+- **Filtry Comb+ i Comb−** (sprzężenie dodatnie/ujemne, opóźnienie = 1/cutoff, Resonance = siła sprzężenia,
+  miękkie ograniczanie w pętli).
+- **Mod Env** (trzecia obwiednia ADSR, `menv_*`) i **Random** (losowa wartość −1…1 przy każdej nucie, z osobnego
+  generatora, żeby nie zmieniać losowania faz unisonu) jako nowe źródła; **12 slotów** macierzy (`mod9…mod12`);
+  nowe cele: Warp A, Warp B, Detune.
+- **8 nowych tablic** (dopisanych na końcu listy, więc indeksy starych się nie zmieniły): Pluck Body, Hammer Piano,
+  Reed, Glass Harmonics, Vocal Fry, Even Saturate, Noise Cycle, Dual Formant.
+- **Zgodność wstecz:** wszystkie nowe parametry mają wartości domyślne wyłączające nowe funkcje; nowe pozycje list
+  wyboru dopisano na końcu. Render 121 presetów fabrycznych przed i po zmianie: różnica głośności 0,0 LU.
+  `ParamSpec::id` jest teraz `juce::String` (ID slotów 9–12 są generowane).
+- **Zakładki:** SYNTH (oscylatory, filtr, unison/sub/szum, string, obwiednie, voice, arp), MODULATION (LFO 1/2 z dużymi
+  pokrętłami, Mod Env, macierz 12 slotów), EFFECTS (6 efektów w kolejności łańcucha, numerowanych 1–6). Pasek
+  presetów u góry oraz makra, wyjście i oscyloskop na dole są widoczne zawsze. Wybrana zakładka zapisywana jest
+  we właściwości stanu `uiTab`. To świadome odejście od pierwotnego „jednego ekranu bez zakładek”, na prośbę użytkownika.
