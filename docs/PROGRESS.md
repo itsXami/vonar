@@ -195,8 +195,10 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   Render 136/136 (mediana −15,0 LUFS). Mediany odległości do najbliższego sąsiada po etapie C: Arp 1.71 (było 1.36),
   Bass 1.66 (1.70), Guitar 1.65 (1.93), Lead 1.40 (1.38), Keys 1.24 (1.26), Brass 1.22, Pad 1.21, FX 2.70.
   Cel ≥ 1.6 w każdej kategorii – Keys, Pad, Brass i Lead nadal poniżej; to zadanie dla nowych partii w etapie D.
-- Otwarte pytanie do użytkownika (przed etapem D): czy partie D przechodzą odsłuch i wybór. Użytkownik napisał
-  „ale z presetami co lubię” – możliwe, że chodzi o wybór typu „biorę tylko to, co mi się podoba” (do potwierdzenia). Propozycja Claude:
+- **Decyzja użytkownika (2026-11-12) – wybór w etapie D:** lekki wybór. Partie po 20–30 presetów jednej kategorii,
+  każdy domyślnie zostaje; użytkownik obiektywnie odrzuca słabe („Usuń”) i pilnuje, żeby nie były takie same
+  („Za podobny do…” – wskazuje, do którego presetu). Strona odsłuchu ma więc dla każdego presetu: odtwarzacz,
+  „Usuń”, „Za podobny do…” (wybór presetu z listy), pole na uwagę; brak kliknięcia = zostaje. Propozycja Claude:
   lekki wybór – partie 20–30 presetów z jednej kategorii, domyślnie „zostaw”, użytkownik zaznacza tylko
   „usuń”/„popraw”.
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
