@@ -1,0 +1,53 @@
+{
+  "name": "Xylophone Bright",
+  "category": "Bell",
+  "tags": [
+    "Acoustic",
+    "Xylophone",
+    "Bright",
+    "Short"
+  ],
+  "description": "Hard-mallet xylophone: short, bright and clicky.",
+  "macros": [
+    "Click",
+    "Bar",
+    "Length",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Basic Shapes",
+    "oscA_oct": 1,
+    "oscB_oct": 2,
+    "oscB_semi": 7,
+    "oscB_level": 0.15,
+    "flt_type": "LP12",
+    "flt_cutoff": 8000.0,
+    "flt_envamt": 0.3,
+    "amp_attack": 0.007,
+    "amp_decay": 1.0,
+    "amp_sustain": 0.0,
+    "fenv_decay": 0.02,
+    "fenv_sustain": 0.0,
+    "dist_mix": 0.5,
+    "rev_size": 0.3,
+    "rev_mix": 0.08,
+    "squash": 0.6,
+    "out_gain": -1.5,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Level B",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Level A",
+    "mod3_amt": 0.2,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.3
+  }
+}
