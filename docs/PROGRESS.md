@@ -102,6 +102,25 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
   korzystają z nowych funkcji – przy kolejnych presetach warto ich używać (warp, String, Comb, Random).
 - Generator presetów zna nowe parametry (`generate_presets.py`: DEFAULTS, TABLES, SOURCES, DESTS, limit 12 slotów).
 
+## Ścieżka rozwoju – wersja publiczna (ustalona z użytkownikiem 2026-11-12)
+Cel: syntezator będzie publiczny, więc podejście neutralne i profesjonalne.
+- **A. Neutralizacja:** usunąć wszystkie odwołania do artystów/albumów (tagi presetów, docs/PRESETS.md, README,
+  grupy w generatorach); neutralne tagi stylu (Dark, Bright, Aggressive, Vintage, Cinematic, Lo-Fi, House, Trap,
+  Synthwave…); lista presetów wg kategorii brzmienia (kategorie „wg ery” odpadają). Test zakazanych nazw zostaje.
+- **B. Profesjonalny wygląd:** kierunek „nowoczesny, w stylu Serum 2” (ciemny, czysty, dużo wizualizacji: wavetable,
+  obwiednie, LFO, wyrazisty akcent) – inspiracja ogólnym stylem, bez kopiowania grafik/układu. Najpierw 2–3 makiety,
+  potem wdrożenie (logo, typografia, pokrętła, grafiki obwiedni i LFO, przeglądarka presetów, okno „O programie”).
+- **C. Silnik:** pitch bend + sustain (CC64) – niezbędne dla publicznego wydania; poprawa 14 presetów „Popraw”.
+- **D. Biblioteka ok. 300 presetów** partiami wg kategorii, z odsłuchem i wyborem przez użytkownika. Proponowane
+  kategorie: Bass, Lead, Pluck, Bell & Mallet, Keys & Piano, Pad, Strings, Brass, Guitar, Arp & Sequence, Organ,
+  Vocal & Choir, FX. Plucki/belle/mallety/gitary na oscylatorze String i trybach warp. ~135 obecnych zostaje.
+- **E. Wydanie:** instalator Windows, podpis kodu (koszt), wersja 1.0.0, instrukcja, plik licencji (JUCE, Inter OFL),
+  testy w kilku DAW i betatesty. Platformy: raczej Windows + Linux (do potwierdzenia).
+- **F. Później:** presety do Vitala, instrumenty z sampli.
+- **Otwarte decyzje użytkownika:** licencja/dystrybucja (AGPL open source vs zamknięty kod z licencją JUCE vs płatny),
+  ostateczne platformy, nazwa (VOLT koliduje z interfejsami Universal Audio Volt – użytkownik zajmie się tym później).
+- Commity samej dokumentacji mają `[skip ci]`, żeby nie zużywać minut GitHub Actions.
+
 ## Mapa kodu
 - `Source/Params.*` – tabela parametrów (ID, zakresy, domyślne), snapshot dla wątku audio.
 - `Source/dsp/Wavetables.*` – generatory tablic i mipmapy.
