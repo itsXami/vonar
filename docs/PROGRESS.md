@@ -112,7 +112,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | Etap | Status |
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
-| B. Profesjonalny wygląd | ⏳ następny: najpierw 2–3 makiety do wyboru, dopiero potem wdrożenie |
+| B. Profesjonalny wygląd | ⏳ makiety gotowe, czekamy na wybór użytkownika (opis niżej); wdrożenie dopiero po wyborze |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
@@ -131,8 +131,22 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   ≤ 2,9 dB – identycznie jak przed zmianą). pluginval i build Windows sprawdza CI po pushu.
 - Do decyzji użytkownika: (1) wpis o prawach autorskich w README to na razie „autorzy projektu VOLT” – można
   podać imię/pseudonim; (2) nazwy z luźnymi skojarzeniami zostały (np. Throne Brass, Sunday Drawbars, Praise Bass,
-  Neon Grid Pad) – to zwykłe słowa, ale użytkownik może je zmienić; (3) tytuł i opis PR #1 oraz jeden stary
-  komunikat commita nadal wymieniają artystów – przy upublicznieniu scalić PR metodą „squash” i usunąć gałąź.
+  Neon Grid Pad) – to zwykłe słowa, ale użytkownik może je zmienić; (3) jeden stary komunikat commita nadal
+  wymienia artystów – przy upublicznieniu scalić PR metodą „squash” i usunąć gałąź (tytuł i opis PR #1 są już
+  zneutralizowane).
+- CI po etapie A (commit 7e995c0, run 43276908313): Linux i Windows zielone.
+
+**Etap B – makiety (czeka na wybór):**
+- Trzy kierunki jako rysunki wektorowe okna 1200×740 (zakładka SYNTH): `docs/mockups/volt-ui-1.svg` „Łuk”
+  (jeden akcent – elektryczny błękit, obwiednie i LFO stale widoczne jako pasek wykresów), `volt-ui-2.svg`
+  „Spektrum” (kolor na sekcję jak dziś, ale dojrzalej; jeden duży wykres obwiedni z przełącznikiem, mini-LFO;
+  nic nie zmienia zakładki), `volt-ui-3.svg` „Żarnik” (duży ekran kontekstowy u góry, pulpit pokręteł bez ramek,
+  ciepła czerń i pomarańcz). Generator: `python3 tools/ui/mockups.py [--html plik.html]`.
+- Strona porównania dla użytkownika: https://claude.ai/artifact/4PoVCLzn4xfhM6WgvS39dd (rekomendacja Claude: 1;
+  bezpieczniejsza alternatywa: 2). Użytkownik może też łączyć (np. układ z 1, kolory z 2).
+- Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
+  pokrętła, wykresy obwiedni i LFO, przeglądarka presetów, okno „O programie” z licencją), zrzuty przez
+  `VOLT_Render --snapshot`, odświeżyć `docs/ui-*.png` i README.
 - **A. Neutralizacja:** usunąć wszystkie odwołania do artystów/albumów (tagi presetów, docs/PRESETS.md, README,
   grupy w generatorach); neutralne tagi stylu (Dark, Bright, Aggressive, Vintage, Cinematic, Lo-Fi, House, Trap,
   Synthwave…); lista presetów wg kategorii brzmienia (kategorie „wg ery” odpadają). Test zakazanych nazw zostaje.
