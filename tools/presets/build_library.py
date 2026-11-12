@@ -17,14 +17,36 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import generate_candidates as gc  # noqa: E402  (imports generate_presets as gc.gp and defines both batches)
 import generate_fixes as gf  # noqa: E402  (reworked versions of the presets marked "fix")
+import importlib  # noqa: E402
+
+# Stage D batches, in the order they were made: generator module -> its batch name in selection.json "batches".
+BATCHES = ["keys1"]
+
+
+def batch_candidates(sel):
+    """Candidates of every finished batch the user has not removed (or marked as too similar)."""
+    out = []
+    for name in BATCHES:
+        mod = importlib.import_module("generate_batch_" + name)
+        verdicts = sel.get("batches", {}).get(name, {})
+        dropped = set(verdicts.get("removed", [])) | set(verdicts.get("similar", {}))
+        trims = load_json(os.path.join("batches", name + "_trims.json"), {})
+        for p in mod.CANDIDATES:
+            if p["name"] not in dropped:
+                out.append((p, trims.get(p["name"], 0.0)))
+    return out
 
 gp = gc.gp
 # Must match PresetManager::categories() in Source/PresetManager.cpp.
-CATEGORY_ORDER = ["Bass", "Lead", "Guitar", "Pad", "Keys", "Arp", "Brass", "FX"]
+CATEGORY_ORDER = ["Bass", "Lead", "Guitar", "Pluck", "Keys", "Bell", "Pad", "Strings", "Brass", "Woodwind", "Arp", "FX"]
 CATEGORY_INFO = {
     "Bass": "Suby i 808, basy przesterowane, acid, reese, FM, funkowe i analogowe.",
     "Lead": "Leady mono i poly: supersaw, sync, formantowe, miękkie sinusy, flety i brzmienia solowe.",
     "Guitar": "Brzmienia gitarowe: przester, palm mute, czyste funkowe, slide i sustain.",
+    "Pluck": "Krótkie, szarpane i uderzane brzmienia do melodii i rytmów.",
+    "Bell": "Dzwony, dzwonki, mallety i metaliczne, szklane barwy.",
+    "Strings": "Smyczki: zespoły, solo, pizzicato, tremolo i syntetyczne sekcje.",
+    "Woodwind": "Instrumenty dęte drewniane i stroikowe: flety, klarnety, obój, saksofon, harmonijka.",
     "Pad": "Pady, chóry i smyczki – od zimnych i oszczędnych po szerokie, pompujące i ewoluujące.",
     "Keys": "Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.",
     "Arp": "Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.",
@@ -54,6 +76,9 @@ def library():
     for name in fixes:
         trims[name] = fix_trims.get(name, 0.0)
     chosen = [fixes.get(p["name"], p) for p in chosen]
+    for p, trim in batch_candidates(sel):
+        chosen.append(p)
+        trims[p["name"]] = trim
     names = [p["name"] for p in chosen]
     assert len(names) == len(set(names)), "duplicate preset names"
     cat = {c: i for i, c in enumerate(CATEGORY_ORDER)}

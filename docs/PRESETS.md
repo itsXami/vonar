@@ -1,6 +1,6 @@
 # VOLT – presety fabryczne
 
-136 presetów: **Init** + 135 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
+158 presetów: **Init** + 157 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
 brzmienia, a w kategorii alfabetycznie – tak samo jak w menu presetów pluginu. Presety oznaczone w kolumnie
 *Uwaga* jako „do poprawki” zostały wybrane do poprawienia w kolejnym kroku.
 
@@ -104,82 +104,89 @@ Brzmienia gitarowe: przester, palm mute, czyste funkowe, slide i sustain.
 | 065 | Palm Mute Chug | Industrial, Guitar, Distorted | Gain / Mute / Low / Room | Tight palm-muted chug with a hard-clipped bite for industrial riffs. |  |
 | 066 | Phaser Rhythm Guitar | Analog, Guitar, Funk | Phase / Tone / Gain / Room | Seventies rhythm guitar swirling through a slow phaser. |  |
 
+## Keys (47)
+
+Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.
+
+| # | Preset | Tagi | Makra | Opis | Uwaga |
+|---|---|---|---|---|---|
+| 067 | Autopan Electric Piano | Analog, Electric Piano, Vintage | Bark / Pan / Phase / Room | Bell-toned electric piano with stereo auto-pan and velocity bark. |  |
+| 068 | Bellows Harmonium | Organ, Reed, Acoustic | Breath / Reed / Sway / Room | Pumped reed organ that breathes in with each chord and sways with the bellows. |  |
+| 069 | Breaker Keys | Industrial, Stab, Digital | Index / Crush / Tone / Room | FM stab that starts as clean glass and breaks into bit-crushed grit as it decays. |  |
+| 070 | Buzzy Combo Organ | Organ, Garage, Buzzy | Buzz / Vibrato / Tone / Echo | Thin, buzzy transistor organ with a quick vibrato, built for surf and garage. |  |
+| 071 | Cassette Keys | Lo-Fi, Electric Piano, Tape, Wobble | Wow / Hiss / Tone / Room | Electric piano played back from a cassette: wow, flutter and a dull top end. |  |
+| 072 | Chicago Organ Stab | House, Raw, Organ | Drawbars / Tone / Grit / Room | Short house organ stab with a punchy decay. |  |
+| 073 | Chord Memory Stab | House, Raw, Stab | Snap / Res / Dub / Room | Classic house chord stab with a snappy filter and a dub echo. |  |
+| 074 | Chorus Tine EP | Warm, Electric Piano, Chorus, Soft | Bark / Wave / Tone / Room | Soft FM tine piano drifting through a slow, deep chorus. |  |
+| 075 | Cross Mod Keys | Vintage, Metallic, Dark, Ring Mod | Metal / Ratio / Tone / Room | Dark ring-modulated keys with a metallic edge that wobbles between the oscillators. |  |
+| 076 | Crystal Keys | House, Disco, Bright, Keys | Crystal / Tone / Width / Hall | Bright FM keys with a crisp attack and silky tail. |  |
+| 077 | Dark Ballad Piano | Epic, Piano, Dramatic | Dark / Hammer / Echo / Hall | Dark, distant piano with a cathedral tail for dramatic intros. |  |
+| 078 | Deep Echo Keys | Warm, Delay, Dark, Rhythmic | Echo / Tone / Length / Space | Short, dark keys whose dotted echoes carry the rhythm. |  |
+| 079 | Dream Keys | House, Disco, Keys, Sweet | Haze / Tone / Echo / Hall | Hazy, sweet keys smeared with chorus and ping-pong echoes. |  |
+| 080 | Dulcimer Keys | Warm, Plucked, Folk, Shimmer | Shimmer / Bright / Ring / Hall | Hammered dulcimer: doubled strings that beat against each other and ring on. |  |
+| 081 | Dusty Upright | Lo-Fi, Piano, Vinyl, Saturated | Dust / Crunch / Tone / Room | Hammered string piano sampled from dusty vinyl, saturated and narrow. |  |
+| 082 | Electric Tine Keys | Analog, Keys, Vintage | Bark / Tone / Trem / Room | Soft electric-piano-like tines with a velocity-driven bark. |  |
+| 083 | Felt Grand | Cold, Piano, Soft | Felt / Hammer / Body / Room | Soft felt piano with a muted hammer and gentle room. |  |
+| 084 | Felt Tine EP | Warm, Electric Piano, Soft, Dark | Felt / Tine / Width / Hall | Muffled electric piano with a slow felt attack, made for quiet late-night chords. |  |
+| 085 | Funk Clav Keys | Analog, Funk, Keys | Bite / Pulse / Phase / Room | Tight funky clav tone with a percussive filter bite. |  |
+| 086 | Funky Filter Keys | House, Raw, Funk | Wah / Pulse / Phase / Room | Clav-style pulse keys with a resonant envelope wah. |  |
+| 087 | Glass Piano | Cinematic, Piano | Glass / Shimmer / Echo / Hall | Struck glass strings that ring like a piano and shimmer with a high bell overtone. |  |
+| 088 | Gloss Pluck | Stadium, Pluck, Bright | Gloss / Body / Echo / Hall | Glassy FM pluck layered with a soft triangle for shiny chords. |  |
+| 089 | Grand Synth Keys | Epic, Keys, Warm | Attack / Body / Tone / Hall | Piano-like synth keys mixing a soft bell attack and a warm square body. |  |
+| 090 | Honky Tonk Bar | Gospel, Piano, Vintage | Detune / Bright / Room / Grit | Out-of-tune saloon piano with two strings per note beating against each other. |  |
+| 091 | House Piano Stab | House, Raw, Piano | Bright / Grit / Width / Room | Bright stacked house piano that cuts through a dance mix and pumps. |  |
+| 092 | Marimba Keys | Stadium, Mallet, Bright | Knock / Tone / Echo / Room | Woody mallet keys with a quick knock and short ring. |  |
+| 093 | Muted Felt Upright | Warm, Piano, Dark, Intimate | Felt / Ring / Air / Room | Upright piano with felt over the strings: short, dark and intimate. |  |
+| 094 | Ooh Vowel Keys | Warm, Vocal, Soft, Formant | Vowel / Air / Width / Hall | Keys that sing a soft 'ooh' and open towards 'ah' the harder you play. |  |
+| 095 | Overdrive Rock Organ | Organ, Rock, Driven | Drive / Spin / Bite / Room | Organ through a cranked amp and a spinning phaser, snarling on held chords. |  |
+| 096 | Phaser Tremolo EP | Warm, Electric Piano, Phaser, Tremolo | Trem / Phase / Tone / Room | Round electric piano pulsing with a four-hertz tremolo inside a slow phaser. |  |
+| 097 | Pumping Filter Chords | House, Disco, Pump, Filter House | Filter / Phase / Grit / Hall | Saw chord stack that pumps on every beat while the filter sweeps open. |  |
+| 098 | Reed Electric Piano | Analog, Electric Piano, Vintage | Bark / Reed / Soft / Room | Reedy, slightly barking electric piano with tube grit when played hard. |  |
+| 099 | Reed Growl Keys | Vintage, Electric Piano, Reed, Nasal | Growl / Body / Vibe / Room | Nasal reed piano squeezed into a vocal growl that opens with velocity. |  |
+| 100 | Saturated Keys Stab | Industrial, Stab, Distorted | Drive / Bite / Tone / Room | Overdriven brassy key stab that hits like a slap. |  |
+| 101 | Sidechain Organ | House, Disco, Pump, Organ | Drawbars / Tone / Phase / Hall | House organ chords breathing with a strong quarter-note pump. |  |
+| 102 | Slow Phaser Chords | Warm, Phaser, Chords, Analog | Phase / Warmth / Width / Hall | Warm analog major-seventh chords washed by a deep phaser that takes four seconds per sweep. |  |
+| 103 | Smoky Lounge Keys | Lo-Fi, Dark, Bar, Warm | Smoke / Warmth / Wear / Room | Dark, warm bar keys with a rounded attack, a little hiss and a tired, slightly detuned body. |  |
+| 104 | Soft Mirror Keys | Warm, Synth, Soft, Hollow | Hollow / Tone / Vibrato / Room | Rounded triangle keys folded by mirror warp into a soft, hollow tone. |  |
+| 105 | Steel String Synth | Mechanical, Rock, Pluck | Pick / Fuzz / Pulse / Room | Plucky pulse tone with fuzz that mimics a picked electric guitar. |  |
+| 106 | String Clav | Vintage, Clav, Funk, Plucked | Pick / Thin / Phase / Room | Thin plucked-string clav with a bright pick and a tight high-passed body. |  |
+| 107 | Sunday Drawbars | Gospel, Organ | Drawbars / Rotor / Drive / Hall | Classic drawbar organ with a gentle rotary-style chorus. |  |
+| 108 | Talk Synth Chords | House, Disco, Talkbox, Vocal | Vowel / Grit / Width / Hall | Chords that say a vowel on every hit, like a talkbox section. |  |
+| 109 | Tape Wobble Piano | Lo-Fi, Piano, Tape, Wobble | Wobble / Age / Tone / Room | Piano bounced to a worn tape: the pitch sags slowly and every note drifts a little. |  |
+| 110 | Varsity Stabs | Stadium, Supersaw, Stab | Pluck / Width / Echo / Hall | Bright supersaw chord stab with a short pluck and stereo delay. |  |
+| 111 | Wah Clav | Vintage, Clav, Funk, Wah | Wah / Quack / Grit / Echo | Clav that says 'wow' on every note as a formant envelope sweeps through it. |  |
+| 112 | Warm Percussion Organ | Organ, Percussion, Drawbar | Perc / Drawbar / Rotor / Room | Drawbar organ with a decaying third-harmonic click on every chord. |  |
+| 113 | Warm Sine Keys | Warm, Sine, Soft, Minimal | Body / Edge / Trem / Room | Almost pure sine keys with a sub underneath: plain, round and soft. |  |
+
 ## Pad (23)
 
 Pady, chóry i smyczki – od zimnych i oszczędnych po szerokie, pompujące i ewoluujące.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 067 | Arp Shimmer Pad | Stadium, Arp, Shimmer | Sparkle / Width / Echo / Hall | Held chords turn into a fast random shimmer of notes across three octaves. |  |
-| 068 | Campus Pad | Stadium, Supersaw, Warm | Air / Strings / Width / Hall | Warm string and supersaw blend that swells in slowly. |  |
-| 069 | Choir Vowel Pad | Gospel, Choir, Movement | Vowel / Choir / Width / Hall | Choir pad that slowly sings through vowels like a congregation. |  |
-| 070 | Disco Strings | House, Disco, Strings | Bow / Air / Ensemble / Hall | Lush disco string section with ensemble chorus and gentle pumping. |  |
-| 071 | Feedback Choir | Industrial, Dark, Choir | Vowel / Fold / Flange / Hall | Dark choir that folds and flanges into a menacing wall of feedback. |  |
-| 072 | Glass Heart Pad | Cold, Pad, Minimal | Frost / Breath / Width / Hall | Cold, hollow pad with a slow bloom and a very wide hall. |  |
-| 073 | Grey Sky Strings | Cold, Strings, Minimal | Air / Ensemble / Bow / Hall | Muted synthetic strings with a slow attack and melancholic shimmer. |  |
-| 074 | Midnight Cellos | Epic, Strings, Dark | Bow / Tone / Ensemble / Hall | Low synthetic cello section with a slow bow and dark tone. |  |
-| 075 | Neon Grid Pad | Cinematic, Synthwave, Dark | Glow / Pulse / Width / Hall | Dark pulsing pad whose filter moves on a slow tempo-synced triangle. |  |
-| 076 | Notch Phaser Pad | House, Raw, Movement, Filter | Sweep / Width / Res / Hall | Saw pad carved by a sweeping notch filter for a hollow jet motion. |  |
-| 077 | Pulse Pump Pad | House, Disco, Pump, Movement | PWM / Grit / Tone / Hall | Pulse-width pad that breathes in quarter notes like a sidechained synth. |  |
-| 078 | Shuffle Pump Pad | House, Disco, Pump, Filter House | Air / Grit / Width / Hall | Airy pad chopped into a shuffling eighth-note pump. |  |
-| 079 | Sky Bridge Pad | Cinematic, Wide | Light / Morph / Width / Hall | Wide luminous pad with slow movement and a long reflective tail. |  |
-| 080 | Stadium Choir | Gospel, Choir, Epic | Vowel / Choir / Air / Hall | Massive choir pad that rises slowly into a huge hall. |  |
-| 081 | Studio Poly Pad | Analog, Warm, Vintage | Warmth / Pulse / Width / Room | Rich warm studio pad with slow filter movement and ensemble. |  |
-| 082 | Sunset Pad | House, Disco, Warm, Sweet | Warmth / Shimmer / Width / Hall | Golden warm pad with a soft swell and slow chorus. |  |
-| 083 | Sweet Analog Pad | House, Disco, Warm, Sweet | Warmth / Hollow / Width / Hall | Soft warm pad with gently detuned saws and a glossy chorus. |  |
-| 084 | Synth Choir Lift | Stadium, Choir, Bright | Vowel / Saw / Air / Hall | Airy synthetic choir layered with saws for uplifting chords. |  |
-| 085 | Velvet Doom Strings | Epic, Strings, Dark | Bow / Dark / Ensemble / Hall | Dark synthetic strings in low register with slow motion and drama. |  |
-| 086 | Vintage String Ensemble | Analog, Strings, Vintage | Bow / Tone / Ensemble / Room | Classic string machine with thick ensemble chorus. |  |
-| 087 | Vocoded Chords | House, Disco, Vocal, Talkbox | Vowel / Voice / Width / Hall | Vocoder-like chord pad built from vowel tables and formants. |  |
-| 088 | Wavetable Drift Pad | Cinematic, Movement | Drift / Phase / Tone / Hall | Pad whose formant peak drifts slowly through the spectrum. |  |
-| 089 | Winter Choir | Cold, Choir, Vocal | Vowel / Air / Width / Hall | Breathy synthetic choir drifting through vowels in the cold. |  |
-
-## Keys (25)
-
-Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.
-
-| # | Preset | Tagi | Makra | Opis | Uwaga |
-|---|---|---|---|---|---|
-| 090 | Autopan Electric Piano | Analog, Electric Piano, Vintage | Bark / Pan / Phase / Room | Bell-toned electric piano with stereo auto-pan and velocity bark. |  |
-| 091 | Breaker Keys | Industrial, Stab, Digital | Index / Crush / Tone / Room | FM stab that starts as clean glass and breaks into bit-crushed grit as it decays. |  |
-| 092 | Chicago Organ Stab | House, Raw, Organ | Drawbars / Tone / Grit / Room | Short house organ stab with a punchy decay. |  |
-| 093 | Chord Memory Stab | House, Raw, Stab | Snap / Res / Dub / Room | Classic house chord stab with a snappy filter and a dub echo. |  |
-| 094 | Crystal Keys | House, Disco, Bright, Keys | Crystal / Tone / Width / Hall | Bright FM keys with a crisp attack and silky tail. |  |
-| 095 | Dark Ballad Piano | Epic, Piano, Dramatic | Dark / Hammer / Echo / Hall | Dark, distant piano with a cathedral tail for dramatic intros. |  |
-| 096 | Dream Keys | House, Disco, Keys, Sweet | Haze / Tone / Echo / Hall | Hazy, sweet keys smeared with chorus and ping-pong echoes. |  |
-| 097 | Electric Tine Keys | Analog, Keys, Vintage | Bark / Tone / Trem / Room | Soft electric-piano-like tines with a velocity-driven bark. |  |
-| 098 | Felt Grand | Cold, Piano, Soft | Felt / Hammer / Body / Room | Soft felt piano with a muted hammer and gentle room. |  |
-| 099 | Funk Clav Keys | Analog, Funk, Keys | Bite / Pulse / Phase / Room | Tight funky clav tone with a percussive filter bite. |  |
-| 100 | Funky Filter Keys | House, Raw, Funk | Wah / Pulse / Phase / Room | Clav-style pulse keys with a resonant envelope wah. |  |
-| 101 | Glass Piano | Cinematic, Piano | Glass / Shimmer / Echo / Hall | Struck glass strings that ring like a piano and shimmer with a high bell overtone. |  |
-| 102 | Gloss Pluck | Stadium, Pluck, Bright | Gloss / Body / Echo / Hall | Glassy FM pluck layered with a soft triangle for shiny chords. |  |
-| 103 | Grand Synth Keys | Epic, Keys, Warm | Attack / Body / Tone / Hall | Piano-like synth keys mixing a soft bell attack and a warm square body. |  |
-| 104 | Honky Tonk Bar | Gospel, Piano, Vintage | Detune / Bright / Room / Grit | Out-of-tune saloon piano with two strings per note beating against each other. |  |
-| 105 | House Piano Stab | House, Raw, Piano | Bright / Grit / Width / Room | Bright stacked house piano that cuts through a dance mix and pumps. |  |
-| 106 | Marimba Keys | Stadium, Mallet, Bright | Knock / Tone / Echo / Room | Woody mallet keys with a quick knock and short ring. |  |
-| 107 | Pumping Filter Chords | House, Disco, Pump, Filter House | Filter / Phase / Grit / Hall | Saw chord stack that pumps on every beat while the filter sweeps open. |  |
-| 108 | Reed Electric Piano | Analog, Electric Piano, Vintage | Bark / Reed / Soft / Room | Reedy, slightly barking electric piano with tube grit when played hard. |  |
-| 109 | Saturated Keys Stab | Industrial, Stab, Distorted | Drive / Bite / Tone / Room | Overdriven brassy key stab that hits like a slap. |  |
-| 110 | Sidechain Organ | House, Disco, Pump, Organ | Drawbars / Tone / Phase / Hall | House organ chords breathing with a strong quarter-note pump. |  |
-| 111 | Steel String Synth | Mechanical, Rock, Pluck | Pick / Fuzz / Pulse / Room | Plucky pulse tone with fuzz that mimics a picked electric guitar. |  |
-| 112 | Sunday Drawbars | Gospel, Organ | Drawbars / Rotor / Drive / Hall | Classic drawbar organ with a gentle rotary-style chorus. |  |
-| 113 | Talk Synth Chords | House, Disco, Talkbox, Vocal | Vowel / Grit / Width / Hall | Chords that say a vowel on every hit, like a talkbox section. |  |
-| 114 | Varsity Stabs | Stadium, Supersaw, Stab | Pluck / Width / Echo / Hall | Bright supersaw chord stab with a short pluck and stereo delay. |  |
-
-## Arp (8)
-
-Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.
-
-| # | Preset | Tagi | Makra | Opis | Uwaga |
-|---|---|---|---|---|---|
-| 115 | Acid Line Arp | House, Raw, Acid, Arp | Squelch / Open / Dirt / Echo | Random acid arpeggio with squelching accents and slapback echo. |  |
-| 116 | Clockwork Arp | Mechanical, Arp | Tick / Crunch / Pulse / Echo | Distorted square arpeggio ticking in tight eighth notes. |  |
-| 117 | Disco Octave Arp | House, Disco, Octave | Phase / Tone / Res / Echo | Phased saw arpeggio bouncing octaves for disco breakdowns. |  |
-| 118 | Plucked Sequence | Cinematic, Sequence | Index / Tone / Echo / Hall | FM pluck sequence whose bell tone changes on every step. |  |
-| 119 | Pulsing String Ostinato | Cinematic, Strings | Bow / Tone / Ensemble / Hall | Spiccato strings bowing a tight ostinato, each stroke a little different. |  |
-| 120 | Racing Saw Arp | Cinematic, Arp, Synthwave | Glow / Width / Echo / Hall | Glowing supersaw arpeggio racing upward with dotted echoes. |  |
-| 121 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Ring / Echo | Metallic comb-filtered buzz arpeggio that rings like a spinning blade. |  |
-| 122 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Octave / Echo / Hall | Short supersaw plucks racing over three octaves, with an octave layer that grows as you hold. |  |
+| 114 | Arp Shimmer Pad | Stadium, Arp, Shimmer | Sparkle / Width / Echo / Hall | Held chords turn into a fast random shimmer of notes across three octaves. |  |
+| 115 | Campus Pad | Stadium, Supersaw, Warm | Air / Strings / Width / Hall | Warm string and supersaw blend that swells in slowly. |  |
+| 116 | Choir Vowel Pad | Gospel, Choir, Movement | Vowel / Choir / Width / Hall | Choir pad that slowly sings through vowels like a congregation. |  |
+| 117 | Disco Strings | House, Disco, Strings | Bow / Air / Ensemble / Hall | Lush disco string section with ensemble chorus and gentle pumping. |  |
+| 118 | Feedback Choir | Industrial, Dark, Choir | Vowel / Fold / Flange / Hall | Dark choir that folds and flanges into a menacing wall of feedback. |  |
+| 119 | Glass Heart Pad | Cold, Pad, Minimal | Frost / Breath / Width / Hall | Cold, hollow pad with a slow bloom and a very wide hall. |  |
+| 120 | Grey Sky Strings | Cold, Strings, Minimal | Air / Ensemble / Bow / Hall | Muted synthetic strings with a slow attack and melancholic shimmer. |  |
+| 121 | Midnight Cellos | Epic, Strings, Dark | Bow / Tone / Ensemble / Hall | Low synthetic cello section with a slow bow and dark tone. |  |
+| 122 | Neon Grid Pad | Cinematic, Synthwave, Dark | Glow / Pulse / Width / Hall | Dark pulsing pad whose filter moves on a slow tempo-synced triangle. |  |
+| 123 | Notch Phaser Pad | House, Raw, Movement, Filter | Sweep / Width / Res / Hall | Saw pad carved by a sweeping notch filter for a hollow jet motion. |  |
+| 124 | Pulse Pump Pad | House, Disco, Pump, Movement | PWM / Grit / Tone / Hall | Pulse-width pad that breathes in quarter notes like a sidechained synth. |  |
+| 125 | Shuffle Pump Pad | House, Disco, Pump, Filter House | Air / Grit / Width / Hall | Airy pad chopped into a shuffling eighth-note pump. |  |
+| 126 | Sky Bridge Pad | Cinematic, Wide | Light / Morph / Width / Hall | Wide luminous pad with slow movement and a long reflective tail. |  |
+| 127 | Stadium Choir | Gospel, Choir, Epic | Vowel / Choir / Air / Hall | Massive choir pad that rises slowly into a huge hall. |  |
+| 128 | Studio Poly Pad | Analog, Warm, Vintage | Warmth / Pulse / Width / Room | Rich warm studio pad with slow filter movement and ensemble. |  |
+| 129 | Sunset Pad | House, Disco, Warm, Sweet | Warmth / Shimmer / Width / Hall | Golden warm pad with a soft swell and slow chorus. |  |
+| 130 | Sweet Analog Pad | House, Disco, Warm, Sweet | Warmth / Hollow / Width / Hall | Soft warm pad with gently detuned saws and a glossy chorus. |  |
+| 131 | Synth Choir Lift | Stadium, Choir, Bright | Vowel / Saw / Air / Hall | Airy synthetic choir layered with saws for uplifting chords. |  |
+| 132 | Velvet Doom Strings | Epic, Strings, Dark | Bow / Dark / Ensemble / Hall | Dark synthetic strings in low register with slow motion and drama. |  |
+| 133 | Vintage String Ensemble | Analog, Strings, Vintage | Bow / Tone / Ensemble / Room | Classic string machine with thick ensemble chorus. |  |
+| 134 | Vocoded Chords | House, Disco, Vocal, Talkbox | Vowel / Voice / Width / Hall | Vocoder-like chord pad built from vowel tables and formants. |  |
+| 135 | Wavetable Drift Pad | Cinematic, Movement | Drift / Phase / Tone / Hall | Pad whose formant peak drifts slowly through the spectrum. |  |
+| 136 | Winter Choir | Cold, Choir, Vocal | Vowel / Air / Width / Hall | Breathy synthetic choir drifting through vowels in the cold. |  |
 
 ## Brass (10)
 
@@ -187,16 +194,31 @@ Sekcje dęte, fanfary, miękkie rogi i syntetyczne brassy.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 123 | Cinematic Low Brass | Cinematic, Brass | Blare / Tone / Grit / Hall | Short, heavy low-brass stab for trailer hits. |  |
-| 124 | Distorted Fanfare | Industrial, Brass, Distorted | Clip / Blare / Tone / Hall | Brass fanfare smashed through hard clipping and squash. |  |
-| 125 | Fanfare Swell | Epic, Brass | Swell / Octave / Width / Hall | Massive octave-stacked brass swell for cinematic climaxes. |  |
-| 126 | Gilded Horns | Epic, Brass, Stab | Gold / Bite / Width / Hall | Punchy FM horn stab with a bright, golden edge. |  |
-| 127 | Monolith Brass | Cinematic, Brass | Swell / Blare / Weight / Hall | Towering low brass with slow swell, octave weight and a giant hall. |  |
-| 128 | Riot Horn | Industrial, Stab | Blare / Bite / Open / Room | Blaring distorted brass stab with a nasal tube bite. |  |
-| 129 | Soft French Horn | Epic, Brass, Soft | Swell / Warm / Width / Hall | Mellow distant horn with a slow, warm swell. |  |
-| 130 | Throne Brass | Epic, Brass, Dramatic | Swell / Blare / Heat / Hall | Majestic synth brass that swells with tube warmth and a long hall. |  |
-| 131 | Victory Brass | Stadium, Brass, Bright | Swell / Brass / Width / Hall | Bold synth brass section with a swelling filter and warm unison. |  |
-| 132 | Warm Poly Brass | Analog, Brass, Vintage | Swell / Warmth / Width / Room | Vintage polysynth brass with a soft envelope swell. |  |
+| 137 | Cinematic Low Brass | Cinematic, Brass | Blare / Tone / Grit / Hall | Short, heavy low-brass stab for trailer hits. |  |
+| 138 | Distorted Fanfare | Industrial, Brass, Distorted | Clip / Blare / Tone / Hall | Brass fanfare smashed through hard clipping and squash. |  |
+| 139 | Fanfare Swell | Epic, Brass | Swell / Octave / Width / Hall | Massive octave-stacked brass swell for cinematic climaxes. |  |
+| 140 | Gilded Horns | Epic, Brass, Stab | Gold / Bite / Width / Hall | Punchy FM horn stab with a bright, golden edge. |  |
+| 141 | Monolith Brass | Cinematic, Brass | Swell / Blare / Weight / Hall | Towering low brass with slow swell, octave weight and a giant hall. |  |
+| 142 | Riot Horn | Industrial, Stab | Blare / Bite / Open / Room | Blaring distorted brass stab with a nasal tube bite. |  |
+| 143 | Soft French Horn | Epic, Brass, Soft | Swell / Warm / Width / Hall | Mellow distant horn with a slow, warm swell. |  |
+| 144 | Throne Brass | Epic, Brass, Dramatic | Swell / Blare / Heat / Hall | Majestic synth brass that swells with tube warmth and a long hall. |  |
+| 145 | Victory Brass | Stadium, Brass, Bright | Swell / Brass / Width / Hall | Bold synth brass section with a swelling filter and warm unison. |  |
+| 146 | Warm Poly Brass | Analog, Brass, Vintage | Swell / Warmth / Width / Room | Vintage polysynth brass with a soft envelope swell. |  |
+
+## Arp (8)
+
+Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.
+
+| # | Preset | Tagi | Makra | Opis | Uwaga |
+|---|---|---|---|---|---|
+| 147 | Acid Line Arp | House, Raw, Acid, Arp | Squelch / Open / Dirt / Echo | Random acid arpeggio with squelching accents and slapback echo. |  |
+| 148 | Clockwork Arp | Mechanical, Arp | Tick / Crunch / Pulse / Echo | Distorted square arpeggio ticking in tight eighth notes. |  |
+| 149 | Disco Octave Arp | House, Disco, Octave | Phase / Tone / Res / Echo | Phased saw arpeggio bouncing octaves for disco breakdowns. |  |
+| 150 | Plucked Sequence | Cinematic, Sequence | Index / Tone / Echo / Hall | FM pluck sequence whose bell tone changes on every step. |  |
+| 151 | Pulsing String Ostinato | Cinematic, Strings | Bow / Tone / Ensemble / Hall | Spiccato strings bowing a tight ostinato, each stroke a little different. |  |
+| 152 | Racing Saw Arp | Cinematic, Arp, Synthwave | Glow / Width / Echo / Hall | Glowing supersaw arpeggio racing upward with dotted echoes. |  |
+| 153 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Ring / Echo | Metallic comb-filtered buzz arpeggio that rings like a spinning blade. |  |
+| 154 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Octave / Echo / Hall | Short supersaw plucks racing over three octaves, with an octave layer that grows as you hold. |  |
 
 ## FX (3)
 
@@ -204,9 +226,9 @@ Efekty: zapy, przemiatania i uderzenia.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 133 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
-| 134 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
-| 135 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
+| 155 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
+| 156 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
+| 157 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
 
 ## Liczba presetów w kategoriach
 
@@ -215,8 +237,12 @@ Efekty: zapy, przemiatania i uderzenia.
 | Bass | 33 |
 | Lead | 24 |
 | Guitar | 10 |
+| Pluck | 0 |
+| Keys | 47 |
+| Bell | 0 |
 | Pad | 23 |
-| Keys | 25 |
-| Arp | 8 |
+| Strings | 0 |
 | Brass | 10 |
+| Woodwind | 0 |
+| Arp | 8 |
 | FX | 3 |
