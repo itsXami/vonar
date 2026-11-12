@@ -70,25 +70,70 @@ ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 
 """
 
 
-def render(svgs):
+FINISHES = [
+    ("2A", "Techniczne", "Płaskie panele stykające się ze sobą, cienkie łuki, odczyty czcionką o stałej szerokości.",
+     ["Najczystsze i najbardziej czytelne, wartości łatwo porównać wzrokiem.",
+      "Lekkie w rysowaniu, najprostsze do wiernego przeniesienia do pluginu."],
+     ["Mniej „fizyczne”: pokrętła to płaskie krążki ze wskaźnikiem."]),
+    ("2B", "Sprzętowe", "Pokrętła z cieniowaną główką, wgłębione ekrany, świecące linie i diody przy tytułach.",
+     ["Więcej głębi i charakteru, wykresy wyglądają jak świecący ekran.",
+      "Wskaźnik pokrętła i łuk mają kolor sekcji, więc kolor widać mocniej."],
+     ["Więcej szczegółów do dopracowania w kodzie; poświatę trzeba narysować oszczędnie, żeby nie obciążała procesora."]),
+]
+
+EXTRA_CSS = """
+.round { display: flex; flex-direction: column; gap: 48px; }
+.changes { max-width: 72ch; }
+details { border-top: 1px solid var(--line); padding-top: 20px; }
+summary { cursor: pointer; font-family: var(--display); font-size: 18px; font-weight: 700; }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+details .round { margin-top: 32px; }
+.tag { font-family: var(--display); font-size: 13px; font-weight: 700; color: var(--accent);
+  border: 1.5px solid var(--accent); border-radius: 999px; padding: 3px 10px; flex: none; align-self: center; }
+"""
+
+
+def option(tag, name, idea, svg, gains, costs, cls="num"):
+    return (f'<section class="option"><div class="option-head"><span class="{cls}">{tag}</span><h2>{name}</h2>'
+            f'<p class="idea">{idea}</p></div><div class="shot">{svg}</div><div class="notes">'
+            '<div><h3>Co zyskujesz</h3><ul>' + "".join(f"<li>{g}</li>" for g in gains) + '</ul></div>'
+            '<div><h3>Cena</h3><ul>' + "".join(f"<li>{c}</li>" for c in costs) + '</ul></div></div></section>')
+
+
+def render(svgs, detail=None):
     out = ['<title>Makiety interfejsu VOLT</title>', '<meta name="claude:viewport-fit-sides" content="cover">',
            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&'
-           'family=Space+Grotesk:wght@500;700&display=swap">', f"<style>{CSS}</style>", '<div class="wrap">',
-           '<header><h1>Makiety interfejsu VOLT</h1>',
-           '<p>Trzy kierunki wyglądu na etap B. Każda makieta pokazuje okno 1200×740 z zakładką SYNTH i tym samym '
-           'presetem. To rysunki, nie zrzuty działającego pluginu: pokazują układ, kolory i rodzaj grafik.</p>',
-           '<p>Wybierz numer albo powiedz, co połączyć, na przykład układ z 1 i kolory z 2.</p></header>']
+           'family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">',
+           f"<style>{CSS}{EXTRA_CSS}</style>", '<div class="wrap">']
+    round1 = ['<div class="round">']
     for i, ((name, idea, gains, costs), svg) in enumerate(zip(VARIANTS, svgs), start=1):
-        out.append(f'<section class="option"><div class="option-head"><span class="num">{i}</span><h2>{name}</h2>'
-                   f'<p class="idea">{idea}</p></div><div class="shot">{svg}</div><div class="notes">'
-                   '<div><h3>Co zyskujesz</h3><ul>' + "".join(f"<li>{g}</li>" for g in gains) + '</ul></div>'
-                   '<div><h3>Cena</h3><ul>' + "".join(f"<li>{c}</li>" for c in costs) + '</ul></div></div></section>')
-    out.append('<div class="rec"><h3>Rekomendacja</h3><p><strong>Makieta 1.</strong> Najlepiej pasuje do ustalonego '
-               'kierunku: ciemno, czysto, dużo wizualizacji i jeden wyrazisty akcent. Obwiednie i LFO na głównym '
-               'ekranie to też największa praktyczna zmiana przy robieniu brzmień.</p><p>Jeśli ważniejsze jest, żeby '
-               'od razu było widać, co do czego należy, bezpieczniejsza jest makieta 2.</p></div>')
-    out.append('<p class="common">Wspólne dla wszystkich trzech: czcionka Inter, okno 1200×740 ze skalowaniem 75–200%, '
-               'przeglądarka presetów w górnym pasku, zakładki MODULATION i EFFECTS w tym samym stylu oraz okno '
-               '„O programie” z licencją. Logo na makietach jest tymczasowe, bo nazwa jest jeszcze otwarta.</p>')
+        round1.append(option(i, name, idea, svg, gains, costs))
+    round1.append("</div>")
+    if detail is None:
+        out += ['<header><h1>Makiety interfejsu VOLT</h1>',
+                '<p>Trzy kierunki wyglądu na etap B. Każda makieta pokazuje okno 1200×740 z zakładką SYNTH.</p>'
+                '</header>'] + round1 + ["</div>"]
+        return "\n".join(out)
+    out += ['<header><h1>Makiety interfejsu VOLT</h1>',
+            '<p>Runda 2. Wybrany układ to makieta 2 (kolor na sekcję). Poniżej ten sam układ dopracowany w dwóch '
+            'wykończeniach. To nadal rysunki, ale już w docelowej szczegółowości: tak mają wyglądać pokrętła, panele '
+            'i wykresy w pluginie.</p>',
+            '<p>Wybierz 2A albo 2B i napisz, co nadal wygląda sztucznie. Im konkretniej, tym lepiej: pokrętła, '
+            'kolory, czcionka, odstępy, logo.</p></header>',
+            '<div class="changes"><h3>Co się zmieniło względem szkicu</h3><ul>'
+            '<li>Panele stykają się ze sobą zamiast pływać jako zaokrąglone karty. Ekran jest gęstszy, wykresy większe.</li>'
+            '<li>Kolory sekcji są głębsze i mniej pastelowe. Kolor jest na wykresach, łukach i znaczniku przy tytule.</li>'
+            '<li>Wavetable jest rysowane jako pełna powierzchnia z zaznaczoną bieżącą klatką, a nie plątanina linii.</li>'
+            '<li>Wykresy mają siatkę i podziałkę: czas na obwiedni, częstotliwość i 0 dB na filtrze.</li>'
+            '<li>Przełączniki są prostokątne i wbudowane w nagłówki paneli zamiast owalnych „pigułek”.</li>'
+            '<li>Znak VOLT ma pokrętło w miejscu litery O. Miernik poziomu przy wyjściu to nowa funkcja.</li>'
+            '</ul></div>', '<div class="round">']
+    for (tag, name, idea, gains, costs), svg in zip(FINISHES, detail):
+        out.append(option(tag, name, idea, svg, gains, costs, "tag"))
+    out.append("</div>")
+    out.append('<div class="rec"><h3>Rekomendacja</h3><p><strong>2B</strong>, jeśli zależy Ci na wrażeniu „prawdziwego '
+               'instrumentu” w stylu, o którym rozmawialiśmy. <strong>2A</strong>, jeśli wolisz czystość i czytelność.'
+               '</p><p>Można też mieszać: na przykład płaskie panele z 2A i pokrętła z 2B.</p></div>')
+    out.append('<details><summary>Runda 1: trzy kierunki (wybrana makieta 2)</summary>' + "\n".join(round1) + '</details>')
     out.append("</div>")
     return "\n".join(out)
