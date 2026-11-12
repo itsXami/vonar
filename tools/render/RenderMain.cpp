@@ -165,11 +165,117 @@ double spectralCentroid (const std::vector<float>& l, const std::vector<float>& 
 
 float toDb (double v) { return (float) juce::Decibels::gainToDecibels (v, -150.0); }
 
+
+// Timbre fingerprint used to detect presets that sound alike (tools/presets/similarity.py).
+struct Features
+{
+    std::vector<float> bands;   // 16 log-spaced band levels (dB, relative to their mean): spectral shape
+    float brightness = 0;       // log2 of spectral centroid relative to 1 kHz
+    float noisiness = 0;        // mean spectral flatness (0 tonal .. 1 noise)
+    float movement = 0;         // std-dev of the per-frame centroid in octaves (how much the timbre moves)
+    float attack = 0;           // seconds to reach 90 % of the loudest 23 ms frame
+    float sustain = 0;          // level 1 s after the peak relative to the peak (0 .. 1)
+    float width = 0;            // side / (mid + side) energy
+    float low = 0;              // share of energy below 150 Hz
+};
+
+Features computeFeatures (const std::vector<float>& l, const std::vector<float>& r, size_t end)
+{
+    constexpr int order = 11, n = 1 << order, hop = n / 2;
+    juce::dsp::FFT fft (order);
+    std::vector<float> buf ((size_t) n * 2);
+    Features f;
+    f.bands.assign (16, 0.0f);
+    std::vector<double> bandAcc (16, 0.0), frameEnergy, frameCentroid;
+    double flatAcc = 0.0, lowE = 0.0, allE = 0.0, mid = 0.0, side = 0.0;
+    int frames = 0;
+    auto bandOf = [] (double hz) { return juce::jlimit (0, 15, (int) std::floor (std::log2 (std::max (hz, 40.0) / 40.0) * 16.0 / std::log2 (16000.0 / 40.0))); };
+    for (size_t pos = 0; pos + (size_t) n <= end; pos += (size_t) hop)
+    {
+        std::fill (buf.begin(), buf.end(), 0.0f);
+        double e = 0.0;
+        for (int i = 0; i < n; ++i)
+        {
+            const float a = l[pos + (size_t) i], b = r[pos + (size_t) i];
+            const float w = 0.5f - 0.5f * std::cos (6.2831853f * (float) i / (float) (n - 1));
+            buf[(size_t) i] = 0.5f * (a + b) * w;
+            e += 0.25 * (a + b) * (a + b);
+            mid += 0.25 * (a + b) * (a + b);
+            side += 0.25 * (a - b) * (a - b);
+        }
+        fft.performFrequencyOnlyForwardTransform (buf.data());
+        double num = 0.0, den = 0.0, logSum = 0.0, linSum = 0.0;
+        int cnt = 0;
+        for (int k = 1; k < n / 2; ++k)
+        {
+            const double hz = (double) k * kSampleRate / n;
+            const double m = (double) buf[(size_t) k] + 1.0e-9;
+            const double p2 = m * m;
+            bandAcc[(size_t) bandOf (hz)] += p2;
+            if (hz < 150.0) lowE += p2;
+            allE += p2;
+            num += hz * m;
+            den += m;
+            logSum += std::log (m);
+            linSum += m;
+            ++cnt;
+        }
+        flatAcc += std::exp (logSum / cnt) / (linSum / cnt);
+        frameEnergy.push_back (e / n);
+        frameCentroid.push_back (den > 0.0 ? num / den : 1000.0);
+        ++frames;
+    }
+    if (frames == 0)
+        return f;
+    double meanDb = 0.0;
+    for (int b = 0; b < 16; ++b)
+    {
+        f.bands[(size_t) b] = (float) (10.0 * std::log10 (bandAcc[(size_t) b] / frames + 1.0e-12));
+        meanDb += f.bands[(size_t) b] / 16.0;
+    }
+    for (auto& v : f.bands)
+        v -= (float) meanDb;
+    f.noisiness = (float) (flatAcc / frames);
+    f.low = (float) (lowE / (allE + 1.0e-12));
+    f.width = (float) (side / (mid + side + 1.0e-12));
+
+    // Loudness-weighted centroid statistics (silent frames would dominate otherwise).
+    double eSum = 0.0, cMean = 0.0;
+    for (int i = 0; i < frames; ++i) { eSum += frameEnergy[(size_t) i]; cMean += frameEnergy[(size_t) i] * std::log2 (frameCentroid[(size_t) i] / 1000.0); }
+    cMean /= (eSum + 1.0e-20);
+    double cVar = 0.0;
+    for (int i = 0; i < frames; ++i) { const double d = std::log2 (frameCentroid[(size_t) i] / 1000.0) - cMean; cVar += frameEnergy[(size_t) i] * d * d; }
+    f.brightness = (float) cMean;
+    f.movement = (float) std::sqrt (cVar / (eSum + 1.0e-20));
+
+    // Envelope from short frames.
+    const size_t win = (size_t) (0.023 * kSampleRate);
+    std::vector<double> env;
+    for (size_t pos = 0; pos + win <= end; pos += win)
+    {
+        double s = 0.0;
+        for (size_t i = pos; i < pos + win; ++i)
+            s += 0.5 * ((double) l[i] * l[i] + (double) r[i] * r[i]);
+        env.push_back (std::sqrt (s / (double) win));
+    }
+    if (! env.empty())
+    {
+        const auto pk = std::max_element (env.begin(), env.end());
+        size_t a = 0;
+        while (a < env.size() && env[a] < 0.9 * *pk) ++a;
+        f.attack = (float) ((double) a * (double) win / kSampleRate);
+        const size_t later = (size_t) (pk - env.begin()) + (size_t) (1.0 / 0.023);
+        f.sustain = (float) (later < env.size() ? env[later] / (*pk + 1.0e-12) : 0.0);
+    }
+    return f;
+}
+
 struct Result
 {
     int index = 0;
     juce::String name, category, phrase, file;
     float peakDb = 0, rmsDb = 0, lufs = 0, centroid = 0, tailDb = 0, tailTime = 0, limiterDb = 0, dc = 0;
+    Features features;
     int nonFinite = 0;
     juce::StringArray failures;
 };
@@ -235,6 +341,7 @@ Result renderPreset (VoltAudioProcessor& proc, int index, const volt::PresetInfo
     res.dc = (float) (sumDc / (double) activeEnd);
     res.lufs = (float) loudness (L, R, 0, activeEnd);
     res.centroid = (float) spectralCentroid (L, R, 0, activeEnd);
+    res.features = computeFeatures (L, R, std::min (total, activeEnd + (size_t) (0.5 * kSampleRate)));
     res.limiterDb = proc.getEngine().getLimiterReduction();
     res.nonFinite = proc.getEngine().getNonFiniteCount() + (finite ? 0 : 1);
 
@@ -429,6 +536,21 @@ int main (int argc, char** argv)
         o->setProperty ("rms_dbfs", r.rmsDb);
         o->setProperty ("loudness_lufs", r.lufs);
         o->setProperty ("spectral_centroid_hz", r.centroid);
+        {
+            auto* fo = new juce::DynamicObject();
+            juce::Array<juce::var> bands;
+            for (float b : r.features.bands)
+                bands.add (juce::roundToInt (b * 10.0f) / 10.0);
+            fo->setProperty ("bands_db", bands);
+            fo->setProperty ("brightness_oct", r.features.brightness);
+            fo->setProperty ("noisiness", r.features.noisiness);
+            fo->setProperty ("movement_oct", r.features.movement);
+            fo->setProperty ("attack_s", r.features.attack);
+            fo->setProperty ("sustain", r.features.sustain);
+            fo->setProperty ("width", r.features.width);
+            fo->setProperty ("low_share", r.features.low);
+            o->setProperty ("features", juce::var (fo));
+        }
         o->setProperty ("tail_seconds", r.tailTime);
         o->setProperty ("tail_end_dbfs", r.tailDb);
         o->setProperty ("limiter_reduction_db", r.limiterDb);

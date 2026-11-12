@@ -115,10 +115,24 @@ Cel: syntezator będzie publiczny, więc podejście neutralne i profesjonalne.
   kategorie: Bass, Lead, Pluck, Bell & Mallet, Keys & Piano, Pad, Strings, Brass, Guitar, Arp & Sequence, Organ,
   Vocal & Choir, FX. Plucki/belle/mallety/gitary na oscylatorze String i trybach warp. ~135 obecnych zostaje.
 - **E. Wydanie:** instalator Windows, podpis kodu (koszt), wersja 1.0.0, instrukcja, plik licencji (JUCE, Inter OFL),
-  testy w kilku DAW i betatesty. Platformy: raczej Windows + Linux (do potwierdzenia).
+  testy w kilku DAW i betatesty.
 - **F. Później:** presety do Vitala, instrumenty z sampli.
-- **Otwarte decyzje użytkownika:** licencja/dystrybucja (AGPL open source vs zamknięty kod z licencją JUCE vs płatny),
-  ostateczne platformy, nazwa (VOLT koliduje z interfejsami Universal Audio Volt – użytkownik zajmie się tym później).
+- **Decyzje użytkownika (2026-11-12):**
+  - Licencja: open source na AGPLv3, darmowe, bez rejestracji. Od innych na start przyjmujemy tylko presety,
+    bez kodu. Nazwa i logo nie są objęte licencją. (Plik LICENSE i zasady wkładu – do dodania.)
+  - Platformy: 1.0 tylko Windows (VST3 + Standalone). Linux zostaje w CI do testów, bez paczki do pobrania.
+    macOS po wydaniu jako wersja eksperymentalna, gdy znajdzie się tester z Makiem.
+  - GitHub: zaplecze na kod i automatyczne budowanie paczki; repo prywatne do 1.0, potem publiczne z ochroną `main`.
+- **Otwarte:** nazwa (VOLT koliduje z interfejsami Universal Audio Volt – użytkownik zajmie się tym później);
+  wzorce brzmień od użytkownika (5–10 przykładów) jako punkt odniesienia dla partii presetów.
+- **Jakość presetów (2026-11-12):** `VOLT_Render` zapisuje w `report.json` odcisk barwy każdego presetu (`features`:
+  16 pasm, jasność, ruch barwy, atak, sustain, szumowość, szerokość, udział basu). `tools/presets/similarity.py`
+  wskazuje pary zbyt podobnych presetów i odrzuca kandydatów bliższych niż 1.2 bibliotece lub sobie nawzajem.
+  Stan biblioteki 136: 49 par < 1.2, mediana odległości do najbliższego sąsiada 1.39 (Pad 1.22, Brass 1.22,
+  Keys 1.26, Arp 1.36, Lead 1.39, Bass 1.82, Guitar 1.97); cel ≥ 1.6 w każdej kategorii. Najbliższe pary:
+  Sunset Pad ~ Studio Poly Pad 0.53, Grey Sky Strings ~ Sweet Analog Pad 0.55, Disco Strings ~ Vintage String
+  Ensemble 0.59, Grand Synth Keys ~ House Piano Stab 0.67. Zasady projektowania i obowiązkowy proces
+  (plan partii → generator → render → similarity → trym → odsłuch) są w skillu `.claude/skills/preset-design/SKILL.md`.
 - Commity samej dokumentacji mają `[skip ci]`, żeby nie zużywać minut GitHub Actions.
 
 ## Mapa kodu
