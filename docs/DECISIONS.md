@@ -224,3 +224,11 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   poprzednio renderowanego (różnice do 1,4 dB pracy limitera między uruchomieniami).
 - **Test liczności** nie wymaga już 121 presetów: sprawdza, że załadowano każdy osadzony plik, że jest ich > 100
   i że jest kategoria Guitar.
+
+## Oszczędzanie minut GitHub Actions
+
+- **CI uruchamia się raz na push** (wszystkie gałęzie) zamiast dwa razy (push + pull_request). PR pokazuje status
+  tego samego przebiegu. Wcześniej każdy commit budował się podwójnie (ok. 30 min, z czego Windows ~20 min).
+  Odejście od „każdy push i PR”: zmiany w PR i tak są pushami, więc nic nie traci pokrycia.
+- **Artefakty trzymane 14 dni** (`retention-days: 14`) zamiast domyślnych 90 – darmowy plan GitHuba ma ograniczone
+  miejsce na artefakty prywatnych repozytoriów; starsze paczki można zawsze odtworzyć z kodu.
