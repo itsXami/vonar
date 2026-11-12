@@ -351,7 +351,6 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
 - **Kierunek brzmieniowy po uwagach użytkownika:** domyślnie „ciepło” z wzorców okazało się za jednostronne; nowe
   partie mają być jasne, suche i dosadne, z naciskiem na house i hip-hop. Lo-fi, brzmienia „growe” i flety –
   oszczędnie.
-- **Klawiatura do grania:** `juce::MidiKeyboardComponent` w nakładce na dolny pas (okno nie zmienia rozmiaru, więc
-  proporcje i skalowanie zostają). Klawiatura komputera działa, gdy panel ma fokus (dostaje go po otwarciu).
-  Domyślne mapowanie JUCE (A–K, W–U) plus własne Z/X do zmiany oktawy.
+- **Klawiatura do grania w pluginie – wycofana.** Nieporozumienie: użytkownikowi chodziło o klawiaturę do
+  przeglądania dźwięków na stronie odsłuchu.
 

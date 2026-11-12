@@ -392,29 +392,6 @@ MainPanel::MainPanel (VoltAudioProcessor& p) : presetBar (p.getPresetManager()),
     bottomPage.setBounds (0, 586, kWidth, 154);
     addAndMakeVisible (bottomPage);
 
-    // Keyboard to audition sounds with the mouse or the computer keyboard; it covers the bottom bar while shown.
-    keyboard = std::make_unique<PlayKeyboard> (p.keyboardState);
-    keyboardPanel.setBounds (6, 586, 1188, 148);
-    keyboardPanel.addAndMakeVisible (*keyboard);
-    keyboard->setBounds (12, 32, 1164, 108);
-    keyboard->fit();
-    auto updateHint = [this] (int octave) {
-        keyboardPanel.hint = "Click the keys, or play with A S D F G H J K (white) and W E T Y U (black).  Z / X: octave down / up.  "
-                             "Computer keys start at C" + juce::String (octave) + ".";
-        keyboardPanel.repaint();
-    };
-    keyboard->onOctaveChange = updateHint;
-    updateHint (keyboard->getOctave());
-    addChildComponent (keyboardPanel);
-    keyboardToggle.setButtonText ("KEYBOARD");
-    keyboardToggle.setClickingTogglesState (false);
-    keyboardToggle.setTooltip ("Play sounds with the mouse or the computer keyboard");
-    VoltLookAndFeel::setStyle (keyboardToggle, "seg");
-    VoltLookAndFeel::setAccent (keyboardToggle, colours::macro);
-    keyboardToggle.setBounds (1094, 591, 92, 20);
-    keyboardToggle.onClick = [this] { showKeyboard (! keyboardPanel.isVisible()); };
-    addAndMakeVisible (keyboardToggle);
-
     for (int m = 0; m < kNumModSlots; ++m)
     {
         modSrc[m] = state.getRawParameterValue (spec (Mod1_Src + m * kModSlotParamCount).id);
@@ -438,25 +415,6 @@ MainPanel::MainPanel (VoltAudioProcessor& p) : presetBar (p.getPresetManager()),
     setTab (juce::jlimit (0, 2, (int) processor.apvts.state.getProperty ("uiTab", 0)));
     setEnvelope (0);
     refresh();
-}
-
-void MainPanel::KeyboardPanel::paint (juce::Graphics& g)
-{
-    VoltLookAndFeel::drawSurface (g, getLocalBounds().toFloat(), colours::macroBar);
-    g.setColour (colours::macro);
-    g.setFont (VoltLookAndFeel::titleFont (12.5f));
-    g.drawText ("KEYBOARD", 14, 7, 200, 20, juce::Justification::centredLeft);
-    g.setColour (colours::dimText);
-    g.setFont (VoltLookAndFeel::font (11.5f));
-    g.drawText (hint, 120, 7, getWidth() - 240, 20, juce::Justification::centredLeft);
-}
-
-void MainPanel::showKeyboard (bool show)
-{
-    keyboardPanel.setVisible (show);
-    keyboardToggle.setToggleState (show, juce::dontSendNotification);
-    if (show && keyboard != nullptr)
-        keyboard->grabKeyboardFocus();
 }
 
 void MainPanel::setTab (int tab)

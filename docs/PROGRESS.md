@@ -302,9 +302,6 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - Biblioteka: **310 presetów**, render 310/310, testy 53/0. Kategorie: Bass 41, Lead 32, Guitar 34, Pluck 30,
   Keys 51, Bell 19, Pad 45, Strings 21, Brass 11, Woodwind 10, Arp 10, FX 6.
 - Strona odsłuchu `urban1`: https://claude.ai/artifact/58GuSBQCQfgQCrfELBB3m4 (kolekcja `urban1`).
-- **Klawiatura do grania w pluginie** (prośba użytkownika): przycisk KEYBOARD w dolnym pasku pokazuje klawiaturę
-  ekranową (5 oktaw, klik myszą) w miejscu makr; gra też z klawiatury komputera (A S D F G H J K białe,
-  W E T Y U czarne, Z/X oktawa; start C4). Nuty idą przez `MidiKeyboardState` procesora (scalane z wejściem MIDI
-  w każdym bloku). Zrzut: `docs/ui-keyboard.png`. W pluginie w DAW skróty klawiatury komputera mogą być
-  przechwytywane przez hosta (FL Studio ma własne „typing keyboard to piano”); mysz działa zawsze.
+- Klawiatura do grania została dodana do pluginu przez pomyłkę i usunięta: użytkownik chciał klawiatury do
+  przeglądania dźwięków na stronie odsłuchu, nie w pluginie.
 

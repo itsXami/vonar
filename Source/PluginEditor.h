@@ -39,7 +39,6 @@ public:
     void setTab (int tab);
     int getTab() const noexcept { return currentTab; }
     void setEnvelope (int env);
-    void showKeyboard (bool show);
 
     PresetBar presetBar;
 
@@ -70,13 +69,6 @@ private:
     Page* target = &synthPage;
     juce::TextButton tabButtons[3];
     juce::TextButton envButtons[4];
-    juce::TextButton keyboardToggle;
-    struct KeyboardPanel final : public juce::Component
-    {
-        void paint (juce::Graphics&) override;
-        juce::String hint;
-    } keyboardPanel;
-    std::unique_ptr<PlayKeyboard> keyboard;
     int currentTab = 0, currentEnv = 0;
     juce::Image grain;
 

@@ -55,8 +55,6 @@ void VoltAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::M
         }
     }
 
-    keyboardState.processNextMidiBuffer (midi, 0, n, true);
-
     reader.read (snapshot);
     engine.process (buffer.getWritePointer (0), buffer.getWritePointer (1), n, midi, snapshot, t);
     for (int c = 2; c < buffer.getNumChannels(); ++c)
