@@ -113,7 +113,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
-| C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ⏳ silnik gotowy; nowe wersje 14 presetów czekają na wybór użytkownika (opis niżej) |
+| C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
 
@@ -191,9 +191,13 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - Presety: 14 nowych wersji w `tools/presets/generate_fixes.py` → `tools/presets/fixes/`, render 14/14,
   `similarity.py` 14/14 „ok”. Strona porównania stara/nowa: https://claude.ai/artifact/PSiYaBRbHaaxroPi6uSd9V
   (baza artefaktu, kolekcja `verdicts`, dokument = nazwa pliku, pole `verdict`: `new` / `old` / `neither`, `note`).
-- DO ZROBIENIA po wyborze: wpisać nazwy z `verdict: new` do `selection.json` → `fixes_accepted`, dla `old`
-  usunąć z list „fix”, dla `neither` – kolejna wersja wg uwagi; potem `python3 tools/presets/build_library.py`,
-  pełny render, `similarity.py` na całości, mediany per kategoria tutaj, commit.
+- Użytkownik: „dodaj wszystkie” – 14 nowych wersji w `selection.json` → `fixes_accepted`, biblioteka przebudowana.
+  Render 136/136 (mediana −15,0 LUFS). Mediany odległości do najbliższego sąsiada po etapie C: Arp 1.71 (było 1.36),
+  Bass 1.66 (1.70), Guitar 1.65 (1.93), Lead 1.40 (1.38), Keys 1.24 (1.26), Brass 1.22, Pad 1.21, FX 2.70.
+  Cel ≥ 1.6 w każdej kategorii – Keys, Pad, Brass i Lead nadal poniżej; to zadanie dla nowych partii w etapie D.
+- Otwarte pytanie do użytkownika (przed etapem D): czy partie D przechodzą odsłuch i wybór. Propozycja Claude:
+  lekki wybór – partie 20–30 presetów z jednej kategorii, domyślnie „zostaw”, użytkownik zaznacza tylko
+  „usuń”/„popraw”.
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
   pokrętła, wykresy obwiedni i LFO, przeglądarka presetów, okno „O programie” z licencją), zrzuty przez
   `VOLT_Render --snapshot`, odświeżyć `docs/ui-*.png` i README.

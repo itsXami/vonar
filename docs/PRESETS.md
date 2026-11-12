@@ -40,7 +40,7 @@ Suby i 808, basy przesterowane, acid, reese, FM, funkowe i analogowe.
 | 015 | Grid Pulse Bass | Cinematic, Pulse, Synthwave | Pulse / Drive / Sub / Hall | Relentless sixteenth-note bass pulse with a cutting filter envelope. |  |
 | 016 | Gutter Growl | Industrial, Wobble | Growl / Speed / Heat / Sub | FM bass that growls in eighth-note pulses under heavy saturation. |  |
 | 017 | Kick Sub Smash | Industrial, 808, Punch | Punch / Clip / Tone / Tail | Punchy kick-like 808 with a steep pitch dive and clipped transient. |  |
-| 018 | Long Glide 808 | Cold, 808, Glide | Drive / Tone / Knock / Sub | Deep sustained 808 with a long tail and portamento between notes. | do poprawki |
+| 018 | Long Glide 808 | Cold, 808, Glide | Drive / Tone / Growl / Sub | Gliding 808 with a folded upper growl that stays audible on laptop speakers. |  |
 | 019 | Mechanic Bass | Mechanical | Crunch / Tone / Buzz / Sub | Clanky buzz bass with a crunchy bite for repetitive riffs. |  |
 | 020 | Modular Pluck Bass | Analog, Modular, Funk | Snap / Res / Drive / Sub | Woody modular bass pluck with a snappy ladder envelope. |  |
 | 021 | Overload 808 | Industrial, 808, Distorted | Drive / Tone / Rasp / Sub | Long 808 that breaks up into a raspy, clipped tail. |  |
@@ -53,7 +53,7 @@ Suby i 808, basy przesterowane, acid, reese, FM, funkowe i analogowe.
 | 028 | Rust Bass | Industrial, Distorted | PWM / Rust / Pluck / Sub | Pulse-width bass with a rusty tube edge and a quick filter pluck. |  |
 | 029 | Shock Collar | Industrial, Lo-Fi, Aggressive | Fold / Crush / Bite / Width | Wavefolded bass with a bit-crushed bite that jumps out of the mix. |  |
 | 030 | Squelch Box | House, Raw, Acid | Squelch / Open / Dirt / Echo | Classic acid squelch with a resonant ladder, accent-like envelope and slide. |  |
-| 031 | Tom Drop 808 | Cold, 808 | Drop / Drive / Tone / Room | Tom-like 808 with a pronounced pitch drop and a short, round tail. | do poprawki |
+| 031 | Tom Drop 808 | Cold, 808, Punch | Drop / Drive / Tone / Room | Round tom-like 808 whose pitch falls a full octave and rings on with a tube growl. |  |
 | 032 | Velvet Rope Bass | Epic, Glide | Weight / Tone / Drive / Sub | Smooth FM bass that slides between notes with a rich low mid. |  |
 | 033 | Warehouse Filter Bass | House, Raw, Filter House | Sweep / Grit / Res / Sub | Raw saw bass whose filter sweeps every two beats under a pump. |  |
 
@@ -75,10 +75,10 @@ Leady mono i poly: supersaw, sync, formantowe, miękkie sinusy, flety i brzmieni
 | 043 | Formant Whistle | Cold, Whistle, Soft | Air / Vowel / Vibrato / Hall | Airy whistle lead shaped by an 'oo' formant with gentle vibrato. |  |
 | 044 | Gritty Riff Saw | Mechanical, Rock, Distorted | Gain / Tone / Chug / Room | Overdriven saw riff that chugs like a distorted guitar. |  |
 | 045 | Hollow Clarinet Lead | Epic, Woodwind, Soft | Reed / Tone / Vibrato / Hall | Woody odd-harmonic lead in the clarinet register. |  |
-| 046 | Laser Harp | House, Disco, 80s, Pluck | Zap / Pulse / Echo / Hall | Pulse pluck with a zapping pitch envelope, built for melodic hooks. | do poprawki |
+| 046 | Laser Harp | House, Disco, 80s, Pluck | Zap / Bright / Echo / Hall | Plucked-string harp with a laser zap on the attack and dotted ping-pong echoes. |  |
 | 047 | Lonely Sine Lead | Cold, Minimal, Soft | Shape / Vibrato / Echo / Hall | Soft sine lead with delayed vibrato and ping-pong echoes. |  |
 | 048 | Machine Riff | Mechanical, Lo-Fi | Bits / Tone / Pulse / Echo | Bit-crushed square riff with a cold, mechanical edge. |  |
-| 049 | Neon Anthem | Stadium, Bright | Bright / Pulse / Vibrato / Echo | Bright analog saw and pulse lead with glide and mod-wheel vibrato. | do poprawki |
+| 049 | Neon Anthem | Stadium, Bright, Sync | Bright / Edge / Pulse / Echo | Synced saw lead whose edge snaps open at every note and settles as it holds. |  |
 | 050 | Octave Bounce Lead | Stadium, Arp Lead, Bright | Bright / Width / Echo / Hall | Lead that bounces between two octaves in sixteenths when you hold a note. |  |
 | 051 | Phase Mod Lead | Analog, FM, Movement | Index / Phase / Tone / Echo | FM lead whose brightness breathes slowly through a phaser. |  |
 | 052 | Raw Filter Lead | House, Raw, Filter | Filter / Res / Grit / Echo | Gritty square lead with a slowly moving resonant ladder. |  |
@@ -95,10 +95,10 @@ Brzmienia gitarowe: przester, palm mute, czyste funkowe, slide i sustain.
 |---|---|---|---|---|---|
 | 057 | Bit Crushed Riff | Industrial, Guitar, Lo-Fi | Bits / Tone / Crush / Echo | Lo-fi riff guitar chewed by a bitcrusher for gritty loops. |  |
 | 058 | Feedback Sustain Guitar | Mechanical, Guitar, Lead | Feedback / Gain / Bloom / Echo | Endless sustaining guitar that blooms into a resonant feedback whine. |  |
-| 059 | Fuzzbox Bass Guitar | House, Raw, Guitar, Fuzz | Fuzz / Tone / Low / Room | Fuzzed low guitar riff tone between bass and baritone guitar. | do poprawki |
+| 059 | Fuzzbox Bass Guitar | House, Raw, Guitar, Fuzz | Fuzz / Tone / Low / Room | Plucked low string driven into a hard fuzz that spits harder the harder you play. |  |
 | 060 | Gospel Slide Guitar | Gospel, Guitar, Slide | Slide / Warm / Gain / Room | Warm sliding lead guitar for church-style fills with expressive vibrato. |  |
 | 061 | Industrial Guitar Wall | Industrial, Guitar, Distorted | Wall / Gain / Rasp / Tone | Wide wall of buzzing, raspy saws crushed by clipping and multiband squash. |  |
-| 062 | Muted Disco Picking | House, Disco, Guitar | Mute / Grit / Echo / Room | Short muted sixteenth-note picking that pumps with the groove. | do poprawki |
+| 062 | Muted Disco Picking | House, Disco, Guitar | Mute / Grit / Echo / Room | Palm-muted string picking in sixteenths, chorused and pushed by the groove. |  |
 | 063 | Nylon Pluck | Cold, Guitar, Acoustic | Body / Pick / Tone / Room | Soft nylon-string pluck with a woody body and short room. |  |
 | 064 | Overdrive Rhythm Guitar | Mechanical, Guitar, Rock | Gain / Tone / Bite / Room | Two detuned saws through a tube amp stage for crunchy rhythm chords. |  |
 | 065 | Palm Mute Chug | Industrial, Guitar, Distorted | Gain / Mute / Low / Room | Tight palm-muted chug with a hard-clipped bite for industrial riffs. |  |
@@ -141,7 +141,7 @@ Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
 | 090 | Autopan Electric Piano | Analog, Electric Piano, Vintage | Bark / Pan / Phase / Room | Bell-toned electric piano with stereo auto-pan and velocity bark. |  |
-| 091 | Breaker Keys | Industrial, Stab, Digital | Index / Crush / Tone / Room | Harsh digital FM stab with a bit-crushed decay. | do poprawki |
+| 091 | Breaker Keys | Industrial, Stab, Digital | Index / Crush / Tone / Room | FM stab that starts as clean glass and breaks into bit-crushed grit as it decays. |  |
 | 092 | Chicago Organ Stab | House, Raw, Organ | Drawbars / Tone / Grit / Room | Short house organ stab with a punchy decay. |  |
 | 093 | Chord Memory Stab | House, Raw, Stab | Snap / Res / Dub / Room | Classic house chord stab with a snappy filter and a dub echo. |  |
 | 094 | Crystal Keys | House, Disco, Bright, Keys | Crystal / Tone / Width / Hall | Bright FM keys with a crisp attack and silky tail. |  |
@@ -151,7 +151,7 @@ Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.
 | 098 | Felt Grand | Cold, Piano, Soft | Felt / Hammer / Body / Room | Soft felt piano with a muted hammer and gentle room. |  |
 | 099 | Funk Clav Keys | Analog, Funk, Keys | Bite / Pulse / Phase / Room | Tight funky clav tone with a percussive filter bite. |  |
 | 100 | Funky Filter Keys | House, Raw, Funk | Wah / Pulse / Phase / Room | Clav-style pulse keys with a resonant envelope wah. |  |
-| 101 | Glass Piano | Cinematic, Piano | Glass / Tone / Echo / Hall | Crystalline glass-like piano with icy delay trails. | do poprawki |
+| 101 | Glass Piano | Cinematic, Piano | Glass / Shimmer / Echo / Hall | Struck glass strings that ring like a piano and shimmer with a high bell overtone. |  |
 | 102 | Gloss Pluck | Stadium, Pluck, Bright | Gloss / Body / Echo / Hall | Glassy FM pluck layered with a soft triangle for shiny chords. |  |
 | 103 | Grand Synth Keys | Epic, Keys, Warm | Attack / Body / Tone / Hall | Piano-like synth keys mixing a soft bell attack and a warm square body. |  |
 | 104 | Honky Tonk Bar | Gospel, Piano, Vintage | Detune / Bright / Room / Grit | Out-of-tune saloon piano with two strings per note beating against each other. |  |
@@ -175,11 +175,11 @@ Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.
 | 115 | Acid Line Arp | House, Raw, Acid, Arp | Squelch / Open / Dirt / Echo | Random acid arpeggio with squelching accents and slapback echo. |  |
 | 116 | Clockwork Arp | Mechanical, Arp | Tick / Crunch / Pulse / Echo | Distorted square arpeggio ticking in tight eighth notes. |  |
 | 117 | Disco Octave Arp | House, Disco, Octave | Phase / Tone / Res / Echo | Phased saw arpeggio bouncing octaves for disco breakdowns. |  |
-| 118 | Plucked Sequence | Cinematic, Sequence | Index / Tone / Echo / Hall | Up-down FM pluck sequence with dotted echoes. | do poprawki |
-| 119 | Pulsing String Ostinato | Cinematic, Strings | Bow / Tone / Ensemble / Hall | Synthetic strings repeating a tight ostinato for tension. | do poprawki |
+| 118 | Plucked Sequence | Cinematic, Sequence | Index / Tone / Echo / Hall | FM pluck sequence whose bell tone changes on every step. |  |
+| 119 | Pulsing String Ostinato | Cinematic, Strings | Bow / Tone / Ensemble / Hall | Spiccato strings bowing a tight ostinato, each stroke a little different. |  |
 | 120 | Racing Saw Arp | Cinematic, Arp, Synthwave | Glow / Width / Echo / Hall | Glowing supersaw arpeggio racing upward with dotted echoes. |  |
-| 121 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Tone / Echo | Buzzing two-octave arpeggio that cuts like a grinder. | do poprawki |
-| 122 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Width / Echo / Hall | Shimmering supersaw arpeggio rising over two octaves. | do poprawki |
+| 121 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Ring / Echo | Metallic comb-filtered buzz arpeggio that rings like a spinning blade. |  |
+| 122 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Octave / Echo / Hall | Short supersaw plucks racing over three octaves, with an octave layer that grows as you hold. |  |
 
 ## Brass (10)
 
@@ -204,8 +204,8 @@ Efekty: zapy, przemiatania i uderzenia.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 133 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Orchestral brass and string hit with noise air and a huge tail. | do poprawki |
-| 134 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Res / Echo | Distorted noise sweep that rises and falls through a resonant band-pass. | do poprawki |
+| 133 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
+| 134 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
 | 135 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
 
 ## Liczba presetów w kategoriach
