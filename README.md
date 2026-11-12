@@ -94,7 +94,7 @@ Keys, Arp, Brass, FX. Lista w menu presetów jest ułożona według ery inspirac
 
 ## Co zostało zweryfikowane automatycznie, a co wymaga odsłuchu i testu w FL Studio
 
-**Sprawdzane automatycznie w CI (GitHub Actions, każdy push i PR):**
+**Sprawdzane automatycznie w CI (GitHub Actions, każdy push; PR pokazuje wynik):**
 - build na **Linuksie** (VST3, Standalone, testy, renderer) i **Windows x64** (VST3 i Standalone, MSVC),
 - **testy jednostkowe DSP i pluginu** (`tests/`): pasmo mipmap wavetable, aliasing wysokich nut (< −50 dB),
   nachylenia i stabilność wszystkich typów filtra przy maksymalnym rezonansie i drive, czasy obwiedni,
