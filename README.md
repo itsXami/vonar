@@ -87,11 +87,6 @@ zawsze widoczne MACROS, OUTPUT i oscyloskop.
    6 Squash.
 5. **MACROS:** obok każdego pokrętła jest jego nazwa (dwuklik zmienia ją), cel albo cele, którymi steruje, i wartość.
 
-**Granie bez klawiatury MIDI:** przycisk **KEYBOARD** w prawym dolnym rogu pokazuje klawiaturę ekranową
-(klikanie myszą) zamiast makr. Można też grać z klawiatury komputera: A S D F G H J K to białe klawisze, W E T Y U
-czarne, Z i X zmieniają oktawę. W FL Studio skróty klawiatury komputera może przejmować sam program; myszą gra się
-zawsze. Ponowne kliknięcie KEYBOARD wraca do makr.
-
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
 Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.
 

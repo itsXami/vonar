@@ -1,7 +1,6 @@
 #pragma once
 
 #include <juce_audio_processors/juce_audio_processors.h>
-#include <juce_audio_utils/juce_audio_utils.h>
 #include "Params.h"
 #include "dsp/SynthEngine.h"
 #include "PresetManager.h"
@@ -42,9 +41,6 @@ public:
 
     // Oscilloscope feed (audio thread pushes, UI pulls; lock-free single producer / single consumer).
     int pullScope (float* dest, int maxSamples);
-
-    // Notes played on the editor's on-screen / computer keyboard (merged into the MIDI input of every block).
-    juce::MidiKeyboardState keyboardState;
 
     // Output peak per channel since the last call (level meter in the editor).
     float takeOutputPeak (int channel) noexcept { return outputPeak[channel & 1].exchange (0.0f); }
