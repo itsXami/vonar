@@ -1,5 +1,5 @@
 {
- "comment": "User verdicts from the two listening pages (keep / fix / remove). Fix = kept for now, to be reworked later.",
+ "comment": "User verdicts from the two listening pages (keep / fix / remove). Fix = kept for now, to be reworked later. fixes_accepted = reworked versions (generate_fixes.py) chosen by the user instead of the old ones.",
  "batch1_removed": [
   "Air Raid",
   "Alarm Pulse",
@@ -106,5 +106,21 @@
   "Glass Piano": "",
   "Muted Disco Picking": "",
   "Plucked Sequence": ""
- }
+ },
+ "fixes_accepted": [
+  "Breaker Keys",
+  "Dark Orchestra Hit",
+  "Fuzzbox Bass Guitar",
+  "Glass Piano",
+  "Grinding Sweep",
+  "Laser Harp",
+  "Long Glide 808",
+  "Muted Disco Picking",
+  "Neon Anthem",
+  "Plucked Sequence",
+  "Pulsing String Ostinato",
+  "Sawblade Arp",
+  "Skyline Arp",
+  "Tom Drop 808"
+ ]
 }
