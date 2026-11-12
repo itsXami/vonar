@@ -258,3 +258,19 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   nazwy wzorców nie trafiają do presetów.
 - **Czego neutralizacja nie obejmuje:** starszych komunikatów commitów na gałęzi `feature/volt-synth` (jeden z nich
   wymienia artystów). Przy upublicznieniu repo scalić PR metodą „squash”, żeby historia `main` była czysta.
+
+## Wygląd – etap B (makiety, w toku)
+
+- **Układ: makieta 2** (kolor na sekcję, wszystko z zakładki SYNTH na jednym ekranie) – wybór użytkownika.
+- **Wykończenie: 2A „techniczne”** (płaskie panele na styk, cienkie łuki) – wybór użytkownika.
+- **Runda 3 – dlaczego makiety wyglądały na wygenerowane** (użytkownik: „coś z czcionką i ogólnym wyglądem”).
+  Przegląd poradników o typowych cechach projektów generowanych i o projektowaniu wtyczek audio wskazał:
+  krój wybrany „domyślnie” (Inter) bez decyzji typograficznej; jednakowe ramki, odstępy i rozmiary wszystkiego;
+  obramowane sekcje wszędzie („wygląd okna ustawień”); zbyt wiele równie mocnych kolorów; brak jednego punktu
+  skupienia i hierarchii rozmiarów; mało wyrazista nazwa pluginu. Zastosowane poprawki są opisane w PROGRESS.md.
+  Źródła: prg.sh „Why Your AI Keeps Building the Same Purple Gradient Website”, 925studios.co „AI slop design
+  tells”, world.hey.com/kostac „Spot the slop”, plugin-builder-docs „Design guide / Anti-patterns”,
+  iZotope „Creating the gauge”.
+- **Kroje do wyboru: Barlow Semi Condensed albo Oxanium** (oba SIL OFL, można osadzić w pluginie jak dotąd Inter).
+  Po wyborze Inter zostaje usunięty z zasobów, jeśli nie będzie już używany.
+

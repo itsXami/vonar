@@ -100,11 +100,83 @@ def option(tag, name, idea, svg, gains, costs, cls="num"):
             '<div><h3>Cena</h3><ul>' + "".join(f"<li>{c}</li>" for c in costs) + '</ul></div></div></section>')
 
 
-def render(svgs, detail=None):
+TYPEFACES = [
+    ("3A", "Barlow Semi Condensed", "Wąski, spokojny krój w duchu oznaczeń na sprzęcie pomiarowym.",
+     ["Najwięcej miejsca na etykiety, więc tekst może być większy.", "Neutralny: nie odwraca uwagi od wykresów."],
+     ["Mniej „syntezatorowy” charakter niż 3B."]),
+    ("3B", "Oxanium", "Szerszy i bardziej kanciasty krój, kojarzy się z napisami na syntezatorach.",
+     ["Wyraźniejszy charakter, od razu widać, że to instrument.", "Cyfry są bardzo czytelne."],
+     ["Etykiety zajmują więcej miejsca, przy długich nazwach robi się ciasno."]),
+]
+
+FINDINGS = [
+    ("Czcionka bez decyzji.", "Inter to krój, po który generatory sięgają domyślnie, a liczby były dodatkowo osobnym "
+     "krojem „programistycznym”.", "Jeden krój z charakterem dla nazw, wartości i tytułów. Cyfry mają stałą szerokość, "
+     "ale pochodzą z tego samego kroju."),
+    ("Wszystko jednakowe.", "Te same ramki, nagłówki, rozmiary pokręteł i odstępy na całym ekranie.",
+     "Hierarchia: Cutoff i Position są wyraźnie większe. Pasek pomocniczy (unison, LFO, voice, arp) jest ciemniejszy "
+     "i drobniejszy. Makra to osobny, jaśniejszy pas z dużymi pokrętłami."),
+    ("Wygląd okna ustawień.", "Obramowane sekcje wszędzie.",
+     "Mniej pudełek: oba oscylatory leżą na jednej powierzchni, pasek pomocniczy nie ma ramek, a grupy rozdziela odstęp "
+     "i cienka kreska. Tytuł sekcji ma kolor sekcji zamiast paska z kwadracikiem."),
+    ("Za dużo kolorów.", "Sześć równie mocnych barw.",
+     "Cztery kolory sekcji (oscylatory, filtr, obwiednie, modulacja) i bursztyn tylko dla makr. Wyjście i oscyloskop "
+     "są bez koloru."),
+    ("Każdy wykres taki sam.", "Linia z gradientem pod spodem, wszędzie.",
+     "Wavetable to powierzchnia, filtr ma wypełnienie, obwiednia płaskie tło i kwadratowe punkty, a LFO i oscyloskop "
+     "samą linię."),
+    ("Pokrętła rozstawione równo na całą szerokość.", "Brak grup, dużo pustego miejsca.",
+     "Pokrętła są zbite w grupy. Makra pokazują, czym sterują, na przykład Bark steruje pozycją wavetable A."),
+    ("Logo z ikonką i zwykłym tekstem.", "Nic, co by wyróżniało ten instrument.",
+     "Znak narysowany od zera: proste kreski, a litera O jest pokrętłem."),
+]
+
+FINAL_CSS = """
+.findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px 36px; }
+.findings > div { min-width: 0; border-top: 1px solid var(--line); padding-top: 12px; }
+.findings h4 { margin: 0 0 4px; font-size: 16px; font-family: var(--display); }
+.findings p { margin: 0; }
+.findings .was { color: var(--muted); margin-bottom: 6px; }
+.block { display: flex; flex-direction: column; gap: 16px; }
+.block > h3 { margin: 0; }
+"""
+
+
+def render(svgs, detail=None, final=None):
+    if final is None:
+        return render_rounds(svgs, detail)
+    out = ['<title>Makiety interfejsu VOLT</title>', '<meta name="claude:viewport-fit-sides" content="cover">',
+           '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&'
+           'family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&'
+           'family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Oxanium:wght@400;500;600;700&display=swap">',
+           f"<style>{CSS}{EXTRA_CSS}{FINAL_CSS}</style>", '<div class="wrap">',
+           '<header><h1>Makiety interfejsu VOLT</h1>',
+           '<p>Runda 3. Wybrane wykończenie to 2A, ale nadal wyglądało na wygenerowane. Poniżej 2A po poprawkach, '
+           'w dwóch krojach pisma. Układ i funkcje są te same w obu, różni je tylko czcionka.</p>',
+           '<p>Wybierz 3A albo 3B. Jeśli coś nadal razi, wskaż miejsce na makiecie.</p></header>', '<div class="round">']
+    for (tag, name, idea, gains, costs), svg in zip(TYPEFACES, final):
+        out.append(option(tag, name, idea, svg, gains, costs, "tag"))
+    out.append("</div>")
+    out.append('<div class="block"><h3>Co wyglądało na wygenerowane i co zmieniłem</h3><div class="findings">'
+               + "".join(f'<div><h4>{t}</h4><p class="was">{was}</p><p>{now}</p></div>' for t, was, now in FINDINGS)
+               + '</div></div>')
+    out.append('<p class="common">Oba kroje są na otwartej licencji (SIL OFL), więc można je wbudować w plugin tak jak '
+               'dotychczasową czcionkę. Miernik poziomu przy wyjściu i podpisy pod makrami to nowe funkcje, których '
+               'dziś w pluginie nie ma.</p>')
+    inner = render_rounds(svgs, detail, body_only=True)
+    out.append('<details><summary>Wcześniejsze rundy: wykończenia 2A i 2B oraz trzy kierunki</summary>' + inner
+               + '</details>')
+    out.append("</div>")
+    return "\n".join(out)
+
+
+def render_rounds(svgs, detail=None, body_only=False):
     out = ['<title>Makiety interfejsu VOLT</title>', '<meta name="claude:viewport-fit-sides" content="cover">',
            '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&'
            'family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">',
            f"<style>{CSS}{EXTRA_CSS}</style>", '<div class="wrap">']
+    if body_only:
+        out = []
     round1 = ['<div class="round">']
     for i, ((name, idea, gains, costs), svg) in enumerate(zip(VARIANTS, svgs), start=1):
         round1.append(option(i, name, idea, svg, gains, costs))
@@ -113,6 +185,12 @@ def render(svgs, detail=None):
         out += ['<header><h1>Makiety interfejsu VOLT</h1>',
                 '<p>Trzy kierunki wyglądu na etap B. Każda makieta pokazuje okno 1200×740 z zakładką SYNTH.</p>'
                 '</header>'] + round1 + ["</div>"]
+        return "\n".join(out)
+    if body_only:
+        out.append('<div class="round">')
+        for (tag, name, idea, gains, costs), svg in zip(FINISHES, detail):
+            out.append(option(tag, name, idea, svg, gains, costs, "tag"))
+        out += round1[1:-1] + ["</div>"]
         return "\n".join(out)
     out += ['<header><h1>Makiety interfejsu VOLT</h1>',
             '<p>Runda 2. Wybrany układ to makieta 2 (kolor na sekcję). Poniżej ten sam układ dopracowany w dwóch '
