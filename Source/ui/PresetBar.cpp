@@ -4,8 +4,14 @@ namespace volt::ui
 {
 PresetBar::PresetBar (PresetManager& pm) : presets (pm)
 {
-    for (auto* b : { &prevButton, &nextButton, &nameButton, &saveButton })
+    for (auto* b : { &prevButton, &nextButton, &nameButton, &saveButton, &aboutButton })
         addAndMakeVisible (*b);
+    VoltLookAndFeel::setStyle (prevButton, "arrow");
+    VoltLookAndFeel::setStyle (nextButton, "arrow");
+    VoltLookAndFeel::setStyle (nameButton, "preset");
+    VoltLookAndFeel::setStyle (aboutButton, "ghost");
+    aboutButton.setTooltip ("About VOLT");
+    aboutButton.onClick = [this] { showAbout(); };
     prevButton.setTooltip ("Previous preset (in the current filter)");
     nextButton.setTooltip ("Next preset (in the current filter)");
     nameButton.setTooltip ("Browse presets");
@@ -22,9 +28,9 @@ PresetBar::PresetBar (PresetManager& pm) : presets (pm)
     categoryBox.onChange = [this] { refresh(); };
     tagBox.onChange = [this] { refresh(); };
 
-    search.setTextToShowWhenEmpty ("Search...", colours::dimText);
-    search.setFont (VoltLookAndFeel::font (13.0f));
-    search.setIndents (6, 4);
+    search.setTextToShowWhenEmpty ("Search", colours::faint);
+    search.setFont (VoltLookAndFeel::font (12.5f));
+    search.setIndents (6, 3);
     search.onTextChange = [this] { refresh(); };
     search.setTooltip ("Search names, tags and descriptions");
     addAndMakeVisible (search);
@@ -189,47 +195,76 @@ void PresetBar::showSaveDialog()
     }), false);
 }
 
+void PresetBar::showAbout()
+{
+    juce::AlertWindow::showAsync (
+        juce::MessageBoxOptions()
+            .withTitle ("VOLT " VOLT_VERSION_STRING)
+            .withMessage ("Wavetable synthesizer.\n\n"
+                          "Free software under the GNU Affero General Public License, version 3. "
+                          "You may use, study, share and change it under that licence; it comes with no warranty. "
+                          "The name and logo are not covered by the licence.\n\n"
+                          "Built with JUCE (AGPLv3). Interface typeface: Oxanium (SIL Open Font License 1.1).")
+            .withButton ("OK")
+            .withAssociatedComponent (this),
+        nullptr);
+}
+
 void PresetBar::refresh()
 {
     const auto name = presets.getCurrentPresetName();
     const int idx = presets.getCurrentIndex();
-    juce::String text = name;
-    if (idx >= 0)
-        text = presets.getPresets()[(size_t) idx].category.toUpperCase() + "  |  " + name;
-    nameButton.setButtonText (text);
+    const auto category = idx >= 0 ? presets.getPresets()[(size_t) idx].category.toUpperCase() : juce::String();
+    if (nameButton.getButtonText() != name || nameButton.getProperties()["category"].toString() != category)
+    {
+        nameButton.getProperties().set ("category", category);
+        nameButton.setButtonText (name);
+        nameButton.repaint();
+    }
     if (idx >= 0)
         nameButton.setTooltip (presets.getPresets()[(size_t) idx].description);
 }
 
 void PresetBar::paint (juce::Graphics& g)
 {
-    g.setColour (juce::Colour (0xff16191e));
+    g.setColour (colours::bar);
     g.fillRect (getLocalBounds());
-    g.setColour (colours::panelBorder);
-    g.drawHorizontalLine (getHeight() - 1, 0.0f, (float) getWidth());
+    g.setColour (juce::Colours::black);
+    g.fillRect (0, getHeight() - 1, getWidth(), 1);
 
+    // Wordmark drawn from strokes; the O is a knob.
+    const float x = 18.0f, y = 15.0f, h = 18.0f, sw = 3.4f;
+    const juce::PathStrokeType stroke (sw, juce::PathStrokeType::mitered, juce::PathStrokeType::butt);
+    juce::Path mark;
+    mark.startNewSubPath (x, y);
+    mark.lineTo (x + 8.5f, y + h);
+    mark.lineTo (x + 17.0f, y);
+    const float cx = x + 33.0f, cy = y + h * 0.5f, r = h * 0.5f - sw * 0.5f + 0.6f;
+    mark.addCentredArc (cx, cy, r, r, 0.0f, -2.41f, 2.41f, true);
+    mark.startNewSubPath (x + 49.0f, y);
+    mark.lineTo (x + 49.0f, y + h - sw * 0.5f);
+    mark.lineTo (x + 61.0f, y + h - sw * 0.5f);
+    mark.startNewSubPath (x + 64.0f, y + sw * 0.5f);
+    mark.lineTo (x + 82.0f, y + sw * 0.5f);
+    mark.startNewSubPath (x + 73.0f, y + sw * 0.5f);
+    mark.lineTo (x + 73.0f, y + h);
     g.setColour (colours::text);
-    g.setFont (VoltLookAndFeel::font (25.0f, true));
-    g.drawText ("VOLT", 16, 6, 90, 28, juce::Justification::centredLeft);
-    // colour key: one short bar per section colour
-    const juce::Colour keys[] = { colours::osc, colours::filter, colours::env, colours::mod, colours::fx, colours::macro };
-    for (int i = 0; i < 6; ++i)
-    {
-        g.setColour (keys[i]);
-        g.fillRoundedRectangle (17.0f + (float) i * 13.0f, 36.0f, 10.0f, 3.0f, 1.5f);
-    }
+    g.strokePath (mark, stroke);
+    g.setColour (colours::macro);
+    g.drawLine (cx, cy, cx + (r - 1.0f) * std::sin (0.733f), cy - (r - 1.0f) * std::cos (0.733f), 2.6f);
 }
 
 void PresetBar::resized()
 {
-    const int y = 11, h = 27;
-    prevButton.setBounds (150, y, 28, h);
-    nextButton.setBounds (180, y, 28, h);
-    nameButton.setBounds (214, y, 330, h);
-    categoryBox.setBounds (552, y, 110, h);
-    tagBox.setBounds (668, y, 150, h);
-    search.setBounds (824, y, 176, h);
-    saveButton.setBounds (1008, y, 72, h);
-    scaleBox.setBounds (1086, y, 98, h);
+    const int y = 11, h = 26;
+    aboutButton.setBounds (10, 6, 100, 36);
+    nameButton.setBounds (424, 9, 296, 30);
+    prevButton.setBounds (724, y, 24, h);
+    nextButton.setBounds (748, y, 24, h);
+    categoryBox.setBounds (782, y + 2, 88, 22);
+    tagBox.setBounds (874, y + 2, 100, 22);
+    search.setBounds (978, y + 2, 84, 22);
+    saveButton.setBounds (1068, y + 2, 52, 22);
+    scaleBox.setBounds (1126, y + 2, 66, 22);
 }
 } // namespace volt::ui

@@ -36,11 +36,11 @@ juce_add_binary_data(VOLT_Presets
     SOURCES     ${VOLT_PRESET_FILES})
 set_target_properties(VOLT_Presets PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
-# UI font (Inter, SIL Open Font License – see resources/fonts/OFL-Inter.txt)
+# UI font (Oxanium, SIL Open Font License – see resources/fonts/OFL-Oxanium.txt)
 juce_add_binary_data(VOLT_Fonts
     HEADER_NAME VoltFontData.h
     NAMESPACE   VoltFontData
-    SOURCES     resources/fonts/Inter-Regular.ttf resources/fonts/Inter-SemiBold.ttf)
+    SOURCES     resources/fonts/Oxanium-Medium.ttf resources/fonts/Oxanium-SemiBold.ttf)
 set_target_properties(VOLT_Fonts PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 # ---------------------------------------------------------------------------

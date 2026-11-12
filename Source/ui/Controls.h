@@ -58,25 +58,65 @@ private:
     bool dragging = false, hovering = false;
 };
 
-// Parameter name above, knob, value always visible below (Zenology-style readability).
+// Value read-out: the number in the value colour, the unit a little smaller and dimmer ("2.40 kHz", "35 %").
+class ValueText final : public juce::Component
+{
+public:
+    ValueText() { setInterceptsMouseClicks (false, false); }
+    void setText (const juce::String& t) { if (t != text) { text = t; repaint(); } }
+    void setTextColour (juce::Colour c) { if (c != colour) { colour = c; repaint(); } }
+    void paint (juce::Graphics&) override;
+
+    float size = 11.0f;
+    bool bold = false;
+    juce::Justification justification = juce::Justification::centred;
+
+private:
+    juce::String text;
+    juce::Colour colour = colours::value;
+};
+
+// Parameter name above, knob, value always visible below.
 class Knob final : public juce::Component
 {
 public:
+    enum Size { Small, Medium, Hero };
+
     Knob (juce::AudioProcessorValueTreeState& state, int param, const juce::String& caption, juce::Colour accent,
-          bool big = false);
+          int size = Small);
 
     void resized() override;
     void paint (juce::Graphics&) override {}
     void updateValue();
     void setCaption (const juce::String& c) { label.setText (c, juce::dontSendNotification); }
+    void setMacroMark (bool on);
+    void enablementChanged() override { label.setAlpha (isEnabled() ? 1.0f : 0.4f); value.setAlpha (isEnabled() ? 1.0f : 0.4f); }
 
     FineSlider slider;
-    juce::Label label;  // parameter name (editable for macros)
-    juce::Label value;  // current value
-    bool isBig;
+    juce::Label label;  // parameter name
+    ValueText value;    // current value
+    int size;
 
 private:
     juce::Colour accent;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> attachment;
+};
+
+// One macro: a large knob with its name (double-click to rename), what it controls and its value beside it.
+class MacroCell final : public juce::Component
+{
+public:
+    MacroCell (juce::AudioProcessorValueTreeState& state, int param);
+    void resized() override;
+    void paint (juce::Graphics&) override;
+    void setTarget (const juce::String& t) { if (t != target) { target = t; repaint(); } }
+
+    FineSlider slider;
+    juce::Label name;
+    ValueText value;
+
+private:
+    juce::String target;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> attachment;
 };
 
