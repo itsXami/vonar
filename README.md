@@ -1,7 +1,8 @@
 # VOLT
 
 Syntezator wavetable (VST3 + Standalone) z czytelnym interfejsem, wykresami wszystkiego, co kształtuje dźwięk, i biblioteką
-136 presetów (Init + 135 wybranych po odsłuchu): basy, leady, gitary, pady, klawisze, arpeggia, brassy i efekty.
+300 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia
+i efekty.
 Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
 
 ![Interfejs VOLT – zakładka SYNTH](docs/ui-snapshot.png)
@@ -93,8 +94,8 @@ Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user pre
 pedał sustain (CC64, działa też z arpeggiatorem), Mod Wheel i Aftertouch (jako źródła modulacji) oraz
 All Notes/Sound Off.
 
-Lista presetów z opisami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pad, Keys, Arp,
-Brass, FX. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,
+Lista presetów z opisami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pluck, Keys, Bell, Pad,
+Strings, Brass, Woodwind, Arp, FX. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,
 „House”, „Cinematic”, „Lo-Fi”) wybierzesz w filtrze tagów.
 
 ## Co zostało zweryfikowane automatycznie, a co wymaga odsłuchu i testu w FL Studio

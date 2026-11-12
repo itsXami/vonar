@@ -143,7 +143,7 @@ P("metallic", "Gamelan Gong", C, "Bronze gamelan gong: a soft knock and a deep, 
   M(("Bronze", [("Warp A", 0.35)]), ("Waver", [("Pitch", 0.004)]), ("Knock", [("Noise Level", 0.1)]), ("Hall", [("Reverb Mix", 0.3)])),
   mods=[("LFO 1", "Pitch", 0.002), ("Mod Env", "Warp A", 0.3)], tags=["Gamelan", "Gong", "Bronze"],
   oscA_table="Basic Shapes", oscA_oct=-1, oscA_warp="RM", oscA_warp_amt=0.35, oscB_table="Basic Shapes",
-  oscB_semi=14, oscB_fine=30.0, oscB_level=0.0, noise_level=0.01, lfo1_rate=1.2, menv_decay=0.5,
+  oscB_oct=1, oscB_semi=2, oscB_fine=30.0, oscB_level=0.0, noise_level=0.01, lfo1_rate=1.2, menv_decay=0.5,
   flt_type="LP24", flt_cutoff=2000.0, amp_attack=0.006, amp_decay=4.5, amp_sustain=0.0, amp_release=2.0,
   rev_size=0.75, rev_mix=0.22)
 P("metallic", "Bowed Cymbal", C, "A bow drawn across a cymbal edge: a rising metallic shimmer with no attack.",

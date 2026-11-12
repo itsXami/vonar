@@ -1,0 +1,47 @@
+{
+  "name": "Quantize Chip Pluck",
+  "category": "Pluck",
+  "tags": [
+    "Electronic",
+    "Chiptune",
+    "Stepped"
+  ],
+  "description": "Stepped, game-console square pluck with a quick pitch blip.",
+  "macros": [
+    "Steps",
+    "Blip",
+    "Tone",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Analog Square",
+    "oscA_warp": "Quantize",
+    "oscA_warp_amt": 0.5,
+    "flt_type": "LP12",
+    "flt_cutoff": 7000.0,
+    "amp_decay": 0.25,
+    "amp_sustain": 0.15,
+    "amp_release": 0.08,
+    "penv_amount": 12.0,
+    "penv_decay": 0.02,
+    "dly_time": "1/8",
+    "dly_mix": 0.1,
+    "out_gain": 4.7,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Warp A",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Pitch A",
+    "mod2_amt": 0.03,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Warp A",
+    "mod5_amt": 0.2
+  }
+}
