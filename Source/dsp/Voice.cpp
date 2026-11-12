@@ -18,6 +18,7 @@ void Voice::prepare (double sampleRate, uint32_t seed)
     fenv.setSampleRate (sr);
     menv.setSampleRate (sr);
     filter.prepare (sr);
+    dcCoeff = (float) std::exp (-2.0 * juce::MathConstants<double>::pi * 5.0 / sr);
     lfo[0].reset (0.0, seed * 3u + 1u);
     lfo[1].reset (0.0, seed * 7u + 5u);
     maxStringLen = (int) (sr / 16.0) + 8;
@@ -33,6 +34,7 @@ void Voice::reset()
     fenv.reset();
     menv.reset();
     filter.reset();
+    dcX[0] = dcX[1] = dcY[0] = dcY[1] = 0.0f;
     penv = 0.0f;
     gate = false;
     note = -1;
@@ -57,6 +59,7 @@ void Voice::start (int newNote, float vel, float startPitch, bool retrigger, con
     if (wasIdle)
     {
         filter.reset();
+        dcX[0] = dcX[1] = dcY[0] = dcY[1] = 0.0f;
         for (auto& o : osc)
             o.init = false;
         subPhase = 0.0f;
@@ -499,6 +502,22 @@ void Voice::render (const VoiceContext& ctx, float* outL, float* outR, int n) no
         subInc = newSubInc;
         subLevel = newSub;
         noiseLevel = newNoise;
+    }
+
+    // ---- DC blocker ----
+    for (int c = 0; c < 2; ++c)
+    {
+        float* b = c == 0 ? bufL : bufR;
+        float x1 = dcX[c], y1 = dcY[c];
+        for (int i = 0; i < n; ++i)
+        {
+            const float x = b[i];
+            y1 = x - x1 + dcCoeff * y1;
+            x1 = x;
+            b[i] = y1;
+        }
+        dcX[c] = x1;
+        dcY[c] = y1;
     }
 
     // ---- filter ----

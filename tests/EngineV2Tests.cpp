@@ -182,6 +182,24 @@ struct EngineV2Tests final : juce::UnitTest
             expect (allFinite (r.L));
             expectLessThan (rt, 1.0);
         }
+
+        beginTest ("Phase-shaping warps leave no DC offset");
+        for (int mode : { (int) choices::WarpSqueeze, (int) choices::WarpBend })
+        {
+            auto p = defaults();
+            p.v[OscA_Table] = (float) wavetableIndex ("Reed");
+            p.v[OscA_Pos] = 0.3f;
+            p.v[OscA_Warp] = (float) mode;
+            p.v[OscA_WarpAmt] = 0.6f;
+            SynthEngine e;
+            e.prepare (sr, 512);
+            const auto r = renderNotes (e, p, { 48, 55, 60 }, 2.0, -1.0, sr, 512);
+            double mean = 0.0;
+            for (size_t i = (size_t) sr; i < r.L.size(); ++i)
+                mean += r.L[i];
+            mean /= (double) (r.L.size() - (size_t) sr);
+            expectLessThan (std::abs (mean), 0.003, "warp mode " + juce::String (mode));
+        }
     }
 };
 

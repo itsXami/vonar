@@ -314,4 +314,22 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   Pozostałe 12 nie miało uwag, więc każda nowa wersja jest zbudowana wokół jednego wyraźnego pomysłu na
   silniku v2 (String, warp Sync/FM, Comb, Mod Env, Random) i reaguje na velocity i Mod Wheel.
   Wszystkie 14 przechodzą render i `similarity.py` (≥ 1.2 od biblioteki).
+- **Filtr DC w głosie (wykryty przy partii Keys 1):** tryb warp Squeeze ściska jedną połowę cyklu, przez co kształt
+  spędza więcej czasu po jednej stronie zera (Reed + Squeeze: DC −0,2; wcześniej to samo w Sawblade Arp). Głos nie
+  miał żadnego usuwania DC. Dodany jednobiegunowy filtr górnoprzepustowy ~5 Hz przed filtrem głównym (stan zerowany
+  przy starcie z ciszy). Wpływ na bibliotekę: najwyżej 0,19 LU różnicy głośności; Marimba Keys przekroczyła przez to
+  próg limitera o 0,05 dB, więc jej trym zmieniono z −0,3 na −1,0 dB. Test: `Engine v2 / Phase-shaping warps leave
+  no DC offset`.
+
+## Etap D – biblioteka ok. 300 presetów
+
+- **Partie jako osobne generatory** (`tools/presets/generate_batch_<nazwa>.py`, JSON-y w
+  `tools/presets/batches/<nazwa>/`, trymy `batches/<nazwa>_trims.json`). Do biblioteki trafiają po odsłuchu.
+- **Wybór lekki** (decyzja użytkownika): preset domyślnie zostaje; na stronie odsłuchu tylko „Usuń” albo
+  „Za podobny do…” (z listy) i uwaga. Obok kandydata gra jego najbliższy według pomiaru preset z biblioteki.
+- **Keys 1 (23 presety):** ciepły kierunek z `docs/SOUND_REFERENCES.md`; świadomie bez tablicy FM Bell (9 z 25
+  dotychczasowych Keys ją ma). Rodziny: pianina elektryczne, pianina, klawisze szarpane, organy, syntezatorowe,
+  lo-fi. Presety na oscylatorze String miały za ostry szczyt ataku akordu względem ciała (limiter 4–13 dB);
+  pomogły dłuższy `str_decay`, atak 8–26 ms (miękki młoteczek) i lekkie nasycenie Soft/Tube. Upright Room Piano
+  odpadł (za blisko istniejących, a dwa inne pianina na strunie zostały).
 
