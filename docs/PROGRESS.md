@@ -112,7 +112,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | Etap | Status |
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
-| B. Profesjonalny wygląd | ⏳ makiety gotowe, czekamy na wybór użytkownika (opis niżej); wdrożenie dopiero po wyborze |
+| B. Profesjonalny wygląd | ⏳ układ wybrany (makieta 2); czekamy na wybór wykończenia 2A/2B (opis niżej); wdrożenie po wyborze |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
@@ -144,6 +144,18 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   ciepła czerń i pomarańcz). Generator: `python3 tools/ui/mockups.py [--html plik.html]`.
 - Strona porównania dla użytkownika: https://claude.ai/artifact/4PoVCLzn4xfhM6WgvS39dd (rekomendacja Claude: 1;
   bezpieczniejsza alternatywa: 2). Użytkownik może też łączyć (np. układ z 1, kolory z 2).
+- **Wybór użytkownika (2026-11-12): makieta 2** (kolor na sekcję, wszystko na jednym ekranie), z uwagą
+  „to nadal wygląda AI” – szkic był za prosty (zaokrąglone karty z ramką, pastelowe kolory, gołe pierścienie
+  pokręteł, owalne przełączniki, dużo pustego miejsca).
+- **Runda 2 (czeka na wybór):** ten sam układ w docelowej szczegółowości, dwa wykończenia:
+  `docs/mockups/volt-ui-2a.svg` „Techniczne” (płaskie panele na styk, cienkie łuki, odczyty czcionką mono) i
+  `volt-ui-2b.svg` „Sprzętowe” (cieniowane główki pokręteł, wgłębione ekrany, świecące linie, diody). Wspólne
+  zmiany: panele na styk, gęstszy ekran, głębsze kolory sekcji, wavetable jako pełna powierzchnia, siatka i
+  podziałka na wykresach, prostokątne przełączniki w nagłówkach, znak VOLT z pokrętłem w miejscu „O”, miernik
+  poziomu wyjścia (nowa funkcja). Generator: `python3 tools/ui/mockups_detail.py`. Ta sama strona porównania
+  (runda 2 na górze). Rekomendacja Claude: 2B; można mieszać (np. panele z 2A, pokrętła z 2B).
+- Ustalenie z wcześniejszej przebudowy UI nadal obowiązuje: nazwa parametru nad pokrętłem, wartość zawsze pod
+  nim, normalna pisownia etykiet (nie drobne wersaliki).
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
   pokrętła, wykresy obwiedni i LFO, przeglądarka presetów, okno „O programie” z licencją), zrzuty przez
   `VOLT_Render --snapshot`, odświeżyć `docs/ui-*.png` i README.

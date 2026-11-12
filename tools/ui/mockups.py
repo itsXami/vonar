@@ -582,9 +582,14 @@ def main():
     print("wrote", len(svgs), "mock-ups to", OUT_DIR)
     if len(sys.argv) > 2 and sys.argv[1] == "--html":
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import mockups_detail
         import mockups_page
+        detail = mockups_detail.build()
+        for name, svg in zip(("volt-ui-2a", "volt-ui-2b"), detail):
+            with open(os.path.join(OUT_DIR, name + ".svg"), "w") as f:
+                f.write(svg + "\n")
         with open(sys.argv[2], "w") as f:
-            f.write(mockups_page.render(svgs))
+            f.write(mockups_page.render(svgs, detail))
         print("wrote", sys.argv[2])
 
 
