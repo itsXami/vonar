@@ -195,7 +195,8 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   Render 136/136 (mediana −15,0 LUFS). Mediany odległości do najbliższego sąsiada po etapie C: Arp 1.71 (było 1.36),
   Bass 1.66 (1.70), Guitar 1.65 (1.93), Lead 1.40 (1.38), Keys 1.24 (1.26), Brass 1.22, Pad 1.21, FX 2.70.
   Cel ≥ 1.6 w każdej kategorii – Keys, Pad, Brass i Lead nadal poniżej; to zadanie dla nowych partii w etapie D.
-- Otwarte pytanie do użytkownika (przed etapem D): czy partie D przechodzą odsłuch i wybór. Propozycja Claude:
+- Otwarte pytanie do użytkownika (przed etapem D): czy partie D przechodzą odsłuch i wybór. Użytkownik napisał
+  „ale z presetami co lubię” – możliwe, że chodzi o wybór typu „biorę tylko to, co mi się podoba” (do potwierdzenia). Propozycja Claude:
   lekki wybór – partie 20–30 presetów z jednej kategorii, domyślnie „zostaw”, użytkownik zaznacza tylko
   „usuń”/„popraw”.
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
@@ -222,8 +223,9 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   - GitHub: zaplecze na kod i automatyczne budowanie paczki; repo prywatne do 1.0, potem publiczne z ochroną `main`.
 - **Otwarte:** nazwa (VOLT koliduje z interfejsami Universal Audio Volt – użytkownik zajmie się tym później).
 - **Wzorce brzmień od użytkownika** (punkt odniesienia dla partii presetów, tylko opis charakteru, nic nie
-  kopiujemy) są w `docs/SOUND_REFERENCES.md`. Na razie dwa, oba dla Keys: miękkie elektryczne pianino z falującym
-  chorusem; ciemne, ciepłe, lekko lo-fi barowe klawisze bez ostrego ataku. Pierwsza partia w etapie D to Keys.
+  kopiujemy) są w `docs/SOUND_REFERENCES.md`: 2 z Vitala (Keys) i 9 z Zenology (nagranie analizowane 2026-11-12,
+  pliku nie ma w repo). Wspólny mianownik: ciepło i ciemno, energia głównie poniżej 1 kHz, sporo phasera,
+  tremola i echa. Pierwsza partia w etapie D to Keys.
 - **Jakość presetów (2026-11-12):** `VOLT_Render` zapisuje w `report.json` odcisk barwy każdego presetu (`features`:
   16 pasm, jasność, ruch barwy, atak, sustain, szumowość, szerokość, udział basu). `tools/presets/similarity.py`
   wskazuje pary zbyt podobnych presetów i odrzuca kandydatów bliższych niż 1.2 bibliotece lub sobie nawzajem.
