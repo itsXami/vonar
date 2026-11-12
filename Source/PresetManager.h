@@ -20,7 +20,7 @@ struct PresetInfo
 class PresetManager : public juce::ChangeBroadcaster
 {
 public:
-    static const juce::StringArray& categories();   // Bass, Lead, Pad, Keys, Arp, Brass, FX
+    static const juce::StringArray& categories();   // Bass, Lead, Guitar, Pluck, Keys, Bell, Pad, Strings, Brass, Woodwind, Arp, FX
     static constexpr const char* kPresetNameProp = "presetName";
     static constexpr const char* kPresetCategoryProp = "presetCategory";
     static juce::String macroLabelProp (int i) { return "macroLabel" + juce::String (i + 1); }

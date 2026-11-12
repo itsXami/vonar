@@ -68,6 +68,29 @@ Phrase phraseFor (const juce::String& category)
             for (int i = 0; i < 6; ++i)
                 add (k * 1.2 + i * 0.018, k * 1.2 + 1.05, notes[i], 0.75f + 0.04f * (float) i);
     }
+    else if (category == "Pluck")
+    {
+        p.name = "plucked melody C4-E4-G4-C5-B4-G4";
+        const int notes[] = { 60, 64, 67, 72, 71, 67 };
+        for (int i = 0; i < 6; ++i)
+            add (i * 0.3, i * 0.3 + 0.22, notes[i], 0.78f + 0.03f * (float) (i % 3));
+    }
+    else if (category == "Bell")
+    {
+        p.name = "bell notes C5-G5-E5, then C major triad";
+        add (0.0, 0.9, 72, 0.85f);
+        add (0.5, 1.4, 79, 0.8f);
+        add (1.0, 1.9, 76, 0.8f);
+        for (int n : { 60, 64, 67 })
+            add (1.6, 2.6, n, 0.75f);
+    }
+    else if (category == "Woodwind")
+    {
+        p.name = "legato line G4-A4-C5-B4-G4";
+        const int notes[] = { 67, 69, 72, 71, 67 };
+        for (int i = 0; i < 5; ++i)
+            add (i * 0.45, i * 0.45 + (i == 4 ? 0.9 : 0.47), notes[i], 0.8f);
+    }
     else if (category == "FX")
     {
         p.name = "single note C4";
