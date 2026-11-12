@@ -114,7 +114,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
-| D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | ⏳ partia Keys 1 (23) czeka na odsłuch użytkownika |
+| D. Biblioteka ok. 300 presetów | ⏳ 300 presetów w bibliotece; 142 nowe czekają na odsłuch (usuń / za podobny) |
 | E. Wydanie | – |
 
 **Etap A – co zrobiono:**
@@ -256,7 +256,27 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - DO ZROBIENIA po odsłuchu: wpisać do `selection.json` (`batches.keys1.removed`, `.similar`), dopisać obsługę partii
   w `build_library.py` (import `generate_batch_*`, kandydaci bez usuniętych), przebudować bibliotekę, render,
   `similarity.py` na całości, mediany tutaj; presety „za podobny” – zmienić albo usunąć wg uwagi.
-- Kolejne partie (propozycja kolejności): Bass, Pad, Lead, Pluck/Bell, Organ (osobna kategoria w pluginie?),
+- (Zrealizowane częściowo, patrz „Etap D – 300 presetów”.) Kolejne partie (propozycja kolejności): Bass, Pad, Lead, Pluck/Bell, Organ (osobna kategoria w pluginie?),
   Vocal & Choir, Strings, Brass, Guitar, Arp, FX. Nowe kategorie wymagają zmiany `PresetManager::categories()` i
   `CATEGORY_ORDER` w `build_library.py`.
+
+## Etap D – 300 presetów (2026-11-12)
+- Keys 1 po odsłuchu: odrzucony tylko Barking Tine EP (`selection.json` → `batches.keys1.removed`).
+- Użytkownik: „dorób do 300: gitary, plucki, pady, belle, ogólne instrumenty”. Nowe kategorie w pluginie: **Pluck,
+  Bell, Strings, Woodwind** (`PresetManager::categories()`, frazy testowe w `VOLT_Render`: Pluck – melodia
+  krótkich nut, Bell – trzy nuty + akord, Woodwind – linia legato, Strings – akord jak Pad/Keys).
+- Partie (każda: render 100 %, `similarity.py` 100 % „ok”, zakresy parametrów sprawdzane przy generowaniu):
+  `guitar2` 26, `pluck1` 31, `bell1` 25, `pad2` 28, `orch1` 32 (15 Strings + 17 Woodwind) = 142.
+  Wspólny kod: `tools/presets/batch_common.py`; generatory `generate_batch_<nazwa>.py`.
+- Biblioteka: **300 presetów** (Init + 299). Wszystkie partie są w `build_library.py` → `BATCHES` (domyślnie
+  zostają); pięć dawnych padów smyczkowych przeniesione do Strings (`RECATEGORISE`). Render 300/300,
+  testy 53/0. Liczności: Bass 33, Lead 24, Guitar 36, Pluck 31, Keys 47, Bell 25, Pad 46, Strings 20, Brass 10,
+  Woodwind 17, Arp 8, FX 3. Mediany odległości do najbliższego sąsiada (cała biblioteka): Pluck 1.68,
+  Woodwind 1.81, Arp 1.55, Guitar 1.47, Bell 1.45, Strings 1.45, Bass 1.39, Keys 1.35, Pad 1.34, Lead 1.27,
+  Brass 1.23, FX 2.24.
+- Strona odsłuchu 142 nowych: https://claude.ai/artifact/S4h6gjhRp6NKfRxZSVyQrK (kolekcja `d300`, dokument =
+  nazwa presetu z `_`, pola `verdict` "" / `remove` / `similar`, `similarTo`, `note`, `batch`).
+- DO ZROBIENIA po odsłuchu: nazwy z `remove` i `similar` wpisać do `selection.json` → `batches.<batch>`, przebudować
+  bibliotekę (spadnie poniżej 300 – dorobić brakujące w kolejnej partii), render, similarity, commit.
+- Pomysły na kolejne partie: Bass 2, Lead 2, Brass 2, Organ jako osobna kategoria, Vocal & Choir, Arp 2, FX 2.
 

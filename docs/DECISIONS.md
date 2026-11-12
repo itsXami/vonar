@@ -332,4 +332,20 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   lo-fi. Presety na oscylatorze String miały za ostry szczyt ataku akordu względem ciała (limiter 4–13 dB);
   pomogły dłuższy `str_decay`, atak 8–26 ms (miękki młoteczek) i lekkie nasycenie Soft/Tube. Upright Room Piano
   odpadł (za blisko istniejących, a dwa inne pianina na strunie zostały).
+- **Nowe kategorie Pluck, Bell, Strings, Woodwind** (na prośbę użytkownika o plucki, belle i „ogólne instrumenty”).
+  Organy zostały w Keys (osobna kategoria Organ – do decyzji). Kolejność kategorii w menu: Bass, Lead, Guitar,
+  Pluck, Keys, Bell, Pad, Strings, Brass, Woodwind, Arp, FX. Każda nowa kategoria ma frazę testową typową dla
+  sposobu grania (pomiar głośności i podobieństwa zależy od frazy).
+- **Partie D trafiają do biblioteki od razu**, bez czekania na odsłuch (ustalenie „domyślnie zostaje”); po odsłuchu
+  usuwa się wskazane. Dzięki temu plugin w CI ma od razu pełną bibliotekę do testów w DAW.
+- **Ograniczenie miary podobieństwa:** presety ocenia się na jednej krótkiej frazie, więc wolny ruch padów i różnice
+  w ekspresji (velocity, Mod Wheel) są niewidoczne; smyczki i pady grane akordem zbliżają się do siebie. Przy
+  padach i smyczkach rozróżnialność osiągnięto głównie przez jasność, atak, szerokość stereo, rejestr i ruch
+  w obrębie frazy. Ostateczne „za podobny” rozstrzyga odsłuch.
+- **Krótkie artykulacje grane akordem** (pizzicato, staccato, col legno, szarpane struny) mają szczyt ataku wysoko
+  ponad ciałem, a korekta głośności do −15 LUFS przenosi szczyt w limiter. Rozwiązania: atak 8–25 ms (miękki
+  młoteczek / smyczek), dłuższe wybrzmienie, lekka saturacja Soft/Tube, Squash; col legno powtarzane
+  arpeggiatorem w szesnastkach.
+- **Kontrola zakresów parametrów w generatorze partii** (`batch_common.param_ranges()` czyta Params.cpp) – po tym,
+  jak Gamelan Gong miał `oscB_semi` = 14 (zakres ±12), co wyłapał dopiero test jednostkowy.
 

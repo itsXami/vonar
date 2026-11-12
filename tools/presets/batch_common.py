@@ -53,6 +53,19 @@ def other_names(exclude_batch):
     return names
 
 
+def param_ranges():
+    """Numeric ranges of the plugin parameters, read from Source/Params.cpp (F / I specs and the oscillator block)."""
+    import re
+    src = open(os.path.join(gp.ROOT, "Source", "Params.cpp")).read()
+    out = {m.group(2): (float(m.group(3)), float(m.group(4)))
+           for m in re.finditer(r'(F|I)\s*\(\s*"([A-Za-z0-9_]+)"\s*,\s*"[^"]*"\s*,\s*(-?[\d.]+)f?\s*,\s*(-?[\d.]+)f?', src)}
+    for o in "AB":
+        for k, r in {"pos": (0, 1), "oct": (-3, 3), "semi": (-12, 12), "fine": (-100, 100), "level": (0, 1),
+                     "pan": (-1, 1), "voices": (1, 8), "warp_amt": (0, 1)}.items():
+            out[f"osc{o}_{k}"] = r
+    return out
+
+
 def write(batch, candidates):
     out_dir = os.path.join(HERE, "batches", batch)
     trim_file = os.path.join(HERE, "batches", batch + "_trims.json")
@@ -78,6 +91,12 @@ def write(batch, candidates):
         assert not [w for w in banned if gc.contains_word(text, w)], p["name"]
         d = p["description"]
         assert d.endswith(".") and ". " not in d[:-1], p["name"]
+    ranges = param_ranges()
+    for p in candidates:
+        for k, v in p["params"].items():
+            if k in ranges and isinstance(v, (int, float)) and not isinstance(v, bool):
+                lo, hi = ranges[k]
+                assert lo - 1e-6 <= v <= hi + 1e-6, (p["name"], k, v, (lo, hi))
     tables = {}
     for p in candidates:
         t = "String" if p["params"].get("oscA_type") == "String" else p["params"].get("oscA_table", "Analog Saw")

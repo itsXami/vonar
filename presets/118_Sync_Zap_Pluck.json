@@ -1,0 +1,48 @@
+{
+  "name": "Sync Zap Pluck",
+  "category": "Pluck",
+  "tags": [
+    "Electronic",
+    "Sync",
+    "Zap",
+    "Aggressive"
+  ],
+  "description": "Hard-synced pluck whose overtones zap downward on every hit.",
+  "macros": [
+    "Zap",
+    "Tone",
+    "Grit",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_warp": "Sync",
+    "oscA_warp_amt": 0.05,
+    "flt_cutoff": 5000.0,
+    "amp_decay": 0.35,
+    "amp_sustain": 0.0,
+    "menv_decay": 0.15,
+    "dly_mode": "PingPong",
+    "dly_time": "1/16",
+    "dly_mix": 0.1,
+    "out_gain": 8.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Warp A",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Mod Env",
+    "mod5_dst": "Warp A",
+    "mod5_amt": 0.6,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Warp A",
+    "mod6_amt": 0.2
+  }
+}
