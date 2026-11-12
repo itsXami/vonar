@@ -1,0 +1,50 @@
+{
+  "name": "Flanged Jet Pad",
+  "category": "Pad",
+  "tags": [
+    "Ambient",
+    "Flanger",
+    "Airy"
+  ],
+  "description": "Airy pad pulled through a slow flanger like a jet passing far overhead.",
+  "macros": [
+    "Jet",
+    "Air",
+    "Tone",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Hyper Saw",
+    "oscA_pos": 0.5,
+    "oscA_voices": 3,
+    "uni_detune": 0.1,
+    "noise_level": 0.08,
+    "flt_type": "LP12",
+    "flt_cutoff": 6500.0,
+    "amp_attack": 0.6,
+    "amp_release": 1.8,
+    "mfx_type": "Flanger",
+    "mfx_rate": 0.2,
+    "mfx_depth": 0.8,
+    "mfx_mix": 0.7,
+    "rev_size": 0.7,
+    "rev_mix": 0.24,
+    "out_gain": -1.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Mod FX Mix",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Noise Level",
+    "mod2_amt": 0.1,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Mod Wheel",
+    "mod5_dst": "Mod FX Mix",
+    "mod5_amt": 0.3
+  }
+}
