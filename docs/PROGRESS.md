@@ -112,7 +112,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | Etap | Status |
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
-| B. Profesjonalny wygląd | ⏳ układ wybrany (makieta 2); czekamy na wybór wykończenia 2A/2B (opis niżej); wdrożenie po wyborze |
+| B. Profesjonalny wygląd | ⏳ układ 2 + wykończenie 2A wybrane; czekamy na wybór kroju pisma 3A/3B (opis niżej); potem wdrożenie |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
@@ -154,6 +154,15 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   podziałka na wykresach, prostokątne przełączniki w nagłówkach, znak VOLT z pokrętłem w miejscu „O”, miernik
   poziomu wyjścia (nowa funkcja). Generator: `python3 tools/ui/mockups_detail.py`. Ta sama strona porównania
   (runda 2 na górze). Rekomendacja Claude: 2B; można mieszać (np. panele z 2A, pokrętła z 2B).
+- **Wybór użytkownika: 2A (techniczne)**, z uwagą „nadal wygląda AI, coś z czcionką i ogólnym wyglądem” i prośbą
+  o sprawdzenie w sieci, co poprawić. Wnioski z przeglądu (źródła w DECISIONS.md) i **runda 3 (czeka na wybór)**:
+  `docs/mockups/volt-ui-3a.svg` (krój Barlow Semi Condensed) i `volt-ui-3b.svg` (krój Oxanium), ten sam układ.
+  Generator: `python3 tools/ui/mockups_final.py`. Zmiany względem 2A: jeden wybrany krój zamiast Inter + mono;
+  hierarchia (Cutoff i Position jako duże pokrętła, ciemniejszy pasek pomocniczy bez ramek, makra jako osobny
+  jaśniejszy pas z podpisem celu); oba oscylatory na jednej powierzchni; tytuły sekcji w kolorze sekcji zamiast
+  paska nagłówka; 4 kolory sekcji + bursztyn tylko dla makr, wyjście i oscyloskop neutralne; różne style wykresów;
+  znak VOLT rysowany od zera. Nowe funkcje na makiecie (do zrobienia przy wdrożeniu): miernik poziomu wyjścia,
+  podpis celu pod makrem.
 - Ustalenie z wcześniejszej przebudowy UI nadal obowiązuje: nazwa parametru nad pokrętłem, wartość zawsze pod
   nim, normalna pisownia etykiet (nie drobne wersaliki).
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
