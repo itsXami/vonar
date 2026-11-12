@@ -6,6 +6,9 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 - Repo: `jakubnikapiotr-design/vst`, branch roboczy: `feature/volt-synth`, PR do `main`.
 - Specyfikacja: oryginalne polecenie użytkownika (syntezator wavetable VOLT, VST3 + Standalone, 121 presetów).
   Kluczowe wymagania są streszczone w sekcji „Checklista” poniżej.
+- Sesja w chmurze: przed buildem doinstalować zależności (`apt-get update` + lista niżej) i sklonować JUCE
+  (`git clone --depth 1 --branch 8.0.15 https://github.com/juce-framework/JUCE.git`) poza repo, potem
+  `-DFETCHCONTENT_SOURCE_DIR_JUCE=…`; pluginval nie jest tam zainstalowany – sprawdza go CI.
 - Build lokalny (Linux):
   ```
   cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release [-DFETCHCONTENT_SOURCE_DIR_JUCE=/ścieżka/do/JUCE-8.0.15]
@@ -89,11 +92,11 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 - ZROBIONE: biblioteka złożona z obu partii wg `tools/presets/selection.json` (werdykty z obu stron) przez
   `tools/presets/build_library.py`: Init + 135 (pierwsza partia bez 34 „Usuń”, kandydaci bez 51 odrzuconych;
   presety „Popraw” – 10 + 4 – zostały w obecnej formie na prośbę użytkownika „nie poprawiaj żadnych na razie”).
-  Kategoria „Guitar” dodana w pluginie. Lista ułożona wg ery. Render 136/136, −17,2…−13,6 LUFS, limiter ≤ 2,9 dB.
+  Kategoria „Guitar” dodana w pluginie. Render 136/136, −17,2…−13,6 LUFS, limiter ≤ 2,9 dB.
   Jedyna zmiana poziomu: Crystal Keys out_gain −1 dB (limiter 3,1 dB > progu), brzmienie bez zmian.
 - DO ZROBIENIA: poprawić presety z listy „fix” w selection.json (uwagi: Long Glide 808 „nic nie słychać”,
-  Tom Drop 808 „za cicho”), nowe presety korzystające z silnika v2 (warp, String, Comb), osobny filtr ery w
-  przeglądarce presetów (na razie przez filtr tagów), dalsze zmiany wyglądu.
+  Tom Drop 808 „za cicho”) – etap C; nowe presety korzystające z silnika v2 (warp, String, Comb) – etap D;
+  dalsze zmiany wyglądu – etap B.
 
 ## Silnik v2 + zakładki (na prośbę użytkownika)
 - Warp (8 trybów) i typ String na oscylator, Comb+/Comb−, Mod Env, Random, 12 slotów, 8 nowych tablic, zakładki UI.
@@ -103,7 +106,33 @@ Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 - Generator presetów zna nowe parametry (`generate_presets.py`: DEFAULTS, TABLES, SOURCES, DESTS, limit 12 slotów).
 
 ## Ścieżka rozwoju – wersja publiczna (ustalona z użytkownikiem 2026-11-12)
-Cel: syntezator będzie publiczny, więc podejście neutralne i profesjonalne.
+Cel: syntezator będzie publiczny, więc podejście neutralne i profesjonalne. Idziemy po kolei A → E; po każdym
+etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika (co gotowe, co sprawdzić).
+
+| Etap | Status |
+|---|---|
+| A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
+| B. Profesjonalny wygląd | ⏳ następny: najpierw 2–3 makiety do wyboru, dopiero potem wdrożenie |
+| C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
+| D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
+| E. Wydanie | – |
+
+**Etap A – co zrobiono:**
+- Usunięte wszystkie nazwy artystów i albumów z tagów presetów (biblioteka i 100 kandydatów), generatorów,
+  README i `docs/PRESETS.md`. Grupy w generatorach to teraz neutralne rodziny stylistyczne z tagami stylu
+  (Industrial, Stadium, Cold, Epic, Gospel, House + Raw, House + Disco, Mechanical, Cinematic, Analog).
+- Biblioteka ułożona: kategoria → nazwa alfabetycznie (pliki `presets/NNN_*.json` przenumerowane).
+- Zmienione nazwy: „Light Cycle Arp” → „Racing Saw Arp”, „Suitcase Electric Piano” → „Autopan Electric Piano”;
+  opis Funky Filter Keys bez nazwy marki. Brzmienia bez zmian (JSON-y przed/po różnią się tylko tagami).
+- Test zakazanych nazw został i jest rozszerzony o tagi, opisy i etykiety makr (`kBannedEverywhere`).
+- Dodane: `LICENSE` (AGPLv3), `CONTRIBUTING.md` (tylko presety), sekcja „Licencja” w README (nazwa i logo poza
+  licencją), `docs/SOUND_REFERENCES.md` (wzorce brzmień na etap D).
+- Weryfikacja lokalna: build Linux OK, testy 46 grup / 0 błędów, render 136/136 (−17,2…−13,6 LUFS, limiter
+  ≤ 2,9 dB – identycznie jak przed zmianą). pluginval i build Windows sprawdza CI po pushu.
+- Do decyzji użytkownika: (1) wpis o prawach autorskich w README to na razie „autorzy projektu VOLT” – można
+  podać imię/pseudonim; (2) nazwy z luźnymi skojarzeniami zostały (np. Throne Brass, Sunday Drawbars, Praise Bass,
+  Neon Grid Pad) – to zwykłe słowa, ale użytkownik może je zmienić; (3) tytuł i opis PR #1 oraz jeden stary
+  komunikat commita nadal wymieniają artystów – przy upublicznieniu scalić PR metodą „squash” i usunąć gałąź.
 - **A. Neutralizacja:** usunąć wszystkie odwołania do artystów/albumów (tagi presetów, docs/PRESETS.md, README,
   grupy w generatorach); neutralne tagi stylu (Dark, Bright, Aggressive, Vintage, Cinematic, Lo-Fi, House, Trap,
   Synthwave…); lista presetów wg kategorii brzmienia (kategorie „wg ery” odpadają). Test zakazanych nazw zostaje.
@@ -119,12 +148,14 @@ Cel: syntezator będzie publiczny, więc podejście neutralne i profesjonalne.
 - **F. Później:** presety do Vitala, instrumenty z sampli.
 - **Decyzje użytkownika (2026-11-12):**
   - Licencja: open source na AGPLv3, darmowe, bez rejestracji. Od innych na start przyjmujemy tylko presety,
-    bez kodu. Nazwa i logo nie są objęte licencją. (Plik LICENSE i zasady wkładu – do dodania.)
+    bez kodu. Nazwa i logo nie są objęte licencją. (Zrobione w etapie A: `LICENSE`, `CONTRIBUTING.md`, README.)
   - Platformy: 1.0 tylko Windows (VST3 + Standalone). Linux zostaje w CI do testów, bez paczki do pobrania.
     macOS po wydaniu jako wersja eksperymentalna, gdy znajdzie się tester z Makiem.
   - GitHub: zaplecze na kod i automatyczne budowanie paczki; repo prywatne do 1.0, potem publiczne z ochroną `main`.
-- **Otwarte:** nazwa (VOLT koliduje z interfejsami Universal Audio Volt – użytkownik zajmie się tym później);
-  wzorce brzmień od użytkownika (5–10 przykładów) jako punkt odniesienia dla partii presetów.
+- **Otwarte:** nazwa (VOLT koliduje z interfejsami Universal Audio Volt – użytkownik zajmie się tym później).
+- **Wzorce brzmień od użytkownika** (punkt odniesienia dla partii presetów, tylko opis charakteru, nic nie
+  kopiujemy) są w `docs/SOUND_REFERENCES.md`. Na razie dwa, oba dla Keys: miękkie elektryczne pianino z falującym
+  chorusem; ciemne, ciepłe, lekko lo-fi barowe klawisze bez ostrego ataku. Pierwsza partia w etapie D to Keys.
 - **Jakość presetów (2026-11-12):** `VOLT_Render` zapisuje w `report.json` odcisk barwy każdego presetu (`features`:
   16 pasm, jasność, ruch barwy, atak, sustain, szumowość, szerokość, udział basu). `tools/presets/similarity.py`
   wskazuje pary zbyt podobnych presetów i odrzuca kandydatów bliższych niż 1.2 bibliotece lub sobie nawzajem.

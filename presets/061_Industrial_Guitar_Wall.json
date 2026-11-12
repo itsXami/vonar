@@ -1,0 +1,50 @@
+{
+  "name": "Industrial Guitar Wall",
+  "category": "Guitar",
+  "tags": [
+    "Industrial",
+    "Guitar",
+    "Distorted"
+  ],
+  "description": "Wide wall of buzzing, raspy saws crushed by clipping and multiband squash.",
+  "macros": [
+    "Wall",
+    "Gain",
+    "Rasp",
+    "Tone"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Buzz",
+    "oscA_pos": 0.5,
+    "oscA_voices": 3,
+    "oscB_table": "Rasp",
+    "oscB_pos": 0.4,
+    "oscB_level": 0.4,
+    "uni_detune": 0.3,
+    "uni_spread": 0.9,
+    "flt_cutoff": 3000.0,
+    "amp_attack": 0.004,
+    "amp_decay": 1.0,
+    "amp_sustain": 0.7,
+    "amp_release": 0.2,
+    "dist_type": "Hard",
+    "dist_drive": 0.65,
+    "dist_tone": 0.5,
+    "dist_mix": 0.95,
+    "squash": 0.55,
+    "out_gain": -6.7,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Mod FX Mix",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Drive",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "WT Pos B",
+    "mod3_amt": 0.5,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Cutoff",
+    "mod4_amt": 0.35
+  }
+}

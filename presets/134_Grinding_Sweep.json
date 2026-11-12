@@ -1,0 +1,53 @@
+{
+  "name": "Grinding Sweep",
+  "category": "FX",
+  "tags": [
+    "House",
+    "Raw",
+    "Noise",
+    "Sweep"
+  ],
+  "description": "Distorted noise sweep that rises and falls through a resonant band-pass.",
+  "macros": [
+    "Sweep",
+    "Grind",
+    "Res",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Rasp",
+    "oscA_pos": 0.6,
+    "oscA_level": 0.9,
+    "noise_level": 0.9,
+    "flt_type": "BP",
+    "flt_cutoff": 1200.0,
+    "flt_res": 0.4,
+    "amp_attack": 0.3,
+    "amp_release": 0.6,
+    "lfo1_shape": "Triangle",
+    "lfo1_sync": true,
+    "lfo1_div": "1/1",
+    "dist_type": "Hard",
+    "dist_drive": 0.4,
+    "dist_mix": 0.6,
+    "dly_time": "1/8",
+    "dly_mix": 0.12,
+    "out_gain": 9.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Drive",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Resonance",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.4
+  }
+}

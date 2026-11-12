@@ -1,0 +1,47 @@
+{
+  "name": "Dark Orchestra Hit",
+  "category": "FX",
+  "tags": [
+    "Epic",
+    "Impact",
+    "Dramatic"
+  ],
+  "description": "Orchestral brass and string hit with noise air and a huge tail.",
+  "macros": [
+    "Brass",
+    "Tone",
+    "Air",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Brass",
+    "oscA_pos": 0.7,
+    "oscA_voices": 3,
+    "oscB_table": "Strings",
+    "oscB_oct": -1,
+    "oscB_level": 0.45,
+    "noise_level": 0.08,
+    "flt_cutoff": 3000.0,
+    "flt_envamt": 0.3,
+    "amp_decay": 1.2,
+    "amp_sustain": 0.0,
+    "amp_release": 0.8,
+    "fenv_sustain": 0.0,
+    "rev_size": 0.85,
+    "rev_mix": 0.3,
+    "out_gain": 11.1,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.5,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Noise Level",
+    "mod3_amt": 0.2,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

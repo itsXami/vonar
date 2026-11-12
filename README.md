@@ -1,8 +1,8 @@
 # VOLT
 
 Minimalistyczny syntezator wavetable (VST3 + Standalone) z jednym ekranem, dużymi pokrętłami i biblioteką
-136 presetów (Init + 135 wybranych po odsłuchu) inspirowanych brzmieniami Kanye Westa i Daft Punk, w tym gitary
-i pianina. Główny cel: **Windows x64 i FL Studio**.
+136 presetów (Init + 135 wybranych po odsłuchu): basy, leady, gitary, pady, klawisze, arpeggia, brassy i efekty.
+Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
 
 ![Interfejs VOLT – zakładka SYNTH](docs/ui-snapshot.png)
 
@@ -88,9 +88,9 @@ Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user pre
 **Świadomie pominięte** (nie ma ich w specyfikacji): pitch bend i pedał sustain (CC64). Obsługiwane są Mod Wheel
 i Aftertouch (jako źródła modulacji) oraz All Notes/Sound Off.
 
-Lista presetów z opisami i inspiracjami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pad,
-Keys, Arp, Brass, FX. Lista w menu presetów jest ułożona według ery inspiracji; konkretną erę (np. „Yeezus”,
-„Discovery”) wybierzesz w filtrze tagów.
+Lista presetów z opisami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pad, Keys, Arp,
+Brass, FX. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,
+„House”, „Cinematic”, „Lo-Fi”) wybierzesz w filtrze tagów.
 
 ## Co zostało zweryfikowane automatycznie, a co wymaga odsłuchu i testu w FL Studio
 
@@ -111,7 +111,7 @@ Keys, Arp, Brass, FX. Lista w menu presetów jest ułożona według ery inspirac
   (krótkie podglądy FLAC każdego presetu).
 
 **Wymaga odsłuchu i ręcznego testu (nie da się tego sprawdzić w chmurze na Linuksie):**
-- **charakter i jakość brzmień** – czy presety faktycznie oddają klimat poszczególnych er; najszybciej odsłuchać
+- **charakter i jakość brzmień** – czy presety brzmią dobrze i wystarczająco różnie; najszybciej odsłuchać
   podglądy z `VOLT-preset-previews.zip`,
 - **skanowanie i ładowanie w FL Studio**, zapis/odczyt projektu, automatyzacja parametrów z poziomu FL Studio,
   synchronizacja z tempem przy odtwarzaniu i zatrzymanym transporcie,
@@ -167,16 +167,34 @@ w `docs/PROGRESS.md`).
 
 ## Dokumentacja projektu
 
-- [`docs/PRESETS.md`](docs/PRESETS.md) – lista presetów, kategorie, tagi, makra, inspiracje.
+- [`docs/PRESETS.md`](docs/PRESETS.md) – lista presetów, kategorie, tagi, makra.
+- [`docs/SOUND_REFERENCES.md`](docs/SOUND_REFERENCES.md) – wzorce brzmień (opis charakteru) dla kolejnych partii presetów.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) – jak zgłosić własne presety.
 - [`docs/DECISIONS.md`](docs/DECISIONS.md) – decyzje projektowe i ich powody.
 - [`docs/PROGRESS.md`](docs/PROGRESS.md) – stan prac i instrukcje dla kolejnej sesji.
 
-## Licencje i znaki towarowe
+## Licencja
 
-- VOLT korzysta z frameworka **JUCE 8**, dostępnego na licencji AGPLv3 albo licencji komercyjnej (w tym bezpłatnej
-  „Starter” dla małych przychodów). Przed publiczną dystrybucją binariów trzeba wybrać jedną z tych ścieżek.
-- Czcionka interfejsu **Inter** jest na licencji SIL Open Font License 1.1 (`resources/fonts/OFL-Inter.txt`).
+VOLT jest wolnym oprogramowaniem na licencji **GNU Affero General Public License w wersji 3** (AGPLv3) – pełny tekst
+w pliku [`LICENSE`](LICENSE). Plugin jest darmowy i nie wymaga rejestracji. Możesz go używać (także komercyjnie,
+w swojej muzyce), kopiować, zmieniać i rozpowszechniać na warunkach AGPLv3; zmienione wersje muszą pozostać
+na tej samej licencji i mieć udostępniony kod źródłowy. Muzyka i dźwięki, które zrobisz za pomocą VOLT, są Twoje –
+licencja ich nie obejmuje.
+
+- **Nazwa „VOLT” i logo nie są objęte licencją.** Zmienioną wersję rozpowszechniaj pod inną nazwą i z innym logo,
+  tak żeby nie można jej było pomylić z oryginałem.
+- **Wkład od innych:** na razie przyjmujemy wyłącznie presety, bez zmian w kodzie – zasady w
+  [`CONTRIBUTING.md`](CONTRIBUTING.md).
+- Program jest udostępniany bez żadnej gwarancji (punkty 15 i 16 licencji).
+
+Copyright © 2026 autorzy projektu VOLT.
+
+## Składniki innych autorów
+
+- **JUCE 8** (framework audio, Raw Material Software Limited) – używany na licencji AGPLv3, zgodnej z licencją VOLT.
+  JUCE zawiera też kod VST3 SDK firmy Steinberg. „VST” jest znakiem towarowym Steinberg Media Technologies GmbH.
+- Czcionka interfejsu **Inter** – SIL Open Font License 1.1 (`resources/fonts/OFL-Inter.txt`).
 - Wszystkie wavetable, presety i grafika powstały w tym projekcie (wavetable generuje kod). Nie użyto kodu, tablic,
   presetów ani grafik innych syntezatorów.
-- Nazwy artystów i albumów pojawiają się wyłącznie w tagach i w dokumentacji jako opis inspiracji. Projekt nie jest
-  powiązany z tymi artystami ani ich wydawcami.
+- Presety opisują wyłącznie charakter dźwięku; nie zawierają nazw artystów, albumów, utworów ani marek, a projekt
+  nie jest powiązany z żadnym artystą ani producentem instrumentów.

@@ -16,6 +16,9 @@ zanim trafi na stronę odsłuchu.
   (np. `Warm`, `Plucky`, `Detuned`, `Glassy`, `Evolving`, `Mono`, `Wide`, `Dark`, `Percussive`, `Lo-Fi`).
 - Nie kopiujemy presetów, wavetable ani nazw z innych syntezatorów. Wzorce od użytkownika służą tylko do
   opisania charakteru („jasny, krótki, z metalicznym atakiem”), parametry projektujemy od zera.
+  Wzorce są zapisane w `docs/SOUND_REFERENCES.md` – przeczytaj je przed planem partii danej kategorii.
+- Zakazane nazwy pilnuje test (`tests/PresetTests.cpp`: `kBannedInNames` dla nazw, `kBannedEverywhere` dla nazw,
+  tagów, opisów i etykiet makr); generator kandydatów czyta te same listy.
 - Nazwa: 1–3 słowa, opisowa albo obrazowa, unikalna w bibliotece, bez numerów wersji.
 - Głośność: cel ok. -15 LUFS na frazie kategorii (trym w `candidate_trims.json`), limiter < 3 dB redukcji.
 - Makra 1–4 zawsze coś sensownego robią i mają nazwy mówiące co (np. `Bite`, `Air`, `Motion`, `Space`).

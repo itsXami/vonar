@@ -2,11 +2,8 @@
   "name": "Wavetable Drift Pad",
   "category": "Pad",
   "tags": [
-    "Daft Punk",
-    "Tron: Legacy",
     "Cinematic",
-    "Movement",
-    "Cinematic"
+    "Movement"
   ],
   "description": "Pad whose formant peak drifts slowly through the spectrum.",
   "macros": [
