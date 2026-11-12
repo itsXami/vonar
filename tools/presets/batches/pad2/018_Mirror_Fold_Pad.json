@@ -1,0 +1,50 @@
+{
+  "name": "Mirror Fold Pad",
+  "category": "Pad",
+  "tags": [
+    "Warm",
+    "Hollow",
+    "Expressive"
+  ],
+  "description": "Folded, hollow pad that grows from flute-soft to reedy as you push the mod wheel.",
+  "macros": [
+    "Fold",
+    "Tone",
+    "Width",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Basic Shapes",
+    "oscA_pos": 0.33,
+    "oscA_warp": "Mirror",
+    "oscA_warp_amt": 0.25,
+    "noise_level": 0.03,
+    "flt_type": "LP12",
+    "flt_cutoff": 1800.0,
+    "amp_attack": 0.5,
+    "amp_release": 1.5,
+    "lfo1_rate": 0.25,
+    "rev_size": 0.6,
+    "rev_mix": 0.2,
+    "out_gain": -3.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Warp A",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Detune",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Mod Wheel",
+    "mod5_dst": "Warp A",
+    "mod5_amt": 0.5,
+    "mod6_src": "LFO 1",
+    "mod6_dst": "Warp A",
+    "mod6_amt": 0.08
+  }
+}
