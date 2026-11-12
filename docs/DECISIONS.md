@@ -271,6 +271,7 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   Źródła: prg.sh „Why Your AI Keeps Building the Same Purple Gradient Website”, 925studios.co „AI slop design
   tells”, world.hey.com/kostac „Spot the slop”, plugin-builder-docs „Design guide / Anti-patterns”,
   iZotope „Creating the gauge”.
-- **Kroje do wyboru: Barlow Semi Condensed albo Oxanium** (oba SIL OFL, można osadzić w pluginie jak dotąd Inter).
+- **Krój: Oxanium** (wybór użytkownika, 3B).
+- **Kroje do wyboru były: Barlow Semi Condensed albo Oxanium** (oba SIL OFL, można osadzić w pluginie jak dotąd Inter).
   Po wyborze Inter zostaje usunięty z zasobów, jeśli nie będzie już używany.
 

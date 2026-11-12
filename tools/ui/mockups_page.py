@@ -215,3 +215,29 @@ def render_rounds(svgs, detail=None, body_only=False):
     out.append('<details><summary>Runda 1: trzy kierunki (wybrana makieta 2)</summary>' + "\n".join(round1) + '</details>')
     out.append("</div>")
     return "\n".join(out)
+
+
+V4_NOTES = [
+    "Ciepły grafit i złamana biel zamiast niebieskawej czerni i chłodnej szarości. Kolory sekcji są lekko przygaszone.",
+    "Powierzchnie mają delikatne ziarno, a panele i ekrany cienką krawędź światła, więc nie są idealnie płaskie.",
+    "Pokrętła mają cieniowaną główkę z obwódką. Duże pokrętła dostały podziałkę, Cutoff także opis skali 20–20k.",
+    "Jednostki (%, ms, kHz) są mniejsze niż liczby, tak jak na prawdziwych przyrządach.",
+    "Kształt LFO i typ filtra mają małe ikony. Bursztynowa kropka pod pokrętłem oznacza, że steruje nim makro.",
+]
+
+
+def render_v4(svgs, detail, final, v4):
+    page = render(svgs, detail, final)
+    head_end = page.index('<div class="round">')
+    start = page.index("<header>")
+    intro = ('<header><h1>Makiety interfejsu VOLT</h1><p>Runda 4. Wybrany krój to Oxanium (3B). Ta wersja jest '
+             'dopracowana tak, żeby wyglądała na zrobioną ręcznie: materiał, podziałki, drobna typografia.</p>'
+             '<p>Jeśli ten kierunek pasuje, przenoszę go do pluginu i pokazuję prawdziwe zrzuty okna.</p></header>'
+             '<section class="option"><div class="option-head"><span class="tag">4</span><h2>Oxanium, wersja '
+             f'dopracowana</h2></div><div class="shot">{v4}</div><div class="notes"><div><h3>Co doszło</h3><ul>'
+             + "".join(f"<li>{n}</li>" for n in V4_NOTES) + '</ul></div></div></section>'
+             '<details><summary>Runda 3: kroje 3A i 3B oraz lista wcześniejszych poprawek</summary><div class="round" '
+             'style="margin-top:32px">')
+    rest = page[head_end + len('<div class="round">'):]
+    cut = rest.index('<details><summary>Wcześniejsze rundy')
+    return page[:start] + intro + rest[:cut] + "</details>" + rest[cut:]
