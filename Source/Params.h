@@ -54,6 +54,7 @@ enum P : int
     RevSize, RevDamp, RevMix,
     Squash,
     OutGain,
+    BendRange,
 
     NumParams
 };

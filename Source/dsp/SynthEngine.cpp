@@ -44,6 +44,10 @@ void SynthEngine::reset()
         v.reset();
     stackSize = 0;
     modWheel = aftertouch = 0.0f;
+    pitchWheel = bendSmooth = 0.0f;
+    sustainDown = false;
+    keyHeld.fill (false);
+    keySustained.fill (false);
     lastNotePitch = -1.0f;
     smInit = false;
     freePpq = 0.0;
@@ -75,10 +79,16 @@ void SynthEngine::handleMidi (const juce::MidiMessage& m) noexcept
         const int cc = m.getControllerNumber();
         if (cc == 1)
             modWheel = (float) m.getControllerValue() / 127.0f;
+        else if (cc == 64)
+            setSustain (m.getControllerValue() >= 64);
         else if (cc == 120)
             allNotesOff (true);
         else if (cc == 123)
             allNotesOff (false);
+    }
+    else if (m.isPitchWheel())
+    {
+        pitchWheel = juce::jlimit (-1.0f, 1.0f, (float) (m.getPitchWheelValue() - 8192) / 8192.0f);
     }
     else if (m.isChannelPressure())
     {
@@ -98,6 +108,11 @@ void SynthEngine::handleMidi (const juce::MidiMessage& m) noexcept
 
 void SynthEngine::midiNoteOn (int note, float velocity) noexcept
 {
+    if (note >= 0 && note < 128)
+    {
+        keyHeld[(size_t) note] = true;
+        keySustained[(size_t) note] = false;   // pressed again: the new note takes over
+    }
     if (raw.b (ArpOn))
         arp.noteOn (note, velocity);
     else
@@ -106,14 +121,41 @@ void SynthEngine::midiNoteOn (int note, float velocity) noexcept
 
 void SynthEngine::midiNoteOff (int note) noexcept
 {
+    if (note >= 0 && note < 128)
+    {
+        keyHeld[(size_t) note] = false;
+        if (sustainDown)
+        {
+            keySustained[(size_t) note] = true;
+            return;
+        }
+    }
     if (raw.b (ArpOn))
         arp.noteOff (note);
     else
         noteOff (note);
 }
 
+void SynthEngine::setSustain (bool down) noexcept
+{
+    if (down == sustainDown)
+        return;
+    sustainDown = down;
+    if (down)
+        return;
+    for (int n = 0; n < 128; ++n)
+        if (keySustained[(size_t) n])
+        {
+            keySustained[(size_t) n] = false;
+            if (! keyHeld[(size_t) n])
+                midiNoteOff (n);
+        }
+}
+
 void SynthEngine::allNotesOff (bool hard) noexcept
 {
+    keyHeld.fill (false);
+    keySustained.fill (false);
     arp.reset();
     for (auto& v : voices)
     {
@@ -271,6 +313,12 @@ void SynthEngine::beginChunk (int n) noexcept
     ctx.table[1] = &bank[raw.i (OscB_Table)];
     ctx.modWheel = modWheel;
     ctx.aftertouch = aftertouch;
+    // Pitch bend glides over ~5 ms so a stepped wheel does not produce audible pitch steps.
+    const float bendTarget = pitchWheel * (float) raw.i (BendRange);
+    bendSmooth += (bendTarget - bendSmooth) * (smInit ? smoothAlpha (n, sampleRate, 0.005f) : 1.0f);
+    if (std::abs (bendTarget - bendSmooth) < 1.0e-4f)
+        bendSmooth = bendTarget;
+    ctx.bendSemis = bendSmooth;
     for (int m = 0; m < kNumMacros; ++m)
         ctx.macros[m] = sm[(size_t) (Macro1 + m)];
 

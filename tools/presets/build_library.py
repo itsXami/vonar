@@ -16,6 +16,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import generate_candidates as gc  # noqa: E402  (imports generate_presets as gc.gp and defines both batches)
+import generate_fixes as gf  # noqa: E402  (reworked versions of the presets marked "fix")
 
 gp = gc.gp
 # Must match PresetManager::categories() in Source/PresetManager.cpp.
@@ -46,6 +47,13 @@ def library():
     batch1 = [p for p in gp.PRESETS[:gc.START] if p["name"] not in removed]
     batch2 = [p for p in gc.CANDIDATES if p["name"] not in rejected]
     chosen = batch1 + batch2
+    # Reworks replace the original only when the user picked the new version on the listening page.
+    accepted = set(sel.get("fixes_accepted", []))
+    fixes = {p["name"]: p for p in gf.FIXES if p["name"] in accepted}
+    fix_trims = load_json("fix_trims.json", {})
+    for name in fixes:
+        trims[name] = fix_trims.get(name, 0.0)
+    chosen = [fixes.get(p["name"], p) for p in chosen]
     names = [p["name"] for p in chosen]
     assert len(names) == len(set(names)), "duplicate preset names"
     cat = {c: i for i, c in enumerate(CATEGORY_ORDER)}
@@ -72,7 +80,7 @@ def write_presets(chosen, trims):
 
 
 def write_docs(chosen, sel):
-    fix = set(sel.get("batch1_fix", {})) | set(sel.get("candidates_fix", {}))
+    fix = (set(sel.get("batch1_fix", {})) | set(sel.get("candidates_fix", {}))) - set(sel.get("fixes_accepted", []))
     total = len(chosen) + 1
     lines = [
         "# VOLT – presety fabryczne",

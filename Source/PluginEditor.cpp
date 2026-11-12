@@ -234,7 +234,8 @@ void MainPanel::buildSynthTab()
 
     group ("VOICE", 920, y + 6, colours::mod);
     combo (VoiceMode, { 968, y + 6, 62, 20 }).setTooltip ("Poly / Mono / Legato");
-    knob (Glide, "Glide", { 944, y + 36, 54, 58 });
+    knob (Glide, "Glide", { 914, y + 36, 54, 58 });
+    knob (BendRange, "Bend", { 972, y + 36, 54, 58 }).slider.setTooltip ("Pitch wheel range in semitones");
 
     group ("ARP", 1050, y + 6, colours::mod);
     VoltLookAndFeel::setStyle (toggle (ArpOn, "ON", { 1092, y + 6, 40, 20 }), "seg");

@@ -79,7 +79,7 @@ zawsze widoczne MACROS, OUTPUT i oscyloskop.
    Cutoff, Resonance, Drive, Keytrack, Env amount, Vowel), ENVELOPES (przełącznik AMP / FILTER / MOD / PITCH, wykres
    wybranej obwiedni i jej pokrętła), a pod spodem pasek: UNISON, SUB / NOISE, STRING (Decay i Tone dla oscylatorów
    w trybie String), LFO 1 i LFO 2 (kształt, Sync, Rate albo podział taktu, Depth), VOICE (Poly/Mono/Legato, Glide),
-   ARP.
+   ARP. W VOICE jest też **Bend**: zakres pitch bendu w półtonach.
 3. **Zakładka MODULATION:** LFO 1 i LFO 2 z dużymi pokrętłami i przełącznikiem Retrigger, MOD ENVELOPE oraz
    MODULATION MATRIX: 12 slotów źródło → cel z suwakiem ilości −100…+100%.
 4. **Zakładka EFFECTS:** sześć efektów w kolejności łańcucha: 1 Distortion, 2 Mod FX, 3 Pump, 4 Delay, 5 Reverb,
@@ -89,8 +89,9 @@ zawsze widoczne MACROS, OUTPUT i oscyloskop.
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
 Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.
 
-**Świadomie pominięte** (nie ma ich w specyfikacji): pitch bend i pedał sustain (CC64). Obsługiwane są Mod Wheel
-i Aftertouch (jako źródła modulacji) oraz All Notes/Sound Off.
+**Kontrolery MIDI:** pitch bend (zakres ustawiasz pokrętłem **Bend** w sekcji VOICE, 0–24 półtonów, domyślnie 2),
+pedał sustain (CC64, działa też z arpeggiatorem), Mod Wheel i Aftertouch (jako źródła modulacji) oraz
+All Notes/Sound Off.
 
 Lista presetów z opisami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pad, Keys, Arp,
 Brass, FX. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,

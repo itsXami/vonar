@@ -356,7 +356,7 @@ void Voice::render (const VoiceContext& ctx, float* outL, float* outR, int n) no
 
     // ---- pitch ----
     currentPitch += (targetPitch - currentPitch) * ctx.glideAlpha;
-    const float basePitch = currentPitch + s[PenvAmt] * penv + 24.0f * dst[choices::DstPitch];
+    const float basePitch = currentPitch + ctx.bendSemis + s[PenvAmt] * penv + 24.0f * dst[choices::DstPitch];
     const float detune = clampf (s[UniDetune] + dst[choices::DstDetune], 0.0f, 1.0f);
 
     std::fill (bufL, bufL + n, 0.0f);
