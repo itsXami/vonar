@@ -30,6 +30,7 @@ struct VoiceContext
     float cutoffPitch = 0.0f;             // smoothed base cutoff as MIDI pitch
     const Wavetable* table[2] {};
     float modWheel = 0.0f, aftertouch = 0.0f;
+    float bendSemis = 0.0f;               // pitch wheel x bend range, smoothed per chunk
     float macros[kNumMacros] {};
     double lfoInc[2] {};                  // cycles per sample
     bool lfoRetrig[2] {};

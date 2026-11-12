@@ -113,7 +113,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
-| C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
+| C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ⏳ silnik gotowy; nowe wersje 14 presetów czekają na wybór użytkownika (opis niżej) |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
 
@@ -183,6 +183,17 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   Nie sprawdzono (wymaga Windows): obsługa myszą, okno „O programie”, wygląd przy skalach innych niż 100%.
 - Ustalenie z wcześniejszej przebudowy UI nadal obowiązuje: nazwa parametru nad pokrętłem, wartość zawsze pod
   nim, normalna pisownia etykiet (nie drobne wersaliki).
+
+**Etap C – stan:**
+- Zrobione: pitch bend (parametr `bend_range`, pokrętło **Bend** w VOICE), sustain CC64 (także z arpeggiatorem),
+  testy `tests/ExpressionTests.cpp`. Lokalnie: build OK, testy 52 grupy / 0 błędów, render 136/136 bez zmian
+  (0,0 LU różnicy względem stanu sprzed etapu C).
+- Presety: 14 nowych wersji w `tools/presets/generate_fixes.py` → `tools/presets/fixes/`, render 14/14,
+  `similarity.py` 14/14 „ok”. Strona porównania stara/nowa: https://claude.ai/artifact/PSiYaBRbHaaxroPi6uSd9V
+  (baza artefaktu, kolekcja `verdicts`, dokument = nazwa pliku, pole `verdict`: `new` / `old` / `neither`, `note`).
+- DO ZROBIENIA po wyborze: wpisać nazwy z `verdict: new` do `selection.json` → `fixes_accepted`, dla `old`
+  usunąć z list „fix”, dla `neither` – kolejna wersja wg uwagi; potem `python3 tools/presets/build_library.py`,
+  pełny render, `similarity.py` na całości, mediany per kategoria tutaj, commit.
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
   pokrętła, wykresy obwiedni i LFO, przeglądarka presetów, okno „O programie” z licencją), zrzuty przez
   `VOLT_Render --snapshot`, odświeżyć `docs/ui-*.png` i README.

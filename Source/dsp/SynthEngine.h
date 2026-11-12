@@ -40,6 +40,7 @@ private:
     void noteOn (int note, float velocity) noexcept;      // after the arpeggiator
     void noteOff (int note) noexcept;
     void allNotesOff (bool hard) noexcept;
+    void setSustain (bool down) noexcept;
     void beginChunk (int n) noexcept;
     void renderChunk (float* L, float* R, int n) noexcept;
     void computeGlobalMods (float* dst) const noexcept;
@@ -66,6 +67,13 @@ private:
 
     uint64_t ageCounter = 0;
     float modWheel = 0.0f, aftertouch = 0.0f;
+    float pitchWheel = 0.0f;   // -1..1 from the MIDI pitch wheel
+    float bendSmooth = 0.0f;   // semitones, smoothed per chunk
+
+    // Sustain pedal (CC64): keys released while the pedal is down keep sounding until it is lifted.
+    bool sustainDown = false;
+    std::array<bool, 128> keyHeld {};
+    std::array<bool, 128> keySustained {};
     int lastMode = -1;
     float lastNotePitch = -1.0f;
     bool lastArpOn = false;

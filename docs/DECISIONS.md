@@ -55,7 +55,8 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
 - **Sub** podąża za wysokością Osc A (oktawa/półtony/dostrojenie/modulacje) o oktawę niżej.
 - **Mono:** last-note priority, retrigger i glide zawsze. **Legato:** bez retriggera i z glide tylko przy nakładających
   się nutach. **Poly:** glide od ostatnio zagranej nuty; kradzież: najstarszy głos w release, inaczej najstarszy.
-- **Bez obsługi pitch bend i pedału sustain (CC64)** – nie ma ich w specyfikacji. Obsługiwane są Mod Wheel (CC1),
+- **Bez obsługi pitch bend i pedału sustain (CC64)** – nie ma ich w specyfikacji (dodane później, w etapie C
+  wersji publicznej – patrz „Etap C”). Obsługiwane są Mod Wheel (CC1),
   Aftertouch (channel i poly) jako źródła modulacji oraz CC120/CC123 (All Sound/Notes Off) dla higieny transportu.
 
 ## Etap 3 – modulacja, makra, arpeggiator, efekty
@@ -291,4 +292,26 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
 - **Okno „O programie”** otwiera kliknięcie znaku VOLT: wersja, licencja AGPLv3, JUCE, Oxanium.
 - **Czcionka w dwóch grubościach** (Medium i SemiBold) jako statyczne instancje pliku zmiennego Oxanium,
   bo `createSystemTypefaceFor` ładuje tylko domyślną instancję czcionki zmiennej.
+
+## Etap C – silnik i poprawki presetów (wersja publiczna)
+
+- **Pitch bend:** nowy parametr `bend_range` (Int 0–24 półtonów, domyślnie 2), dopisany na końcu tabeli
+  parametrów, więc kolejność i ID istniejących parametrów się nie zmieniły; presety bez tego pola dostają 2.
+  Kółko jest wygładzane per pod-blok (τ ≈ 5 ms), żeby kółka o małej rozdzielczości nie dawały słyszalnych
+  schodków. Bend przesuwa wysokość wszystkich głosów (oba oscylatory, sub; tak jak cel modulacji „Pitch”).
+  Zakres 2 półtonów to standard większości syntezatorów i kontrolerów.
+- **Sustain (CC64 ≥ 64 = wciśnięty):** działa przed arpeggiatorem – klawisz puszczony przy wciśniętym pedale
+  nie wysyła note-off, tylko zostaje zapamiętany; po puszczeniu pedału note-off dostają zapamiętane klawisze,
+  których palec już nie trzyma. Ponowne uderzenie trzymanego pedałem klawisza gra nutę od nowa. Z włączonym
+  arpeggiatorem pedał podtrzymuje wzór (jak „hold”). All Notes Off / All Sound Off czyszczą stan pedału.
+  Testy: `tests/ExpressionTests.cpp`.
+- **14 presetów „Popraw”:** nowe wersje w `tools/presets/generate_fixes.py` (JSON-y w `tools/presets/fixes/`,
+  trymy `fix_trims.json`); stare zostają w generatorach. Do biblioteki nowa wersja trafia dopiero, gdy
+  użytkownik wybierze ją na stronie porównania (`selection.json` → `fixes_accepted`; czyta to
+  `build_library.py`). Dwie miały uwagi użytkownika: Long Glide 808 („nic nie słychać”: był oktawę za nisko,
+  ~33 Hz bez harmonicznych – teraz oktawę wyżej, przester Fold, sub zostaje) i Tom Drop 808 („za cicho”: krótka
+  obwiednia + szczyt zjazdu wysokości wymuszał niski poziom – teraz dłuższe ciało, przester i kompresja).
+  Pozostałe 12 nie miało uwag, więc każda nowa wersja jest zbudowana wokół jednego wyraźnego pomysłu na
+  silniku v2 (String, warp Sync/FM, Comb, Mod Env, Random) i reaguje na velocity i Mod Wheel.
+  Wszystkie 14 przechodzą render i `similarity.py` (≥ 1.2 od biblioteki).
 
