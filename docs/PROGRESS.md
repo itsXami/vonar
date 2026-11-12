@@ -114,7 +114,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
-| D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
+| D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | ⏳ partia Keys 1 (23) czeka na odsłuch użytkownika |
 | E. Wydanie | – |
 
 **Etap A – co zrobiono:**
@@ -246,3 +246,17 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - `Source/PresetManager.*` – presety fabryczne (BinaryData) i użytkownika, stan presetu w drzewie APVTS.
 - `Source/ui/*`, `Source/PluginEditor.*` – interfejs; makiety i ich generatory: `docs/mockups/`, `tools/ui/`.
 - `tests/` – testy jednostkowe (JUCE UnitTest), `tools/render/` – renderer presetów.
+
+## Etap D – stan (2026-11-12)
+- Partia **Keys 1**: `tools/presets/generate_batch_keys1.py` → `tools/presets/batches/keys1/` (23 presety),
+  render 23/23 (−15,0 LUFS, limiter ≤ 2,5 dB), `similarity.py` 23/23 „ok” (najbliżej: Dusty Upright ~ Reed Electric
+  Piano 1.23, Phaser Tremolo EP ~ Honky Tonk Bar 1.31).
+- Strona odsłuchu: https://claude.ai/artifact/5h4y2WKbszZwnf4XKTw8e1 (baza artefaktu, kolekcja `keys1`, dokument =
+  nazwa pliku, pola `verdict`: "" = zostaje, `remove`, `similar` + `similarTo`, `note`).
+- DO ZROBIENIA po odsłuchu: wpisać do `selection.json` (`batches.keys1.removed`, `.similar`), dopisać obsługę partii
+  w `build_library.py` (import `generate_batch_*`, kandydaci bez usuniętych), przebudować bibliotekę, render,
+  `similarity.py` na całości, mediany tutaj; presety „za podobny” – zmienić albo usunąć wg uwagi.
+- Kolejne partie (propozycja kolejności): Bass, Pad, Lead, Pluck/Bell, Organ (osobna kategoria w pluginie?),
+  Vocal & Choir, Strings, Brass, Guitar, Arp, FX. Nowe kategorie wymagają zmiany `PresetManager::categories()` i
+  `CATEGORY_ORDER` w `build_library.py`.
+

@@ -112,6 +112,9 @@ private:
     float penv = 0.0f;
     Lfo lfo[2];
     VoiceFilter filter;
+    // DC blocker before the filter (one-pole high-pass, ~5 Hz): phase-shaping warps such as Squeeze or Bend move a
+    // cycle's balance off zero, and that offset would otherwise bias the filter drive and the output.
+    float dcCoeff = 0.9993f, dcX[2] {}, dcY[2] {};
     OscState osc[2];
     // Chunk-start snapshot of each oscillator's first unison voice (modulator for FM / RM warps).
     float modPhase[2] {}, modInc[2] {}, modPos[2] {};
