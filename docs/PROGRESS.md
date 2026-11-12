@@ -114,7 +114,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
-| D. Biblioteka ok. 300 presetów | ⏳ 300 presetów w bibliotece; 142 nowe czekają na odsłuch (usuń / za podobny) |
+| D. Biblioteka ok. 300 presetów | ⏳ 310 presetów; partia House i Hip-Hop (35) czeka na odsłuch |
 | E. Wydanie | – |
 
 **Etap A – co zrobiono:**
@@ -279,4 +279,32 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - DO ZROBIENIA po odsłuchu: nazwy z `remove` i `similar` wpisać do `selection.json` → `batches.<batch>`, przebudować
   bibliotekę (spadnie poniżej 300 – dorobić brakujące w kolejnej partii), render, similarity, commit.
 - Pomysły na kolejne partie: Bass 2, Lead 2, Brass 2, Organ jako osobna kategoria, Vocal & Choir, Arp 2, FX 2.
+
+## Etap D – uwagi użytkownika po odsłuchu 300 i partia House / Hip-Hop (2026-11-12)
+- Odsłuch 142 (`d300`): usunięte Doom Drop Guitar, Octave Shimmer Pad („piszczy”), Xylophone Bright; Vibraphone
+  Motor „za podobny” do Rosewood Marimba.
+- Uwagi ogólne użytkownika: za mało do house i hip-hopu; za dużo lo-fi i brzmień „jak w grze metroidvania”;
+  zredukować instrumenty typu flet; całość „nijaka i tylko ciepła”. Na tej podstawie Claude usunął dodatkowo
+  21 presetów (lista w `selection.json` → `batches.*.removed`, komentarz w polu `comment`): flety i ludowe dęte
+  (Pan Flute, Piccolo, Alto Flute, Recorder, Ocarina, Shakuhachi, Drone Chanter), brzmienia „growe” i lo-fi
+  (Quantize Chip Pluck, Wind-Up Music Box, Toy Bell Piano, Sleigh Bell Shimmer, Crushed Bell, Clock Chime,
+  Detuned Lo-Fi Pluck, Gated Glitch Pluck, Tin Can Pluck, Bedroom Lo-Fi Guitar, Tape Hiss Pad, Cassette Keys,
+  Dusty Upright, Tape Wobble Piano). Smoky Lounge Keys zostaje (wzorzec użytkownika).
+- **Nowa partia `urban1` (35)**: House 17 (organ bass, rolling tech bass, bass-house wobble, future house bass i
+  pluck, house piano, dub stab, garage organ, rave stab, vocal chop, hoover, festival saw, tech perc, disco
+  strings, groove arp, riser, downlifter) i Hip-Hop/trap 18 (808 punch / sliding / rage, G-funk bass, sinister,
+  rage, plugg, portamento whine i hyper pluck leady, dark trap piano, boom bap EP, rap stab, Detroit pluck, trap
+  arp, trap bell, brass stab, choir hit, vocal pad). Jasno, sucho, twardy atak, pump przy house. Render 35/35,
+  similarity 35/35 (względem obecnej biblioteki). Odrzucone przez podobieństwo: Drill Slide Bass (≈ Tom Drop 808),
+  Garage Reese, Deep House Pad, Horn Section Hit, Rap String Stab.
+- Tagi: presety z tagiem 808 dostają też „Hip-Hop”; trap ma tagi Hip-Hop + Trap, rave – House + Rave.
+  Liczności tagów: House 51, Hip-Hop 25, Trap 8.
+- Biblioteka: **310 presetów**, render 310/310, testy 53/0. Kategorie: Bass 41, Lead 32, Guitar 34, Pluck 30,
+  Keys 51, Bell 19, Pad 45, Strings 21, Brass 11, Woodwind 10, Arp 10, FX 6.
+- Strona odsłuchu `urban1`: https://claude.ai/artifact/58GuSBQCQfgQCrfELBB3m4 (kolekcja `urban1`).
+- **Klawiatura do grania w pluginie** (prośba użytkownika): przycisk KEYBOARD w dolnym pasku pokazuje klawiaturę
+  ekranową (5 oktaw, klik myszą) w miejscu makr; gra też z klawiatury komputera (A S D F G H J K białe,
+  W E T Y U czarne, Z/X oktawa; start C4). Nuty idą przez `MidiKeyboardState` procesora (scalane z wejściem MIDI
+  w każdym bloku). Zrzut: `docs/ui-keyboard.png`. W pluginie w DAW skróty klawiatury komputera mogą być
+  przechwytywane przez hosta (FL Studio ma własne „typing keyboard to piano”); mysz działa zawsze.
 
