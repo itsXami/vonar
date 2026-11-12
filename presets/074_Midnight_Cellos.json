@@ -1,0 +1,47 @@
+{
+  "name": "Midnight Cellos",
+  "category": "Pad",
+  "tags": [
+    "Epic",
+    "Strings",
+    "Dark"
+  ],
+  "description": "Low synthetic cello section with a slow bow and dark tone.",
+  "macros": [
+    "Bow",
+    "Tone",
+    "Ensemble",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Strings",
+    "oscA_pos": 0.4,
+    "oscA_oct": -1,
+    "oscA_voices": 3,
+    "flt_cutoff": 1400.0,
+    "flt_res": 0.15,
+    "amp_attack": 0.5,
+    "amp_release": 1.4,
+    "lfo1_rate": 5.0,
+    "mfx_mix": 0.3,
+    "rev_size": 0.75,
+    "rev_mix": 0.25,
+    "out_gain": -1.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.5,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.002
+  }
+}

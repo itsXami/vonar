@@ -2,11 +2,8 @@
   "name": "Plucked Sequence",
   "category": "Arp",
   "tags": [
-    "Daft Punk",
-    "Tron: Legacy",
     "Cinematic",
-    "Sequence",
-    "Cinematic"
+    "Sequence"
   ],
   "description": "Up-down FM pluck sequence with dotted echoes.",
   "macros": [

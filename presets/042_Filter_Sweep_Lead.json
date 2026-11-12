@@ -1,0 +1,47 @@
+{
+  "name": "Filter Sweep Lead",
+  "category": "Lead",
+  "tags": [
+    "House",
+    "Raw",
+    "Filter",
+    "Movement"
+  ],
+  "description": "Raw saw lead whose resonant filter opens over a whole bar.",
+  "macros": [
+    "Sweep",
+    "Res",
+    "Grit",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "oscB_table": "Analog Saw",
+    "oscB_fine": -10.0,
+    "oscB_level": 0.4,
+    "flt_cutoff": 1000.0,
+    "flt_res": 0.5,
+    "lfo1_shape": "Saw",
+    "lfo1_sync": true,
+    "lfo1_div": "1/1",
+    "dist_drive": 0.35,
+    "dist_mix": 0.3,
+    "out_gain": -1.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Resonance",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.35
+  }
+}

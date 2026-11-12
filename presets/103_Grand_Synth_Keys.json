@@ -1,0 +1,52 @@
+{
+  "name": "Grand Synth Keys",
+  "category": "Keys",
+  "tags": [
+    "Epic",
+    "Keys",
+    "Warm"
+  ],
+  "description": "Piano-like synth keys mixing a soft bell attack and a warm square body.",
+  "macros": [
+    "Attack",
+    "Body",
+    "Tone",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "FM Bell",
+    "oscA_pos": 0.2,
+    "oscB_table": "Analog Square",
+    "oscB_pos": 0.5,
+    "oscB_level": 0.45,
+    "flt_type": "LP12",
+    "flt_cutoff": 3500.0,
+    "flt_envamt": 0.25,
+    "amp_decay": 2.5,
+    "amp_sustain": 0.0,
+    "amp_release": 0.6,
+    "fenv_decay": 0.9,
+    "fenv_sustain": 0.0,
+    "rev_mix": 0.2,
+    "out_gain": -3.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Level B",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25,
+    "mod6_src": "Key Track",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.15
+  }
+}

@@ -23,8 +23,8 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
 - **pluginval 1.0.4** (ostatnie wydanie) z `--strictness-level 5 --validate-in-process`; na Linuksie pod `xvfb-run`,
   bo test edytora potrzebuje serwera X. Na Windows krok uruchamiany w bashu, żeby proces był synchronicznie oczekiwany
   i zwracał kod wyjścia.
-- **Licencja JUCE:** JUCE 8 jest dostępny na AGPLv3 albo licencji komercyjnej/Starter. Repozytorium jest prywatne;
-  przed publiczną dystrybucją binariów trzeba wybrać jedną z tych ścieżek (odnotowane w README).
+- **Licencja JUCE:** JUCE 8 jest dostępny na AGPLv3 albo licencji komercyjnej/Starter. Wybrana ścieżka: AGPLv3
+  dla całego projektu (patrz „Wersja publiczna – neutralizacja i licencja”).
 
 ## Etap 2 – silnik
 
@@ -152,8 +152,9 @@ Każdy wpis: decyzja → powód. Najnowsze na dole.
   wymuszały > 3 dB pracy limitera; Scrapyard Hit i Grinding Sweep dostały wyższe poziomy źródeł.
 - **Wynik końcowy:** 121/121 presetów przechodzi render; głośność −17,2…−14,9 LUFS (mediana −15,0), maksymalna redukcja
   limitera 2,4 dB, najdłuższy ogon 3,0 s.
-- **Nazwy presetów nie zawierają nazwisk, albumów ani tytułów** – pilnuje tego test z listą zakazanych słów; inspiracja
-  jest wyłącznie w tagach (np. „Kanye West”, „Yeezus”, „Daft Punk”, „Discovery”) i w `docs/PRESETS.md`.
+- **Nazwy presetów nie zawierają nazwisk, albumów ani tytułów** – pilnuje tego test z listą zakazanych słów.
+  (Pierwotnie tagi i `docs/PRESETS.md` wskazywały inspirację konkretnymi artystami i albumami; usunięto to
+  w etapie A wersji publicznej – patrz „Wersja publiczna – neutralizacja i licencja”.)
 - **Organy (Drawbars/Drive Organ):** stopa 16′ jest 1. harmoniczną tablicy, więc presety organowe mają Oct +1, żeby
   grać w typowym rejestrze 8′.
 
@@ -217,8 +218,8 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   jedynym źródłem treści presetów.
 - **Do biblioteki trafia wszystko, czego użytkownik nie odrzucił** – także presety oznaczone „Popraw” (14), bo
   użytkownik poprosił, żeby na razie niczego nie poprawiać; są oznaczone w `docs/PRESETS.md` jako „do poprawki”.
-- **Kolejność według ery** (Yeezus → … → Random Access Memories), w ramach ery według kategorii – w menu presetów
-  i przy przewijaniu `<` `>` brzmienia jednej ery są obok siebie. Filtr ery działa przez filtr tagów.
+- **Kolejność według grupy stylistycznej**, w ramach grupy według kategorii (zastąpione w etapie A wersji
+  publicznej kolejnością kategoria → nazwa).
 - **Nowa kategoria „Guitar”** w `PresetManager::categories()` (renderer gra dla niej dwukrotne szarpnięcie akordu).
 - **Determinizm renderu:** faza LFO Mod FX jest zerowana przy resecie – wcześniej render presetu zależał od
   poprzednio renderowanego (różnice do 1,4 dB pracy limitera między uruchomieniami).
@@ -232,3 +233,28 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   Odejście od „każdy push i PR”: zmiany w PR i tak są pushami, więc nic nie traci pokrycia.
 - **Artefakty trzymane 14 dni** (`retention-days: 14`) zamiast domyślnych 90 – darmowy plan GitHuba ma ograniczone
   miejsce na artefakty prywatnych repozytoriów; starsze paczki można zawsze odtworzyć z kodu.
+
+## Wersja publiczna – neutralizacja i licencja (etap A)
+
+- **Żadnych odwołań do artystów, albumów, utworów ani marek** w presetach, generatorach, README i `docs/PRESETS.md`.
+  Syntezator będzie publiczny, więc presety opisują wyłącznie dźwięk. Dziesięć dawnych grup inspiracji zostało
+  w generatorach jako neutralne rodziny stylistyczne (`industrial`, `stadium`, `cold`, `epic`, `gospel`, `rawhouse`,
+  `discohouse`, `mechanical`, `cinematic`, `analog`), które wnoszą tagi stylu: Industrial, Stadium, Cold, Epic, Gospel,
+  House + Raw, House + Disco, Mechanical, Cinematic, Analog. Parametry brzmień nie zostały zmienione (porównanie
+  JSON-ów przed/po: różnią się tylko tagi i numeracja plików).
+- **Dwie nazwy i jeden opis zmienione**, bo nawiązywały do filmu albo marki instrumentu: „Light Cycle Arp” →
+  „Racing Saw Arp”, „Suitcase Electric Piano” → „Autopan Electric Piano”, opis Funky Filter Keys „Clavinet-like” →
+  „Clav-style”. Trymy głośności przeniesione pod nowe nazwy.
+- **Kolejność biblioteki: kategoria → nazwa alfabetycznie** (kolejność kategorii jak w `PresetManager::categories()`).
+  Kolejność „wg ery” straciła sens, a układ alfabetyczny w kategorii jest standardem w przeglądarkach presetów.
+  Numery plików `presets/NNN_*.json` zmieniły się; pluginu to nie dotyczy, bo presety są identyfikowane po nazwie.
+- **Test zakazanych nazw rozszerzony:** dotychczasowa lista (`kBannedInNames`, wiele zwykłych słów) nadal dotyczy
+  tylko nazw; nowa, krótka lista jednoznacznych nazw artystów, albumów i marek (`kBannedEverywhere`) obowiązuje
+  w nazwach, tagach, opisach i etykietach makr. Generator kandydatów czyta obie listy z `tests/PresetTests.cpp`.
+- **Licencja AGPLv3** (plik `LICENSE`, tekst pobrany z gnu.org bez zmian): decyzja użytkownika – projekt otwarty,
+  darmowy, bez rejestracji; zgodna z licencją AGPLv3 frameworka JUCE, więc nie trzeba licencji komercyjnej JUCE.
+  Nazwa i logo nie są objęte licencją (README). Od innych przyjmujemy na start tylko presety (`CONTRIBUTING.md`).
+- **Wzorce brzmień od użytkownika** są zapisywane w `docs/SOUND_REFERENCES.md` wyłącznie jako opis charakteru;
+  nazwy wzorców nie trafiają do presetów.
+- **Czego neutralizacja nie obejmuje:** starszych komunikatów commitów na gałęzi `feature/volt-synth` (jeden z nich
+  wymienia artystów). Przy upublicznieniu repo scalić PR metodą „squash”, żeby historia `main` była czysta.

@@ -1,0 +1,45 @@
+{
+  "name": "Bitcrush Sub",
+  "category": "Bass",
+  "tags": [
+    "Industrial",
+    "Lo-Fi",
+    "808"
+  ],
+  "description": "Sub bass broken into crunchy bits for lo-fi aggression.",
+  "macros": [
+    "Bits",
+    "Tone",
+    "Harm",
+    "Mix"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.05,
+    "oscA_table": "Sine Drive",
+    "oscA_pos": 0.4,
+    "oscA_oct": -1,
+    "oscA_level": 0.9,
+    "flt_cutoff": 3000.0,
+    "amp_decay": 1.5,
+    "amp_sustain": 0.5,
+    "amp_release": 0.3,
+    "dist_type": "Bitcrush",
+    "dist_drive": 0.35,
+    "dist_mix": 0.55,
+    "out_gain": 2.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Drive",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "WT Pos A",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Dist Mix",
+    "mod4_amt": 0.3
+  }
+}

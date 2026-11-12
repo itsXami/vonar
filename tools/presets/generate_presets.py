@@ -63,17 +63,19 @@ for i in range(1, 13):
     DEFAULTS[f"mod{i}_amt"] = 0.0
 
 PRESETS = []
+# Style families. Each preset belongs to one family, which contributes its neutral style tags. Tags describe the
+# sound only: no artist, album, track or brand names anywhere in a preset (enforced by tests/PresetTests.cpp).
 GROUP_TAGS = {
-    "yeezus": ["Kanye West", "Yeezus", "Industrial"],
-    "graduation": ["Kanye West", "Graduation", "Stadium"],
-    "808s": ["Kanye West", "808s & Heartbreak", "Cold"],
-    "mbdtf": ["Kanye West", "MBDTF", "Epic"],
-    "donda": ["Kanye West", "Donda", "Gospel"],
-    "homework": ["Daft Punk", "Homework", "Acid"],
-    "discovery": ["Daft Punk", "Discovery", "French House"],
-    "haa": ["Daft Punk", "Human After All", "Mechanical"],
-    "tron": ["Daft Punk", "Tron: Legacy", "Cinematic"],
-    "ram": ["Daft Punk", "Random Access Memories", "Analog"],
+    "industrial": ["Industrial"],
+    "stadium": ["Stadium"],
+    "cold": ["Cold"],
+    "epic": ["Epic"],
+    "gospel": ["Gospel"],
+    "rawhouse": ["House", "Raw"],
+    "discohouse": ["House", "Disco"],
+    "mechanical": ["Mechanical"],
+    "cinematic": ["Cinematic"],
+    "analog": ["Analog"],
 }
 
 
@@ -98,15 +100,15 @@ def P(group, name, category, desc, macros, mods=(), tags=(), **params):
         assert k in DEFAULTS, (name, k)
     PRESETS.append({
         "group": group, "name": name, "category": category,
-        "tags": GROUP_TAGS[group] + list(tags), "description": desc,
+        "tags": list(dict.fromkeys(GROUP_TAGS[group] + list(tags))), "description": desc,
         "macros": [m[0] for m in macros], "params": params,
     })
 
 
 # =====================================================================================================
-# Kanye West – Yeezus (24): distorted basses, industrial buzz and acid, screaming leads, sirens, rough 808s
+# Industrial (24): distorted basses, industrial buzz and acid, screaming leads, sirens, rough 808s
 # =====================================================================================================
-G = "yeezus"
+G = "industrial"
 P(G, "Concrete Saw", "Bass", "Buzzing mono bass driven through hard clipping and a snarling ladder filter.",
   [("Grit", [("Dist Drive", 0.35)]), ("Snarl", [("Cutoff", 0.35)]), ("Sync", [("WT Pos B", 0.8)]), ("Crush", [("Resonance", 0.4)])],
   tags=["Distorted", "Aggressive"],
@@ -254,9 +256,9 @@ P(G, "Smoke Signal", "FX", "Random formant chatter bouncing between ping-pong ec
   dly_feedback=0.45, dly_mix=0.25, rev_mix=0.15, amp_release=0.5)
 
 # =====================================================================================================
-# Kanye West – Graduation (10): stadium supersaws and shiny leads
+# Stadium (10): stadium supersaws and shiny leads
 # =====================================================================================================
-G = "graduation"
+G = "stadium"
 P(G, "Arena Saw Stack", "Lead", "Huge detuned supersaw lead with octave layer, chorus and a stadium hall.",
   [("Width", [("Mod FX Mix", 0.4)]), ("Shine", [("Cutoff", 0.4)]), ("Octave", [("Level B", 0.4)]), ("Hall", [("Reverb Mix", 0.3)])],
   mods=[("Mod Wheel", "Pitch", 0.01), ("LFO 1", "Pitch", 0.004)], tags=["Supersaw", "Bright"],
@@ -317,9 +319,9 @@ P(G, "Synth Choir Lift", "Pad", "Airy synthetic choir layered with saws for upli
   rev_mix=0.28)
 
 # =====================================================================================================
-# Kanye West – 808s & Heartbreak (10): cold pads, synthetic pseudo-vocals, long gliding 808s
+# Cold (10): cold pads, synthetic pseudo-vocals, long gliding 808s
 # =====================================================================================================
-G = "808s"
+G = "cold"
 P(G, "Glass Heart Pad", "Pad", "Cold, hollow pad with a slow bloom and a very wide hall.",
   [("Frost", [("Cutoff", 0.35)]), ("Breath", [("Noise Level", 0.2)]), ("Width", [("Mod FX Mix", 0.4)]), ("Hall", [("Reverb Mix", 0.3)])],
   mods=[("LFO 1", "WT Pos A", 0.15)], tags=["Pad", "Minimal"],
@@ -377,9 +379,9 @@ P(G, "Tin Croon", "Lead", "Nasal, robotic-sounding sung tone with stepped vowel 
   amp_release=0.3, dly_time="1/8D", dly_mix=0.15, rev_mix=0.18)
 
 # =====================================================================================================
-# Kanye West – MBDTF (10): dramatic brass, dark synth strings, epic basses
+# Epic (10): dramatic brass, dark synth strings, epic basses
 # =====================================================================================================
-G = "mbdtf"
+G = "epic"
 P(G, "Throne Brass", "Brass", "Majestic synth brass that swells with tube warmth and a long hall.",
   [("Swell", [("Cutoff", 0.35)]), ("Blare", [("WT Pos A", 0.5)]), ("Heat", [("Dist Mix", 0.5)]), ("Hall", [("Reverb Mix", 0.3)])],
   mods=[("Filter Env", "WT Pos A", 0.3), ("Velocity", "Cutoff", 0.12)], tags=["Brass", "Dramatic"],
@@ -440,9 +442,9 @@ P(G, "Fanfare Swell", "Brass", "Massive octave-stacked brass swell for cinematic
   amp_attack=0.4, amp_release=0.9, rev_size=0.8, rev_mix=0.28)
 
 # =====================================================================================================
-# Kanye West – Gospel / Donda (6): organs, choral pads, powerful chords
+# Gospel (6): organs, choral pads, powerful chords
 # =====================================================================================================
-G = "donda"
+G = "gospel"
 P(G, "Sunday Drawbars", "Keys", "Classic drawbar organ with a gentle rotary-style chorus.",
   [("Drawbars", [("WT Pos A", 0.5)]), ("Rotor", [("Mod FX Mix", 0.4)]), ("Drive", [("Dist Mix", 0.4)]), ("Hall", [("Reverb Mix", 0.3)])],
   tags=["Organ"],
@@ -480,9 +482,9 @@ P(G, "Praise Bass", "Bass", "Round organ bass with a clean sub for gospel bass l
   amp_release=0.12, dist_type="Tube", dist_drive=0.3, dist_mix=0.15)
 
 # =====================================================================================================
-# Daft Punk – Homework (14): acid squelch, raw filtered basses and leads
+# Raw house (14): acid squelch, raw filtered basses and leads
 # =====================================================================================================
-G = "homework"
+G = "rawhouse"
 P(G, "Squelch Box", "Bass", "Classic acid squelch with a resonant ladder, accent-like envelope and slide.",
   [("Squelch", [("Resonance", 0.15)]), ("Open", [("Cutoff", 0.4)]), ("Dirt", [("Dist Mix", 0.5)]), ("Echo", [("Delay Mix", 0.3)])],
   mods=[("Velocity", "Cutoff", 0.2)], tags=["Acid"],
@@ -534,7 +536,7 @@ P(G, "Grinding Sweep", "FX", "Distorted noise sweep that rises and falls through
   oscA_table="Rasp", oscA_pos=0.6, oscA_level=0.9, noise_level=0.9, flt_type="BP", flt_cutoff=1200.0, flt_res=0.4,
   lfo1_sync=True, lfo1_div="1/1", lfo1_shape="Triangle", dist_type="Hard", dist_drive=0.4, dist_mix=0.6,
   amp_attack=0.3, amp_release=0.6, dly_time="1/8", dly_mix=0.12)
-P(G, "Funky Filter Keys", "Keys", "Clavinet-like pulse keys with a resonant envelope wah.",
+P(G, "Funky Filter Keys", "Keys", "Clav-style pulse keys with a resonant envelope wah.",
   [("Wah", [("Cutoff", 0.35)]), ("Pulse", [("WT Pos A", 0.5)]), ("Phase", [("Mod FX Mix", 0.4)]), ("Room", [("Reverb Mix", 0.3)])],
   mods=[("Velocity", "Cutoff", 0.2)], tags=["Funk"],
   oscA_table="PWM", oscA_pos=0.65, flt_type="LP24", flt_cutoff=500.0, flt_res=0.5, flt_envamt=0.5, fenv_decay=0.25,
@@ -562,9 +564,9 @@ P(G, "Mono Wah Lead", "Lead", "Band-pass lead that opens like a wah pedal on eve
   fenv_attack=0.03, fenv_decay=0.35, fenv_sustain=0.2, dist_drive=0.35, dist_mix=0.3, dly_time="1/8D", dly_mix=0.12)
 
 # =====================================================================================================
-# Daft Punk – Discovery (18): filter house with Pump, talkbox, disco strings, 80s leads, sweet pads
+# Disco house (18): filter house with Pump, talkbox, disco strings, 80s leads, sweet pads
 # =====================================================================================================
-G = "discovery"
+G = "discohouse"
 P(G, "Pumping Filter Chords", "Keys", "Saw chord stack that pumps on every beat while the filter sweeps open.",
   [("Filter", [("Cutoff", 0.4)]), ("Phase", [("Mod FX Mix", 0.4)]), ("Grit", [("Dist Mix", 0.4)]), ("Hall", [("Reverb Mix", 0.3)])],
   mods=[("LFO 1", "Cutoff", 0.2)], tags=["Pump", "Filter House"],
@@ -670,9 +672,9 @@ P(G, "Metal Mouth Lead", "Lead", "Ring-modulated talkbox lead with a metallic, s
   dly_time="1/8D", dly_mix=0.1)
 
 # =====================================================================================================
-# Daft Punk – Human After All (8): rough, guitar-like, mechanical riffs
+# Mechanical (8): rough, guitar-like, mechanical riffs
 # =====================================================================================================
-G = "haa"
+G = "mechanical"
 P(G, "Gritty Riff Saw", "Lead", "Overdriven saw riff that chugs like a distorted guitar.",
   [("Gain", [("Dist Drive", 0.4)]), ("Tone", [("Cutoff", 0.4)]), ("Chug", [("Resonance", 0.3)]), ("Room", [("Reverb Mix", 0.3)])],
   mods=[("Filter Env", "Cutoff", 0.15)], tags=["Rock", "Distorted"],
@@ -718,9 +720,9 @@ P(G, "Distortion Wah", "FX", "Fuzzed saw swept by an auto-wah band-pass for grit
   dly_time="1/8", dly_mix=0.1)
 
 # =====================================================================================================
-# Daft Punk – Tron: Legacy (12): monumental brass, pulsing basses, arpeggios
+# Cinematic (12): monumental brass, pulsing basses, arpeggios
 # =====================================================================================================
-G = "tron"
+G = "cinematic"
 P(G, "Grid Pulse Bass", "Bass", "Relentless sixteenth-note bass pulse with a cutting filter envelope.",
   [("Pulse", [("Cutoff", 0.35)]), ("Drive", [("Filter Drive", 0.4)]), ("Sub", [("Sub Level", 0.3)]), ("Hall", [("Reverb Mix", 0.2)])],
   mods=[("Filter Env", "Cutoff", 0.15)], tags=["Pulse", "Synthwave"],
@@ -733,7 +735,7 @@ P(G, "Monolith Brass", "Brass", "Towering low brass with slow swell, octave weig
   oscA_table="Brass", oscA_pos=0.5, oscA_oct=-1, oscA_voices=4, uni_detune=0.3, oscB_table="Saw Octaves",
   oscB_oct=-1, oscB_level=0.35, flt_type="LP24", flt_cutoff=700.0, flt_envamt=0.4, fenv_attack=0.6, fenv_decay=1.5,
   fenv_sustain=0.6, amp_attack=0.25, amp_release=1.0, rev_size=0.85, rev_mix=0.3)
-P(G, "Light Cycle Arp", "Arp", "Glowing supersaw arpeggio racing upward with dotted echoes.",
+P(G, "Racing Saw Arp", "Arp", "Glowing supersaw arpeggio racing upward with dotted echoes.",
   [("Glow", [("Cutoff", 0.4)]), ("Width", [("Mod FX Mix", 0.4)]), ("Echo", [("Delay Mix", 0.3)]), ("Hall", [("Reverb Mix", 0.3)])],
   mods=[("Filter Env", "Cutoff", 0.15)], tags=["Arp", "Synthwave"],
   arp_on=True, arp_mode="Up", arp_rate="1/16", arp_octaves=3, arp_gate=0.5, oscA_table="Hyper Saw", oscA_pos=0.4,
@@ -795,9 +797,9 @@ P(G, "Circuit Bass Drone", "Bass", "Dark sustained bass drone with slowly openin
   sub_level=0.35, flt_type="LP24", flt_cutoff=450.0, flt_res=0.4, lfo1_rate=0.1, amp_attack=0.05, amp_release=0.4)
 
 # =====================================================================================================
-# Daft Punk – Random Access Memories (8): warm analog polysynths, funky keys, modular basses
+# Analog (8): warm analog polysynths, funky keys, modular basses
 # =====================================================================================================
-G = "ram"
+G = "analog"
 P(G, "Warm Poly Brass", "Brass", "Vintage polysynth brass with a soft envelope swell.",
   [("Swell", [("Cutoff", 0.35)]), ("Warmth", [("Filter Drive", 0.4)]), ("Width", [("Mod FX Mix", 0.4)]), ("Room", [("Reverb Mix", 0.3)])],
   mods=[("Velocity", "Cutoff", 0.15), ("LFO 1", "Pitch", 0.002)], tags=["Brass", "Vintage"],
@@ -875,28 +877,13 @@ def main():
     counts = {}
     for p in PRESETS:
         counts[p["group"]] = counts.get(p["group"], 0) + 1
-    expected = {"yeezus": 24, "graduation": 10, "808s": 10, "mbdtf": 10, "donda": 6, "homework": 14,
-                "discovery": 18, "haa": 8, "tron": 12, "ram": 8}
+    expected = {"industrial": 24, "stadium": 10, "cold": 10, "epic": 10, "gospel": 6, "rawhouse": 14,
+                "discohouse": 18, "mechanical": 8, "cinematic": 12, "analog": 8}
     assert counts == expected, counts
 
     # presets/ and docs/PRESETS.md are written by build_library.py (both batches + the user's selection).
     import build_library
     build_library.main()
-
-
-GROUP_INFO = [
-    ("yeezus", "Kanye West – Yeezus", "Industrialna agresja: przesterowane i zgniecione bitcrusherem basy, buzz i acid, "
-     "krzykliwe leady, syreny i szorstkie, przesterowane 808. Najważniejsza i najmocniej brzmiąca grupa."),
-    ("graduation", "Kanye West – Graduation", "Stadionowe supersawy, błyszczące plucki i jasne leady."),
-    ("808s", "Kanye West – 808s & Heartbreak", "Zimne, oszczędne pady, syntetyczne pseudowokale i długie 808 z glide."),
-    ("mbdtf", "Kanye West – My Beautiful Dark Twisted Fantasy", "Dramatyczne brassy, ciemne syntetyczne smyczki i epickie basy."),
-    ("donda", "Kanye West – Gospel / Donda", "Organy, chóralne pady i potężne akordy."),
-    ("homework", "Daft Punk – Homework", "Surowy acid squelch, filtrowane basy i szorstkie leady."),
-    ("discovery", "Daft Punk – Discovery", "Filter house z Pumpem, leady w stylu talkboxa (filtr Formant), disco strings, leady lat 80., słodkie pady."),
-    ("haa", "Daft Punk – Human After All", "Szorstkie, „gitarowe”, mechaniczne riffy i fuzz."),
-    ("tron", "Daft Punk – Tron: Legacy", "Monumentalne brassy, pulsujące basy i arpeggia."),
-    ("ram", "Daft Punk – Random Access Memories", "Ciepłe analogowe polisynthy, funkowe klawisze i modularne basy."),
-]
 
 
 if __name__ == "__main__":

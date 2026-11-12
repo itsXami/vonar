@@ -6,7 +6,8 @@ using namespace volt;
 
 namespace
 {
-// Artist, album and track names that must never appear in preset names (inspiration goes to tags/docs only).
+// VOLT presets describe the sound only. Artist, album and track names must never appear in preset names.
+// (Many entries are ordinary words, so this list is applied to names only; see kBannedEverywhere below.)
 const char* const kBannedInNames[] = {
     "kanye", "west", "yeezus", "yeezy", "daft", "bangalter", "homem-christo", "thomas", "guy-manuel",
     "graduation", "heartbreak", "808s", "dark twisted", "fantasy", "mbdtf", "donda", "jesus is king", "pablo",
@@ -26,6 +27,16 @@ const char* const kBannedInNames[] = {
     "say you will", "robot", "blame game", "devil in a new dress", "hell of a life", "gorgeous", "so appalled",
     "on god", "jesus walks", "gold digger", "touch the sky", "homecoming", "champion", "i wonder", "glory", "drunk and hot",
     "barry bonds", "everything i am", "big brother", "flashing", "lights"
+};
+
+// Unambiguous artist / album / franchise names and instrument or software brands: banned in names, tags,
+// descriptions and macro labels alike.
+const char* const kBannedEverywhere[] = {
+    "kanye", "yeezus", "yeezy", "daft punk", "bangalter", "homem-christo", "graduation", "heartbreak", "mbdtf",
+    "dark twisted", "donda", "homework", "discovery", "human after all", "tron", "random access", "light cycle",
+    "serum", "vital", "sylenth", "omnisphere", "moog", "minimoog", "roland", "korg", "yamaha", "oberheim", "juno",
+    "dx7", "rhodes", "wurlitzer", "hammond", "leslie", "clavinet", "mellotron", "suitcase", "fender", "gibson",
+    "stratocaster", "telecaster", "marshall", "steinway"
 };
 
 bool containsWord (const juce::String& hay, const juce::String& word)
@@ -76,6 +87,19 @@ struct PresetTests final : juce::UnitTest
             names.add (p.name);
             for (auto* banned : kBannedInNames)
                 expect (! containsWord (p.name, banned), "preset name '" + p.name + "' contains '" + banned + "'");
+        }
+
+        beginTest ("No artist, album or brand names in names, tags, descriptions or macro labels");
+        for (int i = 0; i < count; ++i)
+        {
+            const auto& p = pm.getPresets()[(size_t) i];
+            juce::StringArray fields { p.name, p.description };
+            fields.addArray (p.tags);
+            for (const auto& label : p.macroLabels)
+                fields.add (label);
+            for (const auto& field : fields)
+                for (auto* banned : kBannedEverywhere)
+                    expect (! containsWord (field, banned), p.name + ": '" + field + "' contains '" + banned + "'");
         }
 
         beginTest ("Metadata: category, tags, one-sentence description, four routed and labelled macros");

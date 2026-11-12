@@ -1,0 +1,44 @@
+{
+  "name": "Shuffle Pump Pad",
+  "category": "Pad",
+  "tags": [
+    "House",
+    "Disco",
+    "Pump",
+    "Filter House"
+  ],
+  "description": "Airy pad chopped into a shuffling eighth-note pump.",
+  "macros": [
+    "Air",
+    "Grit",
+    "Width",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Hyper Saw",
+    "oscA_pos": 0.3,
+    "oscA_voices": 4,
+    "uni_detune": 0.3,
+    "flt_cutoff": 3000.0,
+    "amp_attack": 0.1,
+    "amp_release": 0.8,
+    "mfx_mix": 0.35,
+    "pump_amount": 0.75,
+    "pump_rate": "1/8",
+    "rev_mix": 0.2,
+    "out_gain": -0.7,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Mix",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}
