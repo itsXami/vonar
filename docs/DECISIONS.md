@@ -274,4 +274,21 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
 - **Krój: Oxanium** (wybór użytkownika, 3B).
 - **Kroje do wyboru były: Barlow Semi Condensed albo Oxanium** (oba SIL OFL, można osadzić w pluginie jak dotąd Inter).
   Po wyborze Inter zostaje usunięty z zasobów, jeśli nie będzie już używany.
+- **Makieta 4 zaakceptowana i wdrożona.** Ciepły grafit, przygaszone kolory sekcji, ziarno (kafelkowany obraz
+  szumu rysowany nad wszystkim w `paintOverChildren`, generowany raz ze stałego ziarna losowego), cieniowane
+  główki pokręteł, podziałka na dużych pokrętłach, jednostki mniejsze od liczb.
+- **Trzy rozmiary pokręteł** (Hero / Medium / Small) zamiast dwóch: Hero mają Position i Cutoff oraz główne
+  pokrętła zakładek MODULATION i EFFECTS.
+- **Zakładki są w górnym pasku**, więc strony mają 534 px wysokości zamiast 514; dolny pas ma 154 px.
+- **Obwiednie w jednym panelu z przełącznikiem** (AMP / FILTER / MOD / PITCH). Wykres pokazuje kształt według
+  położeń pokręteł, a nie liniową oś czasu (inaczej krótkie czasy byłyby niewidoczne), dlatego nie ma podpisów
+  sekund, które były na makiecie.
+- **LFO na zakładce SYNTH i MODULATION jednocześnie** (ten sam parametr ma dwa pokrętła); na pasku SYNTH pokrętło
+  Rate i lista podziału taktu zajmują to samo miejsce i przełączają się przyciskiem SYNC.
+- **Wyjście i oscyloskop bez koloru sekcji**; niebieski został tylko na zakładce EFFECTS.
+- **Miernik poziomu**: procesor zapisuje szczyt bloku na kanał w `std::atomic`, edytor pobiera go 30 razy na
+  sekundę; opadanie ok. 48 dB/s, znacznik szczytu trzymany 1 s, kolor pomarańczowy powyżej −0,6 dBFS.
+- **Okno „O programie”** otwiera kliknięcie znaku VOLT: wersja, licencja AGPLv3, JUCE, Oxanium.
+- **Czcionka w dwóch grubościach** (Medium i SemiBold) jako statyczne instancje pliku zmiennego Oxanium,
+  bo `createSystemTypefaceFor` ładuje tylko domyślną instancję czcionki zmiennej.
 

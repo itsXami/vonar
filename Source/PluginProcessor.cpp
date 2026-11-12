@@ -60,6 +60,13 @@ void VoltAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::M
     for (int c = 2; c < buffer.getNumChannels(); ++c)
         buffer.clear (c, 0, n);
 
+    for (int c = 0; c < 2; ++c)
+    {
+        const float peak = buffer.getMagnitude (c, 0, n);
+        if (peak > outputPeak[c].load (std::memory_order_relaxed))
+            outputPeak[c].store (peak, std::memory_order_relaxed);
+    }
+
     // Oscilloscope: mono sum, dropped when the UI is not reading.
     int start1, size1, start2, size2;
     scopeFifo.prepareToWrite (n, start1, size1, start2, size2);

@@ -112,7 +112,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | Etap | Status |
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
-| B. Profesjonalny wygląd | ⏳ układ 2 + wykończenie 2A + krój Oxanium (3B) wybrane; makieta 4 czeka na akceptację; potem wdrożenie |
+| B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
@@ -169,6 +169,18 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   powierzchniach, krawędź światła na panelach i ekranach, cieniowane główki pokręteł z obwódką, podziałka na
   dużych pokrętłach (Cutoff ze skalą 20–20k), jednostki mniejsze niż liczby, ikony kształtu LFO i typu filtra,
   bursztynowa kropka pod pokrętłem sterowanym przez makro. Po akceptacji: wdrożenie w kodzie i prawdziwe zrzuty.
+- **Wdrożenie (po „wdrażaj”):** makieta 4 przeniesiona do pluginu. Zmienione pliki: `Source/ui/VoltLookAndFeel.*`
+  (paleta, pokrętła z podziałką i znacznikiem makra, style przycisków tab/seg/preset/arrow/ghost), `Controls.*`
+  (`ValueText` – jednostka mniejsza od liczby, `Knob` w rozmiarach Small/Medium/Hero, `MacroCell`), `Views.h`
+  (wavetable jako powierzchnia, `EnvelopeView`, `LfoView`, `LevelMeter`), `PluginEditor.*` (nowy układ SYNTH,
+  ziarno, znaczniki makr, cele makr), `PresetBar.*` (znak VOLT, okno „O programie” po kliknięciu znaku),
+  `PluginProcessor.*` (szczyt wyjścia dla miernika). Czcionka: Oxanium Medium + SemiBold
+  (`resources/fonts`, instancje statyczne z pliku zmiennego, OFL), Inter usunięty.
+  Zmiany funkcjonalne w UI: obwiednie Amp/Filter/Mod/Pitch w jednym panelu z przełącznikiem i wykresem; LFO 1/2
+  (kształt, Sync, Rate/podział, Depth) także na zakładce SYNTH (Retrigger tylko na MODULATION); miernik poziomu;
+  podpis celu pod makrem; bursztynowa kropka przy pokrętle sterowanym makrem. Parametry i brzmienia bez zmian.
+  Weryfikacja lokalna: build OK, testy 46/0, render 136/136, zrzuty `docs/ui-*.png` z `VOLT_Render --snapshot`.
+  Nie sprawdzono (wymaga Windows): obsługa myszą, okno „O programie”, wygląd przy skalach innych niż 100%.
 - Ustalenie z wcześniejszej przebudowy UI nadal obowiązuje: nazwa parametru nad pokrętłem, wartość zawsze pod
   nim, normalna pisownia etykiet (nie drobne wersaliki).
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
@@ -213,5 +225,5 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - `Source/dsp/Voice.*`, `VoiceFilter.h`, `Modulators.h` (ADSR, LFO), `DspUtil.h`, `Formants.h`.
 - `Source/dsp/SynthEngine.*` – MIDI, alokacja głosów, modulacja globalna, łańcuch FX.
 - `Source/PresetManager.*` – presety fabryczne (BinaryData) i użytkownika, stan presetu w drzewie APVTS.
-- `Source/ui/*`, `Source/PluginEditor.*` – interfejs.
+- `Source/ui/*`, `Source/PluginEditor.*` – interfejs; makiety i ich generatory: `docs/mockups/`, `tools/ui/`.
 - `tests/` – testy jednostkowe (JUCE UnitTest), `tools/render/` – renderer presetów.

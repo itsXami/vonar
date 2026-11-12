@@ -5,7 +5,8 @@
 
 namespace volt::ui
 {
-// Top bar: logo, previous / next, preset menu, category + tag filters, search, save, UI scale.
+// Top bar: wordmark (click: about), room for the tabs, preset name, previous / next, category + tag filters,
+// search, save, UI scale.
 class PresetBar final : public juce::Component, private juce::ChangeListener
 {
 public:
@@ -26,9 +27,10 @@ private:
     void showMenu();
     void showSaveDialog();
     void rebuildFilters();
+    void showAbout();
 
     PresetManager& presets;
-    juce::TextButton prevButton { "<" }, nextButton { ">" }, nameButton, saveButton { "SAVE" };
+    juce::TextButton prevButton { "<" }, nextButton { ">" }, nameButton, saveButton { "SAVE" }, aboutButton;
     juce::ComboBox categoryBox, tagBox;
     juce::TextEditor search;
     std::unique_ptr<juce::AlertWindow> saveWindow;

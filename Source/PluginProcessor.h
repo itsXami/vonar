@@ -42,6 +42,9 @@ public:
     // Oscilloscope feed (audio thread pushes, UI pulls; lock-free single producer / single consumer).
     int pullScope (float* dest, int maxSamples);
 
+    // Output peak per channel since the last call (level meter in the editor).
+    float takeOutputPeak (int channel) noexcept { return outputPeak[channel & 1].exchange (0.0f); }
+
     float getUiScale() const { return (float) (double) apvts.state.getProperty ("uiScale", 1.0); }
     void setUiScale (float s) { apvts.state.setProperty ("uiScale", (double) s, nullptr); }
 
@@ -52,6 +55,7 @@ private:
     std::unique_ptr<volt::PresetManager> presetManager;
     juce::AbstractFifo scopeFifo { 8192 };
     std::vector<float> scopeData = std::vector<float> (8192, 0.0f);
+    std::atomic<float> outputPeak[2] { 0.0f, 0.0f };
 
     volt::ParamReader reader;
     volt::ParamSnapshot snapshot;

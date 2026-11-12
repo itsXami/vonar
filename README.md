@@ -1,6 +1,6 @@
 # VOLT
 
-Minimalistyczny syntezator wavetable (VST3 + Standalone) z jednym ekranem, dużymi pokrętłami i biblioteką
+Syntezator wavetable (VST3 + Standalone) z czytelnym interfejsem, wykresami wszystkiego, co kształtuje dźwięk, i biblioteką
 136 presetów (Init + 135 wybranych po odsłuchu): basy, leady, gitary, pady, klawisze, arpeggia, brassy i efekty.
 Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
 
@@ -32,10 +32,10 @@ Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
 - **Efekty (w tej kolejności):** Distortion (Soft, Tube, Hard, Fold, Bitcrush; 4× oversampling) → Mod FX
   (Chorus, Phaser, Flanger) → Pump (ducking zsynchronizowany z tempem) → Delay (stereo / ping-pong, sync) →
   Reverb → Squash (3-pasmowy kompresor na jednym pokrętle) → Output Gain + limiter ochronny.
-- **Interfejs:** okno 1200×740 (skalowanie 75–200%) z zakładkami SYNTH / MODULATION / EFFECTS; makra, wyjście
-  i oscyloskop są zawsze widoczne na dole; każda sekcja ma własny kolor (oscylatory turkus,
-  filtr pomarańcz, obwiednie zieleń, LFO i modulacja fiolet, efekty niebieski, makra żółty), wartość zawsze widoczna
-  pod pokrętłem, krzywa filtra, przeglądarka presetów w górnym pasku.
+- **Interfejs:** okno 1200×740 (skalowanie 75–200%) z zakładkami SYNTH / MODULATION / EFFECTS. Na zakładce SYNTH
+  widać naraz oscylatory z podglądem wavetable, filtr z krzywą, obwiednie z wykresem, oba LFO, głos i arpeggiator.
+  Makra, wyjście z miernikiem poziomu i oscyloskop są zawsze widoczne na dole. Każda sekcja ma własny kolor
+  (oscylatory turkus, filtr pomarańcz, obwiednie zieleń, LFO i modulacja fiolet, efekty niebieski, makra bursztyn).
 
 ## Instalacja w FL Studio (Windows x64)
 
@@ -64,23 +64,27 @@ Uwagi:
 - **dwuklik** przywraca wartość domyślną, kółko myszy też działa,
 - nazwa parametru jest nad pokrętłem, a **aktualna wartość zawsze pod nim**; po najechaniu pojawia się tooltip.
 
-**Kolory sekcji** mówią, do czego należy kontrolka: turkus – oscylatory, unison, sub i szum; pomarańcz – filtr;
-zieleń – obwiednie (także obwiednia filtra w sekcji filtra); fiolet – LFO, macierz modulacji, arpeggiator, tryb
-głosu; niebieski – efekty i wyjście; żółty – makra. Kolorowe paski pod logo to legenda.
+**Kolory sekcji** mówią, do czego należy kontrolka: turkus – oscylatory, unison, sub, szum i struna; pomarańcz –
+filtr; zieleń – obwiednie; fiolet – LFO, macierz modulacji, arpeggiator, tryb głosu; niebieski – efekty; bursztyn –
+makra. Kolor ma tytuł sekcji, łuk pokrętła i wykres. **Bursztynowa kropka pod pokrętłem** oznacza, że steruje nim
+któreś makro.
 
-**Układ okna:** u góry pasek presetów i zakładki, na dole zawsze widoczne MACROS (dwuklik na nazwie zmienia ją),
-OUTPUT i SCOPE.
-1. **Pasek presetów:** `<` `>` poprzedni/następny (w obrębie aktywnego filtra), kliknięcie nazwy otwiera menu
-   presetów pogrupowane w kategorie, filtry kategorii i tagów, wyszukiwarka (nazwa, tagi, opis), **SAVE** zapisuje
-   preset użytkownika, lista **75–200%** zmienia rozmiar okna (można też przeciągnąć narożnik).
-2. **Zakładka SYNTH:** OSC A / OSC B (wavetable, typ Wavetable/String, podgląd, pozycja, tryb warp i Warp Amount,
-   Octave, Semitones, Fine, Level, Pan, Unison), FILTER (typ, wykres, Cutoff, Resonance, Drive, Keytrack, Env Amt,
-   Vowel i zielona obwiednia filtra), UNISON / SUB / NOISE, STRING (Decay i Tone dla oscylatorów w trybie String),
-   AMP ENVELOPE, PITCH ENVELOPE, VOICE (Poly/Mono/Legato, Glide), ARPEGGIATOR.
-3. **Zakładka MODULATION:** LFO 1 i LFO 2 (kształt, Sync, Retrigger, Rate/podział, Depth), MOD ENVELOPE oraz
+**Układ okna:** u góry znak VOLT (kliknięcie: informacje o programie i licencji), zakładki i pasek presetów; na dole
+zawsze widoczne MACROS, OUTPUT i oscyloskop.
+1. **Pasek presetów:** kliknięcie nazwy otwiera menu presetów pogrupowane w kategorie, strzałki `<` `>` to
+   poprzedni/następny (w obrębie aktywnego filtra), dalej filtry kategorii i tagów, wyszukiwarka (nazwa, tagi, opis),
+   **SAVE** zapisuje preset użytkownika, lista **75–200%** zmienia rozmiar okna (można też przeciągnąć narożnik).
+2. **Zakładka SYNTH:** OSC A / OSC B (wavetable, typ Wavetable/String, podgląd tablicy jako powierzchni, duże
+   pokrętło Position, Warp i tryb warp, Octave, Semi, Fine, Level, Pan, Unison), FILTER (typ, krzywa, duże pokrętło
+   Cutoff, Resonance, Drive, Keytrack, Env amount, Vowel), ENVELOPES (przełącznik AMP / FILTER / MOD / PITCH, wykres
+   wybranej obwiedni i jej pokrętła), a pod spodem pasek: UNISON, SUB / NOISE, STRING (Decay i Tone dla oscylatorów
+   w trybie String), LFO 1 i LFO 2 (kształt, Sync, Rate albo podział taktu, Depth), VOICE (Poly/Mono/Legato, Glide),
+   ARP.
+3. **Zakładka MODULATION:** LFO 1 i LFO 2 z dużymi pokrętłami i przełącznikiem Retrigger, MOD ENVELOPE oraz
    MODULATION MATRIX: 12 slotów źródło → cel z suwakiem ilości −100…+100%.
 4. **Zakładka EFFECTS:** sześć efektów w kolejności łańcucha: 1 Distortion, 2 Mod FX, 3 Pump, 4 Delay, 5 Reverb,
    6 Squash.
+5. **MACROS:** obok każdego pokrętła jest jego nazwa (dwuklik zmienia ją), cel albo cele, którymi steruje, i wartość.
 
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
 Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.
@@ -193,7 +197,7 @@ Copyright © 2026 autorzy projektu VOLT.
 
 - **JUCE 8** (framework audio, Raw Material Software Limited) – używany na licencji AGPLv3, zgodnej z licencją VOLT.
   JUCE zawiera też kod VST3 SDK firmy Steinberg. „VST” jest znakiem towarowym Steinberg Media Technologies GmbH.
-- Czcionka interfejsu **Inter** – SIL Open Font License 1.1 (`resources/fonts/OFL-Inter.txt`).
+- Czcionka interfejsu **Oxanium** – SIL Open Font License 1.1 (`resources/fonts/OFL-Oxanium.txt`).
 - Wszystkie wavetable, presety i grafika powstały w tym projekcie (wavetable generuje kod). Nie użyto kodu, tablic,
   presetów ani grafik innych syntezatorów.
 - Presety opisują wyłącznie charakter dźwięku; nie zawierają nazw artystów, albumów, utworów ani marek, a projekt
