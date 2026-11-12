@@ -2,6 +2,7 @@
 //
 //   VOLT_Render [--out DIR] [--dir PRESET_DIR] [--preset TEXT] [--no-previews] [--block N]
 //   VOLT_Render --snapshot FILE.png [SCALE]
+//   VOLT_Render --out DIR --samples        (also writes DIR/samples/*.flac: C2, C3, C4, C5 held notes per preset)
 //
 // Loads every factory preset into the real plugin processor, plays a category-specific test phrase
 // (bass note, chord or short sequence) at 48 kHz / 120 BPM with a running transport, renders the tail and
@@ -423,6 +424,52 @@ Result renderPreset (VoltAudioProcessor& proc, int index, const volt::PresetInfo
     return res;
 }
 
+// Playable samples for the listening page: one held note per octave (C2, C3, C4, C5), each 1.6 s plus 0.9 s of
+// release, written back to back into one file (2.5 s per note). The page plays them like a simple sampler.
+void renderNoteSamples (VoltAudioProcessor& proc, const volt::PresetInfo& info, int block, const juce::File& file)
+{
+    auto& pm = proc.getPresetManager();
+    const int notes[] = { 36, 48, 60, 72 };
+    const size_t seg = (size_t) (2.5 * kSampleRate), offAt = (size_t) (1.6 * kSampleRate);
+    juce::AudioBuffer<float> out (2, (int) (seg * 4));
+    out.clear();
+    juce::AudioBuffer<float> buffer (2, block);
+    juce::MidiBuffer midi;
+    for (int k = 0; k < 4; ++k)
+    {
+        pm.applyPreset (info);
+        FixedPlayHead playHead;
+        proc.setPlayHead (&playHead);
+        proc.prepareToPlay (kSampleRate, block);
+        for (size_t pos = 0; pos < seg; pos += (size_t) block)
+        {
+            const int n = (int) std::min<size_t> ((size_t) block, seg - pos);
+            buffer.setSize (2, n, false, false, true);
+            buffer.clear();
+            midi.clear();
+            if (pos == 0)
+                midi.addEvent (juce::MidiMessage::noteOn (1, notes[k], 0.85f), 0);
+            if (offAt >= pos && offAt < pos + (size_t) n)
+                midi.addEvent (juce::MidiMessage::noteOff (1, notes[k]), (int) (offAt - pos));
+            playHead.samplePos = (juce::int64) pos;
+            proc.processBlock (buffer, midi);
+            for (int c = 0; c < 2; ++c)
+                out.copyFrom (c, (int) ((size_t) k * seg + pos), buffer, c, 0, n);
+        }
+        // short fade at the end of each note so the next one starts from silence
+        const int fade = (int) (0.05 * kSampleRate);
+        out.applyGainRamp ((int) ((size_t) (k + 1) * seg) - fade, fade, 1.0f, 0.0f);
+        proc.setPlayHead (nullptr);
+    }
+    file.deleteFile();
+    juce::FlacAudioFormat flac;
+    std::unique_ptr<juce::OutputStream> stream = std::make_unique<juce::FileOutputStream> (file);
+    if (static_cast<juce::FileOutputStream*> (stream.get())->openedOk())
+        if (auto writer = flac.createWriterFor (stream, juce::AudioFormatWriterOptions().withSampleRate (kSampleRate)
+                                                             .withNumChannels (2).withBitsPerSample (16)))
+            writer->writeFromAudioSampleBuffer (out, 0, out.getNumSamples());
+}
+
 int snapshot (const juce::File& out, float scale, int tab)
 {
     VoltAudioProcessor proc;
@@ -456,7 +503,7 @@ int main (int argc, char** argv)
     juce::File outDir = juce::File::getCurrentWorkingDirectory().getChildFile ("render-out");
     juce::String filter;
     juce::File presetDir;
-    bool previews = true;
+    bool previews = true, samples = false;
     int block = 512;
     for (int i = 0; i < args.size(); ++i)
     {
@@ -465,6 +512,7 @@ int main (int argc, char** argv)
         else if (args[i] == "--no-previews") previews = false;
         else if (args[i] == "--dir" && i + 1 < args.size()) presetDir = juce::File::getCurrentWorkingDirectory().getChildFile (args[++i]);
         else if (args[i] == "--block" && i + 1 < args.size()) block = juce::jlimit (16, 4096, args[++i].getIntValue());
+        else if (args[i] == "--samples") samples = true;
     }
     outDir.createDirectory();
     const auto previewDir = previews ? outDir.getChildFile ("previews") : juce::File();
@@ -509,6 +557,14 @@ int main (int argc, char** argv)
         if (filter.isNotEmpty() && ! list[(size_t) i].name.containsIgnoreCase (filter))
             continue;
         results.push_back (renderPreset (proc, i, list[(size_t) i], block, previewDir));
+        if (samples)
+        {
+            const auto dir = outDir.getChildFile ("samples");
+            dir.createDirectory();
+            renderNoteSamples (proc, list[(size_t) i], block,
+                               dir.getChildFile (juce::String (i).paddedLeft ('0', 3) + "_"
+                                                 + juce::File::createLegalFileName (list[(size_t) i].name).replaceCharacter (' ', '_') + ".flac"));
+        }
         const auto& r = results.back();
         std::printf ("%3d %-28s %-6s peak %6.1f  rms %6.1f  lufs %6.1f  cent %6.0f  tail %4.1fs  lim %4.1f  %s\n", i,
                      r.name.toRawUTF8(), r.category.toRawUTF8(), r.peakDb, r.rmsDb, r.lufs, r.centroid, r.tailTime,

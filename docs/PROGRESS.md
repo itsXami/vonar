@@ -305,3 +305,19 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - Klawiatura do grania została dodana do pluginu przez pomyłkę i usunięta: użytkownik chciał klawiatury do
   przeglądania dźwięków na stronie odsłuchu, nie w pluginie.
 
+## Naprawa różnorodności (2026-11-12, w toku)
+- Problem wg użytkownika: presety brzmią prawie tak samo, prawie wszystko jest spokojne/„soft”; ma być rozrzut od
+  spokojnych po mocno uderzające, nastroje Dark / Medium / Soft / Sad / Aggressive, soft najwyżej 30 %.
+- Pomiar: `tools/presets/energy_mood.py` liczy poziom energii 1–5 (jasność względem kategorii, twardy atak,
+  przester, gęstość, pump, ruch, minus pogłos i powolne narastanie) i proponuje nastrój. Stan 309 presetów:
+  energia 1–5 = 125 / 45 / 59 / 40 / 40 (40 % bardzo spokojnych), Soft 37 %, Sad 6 %.
+- `VOLT_Render --samples` zapisuje dla każdego presetu nuty C2, C3, C4, C5 (po 2,5 s) do `samples/*.flac` –
+  materiał do klawiatury na stronie przeglądu.
+- Strona przeglądu: https://claude.ai/artifact/BMQsLcGGQxdgUVt3BDU7mi – każdy preset do zagrania myszą i z
+  klawiatury komputera, energia, nastrój (do zmiany), propozycja usunięcia (78: najspokojniejsze z bliskim
+  sąsiadem, min. 2 spokojne na kategorię zostają, chronione wzorce użytkownika), „Brzmi jak…”. Kolekcja `review`
+  (dokument = numer wiersza, pola `remove`, `mood`, `like`, `note`, `name`).
+- Po zatwierdzeniu: usunąć zaznaczone, zapisać nastrój każdego presetu (tag + pole), nowa partia głównie Sad /
+  Dark / Aggressive / Medium na poziomach 3–5 do ok. 280, filtr Mood w pluginie, test „soft ≤ 30 %”, zasady
+  w skillu preset-design.
+
