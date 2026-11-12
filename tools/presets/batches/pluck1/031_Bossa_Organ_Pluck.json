@@ -1,0 +1,46 @@
+{
+  "name": "Bossa Organ Pluck",
+  "category": "Pluck",
+  "tags": [
+    "Warm",
+    "Organ",
+    "Percussive"
+  ],
+  "description": "Percussive organ blip with a quick decay, like a short drawbar stab.",
+  "macros": [
+    "Perc",
+    "Tone",
+    "Spin",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Drawbars",
+    "oscA_pos": 0.5,
+    "oscA_oct": 1,
+    "flt_type": "LP12",
+    "flt_cutoff": 4500.0,
+    "amp_decay": 0.35,
+    "amp_sustain": 0.0,
+    "mfx_rate": 0.8,
+    "mfx_mix": 0.2,
+    "rev_size": 0.35,
+    "rev_mix": 0.1,
+    "out_gain": 9.7,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25
+  }
+}
