@@ -20,7 +20,7 @@ import generate_fixes as gf  # noqa: E402  (reworked versions of the presets mar
 import importlib  # noqa: E402
 
 # Stage D batches, in the order they were made: generator module -> its batch name in selection.json "batches".
-BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1"]
+BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1", "urban1"]
 
 # Presets made before the Strings category existed, moved there (same chord test phrase, so levels are unchanged).
 RECATEGORISE = {"Grey Sky Strings": "Strings", "Vintage String Ensemble": "Strings", "Disco Strings": "Strings",
@@ -86,6 +86,9 @@ def library():
     names = [p["name"] for p in chosen]
     assert len(names) == len(set(names)), "duplicate preset names"
     chosen = [dict(p, category=RECATEGORISE[p["name"]]) if p["name"] in RECATEGORISE else p for p in chosen]
+    # 808s are hip-hop staples: tag them so the tag filter shows them next to the hip-hop batch.
+    chosen = [dict(p, tags=p["tags"] + ["Hip-Hop"]) if "808" in p["tags"] and "Hip-Hop" not in p["tags"] else p
+              for p in chosen]
     cat = {c: i for i, c in enumerate(CATEGORY_ORDER)}
     assert all(p["category"] in cat for p in chosen), "unknown category"
     chosen.sort(key=lambda p: (cat[p["category"]], p["name"].lower()))

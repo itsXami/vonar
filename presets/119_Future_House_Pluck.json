@@ -1,0 +1,52 @@
+{
+  "name": "Future House Pluck",
+  "category": "Pluck",
+  "tags": [
+    "House",
+    "Future House",
+    "Metallic",
+    "Drop"
+  ],
+  "description": "Bright metallic pluck that bends up into the note, made for drops.",
+  "macros": [
+    "Metal",
+    "Bend",
+    "Bright",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Sync Saw",
+    "oscA_pos": 0.4,
+    "oscA_warp": "Sync",
+    "oscA_warp_amt": 0.25,
+    "flt_cutoff": 6000.0,
+    "amp_decay": 0.35,
+    "amp_sustain": 0.0,
+    "penv_amount": -2.0,
+    "penv_decay": 0.05,
+    "menv_decay": 0.2,
+    "dly_time": "1/8",
+    "dly_mix": 0.1,
+    "squash": 0.35,
+    "out_gain": 2.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Warp A",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Pitch A",
+    "mod2_amt": 0.02,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Mod Env",
+    "mod5_dst": "Warp A",
+    "mod5_amt": 0.3,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.2
+  }
+}

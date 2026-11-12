@@ -348,4 +348,10 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   arpeggiatorem w szesnastkach.
 - **Kontrola zakresów parametrów w generatorze partii** (`batch_common.param_ranges()` czyta Params.cpp) – po tym,
   jak Gamelan Gong miał `oscB_semi` = 14 (zakres ±12), co wyłapał dopiero test jednostkowy.
+- **Kierunek brzmieniowy po uwagach użytkownika:** domyślnie „ciepło” z wzorców okazało się za jednostronne; nowe
+  partie mają być jasne, suche i dosadne, z naciskiem na house i hip-hop. Lo-fi, brzmienia „growe” i flety –
+  oszczędnie.
+- **Klawiatura do grania:** `juce::MidiKeyboardComponent` w nakładce na dolny pas (okno nie zmienia rozmiaru, więc
+  proporcje i skalowanie zostają). Klawiatura komputera działa, gdy panel ma fokus (dostaje go po otwarciu).
+  Domyślne mapowanie JUCE (A–K, W–U) plus własne Z/X do zmiany oktawy.
 

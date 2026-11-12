@@ -430,7 +430,11 @@ int snapshot (const juce::File& out, float scale, int tab)
     proc.prepareToPlay (48000.0, 512);
     std::unique_ptr<juce::AudioProcessorEditor> ed (proc.createEditor());
     if (auto* ve = dynamic_cast<VoltAudioProcessorEditor*> (ed.get()))
-        ve->getPanel().setTab (tab);
+    {
+        ve->getPanel().setTab (tab % 3);
+        if (tab >= 3)
+            ve->getPanel().showKeyboard (true); // tab 3: synth tab with the play keyboard shown
+    }
     ed->setSize (juce::roundToInt (volt::ui::MainPanel::kWidth * scale), juce::roundToInt (volt::ui::MainPanel::kHeight * scale));
     auto img = ed->createComponentSnapshot (ed->getLocalBounds(), true, 1.0f);
     out.deleteFile();

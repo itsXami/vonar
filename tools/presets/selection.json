@@ -1,5 +1,5 @@
 {
- "comment": "User verdicts from the two listening pages (keep / fix / remove). Fix = kept for now, to be reworked later. fixes_accepted = reworked versions (generate_fixes.py) chosen by the user instead of the old ones.",
+ "comment": "User verdicts from the two listening pages (keep / fix / remove). Fix = kept for now, to be reworked later. fixes_accepted = reworked versions (generate_fixes.py) chosen by the user instead of the old ones. 2026-11-12: besides the user's own clicks (Doom Drop Guitar, Octave Shimmer Pad, Xylophone Bright, Vibraphone Motor ~ Rosewood Marimba), flute-type, game-like and lo-fi presets were removed on the user's general direction (too much lo-fi / game sounds, fewer flutes).",
  "batch1_removed": [
   "Air Raid",
   "Alarm Pulse",
@@ -126,35 +126,71 @@
  "batches": {
   "keys1": {
    "removed": [
-    "Barking Tine EP"
+    "Barking Tine EP",
+    "Cassette Keys",
+    "Dusty Upright",
+    "Tape Wobble Piano"
    ],
    "similar": {},
    "source": "https://claude.ai/artifact/5h4y2WKbszZwnf4XKTw8e1"
   },
   "guitar2": {
-   "removed": [],
+   "removed": [
+    "Bedroom Lo-Fi Guitar",
+    "Doom Drop Guitar"
+   ],
    "similar": {},
    "source": "https://claude.ai/artifact/S4h6gjhRp6NKfRxZSVyQrK"
   },
   "pluck1": {
-   "removed": [],
+   "removed": [
+    "Detuned Lo-Fi Pluck",
+    "Gated Glitch Pluck",
+    "Quantize Chip Pluck",
+    "Tin Can Pluck"
+   ],
    "similar": {},
    "source": "https://claude.ai/artifact/S4h6gjhRp6NKfRxZSVyQrK"
   },
   "bell1": {
-   "removed": [],
-   "similar": {},
+   "removed": [
+    "Clock Chime",
+    "Crushed Bell",
+    "Sleigh Bell Shimmer",
+    "Toy Bell Piano",
+    "Wind-Up Music Box",
+    "Xylophone Bright"
+   ],
+   "similar": {
+    "Vibraphone Motor": "Rosewood Marimba"
+   },
    "source": "https://claude.ai/artifact/S4h6gjhRp6NKfRxZSVyQrK"
   },
   "pad2": {
-   "removed": [],
+   "removed": [
+    "Octave Shimmer Pad",
+    "Tape Hiss Pad"
+   ],
    "similar": {},
    "source": "https://claude.ai/artifact/S4h6gjhRp6NKfRxZSVyQrK"
   },
   "orch1": {
-   "removed": [],
+   "removed": [
+    "Alto Flute Warm",
+    "Breathy Pan Flute",
+    "Drone Chanter",
+    "Ocarina Song",
+    "Piccolo Bright",
+    "Shakuhachi Breath",
+    "Wooden Recorder"
+   ],
    "similar": {},
    "source": "https://claude.ai/artifact/S4h6gjhRp6NKfRxZSVyQrK"
+  },
+  "urban1": {
+   "removed": [],
+   "similar": {},
+   "source": "https://claude.ai/artifact/58GuSBQCQfgQCrfELBB3m4"
   }
  }
 }
