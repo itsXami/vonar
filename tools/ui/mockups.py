@@ -593,8 +593,12 @@ def main():
         for (name, *_), svg in zip(mockups_final.FONTS, final):
             with open(os.path.join(OUT_DIR, name + ".svg"), "w") as f:
                 f.write(svg + "\n")
+        import mockups_v4
+        v4 = mockups_v4.build()
+        with open(os.path.join(OUT_DIR, "volt-ui-4.svg"), "w") as f:
+            f.write(v4 + "\n")
         with open(sys.argv[2], "w") as f:
-            f.write(mockups_page.render(svgs, detail, final))
+            f.write(mockups_page.render_v4(svgs, detail, final, v4))
         print("wrote", sys.argv[2])
 
 

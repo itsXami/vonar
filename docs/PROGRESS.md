@@ -112,7 +112,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | Etap | Status |
 |---|---|
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
-| B. Profesjonalny wygląd | ⏳ układ 2 + wykończenie 2A wybrane; czekamy na wybór kroju pisma 3A/3B (opis niżej); potem wdrożenie |
+| B. Profesjonalny wygląd | ⏳ układ 2 + wykończenie 2A + krój Oxanium (3B) wybrane; makieta 4 czeka na akceptację; potem wdrożenie |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | – |
 | D. Biblioteka ok. 300 presetów (pierwsza partia: Keys) | – |
 | E. Wydanie | – |
@@ -163,6 +163,12 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   paska nagłówka; 4 kolory sekcji + bursztyn tylko dla makr, wyjście i oscyloskop neutralne; różne style wykresów;
   znak VOLT rysowany od zera. Nowe funkcje na makiecie (do zrobienia przy wdrożeniu): miernik poziomu wyjścia,
   podpis celu pod makrem.
+- **Wybór użytkownika: 3B (Oxanium)**, z prośbą, żeby kolejną makietę pokazać dopiero, gdy będzie „bardziej
+  ludzka”. **Runda 4 (czeka na akceptację):** `docs/mockups/volt-ui-4.svg`, generator
+  `python3 tools/ui/mockups_v4.py`. Doszło: ciepły grafit i złamana biel, przygaszone kolory sekcji, ziarno na
+  powierzchniach, krawędź światła na panelach i ekranach, cieniowane główki pokręteł z obwódką, podziałka na
+  dużych pokrętłach (Cutoff ze skalą 20–20k), jednostki mniejsze niż liczby, ikony kształtu LFO i typu filtra,
+  bursztynowa kropka pod pokrętłem sterowanym przez makro. Po akceptacji: wdrożenie w kodzie i prawdziwe zrzuty.
 - Ustalenie z wcześniejszej przebudowy UI nadal obowiązuje: nazwa parametru nad pokrętłem, wartość zawsze pod
   nim, normalna pisownia etykiet (nie drobne wersaliki).
 - Po wyborze: wpisać decyzję do DECISIONS.md i wdrożyć w `Source/ui/*` + `PluginEditor.*` (logo, typografia,
