@@ -320,4 +320,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 - Po zatwierdzeniu: usunąć zaznaczone, zapisać nastrój każdego presetu (tag + pole), nowa partia głównie Sad /
   Dark / Aggressive / Medium na poziomach 3–5 do ok. 280, filtr Mood w pluginie, test „soft ≤ 30 %”, zasady
   w skillu preset-design.
+- **Stan na koniec sesji 2026-11-12:** diagnoza i plan naprawy w `docs/DIAGNOZA_2026-11-12.md` – zacząć od niego.
+  Propozycja usunięć (78, jeszcze niezastosowana) w `tools/presets/review_2026-11-12.json`. Biblioteka w repo:
+  310 presetów (bez zmian względem commitu z partią `urban1`).
 

@@ -1,0 +1,2786 @@
+{
+ "comment": "Review page https://claude.ai/artifact/BMQsLcGGQxdgUVt3BDU7mi (db collection 'review', doc id = 'id' below). propose = Claude's removal proposal (not yet applied); level / mood from tools/presets/energy_mood.py (known to be wrong for saturated basses, see docs/DIAGNOZA_2026-11-12.md). User changes so far: Acid Bath kept (Aggressive), Fingerpicked Pattern Guitar kept, mood Soft.",
+ "presets": [
+  {
+   "id": "000",
+   "name": "Acid Bath",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "001",
+   "name": "Audible 808 Glide",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "002",
+   "name": "Bass House Wobble",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "003",
+   "name": "Big Room Saw Bass",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "004",
+   "name": "Bitcrush Sub",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "005",
+   "name": "Boogie Bass",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "006",
+   "name": "Cathedral Low End",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "007",
+   "name": "Concrete Saw",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "008",
+   "name": "Deep House Organ Bass",
+   "category": "Bass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "009",
+   "name": "Distorted Reese",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "010",
+   "name": "Filter House Bass",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "011",
+   "name": "French Disco Bass",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "012",
+   "name": "Funk Slap Bass",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "013",
+   "name": "Furnace Sub",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "014",
+   "name": "Future House Bass",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "015",
+   "name": "Fuzz Bassline",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "016",
+   "name": "G-Funk Rubber Bass",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "017",
+   "name": "Grid FM Pulse",
+   "category": "Bass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "018",
+   "name": "Grid Pulse Bass",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "019",
+   "name": "Gutter Growl",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "020",
+   "name": "Kick Sub Smash",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "021",
+   "name": "Long Glide 808",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "022",
+   "name": "Mechanic Bass",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "023",
+   "name": "Modular Pluck Bass",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "024",
+   "name": "Overload 808",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "025",
+   "name": "Phaser Sweep Bass",
+   "category": "Bass",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "026",
+   "name": "Praise Bass",
+   "category": "Bass",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "027",
+   "name": "Pulse Engine Bass",
+   "category": "Bass",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "028",
+   "name": "Rage 808 Distorted",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "029",
+   "name": "Rivet Gun",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "030",
+   "name": "Rolling Tech Bass",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "031",
+   "name": "Round Analog Bass",
+   "category": "Bass",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "032",
+   "name": "Rubber Square Line",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "033",
+   "name": "Rust Bass",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "034",
+   "name": "Shock Collar",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "035",
+   "name": "Sliding 808",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "036",
+   "name": "Squelch Box",
+   "category": "Bass",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "037",
+   "name": "Tom Drop 808",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "038",
+   "name": "Trap 808 Punch",
+   "category": "Bass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "039",
+   "name": "Velvet Rope Bass",
+   "category": "Bass",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "040",
+   "name": "Warehouse Filter Bass",
+   "category": "Bass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "041",
+   "name": "Arena Saw Stack",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Crystal Saw Lead (0.97)"
+  },
+  {
+   "id": "042",
+   "name": "Breathy Flute Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Lonely Sine Lead (1.45)"
+  },
+  {
+   "id": "043",
+   "name": "Chain Link Scream",
+   "category": "Lead",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "044",
+   "name": "Choir Solo Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "045",
+   "name": "Crystal Saw Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Medium",
+   "propose": true,
+   "reason": "prawie jak Fifth Stack Lead (0.71)"
+  },
+  {
+   "id": "046",
+   "name": "Distorted Riff Saw",
+   "category": "Lead",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "047",
+   "name": "Eighties Solo Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "048",
+   "name": "Festival Saw Stab",
+   "category": "Lead",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "049",
+   "name": "Fifth Stack Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Crystal Saw Lead (0.71)"
+  },
+  {
+   "id": "050",
+   "name": "Filter Sweep Lead",
+   "category": "Lead",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "051",
+   "name": "Formant Whistle",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "052",
+   "name": "Gritty Riff Saw",
+   "category": "Lead",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "053",
+   "name": "Hollow Clarinet Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Static Throat (1.24)"
+  },
+  {
+   "id": "054",
+   "name": "Hoover Lead",
+   "category": "Lead",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "055",
+   "name": "Hyper Pluck Lead",
+   "category": "Lead",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "056",
+   "name": "Laser Harp",
+   "category": "Lead",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "057",
+   "name": "Lonely Sine Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Concert Harp (1.39)"
+  },
+  {
+   "id": "058",
+   "name": "Machine Riff",
+   "category": "Lead",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "059",
+   "name": "Neon Anthem",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "060",
+   "name": "Octave Bounce Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "061",
+   "name": "Phase Mod Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "062",
+   "name": "Plugg Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Whispered Vowels (1.48)"
+  },
+  {
+   "id": "063",
+   "name": "Portamento Whine Lead",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "064",
+   "name": "Rage Synth Lead",
+   "category": "Lead",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "065",
+   "name": "Raw Filter Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "066",
+   "name": "Sinister Saw Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "067",
+   "name": "Static Throat",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "068",
+   "name": "Tin Croon",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "069",
+   "name": "Trance Gate Lead",
+   "category": "Lead",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "070",
+   "name": "Vocal Chop Stab",
+   "category": "Lead",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "071",
+   "name": "Zap Drop Lead",
+   "category": "Lead",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "072",
+   "name": "Banjo Pluck",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "073",
+   "name": "Bit Crushed Riff",
+   "category": "Guitar",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "074",
+   "name": "Bossa Nylon Guitar",
+   "category": "Guitar",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "075",
+   "name": "Chorused Clean Guitar",
+   "category": "Guitar",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "076",
+   "name": "Clean Bridge Guitar",
+   "category": "Guitar",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "077",
+   "name": "Clean Delay Lead Guitar",
+   "category": "Guitar",
+   "level": 2,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "078",
+   "name": "Country Twang Guitar",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "079",
+   "name": "Crunch Rhythm Guitar",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "080",
+   "name": "Feedback Sustain Guitar",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "081",
+   "name": "Fingerpicked Pattern Guitar",
+   "category": "Guitar",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Bossa Nylon Guitar (1.24)"
+  },
+  {
+   "id": "082",
+   "name": "Funk Scratch Guitar",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "083",
+   "name": "Fuzz Octave Lead",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "084",
+   "name": "Fuzzbox Bass Guitar",
+   "category": "Guitar",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "085",
+   "name": "Gospel Slide Guitar",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "086",
+   "name": "Harmonics Chime Guitar",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "087",
+   "name": "Harmony Twin Lead",
+   "category": "Guitar",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "088",
+   "name": "High Gain Lead Guitar",
+   "category": "Guitar",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "089",
+   "name": "Industrial Guitar Wall",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "090",
+   "name": "Jazz Neck Guitar",
+   "category": "Guitar",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Rubber Bridge Guitar (1.57)"
+  },
+  {
+   "id": "091",
+   "name": "Lap Steel Glide",
+   "category": "Guitar",
+   "level": 2,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "092",
+   "name": "Mandolin Tremolo",
+   "category": "Guitar",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "093",
+   "name": "Muted Disco Picking",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "094",
+   "name": "Nylon Pluck",
+   "category": "Guitar",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "095",
+   "name": "Overdrive Rhythm Guitar",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "096",
+   "name": "Palm Mute Chug",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "097",
+   "name": "Pedal Wah Lead",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "098",
+   "name": "Phaser Rhythm Guitar",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "099",
+   "name": "Reverse Bloom Guitar",
+   "category": "Guitar",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Midnight Cellos (1.37)"
+  },
+  {
+   "id": "100",
+   "name": "Rubber Bridge Guitar",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "101",
+   "name": "Searing Sustain Lead",
+   "category": "Guitar",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "102",
+   "name": "Shoegaze Wall Guitar",
+   "category": "Guitar",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Monolith Brass (1.68)"
+  },
+  {
+   "id": "103",
+   "name": "Sitar Buzz",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "104",
+   "name": "Slide Blues Guitar",
+   "category": "Guitar",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "105",
+   "name": "Ukulele Strum",
+   "category": "Guitar",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "106",
+   "name": "Backwards Pluck",
+   "category": "Pluck",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Octave Bounce Lead (1.25)"
+  },
+  {
+   "id": "107",
+   "name": "Bossa Organ Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "108",
+   "name": "Breath Bubble Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "109",
+   "name": "Classic Saw Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "110",
+   "name": "Clave Click Pluck",
+   "category": "Pluck",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "111",
+   "name": "Comb Tube Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "112",
+   "name": "Concert Harp",
+   "category": "Pluck",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "113",
+   "name": "Detroit Bounce Pluck",
+   "category": "Pluck",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "114",
+   "name": "Digital Bell Pluck",
+   "category": "Pluck",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "115",
+   "name": "Double Course Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "116",
+   "name": "Dub Echo Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "117",
+   "name": "FM Glass Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "118",
+   "name": "Future House Pluck",
+   "category": "Pluck",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "119",
+   "name": "Kalimba Thumb",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "120",
+   "name": "Koto Bend Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "121",
+   "name": "Mirror Hollow Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "122",
+   "name": "Pizz Hollow Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "123",
+   "name": "Plectrum Synth Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "124",
+   "name": "PWM Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "125",
+   "name": "Ring Clang Pluck",
+   "category": "Pluck",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "126",
+   "name": "Rubber Ladder Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "127",
+   "name": "Steel Tongue Pluck",
+   "category": "Pluck",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Celesta Box (1.42)"
+  },
+  {
+   "id": "128",
+   "name": "Sub Sine Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "129",
+   "name": "Supersaw Pluck",
+   "category": "Pluck",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Skyline Arp (1.20)"
+  },
+  {
+   "id": "130",
+   "name": "Sync Zap Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "131",
+   "name": "Tech Perc Pluck",
+   "category": "Pluck",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "132",
+   "name": "Velvet Pluck",
+   "category": "Pluck",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Shuffle Pump Pad (1.35)"
+  },
+  {
+   "id": "133",
+   "name": "Vowel Pluck",
+   "category": "Pluck",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "134",
+   "name": "Water Drop Pluck",
+   "category": "Pluck",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "135",
+   "name": "Wooden Pluck",
+   "category": "Pluck",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "136",
+   "name": "Autopan Electric Piano",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Medium",
+   "propose": true,
+   "reason": "prawie jak Electric Tine Keys (0.86)"
+  },
+  {
+   "id": "137",
+   "name": "Bellows Harmonium",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "138",
+   "name": "Boom Bap Jazz EP",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "139",
+   "name": "Breaker Keys",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "140",
+   "name": "Buzzy Combo Organ",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "141",
+   "name": "Chicago Organ Stab",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "142",
+   "name": "Chord Memory Stab",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "143",
+   "name": "Chorus Tine EP",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "144",
+   "name": "Cross Mod Keys",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "145",
+   "name": "Crystal Keys",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "146",
+   "name": "Dark Ballad Piano",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "147",
+   "name": "Dark Trap Piano",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "148",
+   "name": "Deep Echo Keys",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "149",
+   "name": "Dream Keys",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "150",
+   "name": "Dub Chord Stab",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "151",
+   "name": "Dulcimer Keys",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "152",
+   "name": "Electric Tine Keys",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "153",
+   "name": "Felt Grand",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Marimba Keys (0.71)"
+  },
+  {
+   "id": "154",
+   "name": "Felt Tine EP",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "155",
+   "name": "Funk Clav Keys",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "156",
+   "name": "Funky Filter Keys",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "157",
+   "name": "Garage Organ Stab",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "158",
+   "name": "Glass Piano",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "159",
+   "name": "Gloss Pluck",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "160",
+   "name": "Grand Synth Keys",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "161",
+   "name": "Honky Tonk Bar",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "162",
+   "name": "House Piano Stab",
+   "category": "Keys",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "163",
+   "name": "Marimba Keys",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "164",
+   "name": "Muted Felt Upright",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "165",
+   "name": "Nineties House Piano",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "166",
+   "name": "Ooh Vowel Keys",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "167",
+   "name": "Overdrive Rock Organ",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "168",
+   "name": "Phaser Tremolo EP",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "169",
+   "name": "Pumping Filter Chords",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: FM Desert Pad (1.45)"
+  },
+  {
+   "id": "170",
+   "name": "Rap Synth Stab",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "171",
+   "name": "Rave Piano Stab",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "172",
+   "name": "Reed Electric Piano",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "173",
+   "name": "Reed Growl Keys",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "174",
+   "name": "Saturated Keys Stab",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "175",
+   "name": "Sidechain Organ",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "176",
+   "name": "Slow Phaser Chords",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "177",
+   "name": "Smoky Lounge Keys",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "178",
+   "name": "Soft Mirror Keys",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Smoky Lounge Keys (1.38)"
+  },
+  {
+   "id": "179",
+   "name": "Steel String Synth",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "180",
+   "name": "String Clav",
+   "category": "Keys",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "181",
+   "name": "Sunday Drawbars",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "182",
+   "name": "Talk Synth Chords",
+   "category": "Keys",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "183",
+   "name": "Varsity Stabs",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "184",
+   "name": "Wah Clav",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "185",
+   "name": "Warm Percussion Organ",
+   "category": "Keys",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "186",
+   "name": "Warm Sine Keys",
+   "category": "Keys",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Nylon Pluck (1.34)"
+  },
+  {
+   "id": "187",
+   "name": "Balafon Buzz",
+   "category": "Bell",
+   "level": 4,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "188",
+   "name": "Bell Swell Pad",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Glass Harmonica (1.75)"
+  },
+  {
+   "id": "189",
+   "name": "Bowed Cymbal",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "190",
+   "name": "Celesta Box",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Steel Tongue Pluck (1.42)"
+  },
+  {
+   "id": "191",
+   "name": "Church Bell Toll",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "192",
+   "name": "Classic FM Bell",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "193",
+   "name": "Crotale Ring",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "194",
+   "name": "Frozen Glass Bell",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Vintage String Ensemble (1.39)"
+  },
+  {
+   "id": "195",
+   "name": "Gamelan Gong",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "196",
+   "name": "Glass Harmonica",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Bell Swell Pad (1.75)"
+  },
+  {
+   "id": "197",
+   "name": "Glockenspiel",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "198",
+   "name": "Handbell Choir",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Tubular Bell (1.21)"
+  },
+  {
+   "id": "199",
+   "name": "Rosewood Marimba",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "200",
+   "name": "Singing Bowl",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Soft Mallet Bowl (1.35)"
+  },
+  {
+   "id": "201",
+   "name": "Soft Mallet Bowl",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Singing Bowl (1.35)"
+  },
+  {
+   "id": "202",
+   "name": "Steel Pan Melody",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "203",
+   "name": "Temple Bell Strike",
+   "category": "Bell",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "204",
+   "name": "Trap Bell Melody",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "205",
+   "name": "Tubular Bell",
+   "category": "Bell",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "206",
+   "name": "Arp Shimmer Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Sunset Pad (1.08)"
+  },
+  {
+   "id": "207",
+   "name": "Bowed Metal Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "208",
+   "name": "Breathing Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Saturated Sweep Pad (1.42)"
+  },
+  {
+   "id": "209",
+   "name": "Campus Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Racing Saw Arp (1.08)"
+  },
+  {
+   "id": "210",
+   "name": "Choir To Metal Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Feedback Choir (1.22)"
+  },
+  {
+   "id": "211",
+   "name": "Choir Vowel Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "212",
+   "name": "Deep Sub Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "213",
+   "name": "Distant Choir Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "214",
+   "name": "Echo Cloud Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Midnight Cellos (1.37)"
+  },
+  {
+   "id": "215",
+   "name": "Feedback Choir",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Choir To Metal Pad (1.22)"
+  },
+  {
+   "id": "216",
+   "name": "Flanged Jet Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Chamber Strings (1.24)"
+  },
+  {
+   "id": "217",
+   "name": "FM Desert Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Pumping Filter Chords (1.45)"
+  },
+  {
+   "id": "218",
+   "name": "Glacier Drift",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Frozen Glass Bell (1.53)"
+  },
+  {
+   "id": "219",
+   "name": "Glass Heart Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Warm String Section (1.41)"
+  },
+  {
+   "id": "220",
+   "name": "Granite Drone Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Rust Bass (1.31)"
+  },
+  {
+   "id": "221",
+   "name": "Ladder Glow Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Filter House Bass (1.66)"
+  },
+  {
+   "id": "222",
+   "name": "Lilting Voice Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "223",
+   "name": "Mirror Fold Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Ring Mod Haze (1.55)"
+  },
+  {
+   "id": "224",
+   "name": "Neon Grid Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "225",
+   "name": "Notch Phaser Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "226",
+   "name": "Notch Sweep Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Flanged Jet Pad (1.32)"
+  },
+  {
+   "id": "227",
+   "name": "Ocean Wash",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Fanfare Swell (1.57)"
+  },
+  {
+   "id": "228",
+   "name": "Phaser Wash Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "229",
+   "name": "Pulse Pump Pad",
+   "category": "Pad",
+   "level": 2,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "prawie jak Warm Poly Brass (0.77)"
+  },
+  {
+   "id": "230",
+   "name": "Random Step Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Talking Pad (1.31)"
+  },
+  {
+   "id": "231",
+   "name": "Ring Mod Haze",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Saturated Sweep Pad (1.36)"
+  },
+  {
+   "id": "232",
+   "name": "Saturated Sweep Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Ring Mod Haze (1.36)"
+  },
+  {
+   "id": "233",
+   "name": "Shuffle Pump Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Synth Choir Lift (1.05)"
+  },
+  {
+   "id": "234",
+   "name": "Sky Bridge Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Stadium Choir (1.22)"
+  },
+  {
+   "id": "235",
+   "name": "Slow Bloom Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Phaser Wash Pad (1.78)"
+  },
+  {
+   "id": "236",
+   "name": "Spectral Rise Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Pulsing String Ostinato (1.61)"
+  },
+  {
+   "id": "237",
+   "name": "Stadium Choir",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Sky Bridge Pad (1.22)"
+  },
+  {
+   "id": "238",
+   "name": "Stereo Swirl Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Feedback Choir (1.27)"
+  },
+  {
+   "id": "239",
+   "name": "Studio Poly Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Sunset Pad (0.51)"
+  },
+  {
+   "id": "240",
+   "name": "Sunset Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Studio Poly Pad (0.51)"
+  },
+  {
+   "id": "241",
+   "name": "Sweet Analog Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Grey Sky Strings (0.52)"
+  },
+  {
+   "id": "242",
+   "name": "Sync Sweep Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Campus Pad (1.38)"
+  },
+  {
+   "id": "243",
+   "name": "Synth Choir Lift",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Grey Sky Strings (0.67)"
+  },
+  {
+   "id": "244",
+   "name": "Talking Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Random Step Pad (1.31)"
+  },
+  {
+   "id": "245",
+   "name": "Tremolo Halo Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Shuffle Pump Pad (1.23)"
+  },
+  {
+   "id": "246",
+   "name": "Vocal Ahh Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "247",
+   "name": "Vocoded Chords",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "248",
+   "name": "Wavetable Drift Pad",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "249",
+   "name": "Whispered Vowels",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Plugg Lead (1.48)"
+  },
+  {
+   "id": "250",
+   "name": "Winter Choir",
+   "category": "Pad",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "251",
+   "name": "Chamber Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Flanged Jet Pad (1.24)"
+  },
+  {
+   "id": "252",
+   "name": "Col Legno Taps",
+   "category": "Strings",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "253",
+   "name": "Crescendo Swell Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "254",
+   "name": "Disco String Stab",
+   "category": "Strings",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "255",
+   "name": "Disco Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Vintage String Ensemble (0.54)"
+  },
+  {
+   "id": "256",
+   "name": "Divide Down Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Buzzy Combo Organ (1.25)"
+  },
+  {
+   "id": "257",
+   "name": "Fiddle Folk",
+   "category": "Strings",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "258",
+   "name": "Grey Sky Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Sweet Analog Pad (0.52)"
+  },
+  {
+   "id": "259",
+   "name": "Harmonics Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: High Strings Shimmer (1.51)"
+  },
+  {
+   "id": "260",
+   "name": "High Strings Shimmer",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Harmonics Strings (1.51)"
+  },
+  {
+   "id": "261",
+   "name": "Low Octave Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "262",
+   "name": "Midnight Cellos",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Echo Cloud Pad (1.37)"
+  },
+  {
+   "id": "263",
+   "name": "Pizzicato Section",
+   "category": "Strings",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "264",
+   "name": "Solo Cello",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "265",
+   "name": "Solo Violin",
+   "category": "Strings",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "266",
+   "name": "Staccato Strings",
+   "category": "Strings",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "267",
+   "name": "Sul Ponticello",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "268",
+   "name": "Tremolo Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Monolith Brass (1.30)"
+  },
+  {
+   "id": "269",
+   "name": "Velvet Doom Strings",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Feedback Choir (1.22)"
+  },
+  {
+   "id": "270",
+   "name": "Vintage String Ensemble",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Disco Strings (0.54)"
+  },
+  {
+   "id": "271",
+   "name": "Warm String Section",
+   "category": "Strings",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Glass Heart Pad (1.41)"
+  },
+  {
+   "id": "272",
+   "name": "Cinematic Low Brass",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "273",
+   "name": "Distorted Fanfare",
+   "category": "Brass",
+   "level": 5,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "274",
+   "name": "Fanfare Swell",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Sweet Analog Pad (1.05)"
+  },
+  {
+   "id": "275",
+   "name": "Gilded Horns",
+   "category": "Brass",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "276",
+   "name": "Monolith Brass",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Velvet Doom Strings (1.23)"
+  },
+  {
+   "id": "277",
+   "name": "Orchestral Brass Stab",
+   "category": "Brass",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "278",
+   "name": "Riot Horn",
+   "category": "Brass",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "279",
+   "name": "Soft French Horn",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "280",
+   "name": "Throne Brass",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Sweet Analog Pad (1.28)"
+  },
+  {
+   "id": "281",
+   "name": "Victory Brass",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Riot Horn (1.03)"
+  },
+  {
+   "id": "282",
+   "name": "Warm Poly Brass",
+   "category": "Brass",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Pulse Pump Pad (0.77)"
+  },
+  {
+   "id": "283",
+   "name": "Bassoon Low",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "284",
+   "name": "Blues Harmonica",
+   "category": "Woodwind",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "285",
+   "name": "Clarinet Chalumeau",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Soft",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Tenor Sax Growl (1.40)"
+  },
+  {
+   "id": "286",
+   "name": "Concert Flute",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "287",
+   "name": "Duduk Lament",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Sad",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "288",
+   "name": "Musette Accordion",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "289",
+   "name": "Oboe Solo",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "290",
+   "name": "Soprano Sax Smooth",
+   "category": "Woodwind",
+   "level": 2,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "291",
+   "name": "Subtone Alto Sax",
+   "category": "Woodwind",
+   "level": 1,
+   "mood": "Sad",
+   "propose": true,
+   "reason": "bardzo spokojny, nadmiar; najbliżej: Musette Accordion (1.49)"
+  },
+  {
+   "id": "292",
+   "name": "Tenor Sax Growl",
+   "category": "Woodwind",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "293",
+   "name": "Acid Line Arp",
+   "category": "Arp",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "294",
+   "name": "Clockwork Arp",
+   "category": "Arp",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "295",
+   "name": "Dark Trap Arp",
+   "category": "Arp",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "296",
+   "name": "Disco Octave Arp",
+   "category": "Arp",
+   "level": 2,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "297",
+   "name": "House Groove Arp",
+   "category": "Arp",
+   "level": 3,
+   "mood": "Medium",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "298",
+   "name": "Plucked Sequence",
+   "category": "Arp",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "299",
+   "name": "Pulsing String Ostinato",
+   "category": "Arp",
+   "level": 2,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "300",
+   "name": "Racing Saw Arp",
+   "category": "Arp",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "301",
+   "name": "Sawblade Arp",
+   "category": "Arp",
+   "level": 4,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "302",
+   "name": "Skyline Arp",
+   "category": "Arp",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "303",
+   "name": "Choir Hit",
+   "category": "FX",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "304",
+   "name": "Dark Orchestra Hit",
+   "category": "FX",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "305",
+   "name": "Grinding Sweep",
+   "category": "FX",
+   "level": 3,
+   "mood": "Aggressive",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "306",
+   "name": "Impact Downlifter",
+   "category": "FX",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "307",
+   "name": "Laser Zap",
+   "category": "FX",
+   "level": 3,
+   "mood": "Dark",
+   "propose": false,
+   "reason": ""
+  },
+  {
+   "id": "308",
+   "name": "White Noise Riser",
+   "category": "FX",
+   "level": 1,
+   "mood": "Soft",
+   "propose": false,
+   "reason": ""
+  }
+ ]
+}
