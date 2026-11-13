@@ -1,153 +1,143 @@
 # Vonar
 
-Syntezator wavetable (VST3 + Standalone) z czytelnym interfejsem, wykresami wszystkiego, co kształtuje dźwięk, i biblioteką
-327 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia,
-perkusja (kicki, werble, klaśnięcia, hi-haty, shakery do house i hip-hopu) i efekty – od spokojnych po mocno uderzające,
-w pięciu nastrojach (Soft, Medium, Sad, Dark, Aggressive).
-Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
+A wavetable synthesizer plugin (VST3) with a clear interface, live graphs of everything that shapes the sound, and a
+library of **327 presets**: basses, leads, guitars, plucks, keys, bells and mallets, pads, strings, brass, woodwinds,
+arps, drums (kicks, snares, claps, hi-hats and shakers for house and hip-hop) and effects – from gentle to hard-hitting,
+in five moods (Soft, Medium, Sad, Dark, Aggressive).
+Main target: **Windows x64 and FL Studio**. Free and open source (AGPLv3), no registration.
 
-![Interfejs Vonar – zakładka SYNTH](docs/ui-snapshot.png)
+![The Vonar interface – SYNTH tab](docs/ui-snapshot.png)
 
-Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
+See also the [MODULATION](docs/ui-modulation.png) and [EFFECTS](docs/ui-effects.png) tabs.
 
-## Funkcje w skrócie
+## Download
 
-- **Silnik:** 16 głosów, tryby Poly / Mono / Legato, glide.
-- **Oscylatory A i B:** 40 wavetable generowanych kodem (analogowe, supersaw, PWM, organowe, wokalne/formantowe,
-  metaliczne, FM, zgrzytliwe, struny, fortepian, stroik, szkło), płynny morfing pozycji, mipmapy przeciw aliasingowi,
-  oktawa / półtony / dostrojenie / poziom / panorama, unison do 8 głosów (Detune i Spread).
-- **Warp każdego oscylatora:** Sync, Bend, Squeeze, Mirror, Quantize, FM i RM od drugiego oscylatora (z modulowanym
-  Amount).
-- **Oscylator String:** model szarpanej struny (Karplus-Strong) pobudzany kształtem wavetable – gitary, harfy, plucki;
-  wspólne pokrętła Decay i Tone.
-- **Sub** (sinus/trójkąt, oktawę pod Osc A) i **szum**.
-- **Filtr na głos:** LP12, LP24, HP, BP, Notch, Ladder (rezonans w stylu acid), Formant (morfing samogłosek
-  A-E-I-O-U, brzmienia w stylu talkboxa), Comb+ i Comb− (metaliczne rezonanse); Cutoff, Resonance, Drive,
-  Key Track, Env Amount.
-- **Obwiednie:** Amp ADSR, Filter ADSR, Mod Env (wolna obwiednia do dowolnego celu), Pitch Env (Amount, Decay)
-  do 808 i zjazdów wysokości.
-- **2 LFO** (sine, tri, saw, square, S&H; tempo sync, Rate do 100 Hz, Depth, Retrigger).
-- **Macierz modulacji:** 12 slotów (źródło, cel, ilość) wybieranych z list; źródła m.in. LFO, obwiednie, Velocity,
-  Mod Wheel, Aftertouch, Key Track, Random (inna wartość dla każdej nuty), makra.
-- **4 makra** z etykietami zapisywanymi w presecie.
-- **Arpeggiator:** Up, Down, UpDown, Random; tempo, oktawy, gate.
-- **Efekty – dziesięć, w dowolnej kolejności, każdy z włącznikiem:** Distortion (Soft, Tube, Hard, Fold, Bitcrush;
-  4× oversampling, Keep Low), Chorus, Phaser, Flanger, Filter (LP / HP / BP / Notch), EQ (3 pasma), Pump (ducking
-  zsynchronizowany z tempem), Delay (stereo / ping-pong, sync), Reverb (z barwą: Low Cut / High Cut), Compressor
-  (Squash – 3-pasmowy na jednym pokrętle – oraz próg, ratio, attack, release, gain). Na końcu Output Gain + limiter.
-- **Interfejs:** okno 1200×740 (skalowanie 75–200%) z zakładkami SYNTH / MODULATION / EFFECTS. Na zakładce SYNTH
-  widać naraz oscylatory z podglądem wavetable, filtr z krzywą, obwiednie z wykresem, oba LFO, głos i arpeggiator.
-  Makra, wyjście z miernikiem poziomu i oscyloskop są zawsze widoczne na dole. Każda sekcja ma własny kolor
-  (oscylatory turkus, filtr pomarańcz, obwiednie zieleń, LFO i modulacja fiolet, efekty niebieski, makra bursztyn).
+Get the latest version from the [**Releases**](https://github.com/itsXami/vonar/releases/latest) page
+(*Assets* section):
 
-## Instalacja w FL Studio (Windows x64)
+- **`Vonar-<version>-Setup.exe`** – installer with a setup wizard (recommended),
+- **`Vonar-<version>-Windows-x64.zip`** – the same plugin without an installer.
 
-1. Pobierz instalator **`Vonar-<wersja>-Setup.exe`** ze strony
-   [**Releases**](https://github.com/itsXami/vonar/releases/latest) (sekcja *Assets*). Windows może pokazać
-   ostrzeżenie SmartScreen, bo instalator nie ma płatnego podpisu: kliknij **More info → Run anyway**.
-2. Uruchom instalator i przejdź kreator (po angielsku): licencja → instalacja → koniec. Plugin trafia do
-   `C:\Program Files\Common Files\VST3\Vonar.vst3`; odinstalujesz go w **Ustawienia → Aplikacje**.
-   Bez instalatora: pobierz z tej samej strony `Vonar-<wersja>-Windows-x64.zip` i skopiuj cały folder
-   `Vonar.vst3` w to samo miejsce.
-3. W FL Studio otwórz **Options → Manage plugins** i kliknij **Find installed plugins** (skanowanie).
-   Vonar pojawi się w kategorii **Generators** (producent: *Vonar*). Zaznacz gwiazdkę, żeby był widoczny w menu
-   dodawania instrumentów.
-4. Dodaj instrument: w **Channel Rack** kliknij **+** i wybierz **Vonar**.
-5. Presety wybierasz w górnym pasku okna Vonar (nie w menu presetów FL Studio – plugin udostępnia hostowi
-   jeden „program”). Stan pluginu, w tym nazwa presetu i etykiety makr, zapisuje się w projekcie FL Studio.
+## Features
 
-Uwagi:
-- **Do 13.11.2026 plugin nazywał się VOLT.** Instalator Vonar usuwa stary `VOLT.vst3`, żeby FL Studio nie
-  pokazywał dwóch pluginów; wewnętrzny identyfikator pluginu się nie zmienił, więc projekty z VOLT dalej się
-  otwierają. Presety użytkownika z `%APPDATA%\VOLT\Presets` są przy pierwszym uruchomieniu kopiowane do
-  `%APPDATA%\Vonar\Presets`.
-- Instalator nie jest podpisany cyfrowo – Windows SmartScreen może ostrzec przy pierwszym uruchomieniu
-  („Więcej informacji → Uruchom mimo to”).
-- Plugin jest 64-bitowy (x64). Wersja ARM64 nie jest budowana.
-- Pump, arpeggiator, LFO w trybie Sync i Delay biorą tempo z FL Studio. Gdy transport stoi, korzystają z tempa
-  projektu i własnego zegara; przy odtwarzaniu synchronizują się z pozycją w takcie.
+- **Engine:** 16 voices, Poly / Mono / Legato modes, glide.
+- **Oscillators A and B:** 40 wavetables generated in code (analog, supersaw, PWM, organ, vocal/formant, metallic, FM,
+  gritty, strings, piano, reed, glass), smooth position morphing, anti-aliasing mipmaps,
+  octave / semitone / fine tune / level / pan, unison up to 8 voices (Detune and Spread).
+- **Warp per oscillator:** Sync, Bend, Squeeze, Mirror, Quantize, and FM and RM from the other oscillator (with a
+  modulatable Amount).
+- **String oscillator:** a plucked-string model (Karplus-Strong) excited by the wavetable shape – guitars, harps,
+  plucks; shared Decay and Tone knobs.
+- **Sub** (sine/triangle, one octave below Osc A) and **noise**.
+- **Per-voice filter:** LP12, LP24, HP, BP, Notch, Ladder (acid-style resonance), Formant (A-E-I-O-U vowel morphing,
+  talkbox-style sounds), Comb+ and Comb− (metallic resonances); Cutoff, Resonance, Drive, Key Track, Env Amount.
+- **Envelopes:** Amp ADSR, Filter ADSR, Mod Env (a free envelope for any target), Pitch Env (Amount, Decay) for 808s
+  and pitch drops.
+- **2 LFOs** (sine, triangle, saw, square, S&H; tempo sync, Rate up to 100 Hz, Depth, Retrigger).
+- **Modulation matrix:** 12 slots (source, target, amount) picked from lists; sources include the LFOs, envelopes,
+  Velocity, Mod Wheel, Aftertouch, Key Track, Random (a new value for every note) and the macros.
+- **4 macros** with labels saved in the preset.
+- **Arpeggiator:** Up, Down, UpDown, Random; rate, octaves, gate.
+- **Ten effects in any order, each with an on/off switch:** Distortion (Soft, Tube, Hard, Fold, Bitcrush;
+  4× oversampling, Keep Low), Chorus, Phaser, Flanger, Filter (LP / HP / BP / Notch), EQ (3 bands), Pump
+  (tempo-synced ducking), Delay (stereo / ping-pong, sync), Reverb (with Low Cut / High Cut tone), Compressor
+  (Squash – 3-band on a single knob – plus threshold, ratio, attack, release, gain). Output Gain and a limiter at the end.
+- **Interface:** a 1200×740 window (scalable 75–200%) with SYNTH / MODULATION / EFFECTS tabs. The SYNTH tab shows
+  the oscillators with wavetable previews, the filter with its curve, the envelopes with a graph, both LFOs, voice
+  and arpeggiator at once. Macros, the output with a level meter, and an oscilloscope are always visible at the
+  bottom. Every section has its own colour.
+- **Low CPU use:** effects go to sleep when nothing is playing.
 
-## Skrócona instrukcja
+## Installing in FL Studio (Windows x64)
 
-**Pokrętła**
-- przeciąganie w górę/dół (lub w prawo/lewo) zmienia wartość, **Shift** = precyzyjna zmiana,
-- **dwuklik** przywraca wartość domyślną, kółko myszy też działa,
-- nazwa parametru jest nad pokrętłem, a **aktualna wartość zawsze pod nim**; po najechaniu pojawia się tooltip.
+1. Download **`Vonar-<version>-Setup.exe`** from the
+   [**Releases**](https://github.com/itsXami/vonar/releases/latest) page. Windows may show a SmartScreen warning
+   because the installer is not signed with a paid certificate: click **More info → Run anyway**.
+2. Run the installer and follow the wizard: licence → install → finish. The plugin goes to
+   `C:\Program Files\Common Files\VST3\Vonar.vst3`; uninstall it from **Settings → Apps**.
+   Without the installer: download `Vonar-<version>-Windows-x64.zip` from the same page and copy the whole
+   `Vonar.vst3` folder to the same place.
+3. In FL Studio open **Options → Manage plugins** and click **Find installed plugins**.
+   Vonar appears under **Generators** (vendor: *Vonar*). Tick the star to show it in the instrument menu.
+4. Add the instrument: in the **Channel Rack** click **+** and choose **Vonar**.
+5. Pick presets in the top bar of the Vonar window (not in FL Studio's preset menu – the plugin exposes a single
+   "program" to the host). The plugin state, including the preset name and macro labels, is saved in your
+   FL Studio project.
 
-**Kolory sekcji** mówią, do czego należy kontrolka: turkus – oscylatory, unison, sub, szum i struna; pomarańcz –
-filtr; zieleń – obwiednie; fiolet – LFO, macierz modulacji, arpeggiator, tryb głosu; niebieski – efekty; bursztyn –
-makra. Kolor ma tytuł sekcji, łuk pokrętła i wykres. **Bursztynowa kropka pod pokrętłem** oznacza, że steruje nim
-któreś makro.
+Notes:
+- **Vonar was called VOLT during development.** The installer removes the old `VOLT.vst3` so FL Studio does not
+  list the plugin twice; the plugin's internal ID is unchanged, so projects made with VOLT still open. User presets
+  from `%APPDATA%\VOLT\Presets` are copied to `%APPDATA%\Vonar\Presets` on first launch.
+- The plugin is 64-bit (x64). There is no ARM64 build.
+- Pump, the arpeggiator, synced LFOs and Delay follow FL Studio's tempo. When the transport is stopped they use the
+  project tempo and their own clock; during playback they lock to the bar position.
 
-**Układ okna:** u góry znak Vonar (kliknięcie: informacje o programie i licencji), zakładki i pasek presetów; na dole
-zawsze widoczne MACROS, OUTPUT i oscyloskop.
-1. **Pasek presetów:** kliknięcie nazwy otwiera menu presetów pogrupowane w kategorie, strzałki `<` `>` to
-   poprzedni/następny (w obrębie aktywnego filtra), dalej filtry kategorii, nastroju (Soft, Medium, Sad, Dark,
-   Aggressive) i tagów, wyszukiwarka (nazwa, tagi, opis, nastrój),
-   **SAVE** zapisuje preset użytkownika, lista **75–200%** zmienia rozmiar okna (można też przeciągnąć narożnik).
-2. **Zakładka SYNTH:** OSC A / OSC B (wavetable, typ Wavetable/String, podgląd tablicy jako powierzchni, duże
-   pokrętło Position, Warp i tryb warp, Octave, Semi, Fine, Level, Pan, Unison), FILTER (typ, krzywa, duże pokrętło
-   Cutoff, Resonance, Drive, Keytrack, Env amount, Vowel), ENVELOPES (przełącznik AMP / FILTER / MOD / PITCH, wykres
-   wybranej obwiedni i jej pokrętła), a pod spodem pasek: UNISON, SUB / NOISE, STRING (Decay i Tone dla oscylatorów
-   w trybie String), LFO 1 i LFO 2 (kształt, Sync, Rate albo podział taktu, Depth), VOICE (Poly/Mono/Legato, Glide),
-   ARP. W VOICE jest też **Bend**: zakres pitch bendu w półtonach.
-3. **Zakładka MODULATION:** LFO 1 i LFO 2 z dużymi pokrętłami i przełącznikiem Retrigger, MOD ENVELOPE oraz
-   MODULATION MATRIX: 12 slotów źródło → cel z suwakiem ilości −100…+100%.
-4. **Zakładka EFFECTS:** po lewej lista dziesięciu efektów w kolejności łańcucha – kropka włącza i wyłącza efekt,
-   kliknięcie nazwy przewija do jego panelu, przeciągnięcie uchwytu ⋮⋮ zmienia kolejność. Po prawej panel każdego
-   efektu z żywym wykresem (wyłączone są zwinięte). Na wykresach **EQ, Filter, Reverb i Compressor** są punkty do
-   przeciągania myszą: EQ – częstotliwość i wzmocnienie pasm (kółko myszy na środkowym: Q), Filter – Cutoff i
-   Resonance, Reverb – Low Cut i High Cut, Compressor – próg (w górę/w dół: ratio). Dwuklik na punkcie przywraca
-   wartość domyślną. Przełącznik **KEEP LOW** przy Distortion przesterowuje tylko pasmo powyżej ok. 160 Hz.
-5. **MACROS:** obok każdego pokrętła jest jego nazwa (dwuklik zmienia ją), cel albo cele, którymi steruje, i wartość.
+## Quick guide
 
-**Presety użytkownika** zapisują się jako JSON w `%APPDATA%\Vonar\Presets` (na Linuksie `~/.config/Vonar/Presets`).
-Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.
+**Knobs**
+- drag up/down (or right/left) to change the value, hold **Shift** for fine adjustment,
+- **double-click** restores the default value, the mouse wheel works too,
+- the parameter name is above the knob and the **current value is always below it**; hover for a tooltip.
 
-**Kontrolery MIDI:** pitch bend (zakres ustawiasz pokrętłem **Bend** w sekcji VOICE, 0–24 półtonów, domyślnie 2),
-pedał sustain (CC64, działa też z arpeggiatorem), Mod Wheel i Aftertouch (jako źródła modulacji) oraz
+**Section colours** show what a control belongs to: teal – oscillators, unison, sub, noise and string; orange –
+filter; green – envelopes; violet – LFOs, modulation matrix, arpeggiator, voice mode; blue – effects; amber – macros.
+An **amber dot under a knob** means a macro controls it.
+
+**Window layout:** the Vonar logo at the top (click it for program and licence information), the tabs and the preset
+bar; MACROS, OUTPUT and the oscilloscope are always visible at the bottom.
+1. **Preset bar:** click the name to open the preset menu grouped by category; the `<` `>` arrows go to the
+   previous/next preset (within the active filter); then the category, mood (Soft, Medium, Sad, Dark, Aggressive) and
+   tag filters, and search (name, tags, description, mood). **SAVE** stores a user preset; the **75–200%** list resizes
+   the window (you can also drag the corner).
+2. **SYNTH tab:** OSC A / OSC B (wavetable, Wavetable/String type, the table shown as a surface, a large Position knob,
+   Warp and warp mode, Octave, Semi, Fine, Level, Pan, Unison), FILTER (type, curve, a large Cutoff knob, Resonance,
+   Drive, Keytrack, Env amount, Vowel), ENVELOPES (AMP / FILTER / MOD / PITCH switch, a graph of the selected envelope
+   and its knobs), and a strip below: UNISON, SUB / NOISE, STRING (Decay and Tone for oscillators in String mode),
+   LFO 1 and LFO 2 (shape, Sync, Rate or note value, Depth), VOICE (Poly/Mono/Legato, Glide), ARP. VOICE also has
+   **Bend**: the pitch-bend range in semitones.
+3. **MODULATION tab:** LFO 1 and LFO 2 with large knobs and a Retrigger switch, MOD ENVELOPE and the
+   MODULATION MATRIX: 12 source → target slots with an amount slider from −100 to +100%.
+4. **EFFECTS tab:** on the left, the list of ten effects in chain order – the dot turns an effect on or off, clicking
+   the name scrolls to its panel, dragging the ⋮⋮ handle changes the order. On the right, a panel for every effect with
+   a live graph (switched-off effects are collapsed). The **EQ, Filter, Reverb and Compressor** graphs have points you
+   can drag: EQ – band frequency and gain (mouse wheel on the middle band: Q), Filter – Cutoff and Resonance,
+   Reverb – Low Cut and High Cut, Compressor – threshold (up/down: ratio). Double-click a point to reset it.
+   The **KEEP LOW** switch on Distortion distorts only the range above about 160 Hz.
+5. **MACROS:** next to each knob are its name (double-click to rename), the target(s) it controls, and its value.
+
+**User presets** are saved as JSON files in `%APPDATA%\Vonar\Presets` (on Linux `~/.config/Vonar/Presets`). You can
+copy them between computers; afterwards choose *Rescan user presets* in the preset menu.
+
+**MIDI controllers:** pitch bend (set the range with the **Bend** knob in VOICE, 0–24 semitones, default 2), sustain
+pedal (CC64, also works with the arpeggiator), Mod Wheel and Aftertouch (as modulation sources), and
 All Notes/Sound Off.
 
-Lista presetów z opisami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pluck, Keys, Bell, Pad,
-Strings, Brass, Woodwind, Arp, Drums, FX. Każdy preset ma nastrój (filtr Mood). Perkusja jest strojona pod C3, inne
-klawisze ją przestrajają. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,
-„House”, „Cinematic”, „Lo-Fi”) wybierzesz w filtrze tagów.
+Preset categories: Bass, Lead, Guitar, Pluck, Keys, Bell, Pad, Strings, Brass, Woodwind, Arp, Drums, FX. Every preset
+has a mood (Mood filter). Drums are tuned to C3; other keys change their pitch. The preset menu is sorted by category,
+then alphabetically; pick a style (e.g. "Industrial", "House", "Cinematic", "Lo-Fi") with the tag filter.
 
-## Co zostało zweryfikowane automatycznie, a co wymaga odsłuchu i testu w FL Studio
+## Testing
 
-**Sprawdzane automatycznie w CI (GitHub Actions, każdy push; PR pokazuje wynik):**
-- build na **Linuksie** (VST3, Standalone, testy, renderer) i **Windows x64** (VST3 i Standalone, MSVC),
-- **testy jednostkowe DSP i pluginu** (`tests/`): pasmo mipmap wavetable, aliasing wysokich nut (< −50 dB),
-  nachylenia i stabilność wszystkich typów filtra przy maksymalnym rezonansie i drive, czasy obwiedni,
-  limit 16 głosów, Mono/Legato, wzorce i timing arpeggiatora, każdy typ przesteru, Pump, Delay, zanik pogłosu,
-  Squash, sufit limitera, makra i macierz modulacji, fuzzing losowych parametrów (brak NaN/Inf), wydajność
-  najgorszego przypadku, zapis/odczyt stanu sesji (wszystkie parametry, nazwa presetu, etykiety makr),
-  zapis i wczytanie presetu użytkownika, poprawność wszystkich presetów fabrycznych (pola, kategorie, makra, zakazane nazwy),
-- **render offline wszystkich presetów fabrycznych** (`VOLT_Render`): test nie przechodzi przy ciszy, NaN/Inf, szczycie
-  > 0 dBFS, dużym DC, ogonie, który nie zanika, zbyt mocnej pracy limitera i niespójnej głośności; raport zawiera
-  RMS, szczyt, głośność (LUFS), centroid widmowy i czas ogona (artefakt `Vonar-render-report`),
-- **pluginval** (strictness 5) na Linuksie i Windows, w tym otwieranie edytora, zapis/odczyt stanu i automatyzacja
-  parametrów,
-- artefakty **`Vonar-windows-x64.zip`** (folder `Vonar.vst3`, licencja i informacje o składnikach) i **`Vonar-preset-previews.zip`**
-  (krótkie podglądy FLAC każdego presetu).
+**Checked automatically in CI (GitHub Actions, on every push):**
+- builds on **Linux** (VST3, Standalone, tests, renderer) and **Windows x64** (VST3, MSVC, installer),
+- **DSP and plugin unit tests** (`tests/`): wavetable mipmap bandwidth, aliasing of high notes (< −50 dB),
+  slopes and stability of every filter type at maximum resonance and drive, envelope times, the 16-voice limit,
+  Mono/Legato, arpeggiator patterns and timing, every distortion type, the effects rack (order, EQ, filter,
+  compressor, reverb tone), Pump, Delay, reverb decay, Squash, limiter ceiling, macros and the modulation matrix,
+  random-parameter fuzzing (no NaN/Inf), worst-case performance, saving/loading session state, saving and loading
+  user presets, migration of older presets and projects, and validity of every factory preset,
+- **offline render of every factory preset** (`VOLT_Render`): fails on silence, NaN/Inf, peaks above 0 dBFS, large DC,
+  tails that never decay, excessive limiting or inconsistent loudness,
+- **pluginval** (strictness 5) on Linux and Windows, including opening the editor, saving/loading state and
+  parameter automation.
 
-**Wymaga odsłuchu i ręcznego testu (nie da się tego sprawdzić w chmurze na Linuksie):**
-- **charakter i jakość brzmień** – czy presety brzmią dobrze i wystarczająco różnie; najszybciej odsłuchać
-  podglądy z `Vonar-preset-previews.zip`,
-- **skanowanie i ładowanie w FL Studio**, zapis/odczyt projektu, automatyzacja parametrów z poziomu FL Studio,
-  synchronizacja z tempem przy odtwarzaniu i zatrzymanym transporcie,
-- **obsługa interfejsu na Windows:** przeciąganie, Shift, dwuklik, tooltipy, skalowanie 75–200% i ekrany HiDPI,
-  okno zapisu presetu, katalog `%APPDATA%\Vonar\Presets`,
-- **zużycie CPU w realnym projekcie** (test wydajności w CI mierzy tylko syntetyczny najgorszy przypadek),
-- **Standalone na Windows** (wybór urządzenia audio/MIDI).
+**Checked by hand:** listening to every preset, and loading, saving projects and using the interface in FL Studio
+on Windows.
 
-Interfejs był sprawdzany wyłącznie na zrzutach renderowanych bez ekranu (`VOLT_Render --snapshot`), a Standalone
-tylko pod kątem uruchomienia bez awarii.
+## Building from source
 
-## Budowanie ze źródeł
-
-Wymagania: CMake ≥ 3.22, kompilator C++20 (Visual Studio 2022 na Windows, GCC/Clang na Linuksie), Git.
-JUCE 8.0.15 jest pobierany automatycznie (CMake FetchContent).
+Requirements: CMake ≥ 3.22, a C++20 compiler (Visual Studio 2022 on Windows, GCC/Clang on Linux), Git.
+JUCE 8.0.15 is downloaded automatically (CMake FetchContent).
 
 Windows:
 
@@ -156,12 +146,12 @@ cmake -S . -B build -A x64 -DVOLT_BUILD_TOOLS=OFF
 ```
 
 ```bash
-cmake --build build --config Release --target VOLT_VST3 VOLT_Standalone
+cmake --build build --config Release --target VOLT_VST3
 ```
 
-Wynik: `build/VOLT_artefacts/Release/VST3/Vonar.vst3` i `build/VOLT_artefacts/Release/Standalone/Vonar.exe`.
+Result: `build/VOLT_artefacts/Release/VST3/Vonar.vst3`.
 
-Linux (Ubuntu 24.04), z testami i rendererem:
+Linux (Ubuntu 24.04), with tests and the preset renderer:
 
 ```bash
 sudo apt-get install -y ninja-build libasound2-dev libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxcomposite-dev libxext-dev libxrender-dev libfreetype-dev libfontconfig1-dev xvfb
@@ -176,54 +166,52 @@ cmake --build build
 ```
 
 ```bash
-ctest --test-dir build --output-on-failure
+xvfb-run -a ctest --test-dir build --output-on-failure
 ```
 
 ```bash
 ./build/VOLT_Render_artefacts/Release/VOLT_Render --out render-out
 ```
 
-Presety są generowane skryptem `tools/presets/generate_presets.py` (opis procedury korekty poziomów
-w `docs/PROGRESS.md`).
+The internal build targets are still called `VOLT_*` (the project's working name); this does not affect the plugin.
+Factory presets are generated by scripts in `tools/presets/`.
 
-## Dokumentacja projektu
+## Project documentation
 
-- [`docs/PRESETS.md`](docs/PRESETS.md) – lista presetów, kategorie, tagi, makra.
-- [`docs/SOUND_REFERENCES.md`](docs/SOUND_REFERENCES.md) – wzorce brzmień (opis charakteru) dla kolejnych partii presetów.
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) – jak zgłosić własne presety.
-- [`docs/DECISIONS.md`](docs/DECISIONS.md) – decyzje projektowe i ich powody.
-- [`docs/PROGRESS.md`](docs/PROGRESS.md) – stan prac i instrukcje dla kolejnej sesji.
+The project notes are written in Polish:
 
-## Licencja
+- [`docs/PRESETS.md`](docs/PRESETS.md) – preset list, categories, tags, macros.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) – how to submit your own presets.
+- [`docs/DECISIONS.md`](docs/DECISIONS.md) – design decisions and their reasons.
+- [`docs/PROGRESS.md`](docs/PROGRESS.md) – development log.
 
-Vonar jest wolnym oprogramowaniem na licencji **GNU Affero General Public License w wersji 3** (AGPLv3) – pełny tekst
-w pliku [`LICENSE`](LICENSE). Plugin jest darmowy i nie wymaga rejestracji. Możesz go używać (także komercyjnie,
-w swojej muzyce), kopiować, zmieniać i rozpowszechniać na warunkach AGPLv3; zmienione wersje muszą pozostać
-na tej samej licencji i mieć udostępniony kod źródłowy. Muzyka i dźwięki, które zrobisz za pomocą Vonar, są Twoje –
-licencja ich nie obejmuje.
+## Licence
 
-- **Nazwa „Vonar” i logo nie są objęte licencją.** Zmienioną wersję rozpowszechniaj pod inną nazwą i z innym logo,
-  tak żeby nie można jej było pomylić z oryginałem.
-- **Wkład od innych:** na razie przyjmujemy wyłącznie presety, bez zmian w kodzie – zasady w
-  [`CONTRIBUTING.md`](CONTRIBUTING.md).
-- Program jest udostępniany bez żadnej gwarancji (punkty 15 i 16 licencji).
+Vonar is free software under the **GNU Affero General Public License, version 3** (AGPLv3) – full text in
+[`LICENSE`](LICENSE). The plugin is free and needs no registration. You may use it (also commercially, in your
+music), copy, modify and distribute it under the AGPLv3; modified versions must stay under the same licence and make
+their source code available. **The music and sounds you make with Vonar are yours** – the licence does not cover them.
+
+- **The name "Vonar" and the logo are not covered by the licence.** Distribute modified versions under a different
+  name and logo so they cannot be mistaken for the original.
+- **Contributions:** for now only presets are accepted, no code changes – see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+- The software comes with no warranty (sections 15 and 16 of the licence).
 
 Copyright © 2026 Xami.
 
-## Składniki innych autorów
+## Third-party components
 
-- **JUCE 8** (framework audio, Raw Material Software Limited) – używany na licencji AGPLv3, zgodnej z licencją Vonar.
-  JUCE zawiera też kod VST3 SDK firmy Steinberg. „VST” jest znakiem towarowym Steinberg Media Technologies GmbH.
-- Czcionka interfejsu **Oxanium** – SIL Open Font License 1.1 (`resources/fonts/OFL-Oxanium.txt`).
-- Wszystkie wavetable, presety i grafika powstały w tym projekcie (wavetable generuje kod). Nie użyto kodu, tablic,
-  presetów ani grafik innych syntezatorów.
-- Presety opisują wyłącznie charakter dźwięku; nie zawierają nazw artystów, albumów, utworów ani marek, a projekt
-  nie jest powiązany z żadnym artystą ani producentem instrumentów.
+- **JUCE 8** (audio framework, Raw Material Software Limited) – used under the AGPLv3, compatible with Vonar's licence.
+  JUCE includes Steinberg's VST3 SDK (MIT licence). VST is a trademark of Steinberg Media Technologies GmbH.
+- Interface font **Oxanium** – SIL Open Font License 1.1 (`resources/fonts/OFL-Oxanium.txt`).
+- All wavetables, presets and artwork were made for this project (the wavetables are generated in code). No code,
+  tables, presets or artwork from other synthesizers were used.
+- Presets describe only the character of the sound; they contain no names of artists, albums, songs or brands, and
+  the project is not affiliated with any artist or instrument maker.
+
+Full notices: [`installer/THIRD-PARTY-NOTICES.txt`](installer/THIRD-PARTY-NOTICES.txt).
 
 ## How Vonar was made
 
 Vonar was designed, sound-checked and tested by **Xami**. The code and presets were developed with the help of
 Claude (Anthropic's AI assistant), with every sound reviewed by ear before it made it into the library.
-
-*Vonar powstał z pomysłu, decyzji i odsłuchu Xami; kod i presety były tworzone z pomocą asystenta AI Claude, a każde
-brzmienie zostało przesłuchane, zanim trafiło do biblioteki.*

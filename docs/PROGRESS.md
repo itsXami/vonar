@@ -433,3 +433,5 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   (squash) po zielonym CI #61.
 - Kolejność do końca: zielone CI → squash-merge do `main` → użytkownik tworzy Release `v1.0.0` z `main`
   (opis z `docs/releases/v1.0.0.md`) → CI dołącza pliki → repo publiczne.
+- README po angielsku (decyzja użytkownika: wariant B – tylko angielskie, bez polskiej kopii). Notatki projektu
+  (`docs/`, `CONTRIBUTING.md`) zostają po polsku; README to zaznacza.
