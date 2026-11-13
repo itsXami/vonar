@@ -53,6 +53,8 @@ void SynthEngine::reset()
     freePpq = 0.0;
     arp.reset();
     fx.reset();
+    fxSilentSamples = 0;
+    fxAsleep = false;
 }
 
 int SynthEngine::getNumActiveVoices() const noexcept
@@ -394,8 +396,22 @@ void SynthEngine::renderChunk (float* L, float* R, int n) noexcept
     beginChunk (n);
     std::fill (L, L + n, 0.0f);
     std::fill (R, R + n, 0.0f);
+    bool sounding = false;
     for (auto& v : voices)
+    {
+        sounding = sounding || v.isActive();
         v.render (ctx, L, R, n);
+    }
+    if (sounding)
+    {
+        fxSilentSamples = 0;
+        fxAsleep = false;
+    }
+    else if (fxAsleep)
+    {
+        chunkPpq += (double) n / sampleRate * (transport.bpm / 60.0);
+        return;   // output stays silent, the effects keep their (already silent) state
+    }
 
     float gdst[choices::NumModDests] {};
     computeGlobalMods (gdst);
@@ -424,6 +440,18 @@ void SynthEngine::renderChunk (float* L, float* R, int n) noexcept
     fp.ppq = chunkPpq;
     fp.bpm = transport.bpm;
     fx.process (L, R, n, fp);
+
+    if (! sounding)
+    {
+        float peak = 0.0f;
+        for (int i = 0; i < n; ++i)
+            peak = std::max (peak, std::max (std::abs (L[i]), std::abs (R[i])));
+        fxSilentSamples = peak < 1.0e-5f ? fxSilentSamples + n : 0;
+        // Silence must outlast the gap between two echoes, or a quiet moment between repeats would cut the tail.
+        const double delaySec = fp.dlyMix > 1.0e-4f ? fp.dlyBeats * 60.0 / juce::jlimit (20.0, 999.0, transport.bpm) : 0.0;
+        if ((double) fxSilentSamples > sampleRate * (1.0 + 1.5 * delaySec))
+            fxAsleep = true;
+    }
 
     chunkPpq += (double) n / sampleRate * (transport.bpm / 60.0);
 }

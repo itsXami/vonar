@@ -178,6 +178,40 @@ struct ExpressionTests final : juce::UnitTest
             });
             expectEquals (after, 0);
         }
+
+        beginTest ("Idle sleep: effects stop after silence, echoes are not cut, a new note wakes it");
+        {
+            SynthEngine e;
+            e.prepare (sr, 256);
+            auto p = sinePatch();
+            p.v[DlyTime] = (float) choices::delayTimes().indexOf ("1/2");   // 1 s at 120 BPM
+            p.v[DlyFeedback] = 0.5f;
+            p.v[DlyMix] = 0.5f;
+            Script s { e, p, sr };
+            const int perSec = (int) (sr / 256.0);
+            s.run (perSec * 4, [] (int b, juce::MidiBuffer& m) {
+                if (b == 0) m.addEvent (juce::MidiMessage::noteOn (1, 60, 0.9f), 0);
+                if (b == 10) m.addEvent (juce::MidiMessage::noteOff (1, 60), 0);
+            });
+            auto rms = [&] (double t0, double t1) {
+                double acc = 0.0;
+                const size_t a = (size_t) (t0 * sr), b = (size_t) (t1 * sr);
+                for (size_t i = a; i < b; ++i)
+                    acc += (double) s.L[i] * s.L[i];
+                return std::sqrt (acc / (double) (b - a));
+            };
+            expectGreaterThan (rms (1.95, 2.1), 1.0e-3, "second echo (2 s) is still there");
+            expectGreaterThan (rms (2.95, 3.1), 1.0e-4, "third echo (3 s) is still there");
+            s.run (perSec * 26, [] (int, juce::MidiBuffer&) {});   // feedback 0.5: echoes reach -100 dB after ~17 s
+            expect (e.isIdleAsleep(), "engine sleeps once the echoes have died away");
+            expectEquals (rms (29.0, 30.0), 0.0, "sleeping output is exact silence");
+            const size_t wake = s.L.size();
+            s.run (perSec / 4, [] (int b, juce::MidiBuffer& m) {
+                if (b == 0) m.addEvent (juce::MidiMessage::noteOn (1, 64, 0.9f), 0);
+            });
+            expect (! e.isIdleAsleep(), "a note wakes the engine");
+            expectGreaterThan (rms ((double) wake / sr + 0.01, (double) wake / sr + 0.2), 1.0e-2, "the new note sounds");
+        }
     }
 };
 
