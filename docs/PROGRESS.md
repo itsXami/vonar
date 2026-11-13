@@ -362,7 +362,7 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   Church Bell Toll – notatka użytkownika „zajebiste” (zapisane w `selection.json`). Następny etap: E – wydanie.
 
 ## Optymalizacja CPU (2026-11-13)
-- : ranking CPU wszystkich presetów (akord 8 nut + bezczynność), wynik w .
+- `VOLT_Render --bench`: ranking CPU wszystkich presetów (akord 8 nut + bezczynność), wynik w `docs/CPU.md`.
   Granie: mediana 1,8 %, najcięższy 5 % jednego rdzenia (Xeon 2,1 GHz) – bez problemu dla słabych laptopów.
 - Uśpienie bezczynnego pluginu: koszt bezczynnej instancji 0,45 % → 0,04 % (mediana). Render bez zmian.
 - Do sprawdzenia przez użytkownika: CPU okna pluginu (oscyloskop, mierniki) w FL Studio na słabszym laptopie.
