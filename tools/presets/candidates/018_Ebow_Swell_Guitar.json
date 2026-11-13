@@ -1,0 +1,52 @@
+{
+  "name": "Ebow Swell Guitar",
+  "category": "Guitar",
+  "tags": [
+    "Epic",
+    "Guitar",
+    "Cinematic"
+  ],
+  "description": "Bowed-sounding guitar that swells in without a pick attack.",
+  "macros": [
+    "Swell",
+    "Edge",
+    "Echo",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.06,
+    "oscA_table": "Sync Saw",
+    "oscA_pos": 0.08,
+    "oscB_table": "Hollow",
+    "oscB_level": 0.4,
+    "flt_cutoff": 2400.0,
+    "amp_attack": 0.45,
+    "amp_release": 0.9,
+    "lfo1_rate": 5.0,
+    "dist_type": "Tube",
+    "dist_drive": 0.4,
+    "dist_mix": 0.6,
+    "dly_feedback": 0.45,
+    "dly_mix": 0.18,
+    "rev_size": 0.8,
+    "rev_mix": 0.25,
+    "out_gain": 0.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.002
+  }
+}

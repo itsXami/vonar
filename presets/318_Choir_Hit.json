@@ -1,0 +1,53 @@
+{
+  "name": "Choir Hit",
+  "category": "FX",
+  "tags": [
+    "Hip-Hop",
+    "Choir",
+    "Hit",
+    "Dramatic"
+  ],
+  "description": "Huge choir 'ahh' hit with a cathedral tail, for dramatic drops.",
+  "mood": "Soft",
+  "macros": [
+    "Choir",
+    "Tone",
+    "Width",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Choir",
+    "oscA_pos": 0.6,
+    "oscA_voices": 5,
+    "uni_detune": 0.15,
+    "uni_spread": 1.0,
+    "sub_level": 0.15,
+    "flt_cutoff": 3500.0,
+    "amp_attack": 0.005,
+    "amp_decay": 0.8,
+    "amp_sustain": 0.0,
+    "amp_release": 0.6,
+    "rev_size": 0.9,
+    "rev_mix": 0.35,
+    "squash": 0.3,
+    "out_gain": 4.8,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Detune",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25
+  }
+}

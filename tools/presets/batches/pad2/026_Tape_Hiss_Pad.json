@@ -1,0 +1,51 @@
+{
+  "name": "Tape Hiss Pad",
+  "category": "Pad",
+  "tags": [
+    "Lo-Fi",
+    "Tape",
+    "Warm"
+  ],
+  "description": "Warm pad played from an old tape: gentle wow, hiss and a soft top.",
+  "macros": [
+    "Wow",
+    "Hiss",
+    "Tone",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_voices": 3,
+    "uni_detune": 0.12,
+    "uni_spread": 0.2,
+    "noise_level": 0.05,
+    "flt_cutoff": 1000.0,
+    "amp_attack": 0.4,
+    "amp_release": 1.4,
+    "lfo1_rate": 0.45,
+    "dist_type": "Tube",
+    "dist_mix": 0.4,
+    "rev_mix": 0.16,
+    "out_gain": -4.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Pitch",
+    "mod1_amt": 0.004,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Noise Level",
+    "mod2_amt": 0.1,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.003,
+    "mod6_src": "Random",
+    "mod6_dst": "Pitch",
+    "mod6_amt": 0.002
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Vinyl Warm Pad",
+  "category": "Pad",
+  "tags": [
+    "Analog",
+    "Lo-Fi",
+    "Warm"
+  ],
+  "description": "Dusty warm pad with tape drift, a little grit and noise.",
+  "macros": [
+    "Drift",
+    "Dust",
+    "Bits",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_pos": 0.5,
+    "oscA_voices": 2,
+    "uni_detune": 0.2,
+    "noise_level": 0.04,
+    "flt_type": "LP12",
+    "flt_cutoff": 1800.0,
+    "amp_attack": 0.25,
+    "amp_release": 1.0,
+    "lfo1_rate": 0.5,
+    "dist_type": "Bitcrush",
+    "dist_drive": 0.1,
+    "dist_tone": 0.4,
+    "dist_mix": 0.35,
+    "rev_mix": 0.18,
+    "out_gain": -6.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Pitch",
+    "mod1_amt": 0.006,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Noise Level",
+    "mod2_amt": 0.2,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.004
+  }
+}

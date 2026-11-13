@@ -1,0 +1,53 @@
+{
+  "name": "Muted Felt Upright",
+  "category": "Keys",
+  "tags": [
+    "Warm",
+    "Piano",
+    "Dark",
+    "Intimate"
+  ],
+  "description": "Upright piano with felt over the strings: short, dark and intimate.",
+  "macros": [
+    "Felt",
+    "Ring",
+    "Air",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Hammer Piano",
+    "oscA_pos": 0.6,
+    "oscA_type": "String",
+    "str_decay": 7.0,
+    "str_tone": 0.45,
+    "noise_level": 0.01,
+    "flt_cutoff": 1800.0,
+    "amp_attack": 0.022,
+    "amp_release": 0.25,
+    "dist_tone": 0.6,
+    "dist_mix": 0.5,
+    "rev_size": 0.3,
+    "rev_mix": 0.12,
+    "squash": 0.45,
+    "out_gain": 2.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": -0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Noise Level",
+    "mod3_amt": 0.1,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.3,
+    "mod6_src": "Random",
+    "mod6_dst": "Pan A",
+    "mod6_amt": 0.15
+  }
+}

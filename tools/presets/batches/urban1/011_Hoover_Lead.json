@@ -1,0 +1,53 @@
+{
+  "name": "Hoover Lead",
+  "category": "Lead",
+  "tags": [
+    "House",
+    "Rave",
+    "Hoover",
+    "Classic"
+  ],
+  "description": "Classic rave hoover: detuned pulses swooping down into every note.",
+  "macros": [
+    "Swoop",
+    "Width",
+    "Tone",
+    "Room"
+  ],
+  "version": 2,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.08,
+    "oscA_table": "PWM Saw",
+    "oscA_pos": 0.9,
+    "oscA_voices": 5,
+    "uni_detune": 0.4,
+    "uni_spread": 0.4,
+    "flt_cutoff": 3500.0,
+    "amp_release": 0.25,
+    "penv_amount": -12.0,
+    "penv_decay": 0.18,
+    "squash": 0.3,
+    "out_gain": -0.3,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
+    "chorus_rate": 0.9,
+    "chorus_mix": 0.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Pitch A",
+    "mod1_amt": 0.02,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Detune",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Mod Wheel",
+    "mod5_dst": "Detune",
+    "mod5_amt": 0.3
+  }
+}

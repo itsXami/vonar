@@ -1,0 +1,148 @@
+name: CI
+
+# One run per push (every branch). The pull request shows the status of that run, so a separate
+# pull_request trigger would only build the same commit twice and double the Actions minutes.
+on:
+  push:
+  workflow_dispatch:
+  # Publishing a GitHub Release builds the Windows files again and attaches them to that release.
+  release:
+    types: [published]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PLUGINVAL_VERSION: v1.0.4
+
+jobs:
+  linux:
+    name: Linux (build, tests, preset render, pluginval)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build libasound2-dev libx11-dev libxrandr-dev \
+            libxinerama-dev libxcursor-dev libxcomposite-dev libxext-dev libxrender-dev \
+            libfreetype-dev libfontconfig1-dev xvfb ccache
+
+      - name: ccache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ccache
+          key: ccache-linux-${{ github.sha }}
+          restore-keys: ccache-linux-
+
+      - name: Configure
+        run: >
+          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
+
+      - name: Build
+        run: cmake --build build --parallel
+
+      - name: Unit tests (interface tests run under xvfb)
+        run: xvfb-run -a ctest --test-dir build --output-on-failure
+
+      - name: Render all presets (offline report + previews)
+        run: ./build/VOLT_Render_artefacts/Release/VOLT_Render --out render-out
+
+      - name: Upload preset previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vonar-preset-previews
+          path: render-out/previews/
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload render report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vonar-render-report
+          path: |
+            render-out/report.md
+            render-out/report.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: pluginval (strictness 5)
+        run: |
+          curl -sSL -o pluginval.zip "https://github.com/Tracktion/pluginval/releases/download/${PLUGINVAL_VERSION}/pluginval_Linux.zip"
+          unzip -q pluginval.zip
+          xvfb-run -a ./pluginval --strictness-level 5 --validate-in-process --timeout-ms 600000 \
+            --validate build/VOLT_artefacts/Release/VST3/Vonar.vst3
+
+  windows:
+    name: Windows x64 (VST3, pluginval, installer)
+    permissions:
+      contents: write
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -S . -B build -A x64 -DVOLT_BUILD_TOOLS=OFF
+
+      - name: Build VST3
+        run: cmake --build build --config Release --parallel --target VOLT_VST3
+
+      - name: pluginval (strictness 5)
+        shell: bash
+        run: |
+          curl -sSL -o pluginval.zip "https://github.com/Tracktion/pluginval/releases/download/${PLUGINVAL_VERSION}/pluginval_Windows.zip"
+          7z x -y pluginval.zip > /dev/null
+          ./pluginval.exe --strictness-level 5 --validate-in-process --timeout-ms 600000 \
+            --validate "build/VOLT_artefacts/Release/VST3/Vonar.vst3"
+
+      - name: Package
+        shell: bash
+        run: |
+          mkdir -p dist
+          cp -r "build/VOLT_artefacts/Release/VST3/Vonar.vst3" dist/
+          cp LICENSE dist/LICENSE.txt
+          cp installer/THIRD-PARTY-NOTICES.txt dist/
+
+      - name: Upload Vonar-windows-x64
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vonar-windows-x64
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14
+
+      # Installer with a wizard (Inno Setup, installer/Vonar.iss); the version comes from CMakeLists.txt.
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) { choco install innosetup -y --no-progress }
+          $v = (Select-String -Path CMakeLists.txt -Pattern 'project\(VOLT VERSION ([0-9.]+)').Matches[0].Groups[1].Value
+          & $iscc "/DAppVersion=$v" "/DSourceDir=$PWD\dist" installer\Vonar.iss
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload Vonar-windows-installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: Vonar-windows-installer
+          path: installer/Output/*.exe
+          if-no-files-found: error
+          retention-days: 30
+
+      # Only when a release is published: attach the installer and a ZIP of the plugin to it.
+      - name: Attach files to the release
+        if: github.event_name == 'release'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $v = (Select-String -Path CMakeLists.txt -Pattern 'project\(VOLT VERSION ([0-9.]+)').Matches[0].Groups[1].Value
+          Compress-Archive -Path dist\* -DestinationPath "Vonar-$v-Windows-x64.zip"
+          gh release upload "${{ github.event.release.tag_name }}" (Get-Item installer\Output\*.exe).FullName "Vonar-$v-Windows-x64.zip" --clobber --repo "${{ github.repository }}"

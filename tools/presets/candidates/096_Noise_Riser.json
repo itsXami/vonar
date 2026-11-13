@@ -1,0 +1,45 @@
+{
+  "name": "Noise Riser",
+  "category": "FX",
+  "tags": [
+    "Stadium",
+    "Riser",
+    "Build-up"
+  ],
+  "description": "White-noise riser that opens up over two seconds for build-ups.",
+  "macros": [
+    "Rise",
+    "Tone",
+    "Echo",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_level": 0.0,
+    "noise_level": 0.9,
+    "flt_type": "BP",
+    "flt_cutoff": 300.0,
+    "flt_res": 0.4,
+    "flt_envamt": 0.8,
+    "amp_attack": 1.0,
+    "amp_release": 0.8,
+    "fenv_attack": 2.0,
+    "fenv_decay": 1.0,
+    "fenv_sustain": 1.0,
+    "rev_size": 0.7,
+    "rev_mix": 0.25,
+    "out_gain": 6.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Resonance",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Raw Filter Lead",
+  "category": "Lead",
+  "tags": [
+    "House",
+    "Raw",
+    "Filter"
+  ],
+  "description": "Gritty square lead with a slowly moving resonant ladder.",
+  "mood": "Medium",
+  "macros": [
+    "Filter",
+    "Res",
+    "Grit",
+    "Echo"
+  ],
+  "version": 2,
+  "params": {
+    "voice_mode": "Mono",
+    "oscA_table": "Analog Square",
+    "oscA_pos": 0.2,
+    "oscB_table": "Analog Saw",
+    "oscB_fine": -10.0,
+    "oscB_level": 0.3,
+    "flt_type": "Ladder",
+    "flt_cutoff": 1200.0,
+    "flt_res": 0.55,
+    "flt_drive": 0.3,
+    "lfo1_rate": 0.3,
+    "dist_drive": 0.4,
+    "dist_mix": 0.4,
+    "dly_time": "1/8D",
+    "dly_mix": 0.12,
+    "out_gain": 0.1,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Resonance",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Drive",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25
+  }
+}

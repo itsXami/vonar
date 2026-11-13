@@ -1,0 +1,49 @@
+{
+  "name": "Bowed Metal Pad",
+  "category": "Pad",
+  "tags": [
+    "Metallic",
+    "Bowed",
+    "Comb"
+  ],
+  "description": "Noise through a tuned comb filter, singing like bowed metal plates.",
+  "macros": [
+    "Bow",
+    "Ring",
+    "Tone",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Noise Cycle",
+    "oscA_pos": 0.3,
+    "oscA_level": 0.4,
+    "noise_level": 0.4,
+    "flt_type": "Comb-",
+    "flt_cutoff": 262.0,
+    "flt_res": 0.8,
+    "flt_keytrack": 1.0,
+    "amp_attack": 0.9,
+    "amp_release": 2.0,
+    "lfo1_rate": 0.3,
+    "rev_size": 0.8,
+    "rev_mix": 0.26,
+    "out_gain": 8.5,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Noise Level",
+    "mod1_amt": 0.15,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Resonance",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Resonance",
+    "mod5_amt": 0.05
+  }
+}

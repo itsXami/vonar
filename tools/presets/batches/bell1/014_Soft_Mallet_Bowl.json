@@ -1,0 +1,53 @@
+{
+  "name": "Soft Mallet Bowl",
+  "category": "Bell",
+  "tags": [
+    "Ambient",
+    "Soft",
+    "Bowl",
+    "Round"
+  ],
+  "description": "Felt mallet on a metal bowl: no click, just a round swell of tone.",
+  "macros": [
+    "Felt",
+    "Hum",
+    "Echo",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Basic Shapes",
+    "oscA_voices": 2,
+    "oscA_warp": "FM",
+    "oscA_warp_amt": 0.05,
+    "oscB_oct": 1,
+    "oscB_semi": 9,
+    "uni_detune": 0.05,
+    "flt_type": "LP12",
+    "flt_cutoff": 2400.0,
+    "amp_attack": 0.035,
+    "amp_decay": 3.5,
+    "amp_sustain": 0.0,
+    "amp_release": 1.5,
+    "rev_size": 0.7,
+    "rev_mix": 0.22,
+    "out_gain": -3.8,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": -0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Detune",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.2
+  }
+}

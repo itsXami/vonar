@@ -1,0 +1,52 @@
+{
+  "name": "Tubular Bell",
+  "category": "Bell",
+  "tags": [
+    "Orchestral",
+    "Tubular"
+  ],
+  "description": "Orchestral tubular bell: a bright strike and a long, slightly out-of-tune hum.",
+  "macros": [
+    "Strike",
+    "Tone",
+    "Hum",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Basic Shapes",
+    "oscA_warp": "FM",
+    "oscA_warp_amt": 0.12,
+    "oscB_oct": 1,
+    "oscB_semi": 5,
+    "oscB_fine": 20.0,
+    "flt_type": "LP12",
+    "flt_cutoff": 7000.0,
+    "amp_decay": 4.0,
+    "amp_sustain": 0.0,
+    "amp_release": 2.0,
+    "menv_decay": 0.4,
+    "rev_size": 0.8,
+    "rev_mix": 0.24,
+    "out_gain": -6.1,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Warp A",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Level B",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Mod Env",
+    "mod5_dst": "Warp A",
+    "mod5_amt": 0.4,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Warp A",
+    "mod6_amt": 0.25
+  }
+}

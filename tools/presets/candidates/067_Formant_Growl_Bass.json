@@ -1,0 +1,49 @@
+{
+  "name": "Formant Growl Bass",
+  "category": "Bass",
+  "tags": [
+    "Industrial",
+    "Growl",
+    "Distorted"
+  ],
+  "description": "Buzz bass that growls 'yah-yow' through moving vowels.",
+  "macros": [
+    "Vowel",
+    "Growl",
+    "Buzz",
+    "Sub"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "oscA_table": "Buzz",
+    "oscA_pos": 0.4,
+    "oscA_oct": -1,
+    "sub_level": 0.35,
+    "flt_type": "Formant",
+    "flt_cutoff": 900.0,
+    "flt_res": 0.45,
+    "amp_release": 0.12,
+    "lfo1_shape": "Triangle",
+    "lfo1_sync": true,
+    "lfo1_div": "1/8",
+    "dist_drive": 0.55,
+    "dist_mix": 0.7,
+    "out_gain": 6.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Formant",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Drive",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "WT Pos A",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Sub Level",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Formant",
+    "mod5_amt": 0.45
+  }
+}

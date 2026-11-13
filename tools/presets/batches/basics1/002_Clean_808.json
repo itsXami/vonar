@@ -1,0 +1,52 @@
+{
+  "name": "Clean 808",
+  "category": "Bass",
+  "tags": [
+    "Basic",
+    "808",
+    "Clean",
+    "Long"
+  ],
+  "description": "Plain 808: a sine with a short pitch drop and a long tail, no distortion.",
+  "mood": "Dark",
+  "macros": [
+    "Energy",
+    "Punch",
+    "Tail",
+    "Glide"
+  ],
+  "version": 2,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.05,
+    "oscA_table": "Basic Shapes",
+    "oscA_level": 0.95,
+    "flt_cutoff": 3000.0,
+    "amp_attack": 0.0005,
+    "amp_decay": 2.0,
+    "amp_sustain": 0.0,
+    "amp_release": 0.4,
+    "penv_amount": 12.0,
+    "penv_decay": 0.05,
+    "out_gain": 7.2,
+    "fx_dist_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Pitch A",
+    "mod3_amt": 0.03,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Sub Level",
+    "mod4_amt": 0.3,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Detune",
+    "mod5_amt": 0.1,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Level A",
+    "mod6_amt": 0.15
+  }
+}

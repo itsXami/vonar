@@ -1,0 +1,43 @@
+{
+  "name": "Velvet Rope Bass",
+  "category": "Bass",
+  "tags": [
+    "Epic",
+    "Glide"
+  ],
+  "description": "Smooth FM bass that slides between notes with a rich low mid.",
+  "mood": "Dark",
+  "macros": [
+    "Weight",
+    "Tone",
+    "Drive",
+    "Sub"
+  ],
+  "version": 2,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.08,
+    "oscA_table": "FM Bass",
+    "oscA_pos": 0.3,
+    "oscA_oct": -1,
+    "sub_level": 0.3,
+    "flt_cutoff": 1500.0,
+    "amp_release": 0.2,
+    "out_gain": 1.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Filter Drive",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Sub Level",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.2
+  }
+}

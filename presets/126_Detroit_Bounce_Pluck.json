@@ -1,0 +1,53 @@
+{
+  "name": "Detroit Bounce Pluck",
+  "category": "Pluck",
+  "tags": [
+    "Hip-Hop",
+    "Detroit",
+    "Bouncy",
+    "Hard"
+  ],
+  "description": "Hard, high square pluck that bounces over Detroit-style beats.",
+  "mood": "Medium",
+  "macros": [
+    "Bounce",
+    "High",
+    "Grit",
+    "Echo"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Analog Square",
+    "oscA_pos": 0.5,
+    "oscB_table": "Analog Square",
+    "oscB_oct": 1,
+    "oscB_level": 0.35,
+    "flt_cutoff": 3500.0,
+    "flt_envamt": 0.35,
+    "amp_attack": 0.004,
+    "amp_sustain": 0.1,
+    "amp_release": 0.08,
+    "fenv_decay": 0.08,
+    "fenv_sustain": 0.0,
+    "squash": 0.5,
+    "out_gain": -1.8,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_comp_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Level B",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25
+  }
+}

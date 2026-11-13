@@ -1,0 +1,49 @@
+{
+  "name": "Baroque Harpsichord",
+  "category": "Keys",
+  "tags": [
+    "Epic",
+    "Harpsichord",
+    "Dramatic"
+  ],
+  "description": "Plucky harpsichord-like keys with a nasal synced edge.",
+  "macros": [
+    "Quill",
+    "Tone",
+    "Width",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Sync Square",
+    "oscA_pos": 0.3,
+    "oscB_table": "Analog Saw",
+    "oscB_oct": 1,
+    "oscB_level": 0.25,
+    "flt_type": "HP",
+    "flt_cutoff": 300.0,
+    "flt_res": 0.2,
+    "amp_decay": 1.8,
+    "amp_sustain": 0.1,
+    "amp_release": 0.3,
+    "rev_size": 0.6,
+    "rev_mix": 0.2,
+    "squash": 0.3,
+    "out_gain": -3.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.2
+  }
+}

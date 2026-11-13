@@ -1,0 +1,53 @@
+{
+  "name": "Synth Brass",
+  "category": "Brass",
+  "tags": [
+    "Basic",
+    "Synth Brass",
+    "Saw",
+    "Plain"
+  ],
+  "description": "Saw synth brass with the filter swelling in, for big chords.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Swell",
+    "Width",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_voices": 3,
+    "uni_detune": 0.12,
+    "flt_cutoff": 900.0,
+    "flt_envamt": 0.45,
+    "amp_attack": 0.01,
+    "amp_release": 0.3,
+    "fenv_attack": 0.08,
+    "fenv_decay": 0.6,
+    "rev_mix": 0.12,
+    "squash": 0.25,
+    "out_gain": -7.5,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Detune",
+    "mod4_amt": 0.3,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Reverb Mix",
+    "mod5_amt": 0.25,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.25
+  }
+}

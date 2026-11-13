@@ -1,0 +1,46 @@
+{
+  "name": "Random Morph Lead",
+  "category": "Lead",
+  "tags": [
+    "Industrial",
+    "Glitch",
+    "Movement"
+  ],
+  "description": "Digital lead whose timbre jumps randomly on every sixteenth note.",
+  "macros": [
+    "Chaos",
+    "Grit",
+    "Tone",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "oscA_table": "FM Digital",
+    "oscA_pos": 0.4,
+    "flt_cutoff": 5000.0,
+    "lfo1_shape": "S&H",
+    "lfo1_sync": true,
+    "lfo1_div": "1/16",
+    "dist_drive": 0.5,
+    "dist_mix": 0.5,
+    "dly_time": "1/16",
+    "dly_mix": 0.1,
+    "out_gain": -1.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Mix",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.5
+  }
+}

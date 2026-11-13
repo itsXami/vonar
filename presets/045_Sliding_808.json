@@ -1,0 +1,52 @@
+{
+  "name": "Sliding 808",
+  "category": "Bass",
+  "tags": [
+    "Hip-Hop",
+    "Trap",
+    "808",
+    "Glide"
+  ],
+  "description": "Long, clean 808 built for slides: every overlapping note glides into the next.",
+  "mood": "Dark",
+  "macros": [
+    "Slide",
+    "Warmth",
+    "Tone",
+    "Sub"
+  ],
+  "version": 2,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.16,
+    "oscA_table": "Sine Drive",
+    "oscA_pos": 0.3,
+    "oscA_level": 0.9,
+    "flt_cutoff": 2800.0,
+    "amp_decay": 3.0,
+    "amp_sustain": 0.8,
+    "amp_release": 0.5,
+    "penv_amount": 4.0,
+    "penv_decay": 0.05,
+    "dist_type": "Tube",
+    "dist_drive": 0.45,
+    "dist_mix": 0.7,
+    "out_gain": -2.0,
+    "fx_dist_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Pitch",
+    "mod1_amt": 0.02,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Drive",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Sub Level",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Dist Drive",
+    "mod5_amt": 0.2
+  }
+}

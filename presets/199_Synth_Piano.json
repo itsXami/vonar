@@ -1,0 +1,52 @@
+{
+  "name": "Synth Piano",
+  "category": "Keys",
+  "tags": [
+    "Basic",
+    "Piano",
+    "Clean",
+    "Plain"
+  ],
+  "description": "Clean, bright synth piano for chords in any style, with velocity on the tone.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Bright",
+    "Body",
+    "Room"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Hammer Piano",
+    "oscA_pos": 0.2,
+    "flt_type": "LP12",
+    "flt_cutoff": 5000.0,
+    "amp_attack": 0.001,
+    "amp_decay": 2.5,
+    "amp_sustain": 0.0,
+    "amp_release": 0.4,
+    "rev_size": 0.4,
+    "rev_mix": 0.1,
+    "out_gain": 4.1,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "WT Pos A",
+    "mod4_amt": 0.25,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Reverb Mix",
+    "mod5_amt": 0.25,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.35
+  }
+}

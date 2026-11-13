@@ -1,0 +1,46 @@
+{
+  "name": "Industrial Pump Arp",
+  "category": "Arp",
+  "tags": [
+    "Industrial",
+    "Pump",
+    "Distorted"
+  ],
+  "description": "Crushed metallic arpeggio pumping hard against the kick.",
+  "macros": [
+    "Crush",
+    "Metal",
+    "Tone",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Crush",
+    "oscA_pos": 0.4,
+    "oscB_table": "Metal Comb",
+    "oscB_level": 0.3,
+    "flt_cutoff": 3000.0,
+    "amp_decay": 0.2,
+    "amp_sustain": 0.3,
+    "amp_release": 0.06,
+    "arp_on": true,
+    "arp_octaves": 2,
+    "dist_type": "Bitcrush",
+    "dist_drive": 0.35,
+    "dist_mix": 0.5,
+    "pump_amount": 0.6,
+    "out_gain": 4.4,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Drive",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Distant Choir Pad",
+  "category": "Pad",
+  "tags": [
+    "Ambient",
+    "Choir",
+    "Distant",
+    "Cathedral"
+  ],
+  "description": "Choir heard from the far end of a cathedral, soft and blurred.",
+  "mood": "Sad",
+  "macros": [
+    "Distance",
+    "Choir",
+    "Blur",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Choir",
+    "oscA_pos": 0.55,
+    "oscA_voices": 5,
+    "uni_detune": 0.18,
+    "uni_spread": 1.0,
+    "flt_cutoff": 1300.0,
+    "amp_attack": 1.0,
+    "amp_release": 2.5,
+    "rev_size": 0.92,
+    "rev_damping": 0.7,
+    "rev_mix": 0.45,
+    "out_gain": -8.1,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_rate": 0.15,
+    "chorus_mix": 0.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": -0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Random",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.15
+  }
+}

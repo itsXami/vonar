@@ -1,0 +1,48 @@
+{
+  "name": "Organ Piano Hybrid",
+  "category": "Keys",
+  "tags": [
+    "Gospel",
+    "Piano",
+    "Organ"
+  ],
+  "description": "Piano attack that blooms into a sustained drawbar organ tail.",
+  "macros": [
+    "Organ",
+    "Bright",
+    "Rotor",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "FM Bell",
+    "oscA_pos": 0.2,
+    "oscB_table": "Drawbars",
+    "oscB_pos": 0.5,
+    "oscB_oct": 1,
+    "oscB_level": 0.4,
+    "flt_cutoff": 5000.0,
+    "amp_decay": 1.5,
+    "amp_sustain": 0.45,
+    "amp_release": 0.4,
+    "mfx_rate": 0.8,
+    "mfx_mix": 0.25,
+    "rev_mix": 0.18,
+    "out_gain": -2.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Level B",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Crushed Bell",
+  "category": "Bell",
+  "tags": [
+    "Lo-Fi",
+    "Crushed"
+  ],
+  "description": "Bell played through a cheap sampler: crunchy bits and a dull, warm ring.",
+  "macros": [
+    "Bits",
+    "Tone",
+    "Wobble",
+    "Room"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "FM Bell",
+    "oscA_pos": 0.35,
+    "flt_cutoff": 2400.0,
+    "amp_decay": 1.8,
+    "amp_sustain": 0.0,
+    "amp_release": 0.6,
+    "dist_type": "Bitcrush",
+    "dist_drive": 0.35,
+    "dist_mix": 0.45,
+    "rev_size": 0.35,
+    "rev_mix": 0.1,
+    "out_gain": -2.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Pitch",
+    "mod3_amt": 0.004,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Random",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.003
+  }
+}

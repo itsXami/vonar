@@ -1,0 +1,46 @@
+{
+  "name": "Sidechain Organ",
+  "category": "Keys",
+  "tags": [
+    "House",
+    "Disco",
+    "Pump",
+    "Organ"
+  ],
+  "description": "House organ chords breathing with a strong quarter-note pump.",
+  "mood": "Medium",
+  "macros": [
+    "Drawbars",
+    "Tone",
+    "Phase",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Drawbars",
+    "oscA_pos": 0.5,
+    "oscA_oct": 1,
+    "flt_cutoff": 4000.0,
+    "pump_amount": 0.75,
+    "rev_mix": 0.12,
+    "out_gain": -2.3,
+    "fx_phaser_on": true,
+    "fx_pump_on": true,
+    "fx_reverb_on": true,
+    "phaser_rate": 0.25,
+    "phaser_depth": 0.5,
+    "phaser_mix": 0.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.5,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Mod FX Mix",
+    "mod3_amt": 0.4,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3
+  }
+}

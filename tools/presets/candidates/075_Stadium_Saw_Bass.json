@@ -1,0 +1,44 @@
+{
+  "name": "Stadium Saw Bass",
+  "category": "Bass",
+  "tags": [
+    "Stadium",
+    "Supersaw",
+    "Pump"
+  ],
+  "description": "Wide stacked saw bass that pumps under big chords.",
+  "macros": [
+    "Bright",
+    "Width",
+    "Grit",
+    "Sub"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "oscA_table": "Hyper Saw",
+    "oscA_pos": 0.3,
+    "oscA_oct": -1,
+    "oscA_voices": 3,
+    "sub_level": 0.4,
+    "flt_cutoff": 1100.0,
+    "flt_envamt": 0.2,
+    "amp_release": 0.12,
+    "fenv_decay": 0.25,
+    "fenv_sustain": 0.4,
+    "pump_amount": 0.4,
+    "out_gain": 7.9,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Mod FX Mix",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Dist Mix",
+    "mod3_amt": 0.2,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Sub Level",
+    "mod4_amt": 0.3
+  }
+}

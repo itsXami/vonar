@@ -1,0 +1,52 @@
+{
+  "name": "Crotale Ring",
+  "category": "Bell",
+  "tags": [
+    "Orchestral",
+    "Crotale",
+    "High",
+    "Pure"
+  ],
+  "description": "Small antique cymbals tuned high: a piercing, pure ring.",
+  "mood": "Medium",
+  "macros": [
+    "Ring",
+    "Bright",
+    "Shimmer",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Basic Shapes",
+    "oscA_oct": 1,
+    "oscA_warp": "FM",
+    "oscA_warp_amt": 0.06,
+    "oscB_oct": 1,
+    "oscB_semi": 4,
+    "oscB_fine": 40.0,
+    "flt_type": "LP12",
+    "flt_cutoff": 10000.0,
+    "amp_decay": 3.5,
+    "amp_sustain": 0.0,
+    "amp_release": 1.5,
+    "rev_size": 0.7,
+    "rev_mix": 0.2,
+    "out_gain": -3.4,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Warp A",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Detune",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Warp A",
+    "mod5_amt": 0.3
+  }
+}

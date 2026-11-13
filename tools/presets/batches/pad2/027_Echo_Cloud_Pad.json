@@ -1,0 +1,52 @@
+{
+  "name": "Echo Cloud Pad",
+  "category": "Pad",
+  "tags": [
+    "Ambient",
+    "Delay",
+    "Cloud"
+  ],
+  "description": "Short soft chords that become a cloud of dotted echoes.",
+  "macros": [
+    "Cloud",
+    "Tone",
+    "Width",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Hollow",
+    "oscA_pos": 0.5,
+    "oscA_voices": 3,
+    "uni_detune": 0.1,
+    "flt_cutoff": 1800.0,
+    "amp_attack": 0.15,
+    "amp_decay": 1.2,
+    "amp_sustain": 0.4,
+    "amp_release": 1.0,
+    "dly_mode": "PingPong",
+    "dly_time": "1/8D",
+    "dly_feedback": 0.65,
+    "dly_mix": 0.4,
+    "rev_size": 0.7,
+    "rev_mix": 0.22,
+    "out_gain": -5.9,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Delay Mix",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Detune",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Mod Wheel",
+    "mod5_dst": "Delay Mix",
+    "mod5_amt": 0.3
+  }
+}

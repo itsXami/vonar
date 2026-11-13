@@ -1,0 +1,51 @@
+{
+  "name": "Rubber Ladder Pluck",
+  "category": "Pluck",
+  "tags": [
+    "Electronic",
+    "Resonant",
+    "Squelch"
+  ],
+  "description": "Resonant ladder pluck that bounces with a rubbery squelch.",
+  "mood": "Medium",
+  "macros": [
+    "Squelch",
+    "Open",
+    "Drive",
+    "Echo"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Analog Square",
+    "oscA_pos": 0.3,
+    "flt_type": "Ladder",
+    "flt_cutoff": 350.0,
+    "flt_res": 0.65,
+    "flt_drive": 0.3,
+    "flt_envamt": 0.5,
+    "amp_decay": 0.35,
+    "amp_sustain": 0.0,
+    "fenv_decay": 0.18,
+    "fenv_sustain": 0.0,
+    "out_gain": 9.9,
+    "fx_delay_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Resonance",
+    "mod1_amt": 0.25,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Filter Drive",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.25,
+    "mod6_src": "Random",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.06
+  }
+}

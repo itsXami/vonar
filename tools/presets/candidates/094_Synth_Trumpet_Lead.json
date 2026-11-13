@@ -1,0 +1,49 @@
+{
+  "name": "Synth Trumpet Lead",
+  "category": "Brass",
+  "tags": [
+    "Analog",
+    "Brass",
+    "Solo"
+  ],
+  "description": "Expressive mono trumpet with breathy attack and pressure vibrato.",
+  "macros": [
+    "Brass",
+    "Tone",
+    "Vibrato",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.05,
+    "oscA_table": "Brass",
+    "oscA_pos": 0.65,
+    "noise_level": 0.03,
+    "flt_cutoff": 1600.0,
+    "flt_envamt": 0.3,
+    "amp_attack": 0.03,
+    "amp_release": 0.2,
+    "fenv_attack": 0.03,
+    "rev_mix": 0.14,
+    "out_gain": 2.2,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "WT Pos A",
+    "mod1_amt": 0.4,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Pitch",
+    "mod3_amt": 0.01,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Aftertouch",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.01,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.2
+  }
+}

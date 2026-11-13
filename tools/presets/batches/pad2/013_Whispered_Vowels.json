@@ -1,0 +1,51 @@
+{
+  "name": "Whispered Vowels",
+  "category": "Pad",
+  "tags": [
+    "Ambient",
+    "Breathy",
+    "Vocal",
+    "Whisper"
+  ],
+  "description": "Breathy, almost whispered vowels drifting from 'ah' to 'oo'.",
+  "macros": [
+    "Whisper",
+    "Vowel",
+    "Tone",
+    "Hall"
+  ],
+  "version": 2,
+  "params": {
+    "oscA_table": "Vocal Fry",
+    "oscA_pos": 0.3,
+    "oscA_level": 0.4,
+    "noise_level": 0.12,
+    "flt_type": "Formant",
+    "flt_cutoff": 1000.0,
+    "flt_res": 0.45,
+    "flt_vowel": 0.5,
+    "amp_attack": 0.7,
+    "amp_release": 1.8,
+    "lfo1_shape": "Triangle",
+    "lfo1_rate": 0.12,
+    "rev_size": 0.8,
+    "rev_mix": 0.28,
+    "out_gain": 4.5,
+    "fx_reverb_on": true,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Noise Level",
+    "mod1_amt": 0.15,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Formant",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.35,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "Formant",
+    "mod5_amt": 0.4
+  }
+}
