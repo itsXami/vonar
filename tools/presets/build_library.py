@@ -133,7 +133,7 @@ def write_docs(chosen, sel):
     fix = (set(sel.get("batch1_fix", {})) | set(sel.get("candidates_fix", {}))) - set(sel.get("fixes_accepted", []))
     total = len(chosen) + 1
     lines = [
-        "# VOLT – presety fabryczne",
+        "# Vonar – presety fabryczne",
         "",
         f"{total} presetów: **Init** + {len(chosen)} brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii",
         "brzmienia, a w kategorii alfabetycznie – tak samo jak w menu presetów pluginu. Presety oznaczone w kolumnie",

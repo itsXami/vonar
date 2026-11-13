@@ -328,7 +328,7 @@ MainPanel::MainPanel (VoltAudioProcessor& p) : presetBar (p.getPresetManager()),
     presetBar.setBounds (0, 0, kWidth, 48);
 
     const char* names[3] = { "SYNTH", "MODULATION", "EFFECTS" };
-    const int tabX[4] = { 118, 196, 318, 412 };
+    const int tabX[4] = { 126, 204, 326, 420 };
     for (int t = 0; t < 3; ++t)
     {
         auto& b = tabButtons[t];

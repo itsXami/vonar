@@ -59,6 +59,7 @@ public:
                                  const juce::String& description, const juce::String& mood = {});
 
     static juce::File getUserPresetDirectory();
+    static void migrateOldUserPresets();   // VOLT -> Vonar folder, once
 
     // Parses and validates JSON. Problems (unknown ids, bad choice names, missing fields) go to `errors`.
     static bool parsePreset (const juce::String& json, PresetInfo& out, juce::StringArray& errors);

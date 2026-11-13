@@ -394,3 +394,17 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   testy pod xvfb.
 - Do sprawdzenia przez użytkownika w FL Studio: przeciąganie punktów, zmiana kolejności, włączniki, automatyzacja
   nowych parametrów, otwarcie starego projektu z VOLT 0.9.0.
+
+## Nowa nazwa: Vonar (2026-11-13)
+- „VOLT” było zajęte w audio (interfejsy Universal Audio Volt, wtyczki Lunacy Volt i Air-G Volt, syntezator
+  Volt od Numerical Audio). Użytkownik wybrał **Vonar** (sprawdzone: brak znaków towarowych VONAR w USA, brak
+  produktu audio, brak firmy o tej nazwie). Logo: wariant A z makiety https://claude.ai/artifact/BKk7ExiM8YaXpNDpfZk2Fv
+  (litery kreską, „O” = pokrętło z bursztynową wskazówką).
+- Zmienione: nazwa w hoście (`PRODUCT_NAME`, `getName`), producent „Vonar”, logo w pasku, okno „O programie”,
+  folder presetów użytkownika `%APPDATA%\Vonar\Presets` (przy pierwszym uruchomieniu kopiuje presety ze starego
+  folderu VOLT), instalator `installer/Vonar.iss` → `Vonar-<wersja>-Setup.exe` (ta sama AppId = aktualizacja,
+  usuwa stary `VOLT.vst3`), artefakty CI `Vonar-*`, README, CONTRIBUTING, zrzuty ekranu.
+- Bez zmian (zgodność): kody pluginu `Vltx`/`Vlt1` (VST3 ID), typ drzewa stanu „VOLT”, wewnętrzne nazwy w kodzie
+  (namespace `volt`, cele CMake `VOLT_*`), więc projekty FL Studio z VOLT dalej się otwierają.
+- Do sprawdzenia przez użytkownika: instalacja nowym instalatorem na komputerze z VOLT, czy FL pokazuje tylko
+  Vonar i czy stary projekt się otwiera.

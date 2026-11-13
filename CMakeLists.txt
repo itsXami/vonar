@@ -75,13 +75,13 @@ target_link_libraries(VoltCore INTERFACE
 # Plugin
 # ---------------------------------------------------------------------------
 juce_add_plugin(VOLT
-    COMPANY_NAME              "VOLT Instruments"
+    COMPANY_NAME              "Vonar"
     COMPANY_WEBSITE           "https://github.com/jakubnikapiotr-design/vst"
     BUNDLE_ID                 "com.voltinstruments.volt"
     PLUGIN_MANUFACTURER_CODE  Vltx
     PLUGIN_CODE               Vlt1
-    PRODUCT_NAME              "VOLT"
-    DESCRIPTION               "Minimal wavetable synthesizer"
+    PRODUCT_NAME              "Vonar"
+    DESCRIPTION               "Wavetable synthesizer"
     IS_SYNTH                  TRUE
     NEEDS_MIDI_INPUT          TRUE
     NEEDS_MIDI_OUTPUT         FALSE

@@ -53,7 +53,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: VOLT-preset-previews
+          name: Vonar-preset-previews
           path: render-out/previews/
           if-no-files-found: warn
           retention-days: 14
@@ -62,7 +62,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: VOLT-render-report
+          name: Vonar-render-report
           path: |
             render-out/report.md
             render-out/report.json
@@ -74,7 +74,7 @@ jobs:
           curl -sSL -o pluginval.zip "https://github.com/Tracktion/pluginval/releases/download/${PLUGINVAL_VERSION}/pluginval_Linux.zip"
           unzip -q pluginval.zip
           xvfb-run -a ./pluginval --strictness-level 5 --validate-in-process --timeout-ms 600000 \
-            --validate build/VOLT_artefacts/Release/VST3/VOLT.vst3
+            --validate build/VOLT_artefacts/Release/VST3/Vonar.vst3
 
   windows:
     name: Windows x64 (VST3 + Standalone, pluginval)
@@ -95,37 +95,37 @@ jobs:
           curl -sSL -o pluginval.zip "https://github.com/Tracktion/pluginval/releases/download/${PLUGINVAL_VERSION}/pluginval_Windows.zip"
           7z x -y pluginval.zip > /dev/null
           ./pluginval.exe --strictness-level 5 --validate-in-process --timeout-ms 600000 \
-            --validate "build/VOLT_artefacts/Release/VST3/VOLT.vst3"
+            --validate "build/VOLT_artefacts/Release/VST3/Vonar.vst3"
 
       - name: Package
         shell: bash
         run: |
           mkdir -p dist
-          cp -r "build/VOLT_artefacts/Release/VST3/VOLT.vst3" dist/
+          cp -r "build/VOLT_artefacts/Release/VST3/Vonar.vst3" dist/
           cp README.md dist/ || true
 
-      - name: Upload VOLT-windows-x64
+      - name: Upload Vonar-windows-x64
         uses: actions/upload-artifact@v4
         with:
-          name: VOLT-windows-x64
+          name: Vonar-windows-x64
           path: dist/
           if-no-files-found: error
           retention-days: 14
 
-      # Installer with a wizard (Inno Setup, installer/VOLT.iss); the version comes from CMakeLists.txt.
+      # Installer with a wizard (Inno Setup, installer/Vonar.iss); the version comes from CMakeLists.txt.
       - name: Build installer
         shell: pwsh
         run: |
           $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
           if (-not (Test-Path $iscc)) { choco install innosetup -y --no-progress }
           $v = (Select-String -Path CMakeLists.txt -Pattern 'project\(VOLT VERSION ([0-9.]+)').Matches[0].Groups[1].Value
-          & $iscc "/DAppVersion=$v" "/DSourceDir=$PWD\dist" installer\VOLT.iss
+          & $iscc "/DAppVersion=$v" "/DSourceDir=$PWD\dist" installer\Vonar.iss
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Upload VOLT-windows-installer
+      - name: Upload Vonar-windows-installer
         uses: actions/upload-artifact@v4
         with:
-          name: VOLT-windows-installer
+          name: Vonar-windows-installer
           path: installer/Output/*.exe
           if-no-files-found: error
           retention-days: 30
