@@ -1,0 +1,53 @@
+{
+  "name": "Water Drop Pluck",
+  "category": "Pluck",
+  "tags": [
+    "Ambient",
+    "Water",
+    "Drop"
+  ],
+  "description": "Sine droplet whose pitch falls as it lands, echoing in a cave.",
+  "mood": "Soft",
+  "macros": [
+    "Drop",
+    "Echo",
+    "Cave",
+    "Tone"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Basic Shapes",
+    "flt_type": "LP12",
+    "flt_cutoff": 6000.0,
+    "amp_decay": 0.25,
+    "amp_sustain": 0.0,
+    "amp_release": 0.2,
+    "penv_amount": 9.0,
+    "penv_decay": 0.03,
+    "dly_mode": "PingPong",
+    "dly_time": "1/8D",
+    "dly_feedback": 0.5,
+    "dly_mix": 0.25,
+    "rev_size": 0.85,
+    "rev_mix": 0.3,
+    "out_gain": 2.3,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Pitch A",
+    "mod1_amt": 0.03,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Delay Mix",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Reverb Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Cutoff",
+    "mod4_amt": 0.35,
+    "mod5_src": "Random",
+    "mod5_dst": "Pitch",
+    "mod5_amt": 0.005,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.2
+  }
+}

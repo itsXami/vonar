@@ -7,6 +7,7 @@
     "Synthwave"
   ],
   "description": "Relentless sixteenth-note bass pulse with a cutting filter envelope.",
+  "mood": "Aggressive",
   "macros": [
     "Pulse",
     "Drive",
@@ -28,7 +29,7 @@
     "fenv_sustain": 0.0,
     "arp_on": true,
     "arp_gate": 0.45,
-    "out_gain": 11.9,
+    "out_gain": 12.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

@@ -79,8 +79,10 @@ GROUP_TAGS = {
 }
 
 
-def P(group, name, category, desc, macros, mods=(), tags=(), **params):
-    """macros: four (label, [(dest, amount), ...]) tuples. mods: extra (source, dest, amount) routings."""
+def P(group, name, category, desc, macros, mods=(), tags=(), mood=None, **params):
+    """macros: four (label, [(dest, amount), ...]) tuples. mods: extra (source, dest, amount) routings.
+    mood: Soft / Medium / Sad / Dark / Aggressive (older presets get theirs from tools/presets/moods.json)."""
+    assert mood in (None, "Soft", "Medium", "Sad", "Dark", "Aggressive"), (name, mood)
     assert len(macros) == 4, name
     slots = []
     for i, (label, routes) in enumerate(macros):
@@ -101,7 +103,7 @@ def P(group, name, category, desc, macros, mods=(), tags=(), **params):
     PRESETS.append({
         "group": group, "name": name, "category": category,
         "tags": list(dict.fromkeys(GROUP_TAGS[group] + list(tags))), "description": desc,
-        "macros": [m[0] for m in macros], "params": params,
+        "macros": [m[0] for m in macros], "params": params, "mood": mood,
     })
 
 

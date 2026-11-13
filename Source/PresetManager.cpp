@@ -6,8 +6,14 @@ namespace volt
 const juce::StringArray& PresetManager::categories()
 {
     static const juce::StringArray c { "Bass", "Lead", "Guitar", "Pluck", "Keys", "Bell", "Pad", "Strings", "Brass",
-                                       "Woodwind", "Arp", "FX" };
+                                       "Woodwind", "Arp", "Drums", "FX" };
     return c;
+}
+
+const juce::StringArray& PresetManager::moods()
+{
+    static const juce::StringArray m { "Soft", "Medium", "Sad", "Dark", "Aggressive" };
+    return m;
 }
 
 PresetManager::PresetManager (juce::AudioProcessorValueTreeState& state) : apvts (state)
@@ -35,6 +41,7 @@ bool PresetManager::parsePreset (const juce::String& json, PresetInfo& out, juce
     out.name = root["name"].toString().trim();
     out.category = root["category"].toString().trim();
     out.description = root["description"].toString().trim();
+    out.mood = root["mood"].toString().trim();
     out.tags.clear();
     if (auto* t = root["tags"].getArray())
         for (const auto& v : *t)
@@ -53,6 +60,8 @@ bool PresetManager::parsePreset (const juce::String& json, PresetInfo& out, juce
         errors.add (out.name + ": invalid category '" + out.category + "'");
     if (out.description.isEmpty())
         errors.add (out.name + ": missing description");
+    if (out.mood.isNotEmpty() && ! moods().contains (out.mood))
+        errors.add (out.name + ": invalid mood '" + out.mood + "'");
     if (! out.params.isObject())
     {
         errors.add (out.name + ": params must be an object");
@@ -222,7 +231,8 @@ void PresetManager::setMacroLabel (int i, const juce::String& label)
 }
 
 juce::var PresetManager::currentStateToJson (const juce::String& name, const juce::String& category,
-                                             const juce::StringArray& tags, const juce::String& description) const
+                                             const juce::StringArray& tags, const juce::String& description,
+                                             const juce::String& mood) const
 {
     auto* root = new juce::DynamicObject();
     root->setProperty ("name", name);
@@ -232,6 +242,8 @@ juce::var PresetManager::currentStateToJson (const juce::String& name, const juc
         tagArr.add (t);
     root->setProperty ("tags", tagArr);
     root->setProperty ("description", description);
+    if (moods().contains (mood))
+        root->setProperty ("mood", mood);
     juce::Array<juce::var> macroArr;
     for (int m = 0; m < kNumMacros; ++m)
         macroArr.add (getMacroLabel (m));
@@ -257,7 +269,8 @@ juce::var PresetManager::currentStateToJson (const juce::String& name, const juc
 }
 
 juce::String PresetManager::saveUserPreset (const juce::String& rawName, const juce::String& category,
-                                            const juce::StringArray& tags, const juce::String& description)
+                                            const juce::StringArray& tags, const juce::String& description,
+                                            const juce::String& mood)
 {
     const auto name = rawName.trim();
     if (name.isEmpty())
@@ -274,7 +287,7 @@ juce::String PresetManager::saveUserPreset (const juce::String& rawName, const j
 
     const auto file = dir.getChildFile (juce::File::createLegalFileName (name) + ".json");
     const auto json = juce::JSON::toString (currentStateToJson (name, category, tags,
-                                                                description.isNotEmpty() ? description : "User preset."));
+                                                                description.isNotEmpty() ? description : "User preset.", mood));
     if (! file.replaceWithText (json))
         return "Cannot write " + file.getFullPathName();
 

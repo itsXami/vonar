@@ -23,6 +23,7 @@ constexpr float kMaxPeakDb = 0.0f;         // > 0 dBFS = clipping
 constexpr float kMaxDc = 0.01f;            // |mean| over the active part
 constexpr float kTailEndDb = -60.0f;       // RMS of the last 0.5 s of the 8 s tail
 constexpr float kMaxLimiterDb = 3.0f;      // more = bad gain staging
+constexpr float kMaxLimiterDbHard = 5.0f;  // Aggressive presets: some limiting is part of the sound, not a fault
 constexpr float kLoudnessWindow = 5.0f;    // +- LU around the median of all presets
 constexpr float kMinLoudness = -24.0f, kMaxLoudness = -9.0f;
 
@@ -201,6 +202,12 @@ struct Features
     float sustain = 0;          // level 1 s after the peak relative to the peak (0 .. 1)
     float width = 0;            // side / (mid + side) energy
     float low = 0;              // share of energy below 150 Hz
+    // Absolute measures of how hard a sound hits (tools/presets/energy_mood.py):
+    float presence = 0;         // share of energy between 1 and 8 kHz: bite, the range the ear hears as aggressive
+    float air = 0;              // share of energy above 8 kHz: fizz, hats, breath
+    float crest = 0;            // peak over RMS of the loud part, dB: spiky transients vs a flat wall of sound
+    float density = 0;          // share of 1-8 kHz bins within 40 dB of the frame's loudest bin: dense harmonics (distortion, supersaw)
+    float onset = 0;            // steepest rise of the 5 ms envelope over 20 ms, dB: how hard the notes strike
 };
 
 Features computeFeatures (const std::vector<float>& l, const std::vector<float>& r, size_t end)
@@ -211,7 +218,8 @@ Features computeFeatures (const std::vector<float>& l, const std::vector<float>&
     Features f;
     f.bands.assign (16, 0.0f);
     std::vector<double> bandAcc (16, 0.0), frameEnergy, frameCentroid;
-    double flatAcc = 0.0, lowE = 0.0, allE = 0.0, mid = 0.0, side = 0.0;
+    double densAcc = 0.0, densW = 0.0;
+    double flatAcc = 0.0, lowE = 0.0, allE = 0.0, mid = 0.0, side = 0.0, presE = 0.0, airE = 0.0;
     int frames = 0;
     auto bandOf = [] (double hz) { return juce::jlimit (0, 15, (int) std::floor (std::log2 (std::max (hz, 40.0) / 40.0) * 16.0 / std::log2 (16000.0 / 40.0))); };
     for (size_t pos = 0; pos + (size_t) n <= end; pos += (size_t) hop)
@@ -237,6 +245,8 @@ Features computeFeatures (const std::vector<float>& l, const std::vector<float>&
             const double p2 = m * m;
             bandAcc[(size_t) bandOf (hz)] += p2;
             if (hz < 150.0) lowE += p2;
+            else if (hz >= 1000.0 && hz < 8000.0) presE += p2;
+            else if (hz >= 8000.0) airE += p2;
             allE += p2;
             num += hz * m;
             den += m;
@@ -245,6 +255,17 @@ Features computeFeatures (const std::vector<float>& l, const std::vector<float>&
             ++cnt;
         }
         flatAcc += std::exp (logSum / cnt) / (linSum / cnt);
+        {
+            float top = 0.0f;
+            for (int k = 1; k < n / 2; ++k)
+                top = std::max (top, buf[(size_t) k]);
+            const int k0 = (int) (1000.0 * n / kSampleRate), k1 = (int) (8000.0 * n / kSampleRate);
+            int dense = 0;
+            for (int k = k0; k < k1; ++k)
+                dense += buf[(size_t) k] > top * 0.01f ? 1 : 0;
+            densAcc += e * (double) dense / (double) (k1 - k0);
+            densW += e;
+        }
         frameEnergy.push_back (e / n);
         frameCentroid.push_back (den > 0.0 ? num / den : 1000.0);
         ++frames;
@@ -261,6 +282,9 @@ Features computeFeatures (const std::vector<float>& l, const std::vector<float>&
         v -= (float) meanDb;
     f.noisiness = (float) (flatAcc / frames);
     f.low = (float) (lowE / (allE + 1.0e-12));
+    f.presence = (float) (presE / (allE + 1.0e-12));
+    f.density = (float) (densAcc / (densW + 1.0e-20));
+    f.air = (float) (airE / (allE + 1.0e-12));
     f.width = (float) (side / (mid + side + 1.0e-12));
 
     // Loudness-weighted centroid statistics (silent frames would dominate otherwise).
@@ -290,6 +314,38 @@ Features computeFeatures (const std::vector<float>& l, const std::vector<float>&
         f.attack = (float) ((double) a * (double) win / kSampleRate);
         const size_t later = (size_t) (pk - env.begin()) + (size_t) (1.0 / 0.023);
         f.sustain = (float) (later < env.size() ? env[later] / (*pk + 1.0e-12) : 0.0);
+    }
+
+    // Crest and onset from a 5 ms envelope; only the part within 30 dB of the loudest frame counts.
+    {
+        const size_t w5 = (size_t) (0.005 * kSampleRate);
+        std::vector<double> e5;
+        double pkSample = 0.0;
+        for (size_t pos = 0; pos + w5 <= end; pos += w5)
+        {
+            double s = 0.0;
+            for (size_t i = pos; i < pos + w5; ++i)
+            {
+                s += 0.5 * ((double) l[i] * l[i] + (double) r[i] * r[i]);
+                pkSample = std::max (pkSample, (double) std::max (std::abs (l[i]), std::abs (r[i])));
+            }
+            e5.push_back (std::sqrt (s / (double) w5));
+        }
+        if (! e5.empty())
+        {
+            const double top = *std::max_element (e5.begin(), e5.end());
+            double sq = 0.0;
+            int cnt = 0;
+            for (double v : e5)
+                if (v > top * 0.0316) { sq += v * v; ++cnt; }
+            const double rms = std::sqrt (sq / std::max (1, cnt));
+            f.crest = toDb (pkSample / (rms + 1.0e-12));
+            double rise = 0.0;
+            for (size_t i = 4; i < e5.size(); ++i)
+                if (e5[i] > top * 0.1)
+                    rise = std::max (rise, (double) (toDb (e5[i]) - toDb (std::max (e5[i - 4], top * 1.0e-3))));
+            f.onset = (float) rise;
+        }
     }
     return f;
 }
@@ -392,7 +448,8 @@ Result renderPreset (VoltAudioProcessor& proc, int index, const volt::PresetInfo
     if (res.peakDb > kMaxPeakDb) res.failures.add ("clipping above 0 dBFS");
     if (std::abs (res.dc) > kMaxDc) res.failures.add ("DC offset " + juce::String (res.dc, 4));
     if (res.tailDb > kTailEndDb) res.failures.add ("tail does not decay (" + juce::String (res.tailDb, 1) + " dBFS after 8 s)");
-    if (res.limiterDb > kMaxLimiterDb) res.failures.add ("limiter works too hard (" + juce::String (res.limiterDb, 1) + " dB)");
+    const float maxLimiter = info.mood == "Aggressive" ? kMaxLimiterDbHard : kMaxLimiterDb;
+    if (res.limiterDb > maxLimiter) res.failures.add ("limiter works too hard (" + juce::String (res.limiterDb, 1) + " dB)");
     if (res.lufs < kMinLoudness || res.lufs > kMaxLoudness)
         res.failures.add ("loudness " + juce::String (res.lufs, 1) + " LUFS outside [" + juce::String (kMinLoudness) + ", " + juce::String (kMaxLoudness) + "]");
 
@@ -592,8 +649,8 @@ int main (int argc, char** argv)
     md << "# VOLT preset render report\n\n"
        << "48 kHz, 120 BPM, block " << block << ", tail " << kTailSeconds << " s after the last note-off.\n\n"
        << "Checks: peak <= 0 dBFS, not silent (peak > " << kSilenceDb << " dBFS), no NaN/Inf, |DC| <= " << kMaxDc
-       << ", RMS of the last 0.5 s of the tail < " << kTailEndDb << " dBFS, limiter reduction <= " << kMaxLimiterDb
-       << " dB, loudness in [" << kMinLoudness << ", " << kMaxLoudness << "] LUFS and within +-" << kLoudnessWindow
+       << ", RMS of the last 0.5 s of the tail < " << kTailEndDb << " dBFS, limiter reduction <= " << kMaxLimiterDb << " dB (Aggressive presets " << kMaxLimiterDbHard
+       << " dB), loudness in [" << kMinLoudness << ", " << kMaxLoudness << "] LUFS and within +-" << kLoudnessWindow
        << " LU of the median (" << fmt (median) << " LUFS).\n\n"
        << "| # | Preset | Category | Phrase | Peak dBFS | RMS dBFS | LUFS | Centroid Hz | Tail s | Limiter dB | DC | Result |\n"
        << "|---|---|---|---|---|---|---|---|---|---|---|---|\n";
@@ -628,6 +685,11 @@ int main (int argc, char** argv)
             fo->setProperty ("sustain", r.features.sustain);
             fo->setProperty ("width", r.features.width);
             fo->setProperty ("low_share", r.features.low);
+            fo->setProperty ("presence", r.features.presence);
+            fo->setProperty ("air", r.features.air);
+            fo->setProperty ("crest_db", r.features.crest);
+            fo->setProperty ("density", r.features.density);
+            fo->setProperty ("onset_db", r.features.onset);
             o->setProperty ("features", juce::var (fo));
         }
         o->setProperty ("tail_seconds", r.tailTime);

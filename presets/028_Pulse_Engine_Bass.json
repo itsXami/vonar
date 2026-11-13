@@ -7,6 +7,7 @@
     "Synthwave"
   ],
   "description": "Bass gated by a square LFO into a driving sixteenth-note engine.",
+  "mood": "Dark",
   "macros": [
     "Gate",
     "Drive",

@@ -1,0 +1,53 @@
+{
+  "name": "Sul Ponticello",
+  "category": "Strings",
+  "tags": [
+    "Metallic",
+    "Ponticello",
+    "Ghostly",
+    "Thin"
+  ],
+  "description": "Bow played right at the bridge: thin, metallic, ghostly overtones.",
+  "mood": "Medium",
+  "macros": [
+    "Bridge",
+    "Metal",
+    "Bow",
+    "Hall"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Strings",
+    "oscA_pos": 0.95,
+    "oscA_voices": 3,
+    "uni_detune": 0.1,
+    "noise_level": 0.02,
+    "flt_type": "HP",
+    "flt_cutoff": 900.0,
+    "flt_res": 0.35,
+    "amp_attack": 0.3,
+    "amp_release": 0.8,
+    "lfo1_rate": 0.8,
+    "rev_size": 0.75,
+    "rev_mix": 0.26,
+    "out_gain": -0.8,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Resonance",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.4,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Noise Level",
+    "mod3_amt": 0.1,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "LFO 1",
+    "mod5_dst": "WT Pos A",
+    "mod5_amt": 0.1,
+    "mod6_src": "Mod Wheel",
+    "mod6_dst": "Resonance",
+    "mod6_amt": 0.3
+  }
+}

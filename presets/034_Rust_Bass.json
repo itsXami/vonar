@@ -6,6 +6,7 @@
     "Distorted"
   ],
   "description": "Pulse-width bass with a rusty tube edge and a quick filter pluck.",
+  "mood": "Dark",
   "macros": [
     "PWM",
     "Rust",

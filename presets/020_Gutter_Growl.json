@@ -6,6 +6,7 @@
     "Wobble"
   ],
   "description": "FM bass that growls in eighth-note pulses under heavy saturation.",
+  "mood": "Dark",
   "macros": [
     "Growl",
     "Speed",

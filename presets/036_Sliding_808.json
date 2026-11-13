@@ -8,6 +8,7 @@
     "Glide"
   ],
   "description": "Long, clean 808 built for slides: every overlapping note glides into the next.",
+  "mood": "Dark",
   "macros": [
     "Slide",
     "Warmth",

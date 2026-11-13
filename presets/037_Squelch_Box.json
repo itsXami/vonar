@@ -7,6 +7,7 @@
     "Acid"
   ],
   "description": "Classic acid squelch with a resonant ladder, accent-like envelope and slide.",
+  "mood": "Dark",
   "macros": [
     "Squelch",
     "Open",

@@ -6,6 +6,7 @@
     "Supersaw"
   ],
   "description": "Stacked saw bass with a solid sub that fills a stadium.",
+  "mood": "Medium",
   "macros": [
     "Bright",
     "Stack",
@@ -26,7 +27,7 @@
     "flt_envamt": 0.25,
     "fenv_decay": 0.3,
     "fenv_sustain": 0.4,
-    "out_gain": 6.6,
+    "out_gain": 7.1,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.4,

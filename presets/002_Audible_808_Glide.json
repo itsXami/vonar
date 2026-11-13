@@ -8,6 +8,7 @@
     "Hip-Hop"
   ],
   "description": "Long gliding 808 with added harmonics so it stays audible on small speakers.",
+  "mood": "Sad",
   "macros": [
     "Grit",
     "Tone",
@@ -31,7 +32,7 @@
     "dist_type": "Tube",
     "dist_drive": 0.45,
     "dist_mix": 0.6,
-    "out_gain": 2.7,
+    "out_gain": 1.7,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

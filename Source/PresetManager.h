@@ -8,6 +8,7 @@ namespace volt
 struct PresetInfo
 {
     juce::String name, category, description;
+    juce::String mood;         // one of PresetManager::moods(), empty for old user presets
     juce::StringArray tags;
     juce::StringArray macroLabels;
     juce::var params;          // object: param id -> value (plain units, choices by name)
@@ -20,7 +21,8 @@ struct PresetInfo
 class PresetManager : public juce::ChangeBroadcaster
 {
 public:
-    static const juce::StringArray& categories();   // Bass, Lead, Guitar, Pluck, Keys, Bell, Pad, Strings, Brass, Woodwind, Arp, FX
+    static const juce::StringArray& categories();   // Bass, Lead, Guitar, Pluck, Keys, Bell, Pad, Strings, Brass, Woodwind, Arp, Drums, FX
+    static const juce::StringArray& moods();        // Soft, Medium, Sad, Dark, Aggressive
     static constexpr const char* kPresetNameProp = "presetName";
     static constexpr const char* kPresetCategoryProp = "presetCategory";
     static juce::String macroLabelProp (int i) { return "macroLabel" + juce::String (i + 1); }
@@ -43,14 +45,14 @@ public:
 
     // Saves the current state as a user preset. Returns an empty string on success, or an error message.
     juce::String saveUserPreset (const juce::String& name, const juce::String& category, const juce::StringArray& tags,
-                                 const juce::String& description);
+                                 const juce::String& description, const juce::String& mood = {});
 
     static juce::File getUserPresetDirectory();
 
     // Parses and validates JSON. Problems (unknown ids, bad choice names, missing fields) go to `errors`.
     static bool parsePreset (const juce::String& json, PresetInfo& out, juce::StringArray& errors);
     juce::var currentStateToJson (const juce::String& name, const juce::String& category, const juce::StringArray& tags,
-                                  const juce::String& description) const;
+                                  const juce::String& description, const juce::String& mood = {}) const;
 
 private:
     juce::AudioProcessorValueTreeState& apvts;

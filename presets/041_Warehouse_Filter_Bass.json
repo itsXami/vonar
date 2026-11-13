@@ -7,6 +7,7 @@
     "Filter House"
   ],
   "description": "Raw saw bass whose filter sweeps every two beats under a pump.",
+  "mood": "Dark",
   "macros": [
     "Sweep",
     "Grit",
