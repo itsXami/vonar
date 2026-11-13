@@ -15,7 +15,7 @@
     "Body",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Analog Square",
     "oscA_pos": 0.3,
@@ -33,6 +33,7 @@
     "dly_time": "1/8",
     "dly_mix": 0.1,
     "out_gain": 2.6,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch A",
     "mod1_amt": 0.02,

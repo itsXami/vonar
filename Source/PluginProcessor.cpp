@@ -8,7 +8,9 @@ VoltAudioProcessor::VoltAudioProcessor()
     reader.attach (apvts);
     volt::WavetableBank::get(); // build the shared tables off the audio thread
     presetManager = std::make_unique<volt::PresetManager> (apvts);
+    apvts.state.addListener (this);
     presetManager->loadPresetByName ("Init");
+    syncFxOrder();
 }
 
 int VoltAudioProcessor::pullScope (float* dest, int maxSamples)
@@ -91,7 +93,13 @@ void VoltAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     if (auto xml = getXmlFromBinary (data, sizeInBytes))
         if (xml->hasTagName (apvts.state.getType()))
+        {
             apvts.replaceState (juce::ValueTree::fromXml (*xml));
+            // Projects saved before the effects rack: rebuild the effects so the project sounds the same.
+            if (xml->getChildByAttribute ("id", "fx_dist_on") == nullptr)
+                volt::PresetManager::migrateLegacyFx (apvts);
+            syncFxOrder();
+        }
 }
 
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() { return new VoltAudioProcessor(); }

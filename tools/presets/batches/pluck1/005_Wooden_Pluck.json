@@ -14,7 +14,7 @@
     "Length",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Pluck Body",
     "oscA_pos": 0.7,
@@ -26,6 +26,8 @@
     "amp_release": 0.08,
     "squash": 0.45,
     "out_gain": 3.2,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.3,

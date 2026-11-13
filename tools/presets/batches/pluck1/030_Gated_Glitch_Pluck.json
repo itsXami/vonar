@@ -14,7 +14,7 @@
     "Crush",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Digital",
     "oscA_pos": 0.5,
@@ -29,6 +29,8 @@
     "dist_type": "Bitcrush",
     "dist_drive": 0.25,
     "out_gain": 6.7,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level A",
     "mod1_amt": 0.2,

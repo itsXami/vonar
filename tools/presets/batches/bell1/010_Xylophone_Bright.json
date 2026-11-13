@@ -14,7 +14,7 @@
     "Length",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_oct": 1,
@@ -34,6 +34,9 @@
     "rev_mix": 0.08,
     "squash": 0.6,
     "out_gain": -1.5,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

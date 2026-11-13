@@ -14,7 +14,7 @@
     "Tone",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_oct": -1,
@@ -32,6 +32,7 @@
     "rev_damping": 0.6,
     "rev_mix": 0.3,
     "out_gain": -1.8,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

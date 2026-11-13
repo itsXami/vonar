@@ -15,7 +15,7 @@
     "Vibrato",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.14,
@@ -32,6 +32,8 @@
     "dly_mix": 0.12,
     "rev_mix": 0.08,
     "out_gain": -1.7,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.3,

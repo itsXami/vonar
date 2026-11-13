@@ -15,7 +15,7 @@
     "Sub",
     "Pump"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Drawbars",
@@ -31,6 +31,7 @@
     "fenv_sustain": 0.2,
     "squash": 0.3,
     "out_gain": 6.3,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.3,

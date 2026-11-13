@@ -15,7 +15,7 @@
     "Echo",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Digital",
     "oscA_pos": 0.3,
@@ -28,6 +28,8 @@
     "dly_time": "1/16",
     "dly_mix": 0.12,
     "out_gain": 7.8,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

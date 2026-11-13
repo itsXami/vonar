@@ -15,7 +15,7 @@
     "Res",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_oct": -1,
@@ -28,6 +28,8 @@
     "fenv_sustain": 0.4,
     "pump_amount": 0.55,
     "out_gain": 6.3,
+    "fx_dist_on": true,
+    "fx_pump_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.4,

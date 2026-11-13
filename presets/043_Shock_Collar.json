@@ -14,7 +14,7 @@
     "Bite",
     "Width"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Fold",
@@ -32,6 +32,7 @@
     "dist_drive": 0.35,
     "dist_mix": 0.55,
     "out_gain": -5.1,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.5,

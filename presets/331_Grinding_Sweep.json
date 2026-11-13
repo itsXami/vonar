@@ -15,7 +15,7 @@
     "Ring",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Rasp",
     "oscA_pos": 0.6,
@@ -36,6 +36,8 @@
     "dly_time": "1/8",
     "dly_mix": 0.12,
     "out_gain": 12.0,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

@@ -15,7 +15,7 @@
     "Tone",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.04,
@@ -23,8 +23,11 @@
     "oscA_pos": 0.3,
     "flt_cutoff": 4500.0,
     "lfo1_rate": 0.7,
-    "mfx_mix": 0.2,
     "out_gain": 0.9,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "fx_delay_on": true,
+    "chorus_mix": 0.2,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

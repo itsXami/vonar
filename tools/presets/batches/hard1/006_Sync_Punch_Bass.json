@@ -15,7 +15,7 @@
     "Snap",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Sync Saw",
@@ -36,6 +36,8 @@
     "squash": 0.35,
     "out_gain": -2.3,
     "dist_keep_low": true,
+    "fx_dist_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

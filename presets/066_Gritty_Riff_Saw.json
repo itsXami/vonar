@@ -14,7 +14,7 @@
     "Chug",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscB_table": "Analog Saw",
@@ -31,6 +31,9 @@
     "dist_mix": 0.9,
     "squash": 0.3,
     "out_gain": -5.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.4,

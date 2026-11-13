@@ -14,7 +14,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Saw Octaves",
     "oscA_voices": 3,
@@ -29,6 +29,7 @@
     "rev_size": 0.75,
     "rev_mix": 0.24,
     "out_gain": -5.2,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

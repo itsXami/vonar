@@ -14,7 +14,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.06,
@@ -29,6 +29,8 @@
     "rev_size": 0.8,
     "rev_mix": 0.25,
     "out_gain": -5.1,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

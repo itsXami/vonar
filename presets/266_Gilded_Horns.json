@@ -14,7 +14,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Brass",
     "oscA_pos": 0.45,
@@ -32,6 +32,9 @@
     "fenv_sustain": 0.4,
     "rev_mix": 0.2,
     "out_gain": -0.8,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

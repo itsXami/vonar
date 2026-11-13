@@ -12,7 +12,7 @@
     "Wobble",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Bell",
     "oscA_pos": 0.35,
@@ -26,6 +26,8 @@
     "rev_size": 0.35,
     "rev_mix": 0.1,
     "out_gain": -2.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.3,

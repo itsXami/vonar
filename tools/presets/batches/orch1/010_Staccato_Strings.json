@@ -14,7 +14,7 @@
     "Ensemble",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Strings",
     "oscA_pos": 0.65,
@@ -33,6 +33,8 @@
     "rev_mix": 0.4,
     "squash": 0.3,
     "out_gain": -0.5,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

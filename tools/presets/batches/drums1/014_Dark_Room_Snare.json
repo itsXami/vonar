@@ -16,7 +16,7 @@
     "Tail",
     "Snap"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_pos": 0.15,
@@ -36,6 +36,8 @@
     "rev_damping": 0.8,
     "rev_mix": 0.3,
     "out_gain": 10.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

@@ -546,9 +546,24 @@ int snapshot (const juce::File& out, float scale, int tab)
     VoltAudioProcessor proc;
     proc.setUiScale (scale);
     proc.prepareToPlay (48000.0, 512);
+    // Optional state for documentation shots: VOLT_SNAP_PRESET=name, VOLT_SNAP_SET="param_id=value;...",
+    // VOLT_SNAP_ORDER="reverb,delay,..." (effect order), VOLT_SNAP_SHOW=effect id (scrolls the effects tab to it).
+    const auto env = [] (const char* k) { const char* v = std::getenv (k); return juce::String (v != nullptr ? v : ""); };
+    if (env ("VOLT_SNAP_PRESET").isNotEmpty())
+        proc.getPresetManager().loadPresetByName (env ("VOLT_SNAP_PRESET"));
+    for (const auto& kv : juce::StringArray::fromTokens (env ("VOLT_SNAP_SET"), ";", ""))
+        if (auto* p = dynamic_cast<juce::RangedAudioParameter*> (proc.apvts.getParameter (kv.upToFirstOccurrenceOf ("=", false, false).trim())))
+            p->setValueNotifyingHost (p->convertTo0to1 (kv.fromFirstOccurrenceOf ("=", false, false).getFloatValue()));
+    if (env ("VOLT_SNAP_ORDER").isNotEmpty())
+        volt::PresetManager::setFxOrder (proc.apvts, volt::fx::orderFromString (env ("VOLT_SNAP_ORDER")));
     std::unique_ptr<juce::AudioProcessorEditor> ed (proc.createEditor());
     if (auto* ve = dynamic_cast<VoltAudioProcessorEditor*> (ed.get()))
+    {
         ve->getPanel().setTab (tab);
+        ve->getPanel().refresh();
+        if (auto* rack = ve->getPanel().getFxRack(); rack != nullptr && env ("VOLT_SNAP_SHOW").isNotEmpty())
+            rack->showPanel (volt::fx::ids().indexOf (env ("VOLT_SNAP_SHOW")));
+    }
     ed->setSize (juce::roundToInt (volt::ui::MainPanel::kWidth * scale), juce::roundToInt (volt::ui::MainPanel::kHeight * scale));
     auto img = ed->createComponentSnapshot (ed->getLocalBounds(), true, 1.0f);
     out.deleteFile();

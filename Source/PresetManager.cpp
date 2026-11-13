@@ -42,6 +42,15 @@ bool PresetManager::parsePreset (const juce::String& json, PresetInfo& out, juce
     out.category = root["category"].toString().trim();
     out.description = root["description"].toString().trim();
     out.mood = root["mood"].toString().trim();
+    out.version = root.hasProperty ("version") ? (int) root["version"] : 1;
+    out.fxOrder.clear();
+    if (auto* fo = root["fx_order"].getArray())
+    {
+        juce::StringArray ids;
+        for (const auto& v : *fo)
+            ids.add (v.toString());
+        out.fxOrder = ids.joinIntoString (",");
+    }
     out.tags.clear();
     if (auto* t = root["tags"].getArray())
         for (const auto& v : *t)
@@ -200,6 +209,10 @@ void PresetManager::applyPreset (const PresetInfo& p)
             ranged->setValueNotifyingHost (ranged->convertTo0to1 (value));
     }
 
+    if (p.version < kPresetVersion)
+        migrateLegacyFx (apvts);
+    setFxOrder (apvts, fx::orderFromString (p.fxOrder));
+
     apvts.state.setProperty (kPresetNameProp, p.name, nullptr);
     apvts.state.setProperty (kPresetCategoryProp, p.category, nullptr);
     for (int m = 0; m < kNumMacros; ++m)
@@ -248,7 +261,13 @@ juce::var PresetManager::currentStateToJson (const juce::String& name, const juc
     for (int m = 0; m < kNumMacros; ++m)
         macroArr.add (getMacroLabel (m));
     root->setProperty ("macros", macroArr);
-    root->setProperty ("version", 1);
+    root->setProperty ("version", kPresetVersion);
+    {
+        juce::Array<juce::var> order;
+        for (int e : getFxOrder (apvts))
+            order.add (fx::ids()[e]);
+        root->setProperty ("fx_order", order);
+    }
 
     auto* params = new juce::DynamicObject();
     for (int i = 0; i < NumParams; ++i) // user presets store every parameter explicitly
@@ -295,5 +314,55 @@ juce::String PresetManager::saveUserPreset (const juce::String& rawName, const j
     apvts.state.setProperty (kPresetCategoryProp, category, nullptr);
     rescan();
     return {};
+}
+fx::Order PresetManager::getFxOrder (const juce::AudioProcessorValueTreeState& state)
+{
+    return fx::orderFromString (state.state.getProperty (kFxOrderProp, {}).toString());
+}
+
+void PresetManager::setFxOrder (juce::AudioProcessorValueTreeState& state, const fx::Order& order)
+{
+    state.state.setProperty (kFxOrderProp, fx::orderToString (order), nullptr);
+}
+
+void PresetManager::migrateLegacyFx (juce::AudioProcessorValueTreeState& state)
+{
+    auto get = [&] (int p) { return state.getRawParameterValue (spec (p).id)->load(); };
+    auto set = [&] (int p, float v) {
+        if (auto* r = dynamic_cast<juce::RangedAudioParameter*> (state.getParameter (spec (p).id)))
+            r->setValueNotifyingHost (r->convertTo0to1 (juce::jlimit (spec (p).minValue, spec (p).maxValue, v)));
+    };
+    bool targeted[choices::NumModDests] {};
+    for (int m = 0; m < kNumModSlots; ++m)
+    {
+        const int b = Mod1_Src + m * kModSlotParamCount;
+        const int src = juce::roundToInt (get (b)), dst = juce::roundToInt (get (b + 1));
+        if (src > 0 && dst > 0 && dst < choices::NumModDests && std::abs (get (b + 2)) > 1.0e-5f)
+            targeted[dst] = true;
+    }
+    const auto on = [] (float amount, bool modulated) { return amount > 1.0e-4f || modulated ? 1.0f : 0.0f; };
+
+    const int type = juce::jlimit (0, 2, juce::roundToInt (get (MfxType)));
+    const float mfxOn = on (get (MfxMix), targeted[choices::DstModFxMix]);
+    const int rate[3] = { ChoRate, PhaRate, FlaRate }, depth[3] = { ChoDepth, PhaDepth, FlaDepth },
+              mix[3] = { ChoMix, PhaMix, FlaMix }, onP[3] = { FxChorusOn, FxPhaserOn, FxFlangerOn };
+    for (int t = 0; t < 3; ++t)
+        set (onP[t], t == type ? mfxOn : 0.0f);
+    if (mfxOn > 0.5f)   // only an effect in use takes the old settings; the others keep usable defaults
+    {
+        set (rate[type], get (MfxRate));
+        set (depth[type], get (MfxDepth));
+        set (mix[type], get (MfxMix));
+    }
+
+    set (FxDistOn, on (get (DistMix), targeted[choices::DstDistMix]));
+    set (FxPumpOn, on (get (PumpAmount), false));
+    set (FxDelayOn, on (get (DlyMix), targeted[choices::DstDelayMix]));
+    set (FxReverbOn, on (get (RevMix), targeted[choices::DstReverbMix]));
+    set (FxCompOn, on (get (Squash), false));
+    set (FxFilterOn, 0.0f);
+    set (FxEqOn, 0.0f);
+    set (MfxMix, 0.0f);   // the legacy control no longer does anything; keep it neutral
+    setFxOrder (state, fx::defaultOrder());
 }
 } // namespace volt

@@ -13,7 +13,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_warp": "FM",
@@ -32,6 +32,8 @@
     "dly_mix": 0.18,
     "rev_mix": 0.12,
     "out_gain": 3.3,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.4,

@@ -15,7 +15,7 @@
     "Tone",
     "Space"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_voices": 3,
     "oscB_table": "Drawbars",
@@ -32,6 +32,9 @@
     "rev_size": 0.45,
     "rev_mix": 0.12,
     "out_gain": -4.1,
+    "fx_dist_on": true,
+    "fx_pump_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

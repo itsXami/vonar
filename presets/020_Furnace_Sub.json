@@ -15,7 +15,7 @@
     "Growl",
     "Click"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.07,
@@ -34,6 +34,7 @@
     "dist_tone": 0.45,
     "dist_mix": 0.8,
     "out_gain": 2.0,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.4,

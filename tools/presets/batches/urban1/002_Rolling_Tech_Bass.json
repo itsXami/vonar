@@ -14,7 +14,7 @@
     "Sub",
     "Drive"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Basic Shapes",
@@ -30,6 +30,8 @@
     "dist_mix": 0.5,
     "pump_amount": 0.45,
     "out_gain": 8.8,
+    "fx_dist_on": true,
+    "fx_pump_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

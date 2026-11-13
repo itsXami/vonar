@@ -13,7 +13,7 @@
     "Heat",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "FM Bass",
@@ -30,6 +30,8 @@
     "dist_mix": 0.8,
     "squash": 0.35,
     "out_gain": -3.4,
+    "fx_dist_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

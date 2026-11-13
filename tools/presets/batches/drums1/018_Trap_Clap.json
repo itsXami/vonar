@@ -15,7 +15,7 @@
     "Width",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_level": 0.0,
     "noise_level": 1.0,
@@ -39,6 +39,11 @@
     "rev_mix": 0.1,
     "squash": 0.35,
     "out_gain": 7.7,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

@@ -14,7 +14,7 @@
     "Bite",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscB_table": "Analog Square",
     "oscB_fine": -9.0,
@@ -34,6 +34,9 @@
     "rev_mix": 0.1,
     "squash": 0.25,
     "out_gain": -4.8,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

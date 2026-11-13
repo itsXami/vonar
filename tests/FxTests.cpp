@@ -73,7 +73,7 @@ struct FxTests final : juce::UnitTest
     static FxParams quiet()
     {
         FxParams p;
-        p.distMix = p.mfxMix = p.dlyMix = p.revMix = p.squash = p.pumpAmount = 0.0f;
+        p.distMix = p.choMix = p.phaMix = p.flaMix = p.dlyMix = p.revMix = p.squash = p.pumpAmount = 0.0f;
         return p;
     }
 
@@ -304,7 +304,13 @@ struct PerformanceTests final : juce::UnitTest
         p.v[SubLevel] = 0.3f;
         p.v[NoiseLevel] = 0.1f;
         p.v[FltType] = (float) choices::Ladder;
-        p.v[DistMix] = p.v[MfxMix] = p.v[DlyMix] = p.v[RevMix] = 0.5f;
+        p.v[DistMix] = p.v[ChoMix] = p.v[PhaMix] = p.v[FlaMix] = p.v[DlyMix] = p.v[RevMix] = 0.5f;
+        p.v[FxFilterOn] = p.v[FxEqOn] = 1.0f;
+        p.v[EqLowGain] = 3.0f;
+        p.v[EqMidGain] = -4.0f;
+        p.v[EqHighGain] = 2.0f;
+        p.v[CompRatio] = 4.0f;
+        p.v[CompThreshold] = -18.0f;
         p.v[PumpAmount] = 0.5f;
         p.v[Squash] = 0.5f;
         SynthEngine e;

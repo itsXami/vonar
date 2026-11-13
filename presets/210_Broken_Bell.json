@@ -15,7 +15,7 @@
     "Tail",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Bell",
     "oscA_pos": 0.5,
@@ -37,6 +37,9 @@
     "rev_size": 0.6,
     "rev_mix": 0.12,
     "out_gain": 0.5,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

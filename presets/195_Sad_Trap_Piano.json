@@ -16,7 +16,7 @@
     "Echo",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Hammer Piano",
     "oscA_pos": 0.1,
@@ -34,6 +34,9 @@
     "rev_damping": 0.7,
     "rev_mix": 0.22,
     "out_gain": 0.4,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

@@ -14,7 +14,7 @@
     "Echo",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Pluck Body",
     "oscA_pos": 0.45,
@@ -33,6 +33,9 @@
     "rev_mix": 0.14,
     "squash": 0.3,
     "out_gain": -2.1,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": -0.3,

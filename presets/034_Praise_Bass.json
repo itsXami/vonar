@@ -13,7 +13,7 @@
     "Sub",
     "Grit"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Drawbars",
@@ -24,6 +24,7 @@
     "dist_type": "Tube",
     "dist_mix": 0.15,
     "out_gain": 1.8,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.5,

@@ -15,7 +15,7 @@
     "Slap",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Analog Square",
     "oscA_pos": 0.3,
@@ -34,6 +34,10 @@
     "dly_mix": 0.18,
     "squash": 0.55,
     "out_gain": 5.6,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.3,

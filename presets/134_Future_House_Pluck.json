@@ -15,7 +15,7 @@
     "Bright",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Sync Saw",
     "oscA_pos": 0.4,
@@ -31,6 +31,8 @@
     "dly_mix": 0.1,
     "squash": 0.35,
     "out_gain": 5.1,
+    "fx_delay_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

@@ -16,7 +16,7 @@
     "Tone",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.06,
@@ -37,6 +37,8 @@
     "dist_mix": 1.0,
     "squash": 0.3,
     "out_gain": -4.4,
+    "fx_dist_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

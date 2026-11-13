@@ -15,7 +15,7 @@
     "Drive",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Drive Organ",
     "oscA_pos": 0.7,
@@ -32,6 +32,9 @@
     "rev_mix": 0.06,
     "squash": 0.5,
     "out_gain": -3.4,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.3,

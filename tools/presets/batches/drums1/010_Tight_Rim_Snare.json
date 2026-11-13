@@ -15,7 +15,7 @@
     "Snap",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_pos": 0.66,
@@ -36,6 +36,8 @@
     "dist_drive": 0.4,
     "dist_mix": 0.35,
     "out_gain": 8.9,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

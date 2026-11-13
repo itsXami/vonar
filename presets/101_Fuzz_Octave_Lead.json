@@ -15,7 +15,7 @@
     "Tone",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Analog Square",
@@ -34,6 +34,8 @@
     "dist_mix": 0.9,
     "dly_time": "1/8",
     "dly_mix": 0.1,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level B",
     "mod1_amt": 0.3,

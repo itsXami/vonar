@@ -14,7 +14,7 @@
     "Ring",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscB_oct": 2,
@@ -32,6 +32,8 @@
     "rev_mix": 0.08,
     "squash": 0.4,
     "out_gain": -1.4,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

@@ -14,7 +14,7 @@
     "Trem",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Bell",
     "oscA_pos": 0.15,
@@ -25,9 +25,11 @@
     "amp_sustain": 0.0,
     "amp_release": 0.4,
     "lfo1_rate": 4.0,
-    "mfx_mix": 0.2,
     "rev_mix": 0.15,
     "out_gain": -0.5,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.2,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

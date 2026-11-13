@@ -14,7 +14,7 @@
     "Pulse",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "PWM Saw",
     "oscA_pos": 0.5,
@@ -29,6 +29,8 @@
     "dist_drive": 0.5,
     "dist_mix": 0.75,
     "out_gain": 3.2,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

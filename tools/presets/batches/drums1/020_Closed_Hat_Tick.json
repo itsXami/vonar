@@ -15,7 +15,7 @@
     "Metal",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_level": 0.0,
     "oscB_table": "Metal Comb",
@@ -31,6 +31,8 @@
     "amp_release": 0.045,
     "menv_attack": 0.0005,
     "out_gain": 12.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

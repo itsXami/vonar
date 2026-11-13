@@ -15,7 +15,7 @@
     "Grit",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_level": 0.0,
     "noise_level": 1.0,
@@ -37,6 +37,9 @@
     "dist_mix": 0.3,
     "squash": 0.35,
     "out_gain": 12.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

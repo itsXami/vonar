@@ -14,7 +14,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_level": 1.0,
@@ -35,6 +35,9 @@
     "rev_mix": 0.18,
     "squash": 0.45,
     "out_gain": 6.1,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.3,

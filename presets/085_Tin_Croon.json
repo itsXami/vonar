@@ -13,7 +13,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "glide": 0.05,
@@ -33,6 +33,8 @@
     "dly_mix": 0.15,
     "rev_mix": 0.18,
     "out_gain": -1.3,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Formant",
     "mod1_amt": 0.5,

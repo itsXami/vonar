@@ -14,7 +14,7 @@
     "Heat",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_oct": -1,
@@ -31,6 +31,7 @@
     "dist_drive": 0.5,
     "dist_mix": 0.7,
     "out_gain": 3.0,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch B",
     "mod1_amt": 0.004,

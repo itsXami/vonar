@@ -13,7 +13,7 @@
     "Grit",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Brass",
     "oscA_pos": 0.5,
@@ -30,6 +30,8 @@
     "fenv_sustain": 0.2,
     "rev_size": 0.8,
     "rev_mix": 0.25,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.5,

@@ -15,7 +15,7 @@
     "Low",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Analog Square",
     "oscA_pos": 0.2,
@@ -33,6 +33,8 @@
     "dist_tone": 0.45,
     "dist_mix": 0.9,
     "out_gain": -0.6,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

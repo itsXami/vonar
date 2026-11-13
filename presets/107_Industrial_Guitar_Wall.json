@@ -14,7 +14,7 @@
     "Rasp",
     "Tone"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Buzz",
     "oscA_pos": 0.5,
@@ -35,6 +35,10 @@
     "dist_mix": 0.95,
     "squash": 0.55,
     "out_gain": -4.2,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "fx_comp_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "Mod FX Mix",
     "mod1_amt": 0.4,

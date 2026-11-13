@@ -4,11 +4,13 @@
   "tags": ["Init", "Basic"],
   "description": "Neutral starting point with one saw oscillator and the four macros pre-wired to tone, morph, grit and space.",
   "macros": ["Bright", "Morph", "Grit", "Space"],
+  "version": 2,
   "params": {
     "mod1_src": "Macro 1", "mod1_dst": "Cutoff", "mod1_amt": 0.5,
     "mod2_src": "Macro 2", "mod2_dst": "WT Pos A", "mod2_amt": 1.0,
     "mod3_src": "Macro 3", "mod3_dst": "Dist Mix", "mod3_amt": 0.6,
     "mod4_src": "Macro 4", "mod4_dst": "Reverb Mix", "mod4_amt": 0.4,
-    "flt_cutoff": 2500.0
+    "flt_cutoff": 2500.0,
+    "fx_dist_on": true, "fx_reverb_on": true
   }
 }

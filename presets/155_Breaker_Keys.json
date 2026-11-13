@@ -14,7 +14,7 @@
     "Tone",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_warp": "FM",
@@ -33,6 +33,9 @@
     "rev_mix": 0.1,
     "squash": 0.45,
     "out_gain": -4.5,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.4,

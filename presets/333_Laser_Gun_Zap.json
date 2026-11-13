@@ -15,7 +15,7 @@
     "Echo",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Sync Square",
     "oscA_pos": 0.6,
@@ -36,6 +36,9 @@
     "dly_time": "1/16",
     "dly_mix": 0.18,
     "out_gain": 12.0,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

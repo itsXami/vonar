@@ -5,11 +5,11 @@
 #include "dsp/SynthEngine.h"
 #include "PresetManager.h"
 
-class VoltAudioProcessor final : public juce::AudioProcessor
+class VoltAudioProcessor final : public juce::AudioProcessor, private juce::ValueTree::Listener
 {
 public:
     VoltAudioProcessor();
-    ~VoltAudioProcessor() override = default;
+    ~VoltAudioProcessor() override { apvts.state.removeListener (this); }
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override {}
@@ -52,6 +52,15 @@ public:
     volt::SynthEngine& getEngine() noexcept { return engine; }
 
 private:
+    // The effect order lives in the state tree (it is not automatable); push it to the engine when it changes.
+    void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier& id) override
+    {
+        if (id.toString() == volt::PresetManager::kFxOrderProp)
+            syncFxOrder();
+    }
+    void valueTreeRedirected (juce::ValueTree&) override { syncFxOrder(); }
+    void syncFxOrder() { engine.setFxOrder (volt::PresetManager::getFxOrder (apvts)); }
+
     std::unique_ptr<volt::PresetManager> presetManager;
     juce::AbstractFifo scopeFifo { 8192 };
     std::vector<float> scopeData = std::vector<float> (8192, 0.0f);

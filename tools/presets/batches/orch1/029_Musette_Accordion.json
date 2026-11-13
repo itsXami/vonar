@@ -14,7 +14,7 @@
     "Tone",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Reed",
     "oscA_pos": 0.5,
@@ -32,6 +32,7 @@
     "rev_size": 0.35,
     "rev_mix": 0.1,
     "out_gain": -3.1,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Detune",
     "mod1_amt": 0.3,

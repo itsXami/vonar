@@ -13,7 +13,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Saw Octaves",
     "oscA_pos": 0.3,
@@ -27,6 +27,8 @@
     "rev_size": 0.7,
     "rev_mix": 0.22,
     "out_gain": 7.8,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level A",
     "mod1_amt": 0.2,

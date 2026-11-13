@@ -13,7 +13,7 @@
     "Tone",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_voices": 3,
     "uni_detune": 0.12,
@@ -27,6 +27,8 @@
     "dist_mix": 0.4,
     "rev_mix": 0.16,
     "out_gain": -4.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch",
     "mod1_amt": 0.004,

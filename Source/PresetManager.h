@@ -9,6 +9,8 @@ struct PresetInfo
 {
     juce::String name, category, description;
     juce::String mood;         // one of PresetManager::moods(), empty for old user presets
+    juce::String fxOrder;      // effect chain order ("distortion,chorus,..."); empty = default order
+    int version = 1;           // 2 = effects rack (on switches); 1 = older, migrated on load
     juce::StringArray tags;
     juce::StringArray macroLabels;
     juce::var params;          // object: param id -> value (plain units, choices by name)
@@ -25,6 +27,15 @@ public:
     static const juce::StringArray& moods();        // Soft, Medium, Sad, Dark, Aggressive
     static constexpr const char* kPresetNameProp = "presetName";
     static constexpr const char* kPresetCategoryProp = "presetCategory";
+    static constexpr const char* kFxOrderProp = "fxOrder";
+    static constexpr int kPresetVersion = 2;   // 2: effects rack
+
+    // Presets and projects from before the effects rack (no "fx_dist_on"): turn the old single Mod FX into the
+    // matching chorus / phaser / flanger and switch on every effect that was audible or modulated, so they sound
+    // exactly as before. Must match modernize_fx() in tools/presets/batch_common.py.
+    static void migrateLegacyFx (juce::AudioProcessorValueTreeState& state);
+    static fx::Order getFxOrder (const juce::AudioProcessorValueTreeState& state);
+    static void setFxOrder (juce::AudioProcessorValueTreeState& state, const fx::Order& order);
     static juce::String macroLabelProp (int i) { return "macroLabel" + juce::String (i + 1); }
 
     explicit PresetManager (juce::AudioProcessorValueTreeState& state);

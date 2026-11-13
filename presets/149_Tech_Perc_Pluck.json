@@ -15,7 +15,7 @@
     "Pump",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_warp": "FM",
@@ -30,6 +30,9 @@
     "pump_amount": 0.35,
     "squash": 0.4,
     "out_gain": 5.8,
+    "fx_pump_on": true,
+    "fx_delay_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

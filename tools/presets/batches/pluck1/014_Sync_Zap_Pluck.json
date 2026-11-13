@@ -14,7 +14,7 @@
     "Grit",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_warp": "Sync",
     "oscA_warp_amt": 0.05,
@@ -26,6 +26,8 @@
     "dly_time": "1/16",
     "dly_mix": 0.1,
     "out_gain": 8.3,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

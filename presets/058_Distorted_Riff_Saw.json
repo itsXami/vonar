@@ -14,7 +14,7 @@
     "Width",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscB_table": "Analog Saw",
@@ -28,6 +28,10 @@
     "dist_drive": 0.55,
     "dist_mix": 0.8,
     "out_gain": -1.9,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "fx_delay_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.4,

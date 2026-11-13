@@ -13,7 +13,7 @@
     "Tone",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Analog Square",
     "oscA_warp": "Quantize",
@@ -28,6 +28,7 @@
     "dly_time": "1/8",
     "dly_mix": 0.1,
     "out_gain": 4.7,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

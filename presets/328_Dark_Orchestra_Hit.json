@@ -14,7 +14,7 @@
     "Air",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Brass",
     "oscA_pos": 0.8,
@@ -40,6 +40,8 @@
     "rev_damping": 0.8,
     "rev_mix": 0.35,
     "out_gain": 10.2,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.5,

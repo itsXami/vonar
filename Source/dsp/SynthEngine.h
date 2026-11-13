@@ -31,6 +31,14 @@ public:
     int getNumActiveVoices() const noexcept;
     float getLimiterReduction() const noexcept { return fx.getLimiterReductionDb(); }
     void resetLimiterMeter() noexcept { fx.resetLimiterMeter(); }
+    // Effect chain order (message thread writes, audio thread reads; 4 bits per slot).
+    void setFxOrder (const fx::Order& o) noexcept
+    {
+        uint64_t packed = 0;
+        for (int i = 0; i < fx::NumEffects; ++i)
+            packed |= (uint64_t) (o[(size_t) i] & 0xF) << (4 * i);
+        fxOrderPacked.store (packed, std::memory_order_relaxed);
+    }
     int getNonFiniteCount() const noexcept { return fx.getNonFiniteCount(); }
 
 private:
@@ -86,6 +94,7 @@ private:
     double freePpq = 0.0; // free-running beat clock when the host is stopped
     // Idle sleep: with no voice sounding and the effects' output below -100 dB for longer than the delay could
     // still answer, the effect chain is skipped (an idle instance in a project costs almost nothing).
+    std::atomic<uint64_t> fxOrderPacked { 0xFEDCBA9876543210ull & 0xFFFFFFFFFFull };
     int fxSilentSamples = 0;
     bool fxAsleep = false;
 

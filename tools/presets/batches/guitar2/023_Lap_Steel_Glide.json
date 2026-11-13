@@ -14,7 +14,7 @@
     "Swell",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.3,
@@ -32,6 +32,8 @@
     "rev_mix": 0.18,
     "squash": 0.3,
     "out_gain": -1.3,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch",
     "mod1_amt": 0.004,

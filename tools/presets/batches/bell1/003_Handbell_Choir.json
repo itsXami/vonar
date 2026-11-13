@@ -13,7 +13,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_warp": "FM",
@@ -30,6 +30,7 @@
     "rev_size": 0.7,
     "rev_mix": 0.22,
     "out_gain": -3.2,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.3,

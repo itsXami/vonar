@@ -15,7 +15,7 @@
     "Grit",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscB_table": "Analog Saw",
@@ -29,6 +29,8 @@
     "dist_drive": 0.35,
     "dist_mix": 0.3,
     "out_gain": -1.1,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

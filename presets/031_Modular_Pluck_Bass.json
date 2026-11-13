@@ -14,7 +14,7 @@
     "Drive",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_oct": -1,

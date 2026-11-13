@@ -14,7 +14,7 @@
     "Noise",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Noise Cycle",
     "oscA_pos": 0.4,
@@ -30,6 +30,7 @@
     "rev_size": 0.45,
     "rev_mix": 0.14,
     "out_gain": 11.1,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.25,

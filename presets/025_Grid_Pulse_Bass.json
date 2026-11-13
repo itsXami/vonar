@@ -14,7 +14,7 @@
     "Sub",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_oct": -1,
@@ -30,6 +30,7 @@
     "arp_on": true,
     "arp_gate": 0.45,
     "out_gain": 12.0,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

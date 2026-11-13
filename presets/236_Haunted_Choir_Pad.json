@@ -16,7 +16,7 @@
     "Ghost",
     "Space"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Choir",
     "oscA_pos": 0.8,
@@ -35,6 +35,8 @@
     "rev_size": 0.85,
     "rev_mix": 0.28,
     "out_gain": -3.7,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

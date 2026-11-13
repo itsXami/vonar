@@ -1,4 +1,5 @@
 #include "Effects.h"
+#include <complex>
 
 namespace volt
 {
@@ -279,6 +280,238 @@ void ModFx::process (float* L, float* R, int n, int type, float rate, float dept
 }
 
 // =============================================================================================
+void FilterFx::prepare (double sr)
+{
+    sampleRate = sr;
+    reset();
+}
+
+void FilterFx::reset()
+{
+    ic1[0] = ic1[1] = ic2[0] = ic2[1] = 0.0f;
+    smoothCut = -1.0f;
+    mixRamp = {};
+}
+
+void FilterFx::process (float* L, float* R, int n, int type, float cutoff, float res, float mix) noexcept
+{
+    float m0, dm;
+    mixRamp.set (mix, n, m0, dm);
+    if (m0 < 1.0e-4f && mix < 1.0e-4f)
+    {
+        active = false;
+        return;
+    }
+    if (! active)
+    {
+        reset();
+        mixRamp.set (mix, n, m0, dm);
+        active = true;
+    }
+    const float target = clampf (cutoff, 20.0f, 0.45f * (float) sampleRate);
+    const float start = smoothCut < 0.0f ? target : smoothCut;
+    smoothCut = target;
+    const float k = 2.0f - 1.9f * clampf (res, 0.0f, 1.0f);   // damping: 2 (flat) .. 0.1 (sharp peak)
+    float m = m0;
+    for (int i = 0; i < n; ++i)
+    {
+        m += dm;
+        const float fc = start + (target - start) * (float) (i + 1) / (float) n;
+        const float g = std::tan (kPiF * fc / (float) sampleRate);
+        const float a1 = 1.0f / (1.0f + g * (g + k)), a2 = g * a1, a3 = g * a2;
+        float* ch[2] = { L, R };
+        for (int c = 0; c < 2; ++c)
+        {
+            const float x = ch[c][i];
+            const float v3 = x - ic2[c];
+            const float v1 = a1 * ic1[c] + a2 * v3;
+            const float v2 = ic2[c] + a2 * ic1[c] + a3 * v3;
+            ic1[c] = 2.0f * v1 - ic1[c];
+            ic2[c] = 2.0f * v2 - ic2[c];
+            float y;
+            switch (type)
+            {
+                case choices::FxHighPass: y = x - k * v1 - v2; break;
+                case choices::FxBandPass: y = k * v1; break;
+                case choices::FxNotch:    y = x - k * v1; break;
+                case choices::FxLowPass:
+                default:                  y = v2; break;
+            }
+            ch[c][i] = x + m * (y - x);
+        }
+    }
+}
+
+// =============================================================================================
+// RBJ cookbook biquads.
+void Biquad::setLowShelf (double sr, double f, double gainDb)
+{
+    const double A = std::pow (10.0, gainDb / 40.0), w = juce::MathConstants<double>::twoPi * f / sr;
+    const double cs = std::cos (w), sn = std::sin (w), al = sn / 2.0 * std::sqrt (2.0), sa = 2.0 * std::sqrt (A) * al;
+    const double a0 = (A + 1) + (A - 1) * cs + sa;
+    b0 = (float) (A * ((A + 1) - (A - 1) * cs + sa) / a0);
+    b1 = (float) (2 * A * ((A - 1) - (A + 1) * cs) / a0);
+    b2 = (float) (A * ((A + 1) - (A - 1) * cs - sa) / a0);
+    a1 = (float) (-2 * ((A - 1) + (A + 1) * cs) / a0);
+    a2 = (float) (((A + 1) + (A - 1) * cs - sa) / a0);
+}
+
+void Biquad::setHighShelf (double sr, double f, double gainDb)
+{
+    const double A = std::pow (10.0, gainDb / 40.0), w = juce::MathConstants<double>::twoPi * f / sr;
+    const double cs = std::cos (w), sn = std::sin (w), al = sn / 2.0 * std::sqrt (2.0), sa = 2.0 * std::sqrt (A) * al;
+    const double a0 = (A + 1) - (A - 1) * cs + sa;
+    b0 = (float) (A * ((A + 1) + (A - 1) * cs + sa) / a0);
+    b1 = (float) (-2 * A * ((A - 1) + (A + 1) * cs) / a0);
+    b2 = (float) (A * ((A + 1) + (A - 1) * cs - sa) / a0);
+    a1 = (float) (2 * ((A - 1) - (A + 1) * cs) / a0);
+    a2 = (float) (((A + 1) - (A - 1) * cs - sa) / a0);
+}
+
+void Biquad::setPeak (double sr, double f, double gainDb, double q)
+{
+    const double A = std::pow (10.0, gainDb / 40.0), w = juce::MathConstants<double>::twoPi * f / sr;
+    const double al = std::sin (w) / (2.0 * q), cs = std::cos (w), a0 = 1 + al / A;
+    b0 = (float) ((1 + al * A) / a0);
+    b1 = (float) (-2 * cs / a0);
+    b2 = (float) ((1 - al * A) / a0);
+    a1 = (float) (-2 * cs / a0);
+    a2 = (float) ((1 - al / A) / a0);
+}
+
+void Biquad::setHighPass (double sr, double f)
+{
+    const double w = juce::MathConstants<double>::twoPi * f / sr, cs = std::cos (w), al = std::sin (w) / (2.0 * 0.7071), a0 = 1 + al;
+    b0 = (float) ((1 + cs) / 2 / a0);
+    b1 = (float) (-(1 + cs) / a0);
+    b2 = b0;
+    a1 = (float) (-2 * cs / a0);
+    a2 = (float) ((1 - al) / a0);
+}
+
+void Biquad::setLowPass (double sr, double f)
+{
+    const double w = juce::MathConstants<double>::twoPi * f / sr, cs = std::cos (w), al = std::sin (w) / (2.0 * 0.7071), a0 = 1 + al;
+    b0 = (float) ((1 - cs) / 2 / a0);
+    b1 = (float) ((1 - cs) / a0);
+    b2 = b0;
+    a1 = (float) (-2 * cs / a0);
+    a2 = (float) ((1 - al) / a0);
+}
+
+void EqFx::prepare (double sr)
+{
+    sampleRate = sr;
+    reset();
+}
+
+void EqFx::reset()
+{
+    for (auto& b : band)
+        b.reset();
+    std::fill (last, last + 7, -1.0f);
+}
+
+void EqFx::process (float* L, float* R, int n, const FxParams& p) noexcept
+{
+    if (! p.eqOn)
+    {
+        reset();
+        return;
+    }
+    const float nyq = 0.45f * (float) sampleRate;
+    const float v[7] = { std::min (p.eqLowFreq, nyq), p.eqLowGain, std::min (p.eqMidFreq, nyq), p.eqMidGain, p.eqMidQ,
+                         std::min (p.eqHighFreq, nyq), p.eqHighGain };
+    bool changed = false;
+    for (int i = 0; i < 7; ++i)
+        changed |= std::abs (v[i] - last[i]) > 1.0e-4f;
+    if (changed)
+    {
+        band[0].setLowShelf (sampleRate, v[0], v[1]);
+        band[1].setPeak (sampleRate, v[2], v[3], std::max (0.1f, v[4]));
+        band[2].setHighShelf (sampleRate, v[5], v[6]);
+        std::copy (v, v + 7, last);
+    }
+    bandOn[0] = std::abs (v[1]) > 0.01f;
+    bandOn[1] = std::abs (v[3]) > 0.01f;
+    bandOn[2] = std::abs (v[6]) > 0.01f;
+    for (int b = 0; b < 3; ++b)
+    {
+        if (! bandOn[b])
+        {
+            band[b].reset();
+            continue;
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            L[i] = band[b].process (L[i], 0);
+            R[i] = band[b].process (R[i], 1);
+        }
+    }
+}
+
+float EqFx::responseDb (const FxParams& p, double sr, float f)
+{
+    Biquad b[3];
+    b[0].setLowShelf (sr, p.eqLowFreq, p.eqLowGain);
+    b[1].setPeak (sr, p.eqMidFreq, p.eqMidGain, std::max (0.1f, p.eqMidQ));
+    b[2].setHighShelf (sr, p.eqHighFreq, p.eqHighGain);
+    const std::complex<double> z = std::polar (1.0, -juce::MathConstants<double>::twoPi * (double) f / sr);
+    double mag = 1.0;
+    for (const auto& q : b)
+    {
+        const auto num = (double) q.b0 + (double) q.b1 * z + (double) q.b2 * z * z;
+        const auto den = 1.0 + (double) q.a1 * z + (double) q.a2 * z * z;
+        mag *= std::abs (num / den);
+    }
+    return (float) (20.0 * std::log10 (std::max (mag, 1.0e-6)));
+}
+
+// =============================================================================================
+void CompStage::prepare (double sr)
+{
+    sampleRate = sr;
+    reset();
+}
+
+void CompStage::reset()
+{
+    envDb = 0.0f;
+    gainRamp = {};
+}
+
+void CompStage::process (float* L, float* R, int n, float thresholdDb, float ratio, float attack, float release,
+                         float gainDb) noexcept
+{
+    float g0, dg;
+    gainRamp.set (juce::Decibels::decibelsToGain (gainDb), n, g0, dg);
+    if (ratio <= 1.001f && std::abs (gainDb) < 0.01f && std::abs (g0 - 1.0f) < 1.0e-5f)
+    {
+        envDb = 0.0f;
+        return;
+    }
+    const float atk = std::exp (-1.0f / (std::max (attack, 1.0e-4f) * (float) sampleRate));
+    const float rel = std::exp (-1.0f / (std::max (release, 1.0e-3f) * (float) sampleRate));
+    const float slope = 1.0f - 1.0f / std::max (1.0f, ratio), knee = 6.0f;
+    float g = g0;
+    for (int i = 0; i < n; ++i)
+    {
+        g += dg;
+        const float pk = std::max (std::abs (L[i]), std::abs (R[i]));
+        const float inDb = pk > 1.0e-6f ? 20.0f * std::log10 (pk) : -120.0f;
+        const float over = inDb - thresholdDb;
+        float grDb;   // gain reduction (dB, >= 0), soft knee
+        if (over <= -knee * 0.5f) grDb = 0.0f;
+        else if (over >= knee * 0.5f) grDb = slope * over;
+        else { const float t = over + knee * 0.5f; grDb = slope * t * t / (2.0f * knee); }
+        envDb = grDb > envDb ? atk * envDb + (1.0f - atk) * grDb : rel * envDb + (1.0f - rel) * grDb;
+        const float gain = g * std::pow (10.0f, -envDb / 20.0f);
+        L[i] *= gain;
+        R[i] *= gain;
+    }
+}
+
+// =============================================================================================
 void Pump::process (float* L, float* R, int n, float amount, double ppq, double beatsPerSample, double cycleBeats) noexcept
 {
     float a0, da;
@@ -394,6 +627,7 @@ void StereoDelay::process (float* L, float* R, int n, int mode, double delaySamp
 // =============================================================================================
 void ReverbFx::prepare (double sr)
 {
+    sampleRate = sr;
     reverb.setSampleRate (sr);
     wetL.assign (8192, 0.0f);
     wetR.assign (8192, 0.0f);
@@ -404,10 +638,13 @@ void ReverbFx::reset()
 {
     reverb.reset();
     lastSize = lastDamp = -1.0f;
+    lowCutF.reset();
+    highCutF.reset();
+    lastLow = lastHigh = -1.0f;
     mixRamp = {};
 }
 
-void ReverbFx::process (float* L, float* R, int n, float size, float damp, float mix) noexcept
+void ReverbFx::process (float* L, float* R, int n, float size, float damp, float mix, float lowCut, float highCut) noexcept
 {
     float m0, dm;
     mixRamp.set (mix, n, m0, dm);
@@ -442,6 +679,20 @@ void ReverbFx::process (float* L, float* R, int n, float size, float damp, float
     std::copy (L, L + n, wetL.data());
     std::copy (R, R + n, wetR.data());
     reverb.processStereo (wetL.data(), wetR.data(), n);
+
+    // Tone of the tail: only when moved away from the open ends, so the default reverb is unchanged.
+    const bool useLow = lowCut > 20.5f, useHigh = highCut < 19900.0f;
+    if (useLow && std::abs (lowCut - lastLow) > 0.01f) { lowCutF.setHighPass (sampleRate, lowCut); lastLow = lowCut; }
+    if (useHigh && std::abs (highCut - lastHigh) > 0.01f) { highCutF.setLowPass (sampleRate, highCut); lastHigh = highCut; }
+    if (useLow || useHigh)
+        for (int i = 0; i < n; ++i)
+        {
+            float l = wetL[(size_t) i], r = wetR[(size_t) i];
+            if (useLow) { l = lowCutF.process (l, 0); r = lowCutF.process (r, 1); }
+            if (useHigh) { l = highCutF.process (l, 0); r = highCutF.process (r, 1); }
+            wetL[(size_t) i] = l;
+            wetR[(size_t) i] = r;
+        }
 
     float m = m0;
     for (int i = 0; i < n; ++i)
@@ -589,7 +840,12 @@ void FxChain::prepare (double sr, int maxBlock)
 {
     sampleRate = sr;
     dist.prepare (sr, juce::jmax (maxBlock, 64));
-    modFx.prepare (sr);
+    chorus.prepare (sr);
+    phaser.prepare (sr);
+    flanger.prepare (sr);
+    filter.prepare (sr);
+    eq.prepare (sr);
+    comp.prepare (sr);
     delay.prepare (sr);
     reverb.prepare (sr);
     squash.prepare (sr);
@@ -599,7 +855,12 @@ void FxChain::prepare (double sr, int maxBlock)
 void FxChain::reset()
 {
     dist.reset();
-    modFx.reset();
+    chorus.reset();
+    phaser.reset();
+    flanger.reset();
+    filter.reset();
+    eq.reset();
+    comp.reset();
     delay.reset();
     reverb.reset();
     squash.reset();
@@ -611,12 +872,35 @@ void FxChain::process (float* L, float* R, int n, const FxParams& p) noexcept
     const double bpm = juce::jlimit (20.0, 999.0, p.bpm);
     const double beatsPerSample = bpm / 60.0 / sampleRate;
 
-    dist.process (L, R, n, p.distType, clampf (p.distDrive, 0.0f, 1.0f), p.distTone, clampf (p.distMix, 0.0f, 1.0f), p.distKeepLow);
-    modFx.process (L, R, n, p.mfxType, p.mfxRate, p.mfxDepth, clampf (p.mfxMix, 0.0f, 1.0f));
-    pump.process (L, R, n, p.pumpAmount, p.ppq, beatsPerSample, p.pumpBeats);
-    delay.process (L, R, n, p.dlyMode, p.dlyBeats * 60.0 / bpm * sampleRate, p.dlyFeedback, clampf (p.dlyMix, 0.0f, 1.0f));
-    reverb.process (L, R, n, p.revSize, p.revDamp, clampf (p.revMix, 0.0f, 1.0f));
-    squash.process (L, R, n, p.squash);
+    for (int e : p.order)
+    {
+        switch (e)
+        {
+            case fx::Distortion:
+                dist.process (L, R, n, p.distType, clampf (p.distDrive, 0.0f, 1.0f), p.distTone, clampf (p.distMix, 0.0f, 1.0f), p.distKeepLow);
+                break;
+            case fx::Chorus:  chorus.process (L, R, n, choices::Chorus, p.choRate, p.choDepth, clampf (p.choMix, 0.0f, 1.0f)); break;
+            case fx::Phaser:  phaser.process (L, R, n, choices::Phaser, p.phaRate, p.phaDepth, clampf (p.phaMix, 0.0f, 1.0f)); break;
+            case fx::Flanger: flanger.process (L, R, n, choices::Flanger, p.flaRate, p.flaDepth, clampf (p.flaMix, 0.0f, 1.0f)); break;
+            case fx::Filter:  filter.process (L, R, n, p.fxfType, p.fxfCutoff, p.fxfRes, clampf (p.fxfMix, 0.0f, 1.0f)); break;
+            case fx::Eq:      eq.process (L, R, n, p); break;
+            case fx::Pump:    pump.process (L, R, n, p.pumpAmount, p.ppq, beatsPerSample, p.pumpBeats); break;
+            case fx::Delay:
+                delay.process (L, R, n, p.dlyMode, p.dlyBeats * 60.0 / bpm * sampleRate, p.dlyFeedback, clampf (p.dlyMix, 0.0f, 1.0f));
+                break;
+            case fx::Reverb:
+                reverb.process (L, R, n, p.revSize, p.revDamp, clampf (p.revMix, 0.0f, 1.0f), p.revLowCut, p.revHighCut);
+                break;
+            case fx::Compressor:
+                squash.process (L, R, n, p.squash);
+                if (p.compOn)
+                    comp.process (L, R, n, p.compThreshold, p.compRatio, p.compAttack, p.compRelease, p.compGain);
+                else
+                    comp.reset();
+                break;
+            default: break;
+        }
+    }
     output.process (L, R, n, p.outGainDb);
 }
 } // namespace volt

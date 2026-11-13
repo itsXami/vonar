@@ -15,7 +15,7 @@
     "Env",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.05,
@@ -39,6 +39,8 @@
     "dly_feedback": 0.4,
     "dly_mix": 0.18,
     "out_gain": 6.6,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

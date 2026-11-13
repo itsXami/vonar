@@ -14,7 +14,7 @@
     "Ring",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Buzz",
     "oscA_pos": 0.3,
@@ -38,6 +38,8 @@
     "dly_feedback": 0.3,
     "dly_mix": 0.14,
     "out_gain": 6.0,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

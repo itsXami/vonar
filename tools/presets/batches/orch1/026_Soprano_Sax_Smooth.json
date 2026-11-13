@@ -14,7 +14,7 @@
     "Vibrato",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.06,
@@ -25,10 +25,12 @@
     "amp_attack": 0.05,
     "amp_release": 0.25,
     "lfo1_rate": 5.6,
-    "mfx_mix": 0.15,
     "rev_size": 0.6,
     "rev_mix": 0.2,
     "out_gain": -1.9,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.15,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

@@ -13,7 +13,7 @@
     "Tone",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Pluck Body",
     "oscA_pos": 0.35,
@@ -33,6 +33,9 @@
     "rev_mix": 0.08,
     "squash": 0.3,
     "out_gain": -3.0,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch",
     "mod1_amt": 0.004,

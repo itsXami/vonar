@@ -15,7 +15,7 @@
     "Tune",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_oct": -1,
@@ -31,6 +31,8 @@
     "menv_attack": 0.0005,
     "menv_decay": 0.006,
     "out_gain": 9.9,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.4,

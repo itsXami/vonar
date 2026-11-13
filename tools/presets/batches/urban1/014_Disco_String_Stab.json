@@ -14,7 +14,7 @@
     "Pump",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Strings",
     "oscA_pos": 0.4,
@@ -32,6 +32,9 @@
     "rev_mix": 0.12,
     "squash": 0.35,
     "out_gain": 3.3,
+    "fx_pump_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,
