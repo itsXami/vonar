@@ -25,6 +25,9 @@ constexpr float kTailEndDb = -60.0f;       // RMS of the last 0.5 s of the 8 s t
 constexpr float kMaxLimiterDb = 3.0f;      // more = bad gain staging
 constexpr float kMaxLimiterDbHard = 5.0f;  // Aggressive presets: some limiting is part of the sound, not a fault
 constexpr float kLoudnessWindow = 5.0f;    // +- LU around the median of all presets
+// Drums are one-shots normalised by peak (like a sample pack), not by loudness: a hi-hat at the loudness of a
+// kick would be far too loud. Instead of the loudness checks their peak must be within this range.
+constexpr float kDrumMinPeakDb = -9.0f;
 constexpr float kMinLoudness = -24.0f, kMaxLoudness = -9.0f;
 
 struct NoteEvent { double time; int note; bool on; float vel; };
@@ -92,6 +95,13 @@ Phrase phraseFor (const juce::String& category)
         const int notes[] = { 67, 69, 72, 71, 67 };
         for (int i = 0; i < 5; ++i)
             add (i * 0.45, i * 0.45 + (i == 4 ? 0.9 : 0.47), notes[i], 0.8f);
+    }
+    else if (category == "Drums")
+    {
+        // One-shots are tuned to sound right on C3 (the key the drum presets are built around).
+        p.name = "8 hits C3, eighth notes, accents";
+        for (int i = 0; i < 8; ++i)
+            add (i * 0.25, i * 0.25 + 0.12, 48, i % 2 == 0 ? 0.95f : 0.7f);
     }
     else if (category == "FX")
     {
@@ -450,7 +460,10 @@ Result renderPreset (VoltAudioProcessor& proc, int index, const volt::PresetInfo
     if (res.tailDb > kTailEndDb) res.failures.add ("tail does not decay (" + juce::String (res.tailDb, 1) + " dBFS after 8 s)");
     const float maxLimiter = info.mood == "Aggressive" ? kMaxLimiterDbHard : kMaxLimiterDb;
     if (res.limiterDb > maxLimiter) res.failures.add ("limiter works too hard (" + juce::String (res.limiterDb, 1) + " dB)");
-    if (res.lufs < kMinLoudness || res.lufs > kMaxLoudness)
+    const bool drums = info.category == "Drums";
+    if (drums && res.peakDb < kDrumMinPeakDb)
+        res.failures.add ("drum peak " + juce::String (res.peakDb, 1) + " dBFS below " + juce::String (kDrumMinPeakDb, 0));
+    if (! drums && (res.lufs < kMinLoudness || res.lufs > kMaxLoudness))
         res.failures.add ("loudness " + juce::String (res.lufs, 1) + " LUFS outside [" + juce::String (kMinLoudness) + ", " + juce::String (kMaxLoudness) + "]");
 
     // ---- preview ----
@@ -631,7 +644,8 @@ int main (int argc, char** argv)
     // Level consistency across all rendered presets.
     std::vector<float> l;
     for (const auto& r : results)
-        l.push_back (r.lufs);
+        if (r.category != "Drums")
+            l.push_back (r.lufs);
     float median = 0.0f;
     if (! l.empty())
     {
@@ -639,7 +653,7 @@ int main (int argc, char** argv)
         median = l[l.size() / 2];
         if (filter.isEmpty())
             for (auto& r : results)
-                if (std::abs (r.lufs - median) > kLoudnessWindow)
+                if (r.category != "Drums" && std::abs (r.lufs - median) > kLoudnessWindow)
                     r.failures.add ("loudness " + fmt (r.lufs) + " LUFS deviates more than " + fmt (kLoudnessWindow, 0) + " LU from median " + fmt (median));
     }
 

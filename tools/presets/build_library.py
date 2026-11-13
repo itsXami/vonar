@@ -21,7 +21,7 @@ import importlib  # noqa: E402
 import batch_common as bc  # noqa: E402
 
 # Stage D batches, in the order they were made: generator module -> its batch name in selection.json "batches".
-BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1", "urban1"]
+BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1", "urban1", "drums1"]
 
 # Presets made before the Strings category existed, moved there (same chord test phrase, so levels are unchanged).
 RECATEGORISE = {"Grey Sky Strings": "Strings", "Vintage String Ensemble": "Strings", "Disco Strings": "Strings",
@@ -117,7 +117,7 @@ def write_presets(chosen, trims):
             os.remove(os.path.join(gp.PRESET_DIR, f))
     for i, p in enumerate(chosen, start=1):
         params = dict(p["params"])
-        gain = bc.clamp_gain(trims.get(p["name"], 0.0) + bc.mood_offset(p["mood"]) + LEVEL_ADJUST.get(p["name"], 0.0))
+        gain = bc.clamp_gain(trims.get(p["name"], 0.0) + bc.level_offset(p) + LEVEL_ADJUST.get(p["name"], 0.0))
         if abs(gain) > 0.05:
             params["out_gain"] = round(gain, 1)
         sparse = {k: (round(params[k], 5) if isinstance(params[k], float) else params[k])

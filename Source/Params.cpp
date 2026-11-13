@@ -151,7 +151,7 @@ std::array<ParamSpec, NumParams> buildSpecs()
         const int base = Lfo1_Shape + l * kLfoParamCount;
         set (base + 0, C (lfoIds[l][0], lfoNames[l][0], { "Sine", "Triangle", "Saw", "Square", "S&H" }, 0));
         set (base + 1, B (lfoIds[l][1], lfoNames[l][1], false));
-        set (base + 2, F (lfoIds[l][2], lfoNames[l][2], 0.01f, 40.0f, 2.0f, 2.0f, "Hz"));
+        set (base + 2, F (lfoIds[l][2], lfoNames[l][2], 0.01f, 100.0f, 2.0f, 2.0f, "Hz"));   // up to 100 Hz: clap bursts, buzz
         set (base + 3, C (lfoIds[l][3], lfoNames[l][3], divs, divs.indexOf ("1/4")));
         set (base + 4, F (lfoIds[l][4], lfoNames[l][4], 0.0f, 1.0f, 1.0f));
         set (base + 5, B (lfoIds[l][5], lfoNames[l][5], false));
