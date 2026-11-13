@@ -408,3 +408,7 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   (namespace `volt`, cele CMake `VOLT_*`), więc projekty FL Studio z VOLT dalej się otwierają.
 - Do sprawdzenia przez użytkownika: instalacja nowym instalatorem na komputerze z VOLT, czy FL pokazuje tylko
   Vonar i czy stary projekt się otwiera.
+- **Mniej Sad (2026-11-13):** użytkownik: „za dużo Sad, ale nie redukuj o więcej niż 5 %”. Usunięte 8 presetów Sad –
+  z każdej bardzo podobnej pary bliższy (Emo Saw Lead, Weeping Guitar, Grieving Strings, Audible 808 Glide, Rainy Day
+  EP, Empty Room Pad, Winter Choir, Ghost Vocal Pad); Lilting Voice Pad (wzorzec użytkownika) zostaje. Biblioteka
+  335 → **327** (−2,4 %), Sad 7,5 % → 5,2 %.

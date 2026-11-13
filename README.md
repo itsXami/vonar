@@ -1,7 +1,7 @@
 # Vonar
 
 Syntezator wavetable (VST3 + Standalone) z czytelnym interfejsem, wykresami wszystkiego, co kształtuje dźwięk, i biblioteką
-335 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia,
+327 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia,
 perkusja (kicki, werble, klaśnięcia, hi-haty, shakery do house i hip-hopu) i efekty – od spokojnych po mocno uderzające,
 w pięciu nastrojach (Soft, Medium, Sad, Dark, Aggressive).
 Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
