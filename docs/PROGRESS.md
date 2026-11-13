@@ -114,7 +114,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
-| D. Biblioteka ok. 300 presetów | ✅ 339 presetów (2026-11-13), odsłuchane przez użytkownika: „dobrze się słucha” |
+| D. Biblioteka ok. 300 presetów | ✅ zamknięta 2026-11-13: 335 presetów + Init, odsłuchane przez użytkownika |
 | E. Wydanie | – |
 
 **Etap A – co zrobiono:**
@@ -357,3 +357,6 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
 - **Odsłuch użytkownika (2026-11-13):** „dobrze się słucha”, „trochę za dużo sad, reszta okej”. Usunięte z partii
   hard1 na stronie: Rage Sync Screamer, Shouting Formant Lead, Siren Riser → biblioteka 339 presetów.
   Perkusja strojona pod C3 = C4 w FL Studio (FL liczy oktawy o jedną wyżej, środkowe C to C5).
+- **Biblioteka zamknięta (2026-11-13):** ostatni odsłuch całości (https://claude.ai/artifact/9tbnCmuGkTDJETBNWieChi,
+  kolekcja `review3`). Usunięte: Acid Burn Bass, Bass House Wobble, Static Throat, Clockwork Arp → **335 presetów + Init**.
+  Church Bell Toll – notatka użytkownika „zajebiste” (zapisane w `selection.json`). Następny etap: E – wydanie.
