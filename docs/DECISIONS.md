@@ -384,3 +384,8 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   brak pola nie może być sygnałem).
 - Kropki na wykresach to standardowy sposób obsługi EQ/filtrów (jak w korektorach DAW), rysowane po swojemu;
   kolory i ikony efektów własne VOLT.
+
+## Nazwa Vonar (2026-11-13)
+- Zmieniamy tylko to, co widzi użytkownik. Identyfikatory, od których zależą zapisane projekty (kody VST3,
+  znacznik stanu, ID parametrów), zostają – zmiana nazwy nie może zepsuć starych projektów.
+- Instalator ma tę samą AppId, więc traktuje Vonar jako aktualizację VOLT i usuwa stary `VOLT.vst3`.

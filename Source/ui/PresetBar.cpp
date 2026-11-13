@@ -10,7 +10,7 @@ PresetBar::PresetBar (PresetManager& pm) : presets (pm)
     VoltLookAndFeel::setStyle (nextButton, "arrow");
     VoltLookAndFeel::setStyle (nameButton, "preset");
     VoltLookAndFeel::setStyle (aboutButton, "ghost");
-    aboutButton.setTooltip ("About VOLT");
+    aboutButton.setTooltip ("About Vonar");
     aboutButton.onClick = [this] { showAbout(); };
     prevButton.setTooltip ("Previous preset (in the current filter)");
     nextButton.setTooltip ("Next preset (in the current filter)");
@@ -219,7 +219,7 @@ void PresetBar::showAbout()
 {
     juce::AlertWindow::showAsync (
         juce::MessageBoxOptions()
-            .withTitle ("VOLT " VOLT_VERSION_STRING)
+            .withTitle ("Vonar " VOLT_VERSION_STRING)
             .withMessage ("Wavetable synthesizer.\n\n"
                           "Free software under the GNU Affero General Public License, version 3. "
                           "You may use, study, share and change it under that licence; it comes with no warranty. "
@@ -252,22 +252,40 @@ void PresetBar::paint (juce::Graphics& g)
     g.setColour (juce::Colours::black);
     g.fillRect (0, getHeight() - 1, getWidth(), 1);
 
-    // Wordmark drawn from strokes; the O is a knob.
-    const float x = 18.0f, y = 15.0f, h = 18.0f, sw = 3.4f;
+    // VONAR wordmark drawn from strokes; the O is a knob with an amber pointer.
+    const float x = 18.0f, y = 15.0f, h = 18.0f, sw = 3.4f, half = sw * 0.5f;
     const juce::PathStrokeType stroke (sw, juce::PathStrokeType::mitered, juce::PathStrokeType::butt);
     juce::Path mark;
+    // V
     mark.startNewSubPath (x, y);
-    mark.lineTo (x + 8.5f, y + h);
-    mark.lineTo (x + 17.0f, y);
-    const float cx = x + 33.0f, cy = y + h * 0.5f, r = h * 0.5f - sw * 0.5f + 0.6f;
+    mark.lineTo (x + 7.5f, y + h);
+    mark.lineTo (x + 15.0f, y);
+    // O (knob ring, open at the bottom)
+    const float cx = x + 30.0f, cy = y + h * 0.5f, r = h * 0.5f - half + 0.6f;
     mark.addCentredArc (cx, cy, r, r, 0.0f, -2.41f, 2.41f, true);
-    mark.startNewSubPath (x + 49.0f, y);
-    mark.lineTo (x + 49.0f, y + h - sw * 0.5f);
-    mark.lineTo (x + 61.0f, y + h - sw * 0.5f);
-    mark.startNewSubPath (x + 64.0f, y + sw * 0.5f);
-    mark.lineTo (x + 82.0f, y + sw * 0.5f);
-    mark.startNewSubPath (x + 73.0f, y + sw * 0.5f);
-    mark.lineTo (x + 73.0f, y + h);
+    // N
+    const float nx = x + 45.0f;
+    mark.startNewSubPath (nx, y + h);
+    mark.lineTo (nx, y + half);
+    mark.lineTo (nx + 12.0f, y + h - half);
+    mark.lineTo (nx + 12.0f, y);
+    // A
+    const float ax = x + 63.0f;
+    mark.startNewSubPath (ax, y + h);
+    mark.lineTo (ax + 7.5f, y + half);
+    mark.lineTo (ax + 15.0f, y + h);
+    mark.startNewSubPath (ax + 3.4f, y + h * 0.68f);
+    mark.lineTo (ax + 11.6f, y + h * 0.68f);
+    // R
+    const float rx = x + 84.0f + half, bw = 11.0f, bh = 10.0f;
+    mark.startNewSubPath (rx, y + h);
+    mark.lineTo (rx, y + half);
+    mark.lineTo (rx + bw - bh * 0.5f, y + half);
+    mark.addCentredArc (rx + bw - bh * 0.5f, y + half + (bh - half) * 0.5f, (bh - half) * 0.5f, (bh - half) * 0.5f, 0.0f, 0.0f,
+                        juce::MathConstants<float>::pi);
+    mark.lineTo (rx, y + bh);
+    mark.startNewSubPath (rx + 4.5f, y + bh);
+    mark.lineTo (rx + bw, y + h);
     g.setColour (colours::text);
     g.strokePath (mark, stroke);
     g.setColour (colours::macro);

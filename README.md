@@ -1,4 +1,4 @@
-# VOLT
+# Vonar
 
 Syntezator wavetable (VST3 + Standalone) z czytelnym interfejsem, wykresami wszystkiego, co kształtuje dźwięk, i biblioteką
 335 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia,
@@ -6,7 +6,7 @@ perkusja (kicki, werble, klaśnięcia, hi-haty, shakery do house i hip-hopu) i e
 w pięciu nastrojach (Soft, Medium, Sad, Dark, Aggressive).
 Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
 
-![Interfejs VOLT – zakładka SYNTH](docs/ui-snapshot.png)
+![Interfejs Vonar – zakładka SYNTH](docs/ui-snapshot.png)
 
 Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
 
@@ -42,20 +42,26 @@ Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
 
 ## Instalacja w FL Studio (Windows x64)
 
-1. Pobierz **`VOLT-windows-x64.zip`**: na GitHubie wejdź w zakładkę **Actions**, otwórz najnowszy zielony przebieg
-   workflow **CI** i w sekcji **Artifacts** kliknij `VOLT-windows-x64` (trzeba być zalogowanym na GitHubie).
-2. Rozpakuj archiwum. W środku jest folder **`VOLT.vst3`** (plugin) i **`VOLT.exe`** (wersja Standalone).
-3. Skopiuj **cały folder** `VOLT.vst3` do `C:\Program Files\Common Files\VST3\`
-   (potrzebne uprawnienia administratora).
-4. W FL Studio otwórz **Options → Manage plugins** i kliknij **Find installed plugins** (skanowanie).
-   VOLT pojawi się w kategorii **Generators** (producent: *VOLT Instruments*). Zaznacz gwiazdkę, żeby był
-   widoczny w menu dodawania instrumentów.
-5. Dodaj instrument: w **Channel Rack** kliknij **+** i wybierz **VOLT**.
-6. Presety wybierasz w górnym pasku okna VOLT (nie w menu presetów FL Studio – plugin udostępnia hostowi
+1. Pobierz instalator **`Vonar-<wersja>-Setup.exe`**: na GitHubie wejdź w zakładkę **Actions**, otwórz najnowszy
+   zielony przebieg workflow **CI** i w sekcji **Artifacts** kliknij `Vonar-windows-installer` (trzeba być
+   zalogowanym na GitHubie), potem rozpakuj ZIP.
+2. Uruchom instalator i przejdź kreator (po angielsku): licencja → instalacja → koniec. Plugin trafia do
+   `C:\Program Files\Common Files\VST3\Vonar.vst3`; odinstalujesz go w **Ustawienia → Aplikacje**.
+   Bez instalatora: z artefaktu `Vonar-windows-x64` skopiuj cały folder `Vonar.vst3` w to samo miejsce.
+3. W FL Studio otwórz **Options → Manage plugins** i kliknij **Find installed plugins** (skanowanie).
+   Vonar pojawi się w kategorii **Generators** (producent: *Vonar*). Zaznacz gwiazdkę, żeby był widoczny w menu
+   dodawania instrumentów.
+4. Dodaj instrument: w **Channel Rack** kliknij **+** i wybierz **Vonar**.
+5. Presety wybierasz w górnym pasku okna Vonar (nie w menu presetów FL Studio – plugin udostępnia hostowi
    jeden „program”). Stan pluginu, w tym nazwa presetu i etykiety makr, zapisuje się w projekcie FL Studio.
 
 Uwagi:
-- Pliki nie są podpisane cyfrowo – Windows SmartScreen może ostrzec przy pierwszym uruchomieniu `VOLT.exe`.
+- **Do 13.11.2026 plugin nazywał się VOLT.** Instalator Vonar usuwa stary `VOLT.vst3`, żeby FL Studio nie
+  pokazywał dwóch pluginów; wewnętrzny identyfikator pluginu się nie zmienił, więc projekty z VOLT dalej się
+  otwierają. Presety użytkownika z `%APPDATA%\VOLT\Presets` są przy pierwszym uruchomieniu kopiowane do
+  `%APPDATA%\Vonar\Presets`.
+- Instalator nie jest podpisany cyfrowo – Windows SmartScreen może ostrzec przy pierwszym uruchomieniu
+  („Więcej informacji → Uruchom mimo to”).
 - Plugin jest 64-bitowy (x64). Wersja ARM64 nie jest budowana.
 - Pump, arpeggiator, LFO w trybie Sync i Delay biorą tempo z FL Studio. Gdy transport stoi, korzystają z tempa
   projektu i własnego zegara; przy odtwarzaniu synchronizują się z pozycją w takcie.
@@ -72,7 +78,7 @@ filtr; zieleń – obwiednie; fiolet – LFO, macierz modulacji, arpeggiator, tr
 makra. Kolor ma tytuł sekcji, łuk pokrętła i wykres. **Bursztynowa kropka pod pokrętłem** oznacza, że steruje nim
 któreś makro.
 
-**Układ okna:** u góry znak VOLT (kliknięcie: informacje o programie i licencji), zakładki i pasek presetów; na dole
+**Układ okna:** u góry znak Vonar (kliknięcie: informacje o programie i licencji), zakładki i pasek presetów; na dole
 zawsze widoczne MACROS, OUTPUT i oscyloskop.
 1. **Pasek presetów:** kliknięcie nazwy otwiera menu presetów pogrupowane w kategorie, strzałki `<` `>` to
    poprzedni/następny (w obrębie aktywnego filtra), dalej filtry kategorii, nastroju (Soft, Medium, Sad, Dark,
@@ -94,7 +100,7 @@ zawsze widoczne MACROS, OUTPUT i oscyloskop.
    wartość domyślną. Przełącznik **KEEP LOW** przy Distortion przesterowuje tylko pasmo powyżej ok. 160 Hz.
 5. **MACROS:** obok każdego pokrętła jest jego nazwa (dwuklik zmienia ją), cel albo cele, którymi steruje, i wartość.
 
-**Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
+**Presety użytkownika** zapisują się jako JSON w `%APPDATA%\Vonar\Presets` (na Linuksie `~/.config/Vonar/Presets`).
 Można je kopiować między komputerami; po skopiowaniu wybierz *Rescan user presets* w menu presetów.
 
 **Kontrolery MIDI:** pitch bend (zakres ustawiasz pokrętłem **Bend** w sekcji VOICE, 0–24 półtonów, domyślnie 2),
@@ -118,19 +124,19 @@ klawisze ją przestrajają. Lista w menu presetów jest ułożona według katego
   zapis i wczytanie presetu użytkownika, poprawność wszystkich presetów fabrycznych (pola, kategorie, makra, zakazane nazwy),
 - **render offline wszystkich presetów fabrycznych** (`VOLT_Render`): test nie przechodzi przy ciszy, NaN/Inf, szczycie
   > 0 dBFS, dużym DC, ogonie, który nie zanika, zbyt mocnej pracy limitera i niespójnej głośności; raport zawiera
-  RMS, szczyt, głośność (LUFS), centroid widmowy i czas ogona (artefakt `VOLT-render-report`),
+  RMS, szczyt, głośność (LUFS), centroid widmowy i czas ogona (artefakt `Vonar-render-report`),
 - **pluginval** (strictness 5) na Linuksie i Windows, w tym otwieranie edytora, zapis/odczyt stanu i automatyzacja
   parametrów,
-- artefakty **`VOLT-windows-x64.zip`** (folder `VOLT.vst3` + `VOLT.exe`) i **`VOLT-preset-previews.zip`**
+- artefakty **`Vonar-windows-x64.zip`** (folder `Vonar.vst3` + `Vonar.exe`) i **`Vonar-preset-previews.zip`**
   (krótkie podglądy FLAC każdego presetu).
 
 **Wymaga odsłuchu i ręcznego testu (nie da się tego sprawdzić w chmurze na Linuksie):**
 - **charakter i jakość brzmień** – czy presety brzmią dobrze i wystarczająco różnie; najszybciej odsłuchać
-  podglądy z `VOLT-preset-previews.zip`,
+  podglądy z `Vonar-preset-previews.zip`,
 - **skanowanie i ładowanie w FL Studio**, zapis/odczyt projektu, automatyzacja parametrów z poziomu FL Studio,
   synchronizacja z tempem przy odtwarzaniu i zatrzymanym transporcie,
 - **obsługa interfejsu na Windows:** przeciąganie, Shift, dwuklik, tooltipy, skalowanie 75–200% i ekrany HiDPI,
-  okno zapisu presetu, katalog `%APPDATA%\VOLT\Presets`,
+  okno zapisu presetu, katalog `%APPDATA%\Vonar\Presets`,
 - **zużycie CPU w realnym projekcie** (test wydajności w CI mierzy tylko syntetyczny najgorszy przypadek),
 - **Standalone na Windows** (wybór urządzenia audio/MIDI).
 
@@ -152,7 +158,7 @@ cmake -S . -B build -A x64 -DVOLT_BUILD_TOOLS=OFF
 cmake --build build --config Release --target VOLT_VST3 VOLT_Standalone
 ```
 
-Wynik: `build/VOLT_artefacts/Release/VST3/VOLT.vst3` i `build/VOLT_artefacts/Release/Standalone/VOLT.exe`.
+Wynik: `build/VOLT_artefacts/Release/VST3/Vonar.vst3` i `build/VOLT_artefacts/Release/Standalone/Vonar.exe`.
 
 Linux (Ubuntu 24.04), z testami i rendererem:
 
@@ -189,23 +195,23 @@ w `docs/PROGRESS.md`).
 
 ## Licencja
 
-VOLT jest wolnym oprogramowaniem na licencji **GNU Affero General Public License w wersji 3** (AGPLv3) – pełny tekst
+Vonar jest wolnym oprogramowaniem na licencji **GNU Affero General Public License w wersji 3** (AGPLv3) – pełny tekst
 w pliku [`LICENSE`](LICENSE). Plugin jest darmowy i nie wymaga rejestracji. Możesz go używać (także komercyjnie,
 w swojej muzyce), kopiować, zmieniać i rozpowszechniać na warunkach AGPLv3; zmienione wersje muszą pozostać
-na tej samej licencji i mieć udostępniony kod źródłowy. Muzyka i dźwięki, które zrobisz za pomocą VOLT, są Twoje –
+na tej samej licencji i mieć udostępniony kod źródłowy. Muzyka i dźwięki, które zrobisz za pomocą Vonar, są Twoje –
 licencja ich nie obejmuje.
 
-- **Nazwa „VOLT” i logo nie są objęte licencją.** Zmienioną wersję rozpowszechniaj pod inną nazwą i z innym logo,
+- **Nazwa „Vonar” i logo nie są objęte licencją.** Zmienioną wersję rozpowszechniaj pod inną nazwą i z innym logo,
   tak żeby nie można jej było pomylić z oryginałem.
 - **Wkład od innych:** na razie przyjmujemy wyłącznie presety, bez zmian w kodzie – zasady w
   [`CONTRIBUTING.md`](CONTRIBUTING.md).
 - Program jest udostępniany bez żadnej gwarancji (punkty 15 i 16 licencji).
 
-Copyright © 2026 autorzy projektu VOLT.
+Copyright © 2026 autorzy projektu Vonar.
 
 ## Składniki innych autorów
 
-- **JUCE 8** (framework audio, Raw Material Software Limited) – używany na licencji AGPLv3, zgodnej z licencją VOLT.
+- **JUCE 8** (framework audio, Raw Material Software Limited) – używany na licencji AGPLv3, zgodnej z licencją Vonar.
   JUCE zawiera też kod VST3 SDK firmy Steinberg. „VST” jest znakiem towarowym Steinberg Media Technologies GmbH.
 - Czcionka interfejsu **Oxanium** – SIL Open Font License 1.1 (`resources/fonts/OFL-Oxanium.txt`).
 - Wszystkie wavetable, presety i grafika powstały w tym projekcie (wavetable generuje kod). Nie użyto kodu, tablic,

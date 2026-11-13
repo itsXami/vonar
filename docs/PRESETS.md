@@ -1,4 +1,4 @@
-# VOLT – presety fabryczne
+# Vonar – presety fabryczne
 
 336 presetów: **Init** + 335 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
 brzmienia, a w kategorii alfabetycznie – tak samo jak w menu presetów pluginu. Presety oznaczone w kolumnie

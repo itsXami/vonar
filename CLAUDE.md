@@ -1,4 +1,4 @@
-# VOLT – zasady pracy z użytkownikiem
+# Vonar – zasady pracy z użytkownikiem
 
 - Odpowiadaj po polsku.
 - **Najpierw odpowiedz na wszystkie pytania użytkownika, robotę rób na końcu.** Gdy wiadomość ma pytania i

@@ -18,13 +18,27 @@ const juce::StringArray& PresetManager::moods()
 
 PresetManager::PresetManager (juce::AudioProcessorValueTreeState& state) : apvts (state)
 {
+    migrateOldUserPresets();
     rescan();
+}
+
+void PresetManager::migrateOldUserPresets()
+{
+    // The plugin was called VOLT until 2026-11-13: copy user presets from the old folder once (the old folder stays).
+    const auto newDir = getUserPresetDirectory();
+    const auto oldDir = newDir.getParentDirectory().getParentDirectory().getChildFile ("VOLT").getChildFile ("Presets");
+    if (newDir.isDirectory() || ! oldDir.isDirectory())
+        return;
+    if (! newDir.createDirectory())
+        return;
+    for (const auto& f : oldDir.findChildFiles (juce::File::findFiles, false, "*.json"))
+        f.copyFileTo (newDir.getChildFile (f.getFileName()));
 }
 
 juce::File PresetManager::getUserPresetDirectory()
 {
     return juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory)
-        .getChildFile ("VOLT")
+        .getChildFile ("Vonar")
         .getChildFile ("Presets");
 }
 
