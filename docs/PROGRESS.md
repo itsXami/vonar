@@ -3,7 +3,7 @@
 Ten plik wystarcza, żeby nowa sesja mogła kontynuować pracę.
 
 ## Kontekst
-- Repo: `jakubnikapiotr-design/vst`, branch roboczy: `feature/volt-synth`, PR do `main`.
+- Repo: `itsXami/vst` (do 13.11.2026 `jakubnikapiotr-design/vst`; GitHub przekierowuje), branch roboczy: `feature/volt-synth`, PR do `main`.
 - Specyfikacja: oryginalne polecenie użytkownika (syntezator wavetable VOLT, VST3 + Standalone, 121 presetów).
   Kluczowe wymagania są streszczone w sekcji „Checklista” poniżej.
 - Sesja w chmurze: przed buildem doinstalować zależności (`apt-get update` + lista niżej) i sklonować JUCE
