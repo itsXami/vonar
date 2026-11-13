@@ -43,6 +43,9 @@ private:
     void setSustain (bool down) noexcept;
     void beginChunk (int n) noexcept;
     void renderChunk (float* L, float* R, int n) noexcept;
+public:
+    bool isIdleAsleep() const noexcept { return fxAsleep; }
+private:
     void computeGlobalMods (float* dst) const noexcept;
 
     double sampleRate = 44100.0;
@@ -81,6 +84,10 @@ private:
     TransportInfo transport;
     double chunkPpq = 0.0;
     double freePpq = 0.0; // free-running beat clock when the host is stopped
+    // Idle sleep: with no voice sounding and the effects' output below -100 dB for longer than the delay could
+    // still answer, the effect chain is skipped (an idle instance in a project costs almost nothing).
+    int fxSilentSamples = 0;
+    bool fxAsleep = false;
 
     Arpeggiator arp;
     FxChain fx;
