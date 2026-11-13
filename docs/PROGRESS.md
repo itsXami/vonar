@@ -115,7 +115,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
 | D. Biblioteka ok. 300 presetów | ✅ zamknięta 2026-11-13: 327 presetów + Init, odsłuchane przez użytkownika |
-| E. Wydanie | 🔶 przygotowane 2026-11-13 (wersja 1.0.0); czeka na merge PR #1 i opublikowanie Release przez użytkownika |
+| E. Wydanie | 🔶 1.0.0 scalone do `main` (PR #2, squash 6d8e430); czeka na opublikowanie Release `v1.0.0` przez użytkownika |
 
 **Etap A – co zrobiono:**
 - Usunięte wszystkie nazwy artystów i albumów z tagów presetów (biblioteka i 100 kandydatów), generatorów,
@@ -429,5 +429,7 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
 - CI: build Windows bez Standalone (zgodnie z decyzją „b”); po opublikowaniu GitHub Release CI buduje pliki od nowa
   i sam dołącza `Vonar-1.0.0-Setup.exe` oraz `Vonar-1.0.0-Windows-x64.zip`.
 - Opis wydania (EN): `docs/releases/v1.0.0.md`. README: instalacja ze strony Releases + uwaga o SmartScreen.
-- Kolejność do końca: zielone CI → squash-merge PR #1 do `main` → użytkownik tworzy Release `v1.0.0` z `main`
+- PR #1 zamknął GitHub przy przepisaniu historii (nie da się go otworzyć) – zastąpiony przez PR #2, scalony
+  (squash) po zielonym CI #61.
+- Kolejność do końca: zielone CI → squash-merge do `main` → użytkownik tworzy Release `v1.0.0` z `main`
   (opis z `docs/releases/v1.0.0.md`) → CI dołącza pliki → repo publiczne.
