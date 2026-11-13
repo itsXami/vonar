@@ -395,3 +395,5 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   zawsze pochodzi z kodu oznaczonego tagiem.
 - Instalator bez płatnego podpisu kodu; ostrzeżenie SmartScreen opisane w README i w opisie wydania.
 - Repo zostaje prywatne do chwili publikacji 1.0, żeby ludzie od razu zobaczyli gotową wersję.
+- **README po angielsku** (2026-11-13, wybór użytkownika): repo jest publiczne, więc pierwsza strona musi być
+  zrozumiała dla wszystkich. Polskiej kopii nie ma (mniej do pilnowania); notatki w `docs/` zostają po polsku.
