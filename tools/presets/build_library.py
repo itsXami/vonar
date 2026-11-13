@@ -21,7 +21,7 @@ import importlib  # noqa: E402
 import batch_common as bc  # noqa: E402
 
 # Stage D batches, in the order they were made: generator module -> its batch name in selection.json "batches".
-BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1", "urban1", "drums1"]
+BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1", "urban1", "drums1", "hard1"]
 
 # Presets made before the Strings category existed, moved there (same chord test phrase, so levels are unchanged).
 RECATEGORISE = {"Grey Sky Strings": "Strings", "Vintage String Ensemble": "Strings", "Disco Strings": "Strings",

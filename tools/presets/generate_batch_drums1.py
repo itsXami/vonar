@@ -71,9 +71,9 @@ P("house", "Hard Clipped Kick", D, "Loud, square-clipped kick for hard house and
 P("hiphop", "Boom Bap Kick", D, "Thick, slightly saturated kick with a knock on top for boom bap beats.",
   M(("Energy", [("Dist Mix", 0.4), ("Cutoff", 0.3)]), ("Knock", [("Noise Level", 0.3)]), ("Tune", [("Pitch", 0.15)]),
     ("Room", [("Reverb Mix", 0.2)])),
-  mods=[("Mod Env", "Noise Level", 0.45), ("Velocity", "Cutoff", 0.2)], tags=["Kick", "Boom Bap", "Knock"], mood="Medium",
-  **kick(oscA_semi=-1, oscA_pos=0.08, amp_decay=0.42, penv_amount=28.0, penv_decay=0.05, flt_cutoff=3200.0,
-         menv_decay=0.018, dist_type="Tube", dist_drive=0.5, dist_mix=0.55, squash=0.25))
+  mods=[("Mod Env", "Noise Level", 0.65), ("Velocity", "Cutoff", 0.2)], tags=["Kick", "Boom Bap", "Knock"], mood="Medium",
+  **kick(oscA_semi=-1, oscA_pos=0.2, amp_decay=0.3, penv_amount=30.0, penv_decay=0.035, flt_cutoff=4500.0,
+         menv_decay=0.028, dist_type="Tube", dist_drive=0.6, dist_mix=0.7, squash=0.3))
 P("hiphop", "Dusty Knock Kick", D, "Dark, short kick with a muffled thump, like it was bounced to tape.",
   M(("Energy", [("Dist Mix", 0.4), ("Cutoff", 0.35)]), ("Knock", [("Noise Level", 0.3)]), ("Tune", [("Pitch", 0.15)]),
     ("Crush", [("Dist Drive", 0.3)])),
@@ -211,7 +211,7 @@ P("trap", "Trap Hat Roll", D, "Short, bright hat that stays clean in fast rolls 
   M(("Energy", [("Dist Mix", 0.35), ("Cutoff", 0.2)]), ("Tone", [("Cutoff", 0.3)]), ("Metal", [("Level B", 0.3)]),
     ("Room", [("Reverb Mix", 0.25)])),
   mods=HAT_MODS, tags=["Hi-Hat", "Trap", "Roll"], mood="Medium",
-  **hat(oscB_level=0.08, flt_cutoff=9000.0, amp_decay=0.03))
+  **hat(oscB_level=0.0, flt_cutoff=10500.0, flt_res=0.45, amp_decay=0.025))
 P("trap", "Trap Open Hat", D, "Sizzling open hat with a hard top, for trap bounces and fills.",
   M(("Energy", [("Dist Drive", 0.35), ("Cutoff", 0.2)]), ("Tone", [("Cutoff", 0.3)]), ("Metal", [("Level B", 0.3)]),
     ("Room", [("Reverb Mix", 0.25)])),

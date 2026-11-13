@@ -196,6 +196,14 @@
    "removed": [],
    "similar": {},
    "source": "generate_batch_drums1.py"
+  },
+  "hard1": {
+   "removed": [],
+   "similar": {
+    "Fuzz Wall Riff": "Industrial Guitar Wall (0.63)",
+    "Blown Supersaw": "Rage Synth Lead (0.82)"
+   },
+   "source": "generate_batch_hard1.py"
   }
  },
  "review_2026_11_12_removed": [
