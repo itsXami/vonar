@@ -438,3 +438,4 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
 - **Opublikowane 2026-11-13 18:02 UTC:** Release `v1.0.0` z `main` (711887e); CI #72 zielone i dołączyło
   `Vonar-1.0.0-Setup.exe` (4,6 MB) i `Vonar-1.0.0-Windows-x64.zip` (3,6 MB). Do sprawdzenia przez użytkownika:
   instalacja z Releases i test w FL Studio (stare projekty VOLT, presety użytkownika).
+- **Użytkownik potwierdził (2026-11-13): wydanie 1.0.0 zainstalowane z Releases działa.**
