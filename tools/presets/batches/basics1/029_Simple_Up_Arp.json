@@ -1,0 +1,53 @@
+{
+  "name": "Simple Up Arp",
+  "category": "Arp",
+  "tags": [
+    "Basic",
+    "Arp",
+    "Saw",
+    "Plain"
+  ],
+  "description": "Plain saw arpeggio going up in sixteenths, ready to drop on any chord.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Tone",
+    "Gate",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "flt_cutoff": 1800.0,
+    "flt_envamt": 0.35,
+    "amp_attack": 0.001,
+    "amp_decay": 0.2,
+    "amp_sustain": 0.3,
+    "amp_release": 0.08,
+    "fenv_decay": 0.1,
+    "fenv_sustain": 0.1,
+    "arp_on": true,
+    "arp_octaves": 2,
+    "dly_time": "1/8D",
+    "dly_feedback": 0.3,
+    "dly_mix": 0.12,
+    "out_gain": 6.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Resonance",
+    "mod4_amt": 0.3,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Delay Mix",
+    "mod5_amt": 0.3,
+    "mod6_src": "Velocity",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.2
+  }
+}

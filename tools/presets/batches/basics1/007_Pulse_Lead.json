@@ -1,0 +1,50 @@
+{
+  "name": "Pulse Lead",
+  "category": "Lead",
+  "tags": [
+    "Basic",
+    "PWM",
+    "Analog",
+    "Plain"
+  ],
+  "description": "Pulse-width lead that slowly thins and thickens as you hold it.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Width",
+    "Tone",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Legato",
+    "glide": 0.04,
+    "oscA_table": "PWM",
+    "oscA_pos": 0.3,
+    "flt_cutoff": 4500.0,
+    "lfo1_rate": 0.7,
+    "mfx_mix": 0.2,
+    "out_gain": 0.9,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "WT Pos A",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Cutoff",
+    "mod4_amt": 0.3,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Delay Mix",
+    "mod5_amt": 0.3,
+    "mod6_src": "LFO 1",
+    "mod6_dst": "WT Pos A",
+    "mod6_amt": 0.25,
+    "mod7_src": "Velocity",
+    "mod7_dst": "Cutoff",
+    "mod7_amt": 0.2
+  }
+}

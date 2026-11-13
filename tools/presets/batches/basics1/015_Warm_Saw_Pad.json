@@ -1,0 +1,49 @@
+{
+  "name": "Warm Saw Pad",
+  "category": "Pad",
+  "tags": [
+    "Basic",
+    "Saw",
+    "Warm",
+    "Plain"
+  ],
+  "description": "Basic warm pad from detuned saws, slow in and slow out.",
+  "mood": "Soft",
+  "macros": [
+    "Energy",
+    "Tone",
+    "Width",
+    "Space"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_voices": 4,
+    "uni_detune": 0.2,
+    "uni_spread": 0.9,
+    "flt_cutoff": 1600.0,
+    "amp_attack": 0.6,
+    "amp_release": 1.5,
+    "lfo1_rate": 0.2,
+    "rev_size": 0.6,
+    "rev_mix": 0.18,
+    "out_gain": -6.9,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Cutoff",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Detune",
+    "mod4_amt": 0.3,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Reverb Mix",
+    "mod5_amt": 0.25,
+    "mod6_src": "LFO 1",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.05
+  }
+}

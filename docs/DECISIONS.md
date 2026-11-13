@@ -354,3 +354,20 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
 - **Klawiatura do grania w pluginie – wycofana.** Nieporozumienie: użytkownikowi chodziło o klawiaturę do
   przeglądania dźwięków na stronie odsłuchu.
 
+
+## Naprawa różnorodności (2026-11-13)
+- **Energia mierzona z dźwięku, nie z ustawień.** Przester za ciemnym filtrem tylko ociepla; liczy się udział pasma
+  1–8 kHz (dB), gęstość harmonicznych, ostrość ataku, crest. Jasność bezwzględna, nie względem kategorii.
+- **Keep Low zamiast HP przed przesterem:** zwrotnica Linkwitz-Riley 24 dB/okt. (suma = all-pass), ścieżka dry dostaje
+  tę samą fazę, więc częściowy Mix nie robi filtra grzebieniowego. Domyślnie wyłączony – stare presety bez zmian.
+  Nie dla 808 z samego sinusa: prawie cała ich energia jest poniżej 160 Hz, więc nie byłoby czego przesterować.
+- **Nastrój jako osobne pole `mood`**, nie tag – filtr Mood nie miesza się z tagami stylu; stare presety użytkownika
+  bez nastroju nadal się wczytują.
+- **Głośność zależy od nastroju** (Aggressive +2,5 dB, Medium +0,5, Dark 0, Sad −1, Soft −2 względem −15 LUFS);
+  dla Aggressive limiter do 5 dB. Mocnych presetów nie zmiękczamy, żeby przeszły test.
+- **Perkusja normalizowana szczytem** (−1 dBFS), bo hi-hat na poziomie LUFS stopy byłby za głośny; w rendererze
+  zamiast okna LUFS sprawdzany jest szczyt (≥ −9 dBFS). Strojenie pod C3.
+- **Klaśnięcie bez nowego modułu:** szum = 1 + 2×Velocity + LFO square 90 Hz − 3×Mod Env (przycięte do 0..1) daje
+  2–4 szybkie uderzenia i gładki ogon; dlatego LFO dostał zakres do 100 Hz (środek skali nadal 2 Hz).
+- **Partia Basics zwolniona z wymogu oryginalności**; metryka podobieństwa to sito, bliskie pary o innym
+  zastosowaniu zostają do oceny uchem (zapisane w `selection.json`).

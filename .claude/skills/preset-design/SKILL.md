@@ -20,8 +20,28 @@ zanim trafi na stronę odsłuchu.
 - Zakazane nazwy pilnuje test (`tests/PresetTests.cpp`: `kBannedInNames` dla nazw, `kBannedEverywhere` dla nazw,
   tagów, opisów i etykiet makr); generator kandydatów czyta te same listy.
 - Nazwa: 1–3 słowa, opisowa albo obrazowa, unikalna w bibliotece, bez numerów wersji.
-- Głośność: cel ok. -15 LUFS na frazie kategorii (trym w `candidate_trims.json`), limiter < 3 dB redukcji.
+- Głośność: cel -15 LUFS przesunięty wg nastroju (`batch_common.MOOD_OFFSET_DB`), limiter < 3 dB (Aggressive < 5 dB); perkusja: szczyt -1 dBFS.
 - Makra 1–4 zawsze coś sensownego robią i mają nazwy mówiące co (np. `Bite`, `Air`, `Motion`, `Space`).
+
+## Zasady po naprawie różnorodności (2026-11-13) – ważniejsze niż reszta
+
+- **Wzorce użytkownika to punkt odniesienia dla kilku presetów, nie kierunek biblioteki.** To, że użytkownik lubi
+  część ciepłych brzmień, nie znaczy, że cała biblioteka ma być ciepła i miękka.
+- **Każdy preset ma nastrój** (`mood=` w `P(...)`: Soft / Medium / Sad / Dark / Aggressive). Soft najwyżej 30 %
+  biblioteki (test). Partia ma mieć rozrzut energii 1–5, nie same spokojne.
+- **Energię sprawdzaj z dźwięku:** `python3 tools/presets/energy_mood.py report.json --dir <folder partii> --list`.
+  Preset „Aggressive” na poziomie 1–2 to błąd projektu (zwykle za niski filtr albo za ciemna tablica), nie etykiety.
+- **Nie zmiękczaj presetów, żeby przeszły test.** Mocne brzmienia: atak 0–2 ms, otwarty filtr (3–12 kHz), Hard /
+  Fold / Bitcrush, dużo środka 1–4 kHz, klik z Mod Env → Noise Level, Pitch Env. Problem z limiterem rozwiązuj
+  poziomem, dłuższą obwiednią krótkich uderzeń albo Squash – nie łagodnym atakiem.
+- **Basy z bogatym środkiem: `dist_keep_low=True`** (sub czysty, przester tylko góry). 808 z samego sinusa
+  przesterowuj pełnym pasmem.
+- **Makro 1 = „Energy”** (Dist Mix/Drive + Cutoff), żeby ten sam preset szedł od spokojnego do mocnego.
+- **Zwykłe presety są potrzebne** (czysty sub, saw lead, pad, smyczki, brass). Takie partie są zwolnione z wymogu
+  oryginalności; wystarczy, że nie dublują się nawzajem.
+- **Perkusja** (`Drums`): strojona pod C3, decay = release (bramka nie ucina uderzenia), normalizacja szczytem
+  (`--trim` robi to sam dla kategorii Drums). Przepisy w nagłówku `generate_batch_drums1.py`.
+- **Odsłuch zawsze na stronie z klawiaturą** (`VOLT_Render --samples`, sampler C2–C5); użytkownik decyduje.
 
 ## Jeden preset = jeden wyraźny pomysł
 
