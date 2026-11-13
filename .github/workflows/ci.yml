@@ -43,7 +43,7 @@ jobs:
       - name: Build
         run: cmake --build build --parallel
 
-      - name: Unit tests (interface tests need a display: xvfb)
+      - name: Unit tests (interface tests run under xvfb)
         run: xvfb-run -a ctest --test-dir build --output-on-failure
 
       - name: Render all presets (offline report + previews)
