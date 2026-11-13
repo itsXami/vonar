@@ -2,7 +2,7 @@ Vonar - third-party notices
 ===========================
 
 Vonar is free software by Xami, licensed under the GNU Affero General Public License, version 3
-(see LICENSE.txt). Source code: https://github.com/itsXami/vst
+(see LICENSE.txt). Source code: https://github.com/itsXami/vonar
 
 Vonar is built with the following components by other authors.
 

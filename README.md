@@ -43,7 +43,7 @@ Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
 ## Instalacja w FL Studio (Windows x64)
 
 1. Pobierz instalator **`Vonar-<wersja>-Setup.exe`** ze strony
-   [**Releases**](https://github.com/itsXami/vst/releases/latest) (sekcja *Assets*). Windows może pokazać
+   [**Releases**](https://github.com/itsXami/vonar/releases/latest) (sekcja *Assets*). Windows może pokazać
    ostrzeżenie SmartScreen, bo instalator nie ma płatnego podpisu: kliknij **More info → Run anyway**.
 2. Uruchom instalator i przejdź kreator (po angielsku): licencja → instalacja → koniec. Plugin trafia do
    `C:\Program Files\Common Files\VST3\Vonar.vst3`; odinstalujesz go w **Ustawienia → Aplikacje**.

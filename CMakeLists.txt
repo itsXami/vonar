@@ -76,7 +76,7 @@ target_link_libraries(VoltCore INTERFACE
 # ---------------------------------------------------------------------------
 juce_add_plugin(VOLT
     COMPANY_NAME              "Vonar"
-    COMPANY_WEBSITE           "https://github.com/itsXami/vst"
+    COMPANY_WEBSITE           "https://github.com/itsXami/vonar"
     BUNDLE_ID                 "com.voltinstruments.volt"
     PLUGIN_MANUFACTURER_CODE  Vltx
     PLUGIN_CODE               Vlt1
