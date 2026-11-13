@@ -3,6 +3,7 @@
 //   VOLT_Render [--out DIR] [--dir PRESET_DIR] [--preset TEXT] [--no-previews] [--block N]
 //   VOLT_Render --snapshot FILE.png [SCALE]
 //   VOLT_Render --out DIR --samples        (also writes DIR/samples/*.flac: C2, C3, C4, C5 held notes per preset)
+//   VOLT_Render --out DIR --bench          (CPU ranking instead of the render checks: DIR/bench.json, bench.md)
 //
 // Loads every factory preset into the real plugin processor, plays a category-specific test phrase
 // (bass note, chord or short sequence) at 48 kHz / 120 BPM with a running transport, renders the tail and
@@ -559,6 +560,58 @@ int snapshot (const juce::File& out, float scale, int tab)
 juce::String fmt (float v, int dp = 1) { return juce::String (v, dp); }
 } // namespace
 
+// ---- CPU benchmark ----
+// Per preset: an 8-note chord held for 3 s (timed), then the release and tails (not timed), then 3 s of silence
+// with the plugin still running (timed: what an idle instance costs in a project). Result in % of one core.
+struct Bench { juce::String name, category; double playPct = 0.0, idlePct = 0.0; };
+
+Bench benchPreset (VoltAudioProcessor& proc, const volt::PresetInfo& info, int block)
+{
+    auto& pm = proc.getPresetManager();
+    pm.applyPreset (info);
+    FixedPlayHead playHead;
+    proc.setPlayHead (&playHead);
+    proc.prepareToPlay (kSampleRate, block);
+    juce::AudioBuffer<float> buffer (2, block);
+    juce::MidiBuffer midi;
+    juce::int64 pos = 0;
+    auto run = [&] (double seconds, const std::vector<juce::MidiMessage>& atStart) {
+        const auto blocks = (int) std::ceil (seconds * kSampleRate / block);
+        const auto t0 = juce::Time::getHighResolutionTicks();
+        for (int b = 0; b < blocks; ++b)
+        {
+            buffer.clear();
+            midi.clear();
+            if (b == 0)
+                for (const auto& m : atStart)
+                    midi.addEvent (m, 0);
+            playHead.samplePos = pos;
+            proc.processBlock (buffer, midi);
+            pos += block;
+        }
+        const double secs = juce::Time::highResolutionTicksToSeconds (juce::Time::getHighResolutionTicks() - t0);
+        return 100.0 * secs / ((double) blocks * block / kSampleRate);
+    };
+    const int chord[] = { 36, 48, 55, 60, 64, 67, 71, 74 };
+    std::vector<juce::MidiMessage> on, off;
+    for (int n : chord)
+    {
+        on.push_back (juce::MidiMessage::noteOn (1, n, 0.85f));
+        off.push_back (juce::MidiMessage::noteOff (1, n));
+    }
+    Bench b { info.name, info.category };
+    run (0.3, {});                                   // warm-up
+    const double first = run (3.0, on);
+    run (0.05, off);
+    const double second = run (3.0, on);             // a second take; the faster one counts (less noise from the machine)
+    b.playPct = std::min (first, second);
+    run (8.0, off);                                  // release and tails
+    b.idlePct = std::min (run (3.0, {}), run (3.0, {}));
+    proc.setPlayHead (nullptr);
+    proc.releaseResources();
+    return b;
+}
+
 int main (int argc, char** argv)
 {
     juce::ScopedJuceInitialiser_GUI gui;
@@ -573,7 +626,7 @@ int main (int argc, char** argv)
     juce::File outDir = juce::File::getCurrentWorkingDirectory().getChildFile ("render-out");
     juce::String filter;
     juce::File presetDir;
-    bool previews = true, samples = false;
+    bool previews = true, samples = false, bench = false;
     int block = 512;
     for (int i = 0; i < args.size(); ++i)
     {
@@ -583,6 +636,7 @@ int main (int argc, char** argv)
         else if (args[i] == "--dir" && i + 1 < args.size()) presetDir = juce::File::getCurrentWorkingDirectory().getChildFile (args[++i]);
         else if (args[i] == "--block" && i + 1 < args.size()) block = juce::jlimit (16, 4096, args[++i].getIntValue());
         else if (args[i] == "--samples") samples = true;
+        else if (args[i] == "--bench") bench = true;
     }
     outDir.createDirectory();
     const auto previewDir = previews ? outDir.getChildFile ("previews") : juce::File();
@@ -619,6 +673,32 @@ int main (int argc, char** argv)
     {
         for (int i = 0; i < count; ++i)
             list.push_back (pm.getPresets()[(size_t) i]);
+    }
+
+    if (bench)
+    {
+        std::vector<Bench> rows;
+        for (int i = 0; i < (int) list.size(); ++i)
+        {
+            if (filter.isNotEmpty() && ! list[(size_t) i].name.containsIgnoreCase (filter))
+                continue;
+            rows.push_back (benchPreset (proc, list[(size_t) i], block));
+            std::printf ("%3d %-28s %-8s play %6.2f %%  idle %5.2f %%\n", i, rows.back().name.toRawUTF8(),
+                         rows.back().category.toRawUTF8(), rows.back().playPct, rows.back().idlePct);
+        }
+        outDir.createDirectory();
+        juce::Array<juce::var> arr;
+        for (const auto& r : rows)
+        {
+            auto* o = new juce::DynamicObject();
+            o->setProperty ("name", r.name);
+            o->setProperty ("category", r.category);
+            o->setProperty ("play_pct", r.playPct);
+            o->setProperty ("idle_pct", r.idlePct);
+            arr.add (juce::var (o));
+        }
+        outDir.getChildFile ("bench.json").replaceWithText (juce::JSON::toString (juce::var (arr)));
+        return 0;
     }
 
     std::vector<Result> results;
