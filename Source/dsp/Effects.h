@@ -13,6 +13,7 @@ struct FxParams
 {
     int distType = 0;
     float distDrive = 0.3f, distTone = 0.7f, distMix = 0.0f;
+    bool distKeepLow = false;   // distort only above ~160 Hz, the sub passes clean
     int mfxType = 0;
     float mfxRate = 0.4f, mfxDepth = 0.5f, mfxMix = 0.0f;
     float pumpAmount = 0.0f;
@@ -46,11 +47,12 @@ class Distortion
 public:
     void prepare (double sr, int maxBlock);
     void reset();
-    void process (float* L, float* R, int n, int type, float drive, float tone, float mix) noexcept;
+    void process (float* L, float* R, int n, int type, float drive, float tone, float mix, bool keepLow = false) noexcept;
 
 private:
     std::unique_ptr<juce::dsp::Oversampling<float>> os;
-    std::vector<float> dryL, dryR;
+    std::vector<float> dryL, dryR, lowL, lowR;
+    juce::dsp::LinkwitzRileyFilter<float> split;    // 24 dB/oct crossover for "keep low": low + high = all-pass
     OnePoleLP toneL, toneR;
     DcBlocker dcL, dcR;
     Ramp mixRamp, driveRamp;

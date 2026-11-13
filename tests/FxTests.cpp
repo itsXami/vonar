@@ -315,6 +315,34 @@ struct PerformanceTests final : juce::UnitTest
         const double rt = ms / 5000.0;
         logMessage ("worst-case CPU: " + juce::String (rt * 100.0, 1) + " % of one core in real time");
         expectLessThan (rt, 1.0);
+
+        beginTest ("Distortion Keep Low leaves the sub clean");
+        {
+            const double sr = 48000.0;
+            auto measure = [&] (bool keep) {
+                Distortion d;
+                d.prepare (sr, 512);
+                std::vector<float> L (48128), R (48128);   // whole 512-sample blocks
+                for (size_t i = 0; i < L.size(); ++i)
+                    L[i] = R[i] = 0.5f * std::sin (6.2831853f * 50.0f * (float) i / (float) sr);
+                for (size_t pos = 0; pos < L.size(); pos += 512)
+                    d.process (L.data() + pos, R.data() + pos, 512, choices::Hard, 1.0f, 1.0f, 1.0f, keep);
+                // energy outside the 50 Hz fundamental = harmonics added by the distortion
+                auto mag = volt::test::spectrum (L, 16384, 14);
+                const float bin = (float) sr / 16384.0f;
+                double fund = 0.0, rest = 0.0;
+                for (size_t b = 1; b < mag.size(); ++b)
+                {
+                    const double e = (double) mag[b] * mag[b];
+                    if (std::abs ((float) b * bin - 50.0f) < 6.0f) fund += e; else rest += e;
+                }
+                return rest / (fund + 1.0e-12);
+            };
+            const double full = measure (false), keep = measure (true);
+            logMessage ("50 Hz sine, hard clip: harmonic/fundamental energy full " + juce::String (full, 4) + ", keep low " + juce::String (keep, 4));
+            expectGreaterThan (full, 0.05);
+            expectLessThan (keep, full * 0.1);
+        }
     }
 };
 static PerformanceTests performanceTests;
