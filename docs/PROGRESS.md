@@ -360,3 +360,9 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
 - **Biblioteka zamknięta (2026-11-13):** ostatni odsłuch całości (https://claude.ai/artifact/9tbnCmuGkTDJETBNWieChi,
   kolekcja `review3`). Usunięte: Acid Burn Bass, Bass House Wobble, Static Throat, Clockwork Arp → **335 presetów + Init**.
   Church Bell Toll – notatka użytkownika „zajebiste” (zapisane w `selection.json`). Następny etap: E – wydanie.
+
+## Optymalizacja CPU (2026-11-13)
+- : ranking CPU wszystkich presetów (akord 8 nut + bezczynność), wynik w .
+  Granie: mediana 1,8 %, najcięższy 5 % jednego rdzenia (Xeon 2,1 GHz) – bez problemu dla słabych laptopów.
+- Uśpienie bezczynnego pluginu: koszt bezczynnej instancji 0,45 % → 0,04 % (mediana). Render bez zmian.
+- Do sprawdzenia przez użytkownika: CPU okna pluginu (oscyloskop, mierniki) w FL Studio na słabszym laptopie.

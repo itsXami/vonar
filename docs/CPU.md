@@ -9,7 +9,20 @@
 | Gra (akord 8 nut) | 1.8 % | 2.8 % | 5.0 % |
 | Bezczynny | 0.45 % | 0.93 % | 1.88 % |
 
-## Ranking (od najcięższego)
+## Po uśpieniu bezczynnego pluginu (commit d344441)
+Gdy nic nie gra, a wyjście efektów jest poniżej −100 dB dłużej niż 1 s + 1,5 × czas delaya, łańcuch efektów
+nie jest liczony. Brzmienie bez zmian (render identyczny co do próbki).
+
+| | Mediana | 90 % presetów poniżej | Najcięższy |
+|---|---|---|---|
+| Bezczynny – przed | 0,45 % | 0,93 % | 1,88 % |
+| Bezczynny – po | 0,04 % | 0,04 % | 1,32 %* |
+| Suma bezczynnych 336 instancji | 177 % → 17 % rdzenia | | |
+
+\* kilka presetów z długim pogłosem (klapy, Choir Hit) w chwili pomiaru miało jeszcze ogon pogłosu powyżej −100 dB;
+zasypiają, gdy ogon wybrzmi.
+
+## Ranking (od najcięższego, pomiar przed uśpieniem)
 
 | # | Preset | Kategoria | Gra % | Bezczynny % |
 |---|---|---|---|---|
