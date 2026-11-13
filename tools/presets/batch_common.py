@@ -16,6 +16,18 @@ gp = gc.gp
 M = gc.M
 P = gp.P
 TARGET_LUFS = -15.0
+# Loudness follows the mood: a hard preset may be louder than a calm one (docs/DIAGNOZA_2026-11-12.md, step 2).
+# Trims stay mood-neutral (relative to -15 LUFS); the offset is added when the JSON is written.
+MOOD_OFFSET_DB = {"Aggressive": 2.5, "Medium": 0.5, "Dark": 0.0, "Sad": -1.0, "Soft": -2.0}
+
+
+def mood_offset(mood):
+    return MOOD_OFFSET_DB.get(mood or "", 0.0)
+
+
+def clamp_gain(db):
+    """out_gain range of the plugin (-24 .. +12 dB)."""
+    return max(-24.0, min(12.0, db))
 
 gp.GROUP_TAGS.update({
     "warm": ["Warm"], "lofi": ["Lo-Fi"], "organ": ["Organ"], "vintage": ["Vintage"], "acoustic": ["Acoustic"],
@@ -35,12 +47,15 @@ def end(start):
 
 def preset_doc(p, trims):
     params = dict(p["params"])
-    if abs(trims.get(p["name"], 0.0)) > 0.05:
-        params["out_gain"] = trims[p["name"]]
+    gain = clamp_gain(trims.get(p["name"], 0.0) + mood_offset(p.get("mood")))
+    if abs(gain) > 0.05:
+        params["out_gain"] = round(gain, 1)
     sparse = {k: (round(params[k], 5) if isinstance(params[k], float) else params[k])
               for k in gp.DEFAULTS if k in params and params[k] != gp.DEFAULTS[k]}
-    return {"name": p["name"], "category": p["category"], "tags": p["tags"], "description": p["description"],
-            "macros": p["macros"], "version": 1, "params": sparse}
+    doc = {"name": p["name"], "category": p["category"], "tags": p["tags"], "description": p["description"]}
+    if p.get("mood"):
+        doc["mood"] = p["mood"]
+    return dict(doc, macros=p["macros"], version=1, params=sparse)
 
 
 def other_names(exclude_batch):
@@ -72,10 +87,11 @@ def write(batch, candidates):
     trims = json.load(open(trim_file)) if os.path.exists(trim_file) else {}
     if len(sys.argv) > 2 and sys.argv[1] == "--trim":
         report = json.load(open(sys.argv[2]))
-        names = {p["name"] for p in candidates}
+        moods = {p["name"]: p.get("mood") for p in candidates}
         for r in report["presets"]:
-            if r["name"] in names:
-                trims[r["name"]] = round(max(-24.0, min(12.0, trims.get(r["name"], 0.0) + TARGET_LUFS - r["loudness_lufs"])), 1)
+            if r["name"] in moods:
+                target = TARGET_LUFS + mood_offset(moods[r["name"]])
+                trims[r["name"]] = round(max(-24.0, min(12.0, trims.get(r["name"], 0.0) + target - r["loudness_lufs"])), 1)
         os.makedirs(os.path.dirname(trim_file), exist_ok=True)
         json.dump(dict(sorted(trims.items())), open(trim_file, "w"), indent=1)
 

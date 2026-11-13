@@ -8,6 +8,7 @@
     "Filter House"
   ],
   "description": "Round octave saw bass that pumps behind the kick.",
+  "mood": "Medium",
   "macros": [
     "Filter",
     "Grit",
@@ -26,7 +27,7 @@
     "fenv_decay": 0.3,
     "fenv_sustain": 0.4,
     "pump_amount": 0.55,
-    "out_gain": 5.8,
+    "out_gain": 6.3,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.4,

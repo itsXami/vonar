@@ -7,6 +7,7 @@
     "Pump"
   ],
   "description": "Octave-bouncing disco bass that pumps with the groove.",
+  "mood": "Medium",
   "macros": [
     "Tone",
     "Octave",
@@ -30,7 +31,7 @@
     "fenv_decay": 0.2,
     "fenv_sustain": 0.3,
     "pump_amount": 0.4,
-    "out_gain": 5.7,
+    "out_gain": 6.2,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.4,

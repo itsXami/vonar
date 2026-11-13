@@ -1,3 +1,4 @@
+#include <map>
 #include "TestHelpers.h"
 #include "PluginProcessor.h"
 #include "VoltPresetData.h"
@@ -100,6 +101,25 @@ struct PresetTests final : juce::UnitTest
             for (const auto& field : fields)
                 for (auto* banned : kBannedEverywhere)
                     expect (! containsWord (field, banned), p.name + ": '" + field + "' contains '" + banned + "'");
+        }
+
+        beginTest ("Moods: every factory preset has one, Soft at most 30 %, every mood present");
+        {
+            std::map<juce::String, int> moodCount;
+            int counted = 0;
+            for (int i = 0; i < count; ++i)
+            {
+                const auto& p = pm.getPresets()[(size_t) i];
+                if (p.name == "Init")
+                    continue;
+                expect (PresetManager::moods().contains (p.mood), p.name + ": missing or invalid mood");
+                ++moodCount[p.mood];
+                ++counted;
+            }
+            for (const auto& m : PresetManager::moods())
+                expect (moodCount[m] > 0, "no preset with mood " + m);
+            logMessage ("Soft " + juce::String (moodCount["Soft"]) + " of " + juce::String (counted));
+            expect (moodCount["Soft"] * 10 <= counted * 3, "Soft presets exceed 30 % of the library");
         }
 
         beginTest ("Metadata: category, tags, one-sentence description, four routed and labelled macros");

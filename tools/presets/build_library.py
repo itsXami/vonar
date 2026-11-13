@@ -18,6 +18,7 @@ sys.path.insert(0, HERE)
 import generate_candidates as gc  # noqa: E402  (imports generate_presets as gc.gp and defines both batches)
 import generate_fixes as gf  # noqa: E402  (reworked versions of the presets marked "fix")
 import importlib  # noqa: E402
+import batch_common as bc  # noqa: E402
 
 # Stage D batches, in the order they were made: generator module -> its batch name in selection.json "batches".
 BATCHES = ["keys1", "guitar2", "pluck1", "bell1", "pad2", "orch1", "urban1"]
@@ -42,7 +43,9 @@ def batch_candidates(sel):
 
 gp = gc.gp
 # Must match PresetManager::categories() in Source/PresetManager.cpp.
-CATEGORY_ORDER = ["Bass", "Lead", "Guitar", "Pluck", "Keys", "Bell", "Pad", "Strings", "Brass", "Woodwind", "Arp", "FX"]
+CATEGORY_ORDER = ["Bass", "Lead", "Guitar", "Pluck", "Keys", "Bell", "Pad", "Strings", "Brass", "Woodwind", "Arp", "Drums",
+                  "FX"]
+MOODS = ("Soft", "Medium", "Sad", "Dark", "Aggressive")   # must match PresetManager::moods()
 CATEGORY_INFO = {
     "Bass": "Suby i 808, basy przesterowane, acid, reese, FM, funkowe i analogowe.",
     "Lead": "Leady mono i poly: supersaw, sync, formantowe, miękkie sinusy, flety i brzmienia solowe.",
@@ -55,6 +58,7 @@ CATEGORY_INFO = {
     "Keys": "Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.",
     "Arp": "Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.",
     "Brass": "Sekcje dęte, fanfary, miękkie rogi i syntetyczne brassy.",
+    "Drums": "Perkusja z syntezy do house i hip-hopu: kicki, werble, klaśnięcia, hi-haty, shakery i perkusjonalia.",
     "FX": "Efekty: zapy, przemiatania i uderzenia.",
 }
 
@@ -83,16 +87,28 @@ def library():
     for p, trim in batch_candidates(sel):
         chosen.append(p)
         trims[p["name"]] = trim
+    reviewed_out = set(sel.get("review_2026_11_12_removed", []))
+    chosen = [p for p in chosen if p["name"] not in reviewed_out]
     names = [p["name"] for p in chosen]
     assert len(names) == len(set(names)), "duplicate preset names"
     chosen = [dict(p, category=RECATEGORISE[p["name"]]) if p["name"] in RECATEGORISE else p for p in chosen]
     # 808s are hip-hop staples: tag them so the tag filter shows them next to the hip-hop batch.
     chosen = [dict(p, tags=p["tags"] + ["Hip-Hop"]) if "808" in p["tags"] and "Hip-Hop" not in p["tags"] else p
               for p in chosen]
+    # Mood: set in the generator for newer presets, from moods.json (measured, then checked by ear) for older ones.
+    moods = load_json("moods.json", {})
+    chosen = [dict(p, mood=p.get("mood") or moods.get(p["name"])) for p in chosen]
+    missing = [p["name"] for p in chosen if p["mood"] not in MOODS]
+    if missing and "--allow-missing-mood" not in sys.argv:
+        raise SystemExit(f"{len(missing)} presets without a mood, e.g. {missing[:5]}")
     cat = {c: i for i, c in enumerate(CATEGORY_ORDER)}
     assert all(p["category"] in cat for p in chosen), "unknown category"
     chosen.sort(key=lambda p: (cat[p["category"]], p["name"].lower()))
     return chosen, trims, sel
+
+
+# Small level corrections (dB) for presets whose transients push the output limiter after the mood offsets.
+LEVEL_ADJUST = load_json("level_adjust.json", {})
 
 
 def write_presets(chosen, trims):
@@ -101,12 +117,13 @@ def write_presets(chosen, trims):
             os.remove(os.path.join(gp.PRESET_DIR, f))
     for i, p in enumerate(chosen, start=1):
         params = dict(p["params"])
-        if abs(trims.get(p["name"], 0.0)) > 0.05:
-            params["out_gain"] = trims[p["name"]]
+        gain = bc.clamp_gain(trims.get(p["name"], 0.0) + bc.mood_offset(p["mood"]) + LEVEL_ADJUST.get(p["name"], 0.0))
+        if abs(gain) > 0.05:
+            params["out_gain"] = round(gain, 1)
         sparse = {k: (round(params[k], 5) if isinstance(params[k], float) else params[k])
                   for k in gp.DEFAULTS if k in params and params[k] != gp.DEFAULTS[k]}
         doc = {"name": p["name"], "category": p["category"], "tags": p["tags"], "description": p["description"],
-               "macros": p["macros"], "version": 1, "params": sparse}
+               "mood": p["mood"], "macros": p["macros"], "version": 1, "params": sparse}
         with open(os.path.join(gp.PRESET_DIR, f"{i:03d}_{gp.slug(p['name'])}.json"), "w") as f:
             json.dump(doc, f, indent=2)
             f.write("\n")

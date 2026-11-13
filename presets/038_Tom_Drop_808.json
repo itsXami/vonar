@@ -8,6 +8,7 @@
     "Hip-Hop"
   ],
   "description": "Round tom-like 808 whose pitch falls a full octave and rings on with a tube growl.",
+  "mood": "Sad",
   "macros": [
     "Drop",
     "Drive",
@@ -31,7 +32,7 @@
     "dist_drive": 0.45,
     "dist_mix": 0.6,
     "squash": 0.3,
-    "out_gain": -3.7,
+    "out_gain": -4.7,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch A",
     "mod1_amt": 0.04,

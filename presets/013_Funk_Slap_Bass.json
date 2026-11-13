@@ -7,6 +7,7 @@
     "Slap"
   ],
   "description": "Snappy slap bass with a pitch pop and percussive ladder.",
+  "mood": "Medium",
   "macros": [
     "Pop",
     "Snap",
@@ -33,7 +34,7 @@
     "fenv_sustain": 0.1,
     "penv_amount": 12.0,
     "penv_decay": 0.015,
-    "out_gain": 10.9,
+    "out_gain": 11.4,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch A",
     "mod1_amt": 0.02,

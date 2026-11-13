@@ -8,6 +8,7 @@
     "Hip-Hop"
   ],
   "description": "Gliding 808 with a folded upper growl that stays audible on laptop speakers.",
+  "mood": "Sad",
   "macros": [
     "Drive",
     "Tone",
@@ -34,7 +35,7 @@
     "dist_drive": 0.4,
     "dist_tone": 0.5,
     "dist_mix": 0.55,
-    "out_gain": 3.7,
+    "out_gain": 2.7,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

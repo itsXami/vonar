@@ -7,6 +7,7 @@
     "Aggressive"
   ],
   "description": "Screaming acid line with a self-resonant ladder and a hard-driven filter stage.",
+  "mood": "Aggressive",
   "macros": [
     "Squelch",
     "Open",
@@ -30,7 +31,7 @@
     "fenv_sustain": 0.1,
     "dist_drive": 0.5,
     "dist_mix": 0.7,
-    "out_gain": 6.9,
+    "out_gain": 9.4,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.15,

@@ -1,0 +1,53 @@
+{
+  "name": "Rap Synth Stab",
+  "category": "Keys",
+  "tags": [
+    "Hip-Hop",
+    "Stab",
+    "Dark",
+    "Punchy"
+  ],
+  "description": "Short, dark saw stab for punchy rap beats.",
+  "mood": "Dark",
+  "macros": [
+    "Snap",
+    "Grit",
+    "Octave",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_voices": 2,
+    "oscB_table": "Analog Saw",
+    "oscB_oct": -1,
+    "oscB_level": 0.4,
+    "uni_detune": 0.12,
+    "flt_cutoff": 1200.0,
+    "flt_envamt": 0.5,
+    "amp_decay": 0.6,
+    "amp_sustain": 0.25,
+    "amp_release": 0.1,
+    "fenv_decay": 0.12,
+    "fenv_sustain": 0.0,
+    "dist_type": "Tube",
+    "dist_drive": 0.4,
+    "dist_mix": 0.6,
+    "squash": 0.5,
+    "out_gain": -2.8,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Dist Drive",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Level B",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.3
+  }
+}

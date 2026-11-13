@@ -9,6 +9,7 @@
     "Distorted"
   ],
   "description": "Blown-out 808 folded until it buzzes, for rage and hard trap.",
+  "mood": "Aggressive",
   "macros": [
     "Fold",
     "Buzz",
@@ -33,7 +34,7 @@
     "dist_drive": 0.6,
     "dist_mix": 0.85,
     "squash": 0.35,
-    "out_gain": -4.4,
+    "out_gain": -1.9,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

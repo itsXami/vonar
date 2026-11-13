@@ -1,0 +1,53 @@
+{
+  "name": "Banjo Pluck",
+  "category": "Guitar",
+  "tags": [
+    "Acoustic",
+    "Banjo",
+    "Bright",
+    "Folk"
+  ],
+  "description": "Bright, short banjo twang with a metallic ring from its drum head.",
+  "mood": "Medium",
+  "macros": [
+    "Ring",
+    "Bright",
+    "Roll",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Metal Comb",
+    "oscA_pos": 0.3,
+    "oscA_type": "String",
+    "str_decay": 1.4,
+    "str_tone": 0.9,
+    "flt_type": "Comb+",
+    "flt_cutoff": 2600.0,
+    "flt_res": 0.2,
+    "amp_attack": 0.004,
+    "amp_release": 0.1,
+    "rev_size": 0.25,
+    "rev_mix": 0.06,
+    "squash": 0.45,
+    "out_gain": 4.1,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Resonance",
+    "mod1_amt": 0.3,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.35,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Delay Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Reverb Mix",
+    "mod4_amt": 0.25,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.3,
+    "mod6_src": "Random",
+    "mod6_dst": "Pitch",
+    "mod6_amt": 0.0015
+  }
+}

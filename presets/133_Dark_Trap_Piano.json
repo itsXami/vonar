@@ -1,0 +1,50 @@
+{
+  "name": "Dark Trap Piano",
+  "category": "Keys",
+  "tags": [
+    "Hip-Hop",
+    "Trap",
+    "Piano",
+    "Dark",
+    "Moody"
+  ],
+  "description": "Hard-hit, clean piano with a long dark tail for moody trap.",
+  "mood": "Dark",
+  "macros": [
+    "Hit",
+    "Body",
+    "Tail",
+    "Echo"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Hammer Piano",
+    "oscA_pos": 0.3,
+    "oscA_type": "String",
+    "str_decay": 6.0,
+    "str_tone": 0.55,
+    "flt_type": "LP12",
+    "flt_cutoff": 6000.0,
+    "amp_attack": 0.008,
+    "amp_release": 1.0,
+    "rev_size": 0.85,
+    "rev_mix": 0.36,
+    "squash": 0.35,
+    "out_gain": -0.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Cutoff",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 2",
+    "mod2_dst": "WT Pos A",
+    "mod2_amt": 0.3,
+    "mod3_src": "Macro 3",
+    "mod3_dst": "Reverb Mix",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 4",
+    "mod4_dst": "Delay Mix",
+    "mod4_amt": 0.3,
+    "mod5_src": "Velocity",
+    "mod5_dst": "Cutoff",
+    "mod5_amt": 0.35
+  }
+}

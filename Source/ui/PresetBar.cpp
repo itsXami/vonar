@@ -22,8 +22,11 @@ PresetBar::PresetBar (PresetManager& pm) : presets (pm)
     saveButton.onClick = [this] { showSaveDialog(); };
 
     addAndMakeVisible (categoryBox);
+    addAndMakeVisible (moodBox);
     addAndMakeVisible (tagBox);
     categoryBox.setTooltip ("Filter by category");
+    moodBox.setTooltip ("Filter by mood: Soft, Medium, Sad, Dark, Aggressive");
+    moodBox.onChange = [this] { refresh(); };
     tagBox.setTooltip ("Filter by tag");
     categoryBox.onChange = [this] { refresh(); };
     tagBox.onChange = [this] { refresh(); };
@@ -62,6 +65,12 @@ void PresetBar::rebuildFilters()
     categoryBox.clear (juce::dontSendNotification);
     categoryBox.addItem ("All", 1);
     categoryBox.addItemList (PresetManager::categories(), 2);
+    const auto mood = moodBox.getText();
+    moodBox.clear (juce::dontSendNotification);
+    moodBox.addItem ("All moods", 1);
+    moodBox.addItemList (PresetManager::moods(), 2);
+    const int mi = PresetManager::moods().indexOf (mood);
+    moodBox.setSelectedId (mi >= 0 ? mi + 2 : 1, juce::dontSendNotification);
     juce::StringArray tags;
     for (const auto& p : presets.getPresets())
         for (const auto& t : p.tags)
@@ -82,6 +91,7 @@ std::vector<int> PresetBar::filtered() const
     std::vector<int> out;
     const auto cat = categoryBox.getSelectedId() > 1 ? categoryBox.getText() : juce::String();
     const auto tag = tagBox.getSelectedId() > 1 ? tagBox.getText() : juce::String();
+    const auto mood = moodBox.getSelectedId() > 1 ? moodBox.getText() : juce::String();
     const auto q = search.getText().trim().toLowerCase();
     const auto& all = presets.getPresets();
     for (size_t i = 0; i < all.size(); ++i)
@@ -89,9 +99,10 @@ std::vector<int> PresetBar::filtered() const
         const auto& p = all[i];
         if (cat.isNotEmpty() && p.category != cat) continue;
         if (tag.isNotEmpty() && ! p.tags.contains (tag)) continue;
+        if (mood.isNotEmpty() && p.mood != mood) continue;
         if (q.isNotEmpty())
         {
-            const auto hay = (p.name + " " + p.tags.joinIntoString (" ") + " " + p.description + " " + p.category).toLowerCase();
+            const auto hay = (p.name + " " + p.tags.joinIntoString (" ") + " " + p.description + " " + p.category + " " + p.mood).toLowerCase();
             if (! hay.contains (q)) continue;
         }
         out.push_back ((int) i);
@@ -162,6 +173,13 @@ void PresetBar::showSaveDialog()
         const auto cat = idx >= 0 ? presets.getPresets()[(size_t) idx].category : juce::String ("Lead");
         c->setSelectedItemIndex (juce::jmax (0, PresetManager::categories().indexOf (cat)), juce::dontSendNotification);
     }
+    saveWindow->addComboBox ("mood", PresetManager::moods(), "Mood");
+    if (auto* m = saveWindow->getComboBoxComponent ("mood"))
+    {
+        const int idx = presets.getCurrentIndex();
+        const auto md = idx >= 0 ? presets.getPresets()[(size_t) idx].mood : juce::String ("Medium");
+        m->setSelectedItemIndex (juce::jmax (0, PresetManager::moods().indexOf (md)), juce::dontSendNotification);
+    }
     saveWindow->addTextEditor ("tags", "User", "Tags (comma separated)");
     saveWindow->addTextEditor ("description", "", "Description (one sentence)");
     saveWindow->addButton ("Save", 1, juce::KeyPress (juce::KeyPress::returnKey));
@@ -182,9 +200,11 @@ void PresetBar::showSaveDialog()
             tags.trim();
             tags.removeEmptyStrings();
             const auto* c = saveWindow->getComboBoxComponent ("category");
+            const auto* m = saveWindow->getComboBoxComponent ("mood");
             const auto error = presets.saveUserPreset (saveWindow->getTextEditorContents ("name"),
                                                        c != nullptr ? c->getText() : juce::String ("Lead"), tags,
-                                                       saveWindow->getTextEditorContents ("description"));
+                                                       saveWindow->getTextEditorContents ("description"),
+                                                       m != nullptr ? m->getText() : juce::String());
             if (error.isNotEmpty())
                 juce::AlertWindow::showAsync (juce::MessageBoxOptions().withTitle ("Save preset").withMessage (error).withButton ("OK")
                                                   .withAssociatedComponent (this), nullptr);
@@ -258,12 +278,13 @@ void PresetBar::resized()
 {
     const int y = 11, h = 26;
     aboutButton.setBounds (10, 6, 100, 36);
-    nameButton.setBounds (424, 9, 296, 30);
-    prevButton.setBounds (724, y, 24, h);
-    nextButton.setBounds (748, y, 24, h);
-    categoryBox.setBounds (782, y + 2, 88, 22);
-    tagBox.setBounds (874, y + 2, 100, 22);
-    search.setBounds (978, y + 2, 84, 22);
+    nameButton.setBounds (424, 9, 240, 30);
+    prevButton.setBounds (668, y, 24, h);
+    nextButton.setBounds (692, y, 24, h);
+    categoryBox.setBounds (726, y + 2, 84, 22);
+    moodBox.setBounds (814, y + 2, 96, 22);
+    tagBox.setBounds (914, y + 2, 82, 22);
+    search.setBounds (1000, y + 2, 62, 22);
     saveButton.setBounds (1068, y + 2, 52, 22);
     scaleBox.setBounds (1126, y + 2, 66, 22);
 }
