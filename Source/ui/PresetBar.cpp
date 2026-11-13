@@ -220,11 +220,12 @@ void PresetBar::showAbout()
     juce::AlertWindow::showAsync (
         juce::MessageBoxOptions()
             .withTitle ("Vonar " VOLT_VERSION_STRING)
-            .withMessage ("Wavetable synthesizer.\n\n"
+            .withMessage ("Wavetable synthesizer by Xami.\n\n"
                           "Free software under the GNU Affero General Public License, version 3. "
                           "You may use, study, share and change it under that licence; it comes with no warranty. "
                           "The name and logo are not covered by the licence.\n\n"
-                          "Built with JUCE (AGPLv3). Interface typeface: Oxanium (SIL Open Font License 1.1).")
+                          "Built with JUCE (AGPLv3). Interface typeface: Oxanium (SIL Open Font License 1.1).\n"
+                          "Made with the help of Claude (AI assistant).")
             .withButton ("OK")
             .withAssociatedComponent (this),
         nullptr);
