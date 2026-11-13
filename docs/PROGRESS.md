@@ -412,3 +412,11 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   z każdej bardzo podobnej pary bliższy (Emo Saw Lead, Weeping Guitar, Grieving Strings, Audible 808 Glide, Rainy Day
   EP, Empty Room Pad, Winter Choir, Ghost Vocal Pad); Lilting Voice Pad (wzorzec użytkownika) zostaje. Biblioteka
   335 → **327** (−2,4 %), Sad 7,5 % → 5,2 %.
+
+## Podpis i prywatność (2026-11-13)
+- Podpis: **„Vonar by Xami”** (pseudonim użytkownika). Bez prawdziwego imienia, wieku i miasta w czymkolwiek
+  publicznym. README: copyright Xami + sekcja „How Vonar was made” (pomoc AI Claude); okno „O programie” i wydawca
+  w instalatorze: Xami.
+- Do zrobienia przed upublicznieniem repo: usunąć adres e-mail użytkownika z „Initial commit” (przepisanie historii
+  wszystkich gałęzi i wypchnięcie na siłę, także `main` – czeka na wyraźną zgodę użytkownika w sesji), zmienić login
+  GitHub na pseudonim, włączyć „Keep my email addresses private”, porozmawiać z rodzicem/opiekunem o publikacji.

@@ -207,7 +207,7 @@ licencja ich nie obejmuje.
   [`CONTRIBUTING.md`](CONTRIBUTING.md).
 - Program jest udostępniany bez żadnej gwarancji (punkty 15 i 16 licencji).
 
-Copyright © 2026 autorzy projektu Vonar.
+Copyright © 2026 Xami.
 
 ## Składniki innych autorów
 
@@ -218,3 +218,11 @@ Copyright © 2026 autorzy projektu Vonar.
   presetów ani grafik innych syntezatorów.
 - Presety opisują wyłącznie charakter dźwięku; nie zawierają nazw artystów, albumów, utworów ani marek, a projekt
   nie jest powiązany z żadnym artystą ani producentem instrumentów.
+
+## How Vonar was made
+
+Vonar was designed, sound-checked and tested by **Xami**. The code and presets were developed with the help of
+Claude (Anthropic's AI assistant), with every sound reviewed by ear before it made it into the library.
+
+*Vonar powstał z pomysłu, decyzji i odsłuchu Xami; kod i presety były tworzone z pomocą asystenta AI Claude, a każde
+brzmienie zostało przesłuchane, zanim trafiło do biblioteki.*
