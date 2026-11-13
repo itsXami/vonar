@@ -1,6 +1,6 @@
 # VOLT – presety fabryczne
 
-233 presetów: **Init** + 232 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
+265 presetów: **Init** + 264 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
 brzmienia, a w kategorii alfabetycznie – tak samo jak w menu presetów pluginu. Presety oznaczone w kolumnie
 *Uwaga* jako „do poprawki” zostały wybrane do poprawienia w kolejnym kroku.
 
@@ -320,18 +320,57 @@ Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.
 | 225 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Ring / Echo | Metallic comb-filtered buzz arpeggio that rings like a spinning blade. |  |
 | 226 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Octave / Echo / Hall | Short supersaw plucks racing over three octaves, with an octave layer that grows as you hold. |  |
 
+## Drums (32)
+
+Perkusja z syntezy do house i hip-hopu: kicki, werble, klaśnięcia, hi-haty, shakery i perkusjonalia.
+
+| # | Preset | Tagi | Makra | Opis | Uwaga |
+|---|---|---|---|---|---|
+| 227 | 808 Boom Kick | Hip-Hop, Trap, Kick, 808, Long | Energy / Click / Length / Room | Long, booming kick that doubles as a short 808, tuned to the note you play. |  |
+| 228 | Boom Bap Kick | Hip-Hop, Kick, Boom Bap, Knock | Energy / Knock / Tune / Room | Thick, slightly saturated kick with a knock on top for boom bap beats. |  |
+| 229 | Boom Bap Snare | Hip-Hop, Snare, Boom Bap, Fat | Energy / Body / Crack / Room | Fat, cracking snare with a thick body and a dirty top for boom bap. |  |
+| 230 | Closed Hat Tick | House, Hi-Hat, Closed, Crisp | Energy / Tone / Metal / Room | Tight, crisp closed hat for sixteenth-note house grooves. |  |
+| 231 | Crunchy Shaker | Hip-Hop, Trap, Shaker, Gritty | Energy / Tone / Grit / Room | Gritty, clipped shaker for trap and drill hi-hat patterns. |  |
+| 232 | Dark Room Snare | Hip-Hop, Trap, Snare, Dark, Room | Energy / Body / Tail / Snap | Low, heavy snare drowned in a dark room for slow, sinister beats. |  |
+| 233 | Deep Thud Kick | House, Kick, Deep, Round | Energy / Click / Tune / Room | Soft, deep kick with a long round tail for deep house and late-night grooves. |  |
+| 234 | Dirty Crack Snare | Hip-Hop, Snare, Distorted, Hard | Energy / Body / Crack / Room | Distorted, ringing snare that hits hard and breaks up on loud notes. |  |
+| 235 | Dry Tambourine | Hip-Hop, Tambourine, Jingle, Soul | Energy / Tone / Jingle / Room | Jingly tambourine hit with metal rings over a short shake. |  |
+| 236 | Dusty Closed Hat | Hip-Hop, Hi-Hat, Closed, Boom Bap | Energy / Tone / Grit / Room | Soft, dark closed hat with a gritty edge, like an old drum machine. |  |
+| 237 | Dusty Knock Kick | Hip-Hop, Kick, Boom Bap, Dark | Energy / Knock / Tune / Crush | Dark, short kick with a muffled thump, like it was bounced to tape. |  |
+| 238 | Finger Snap | Hip-Hop, Snap, Dry, R&B | Energy / Tone / Body / Room | Dry, close finger snap for slow rap and r&b beats. |  |
+| 239 | Four Floor Kick | House, Kick, Punchy, Dry | Energy / Click / Tune / Room | Tight, punchy house kick with a short click and a round low thump. |  |
+| 240 | Groove Shaker | House, Shaker, Groove, Bright | Energy / Tone / Width / Room | Bright, quick shaker that keeps sixteenths moving in a house groove. |  |
+| 241 | Hard Clipped Kick | House, Kick, Hard, Distorted | Energy / Click / Tune / Tail | Loud, square-clipped kick for hard house and peak-time techno drops. |  |
+| 242 | Haunted Clap | Hip-Hop, Trap, Clap, Dark, Hall | Energy / Tone / Echo / Hall | Dark clap fading into a long, damped hall for eerie, slow beats. |  |
+| 243 | House Clap | House, Clap, Classic, Bright | Energy / Tone / Spread / Room | Classic layered clap with a short burst and a small bright room. |  |
+| 244 | House Snare | House, Snare, Bright, Classic | Energy / Body / Snap / Room | Crisp, bright snare with a short tone body for classic house backbeats. |  |
+| 245 | Metal Hat | House, Hi-Hat, Metallic, Tech House | Energy / Tone / Ring / Room | Ringing, metallic hat with a clear pitch, for tech and minimal grooves. |  |
+| 246 | Open Hat Shimmer | House, Hi-Hat, Open, Offbeat | Energy / Tone / Metal / Room | Bright open hat on the offbeat, the classic house lift. |  |
+| 247 | Pedal Hat Chick | Hip-Hop, Hi-Hat, Pedal, Soft | Energy / Tone / Body / Room | Soft, closed pedal hat with a short chick sound for laid-back beats. |  |
+| 248 | Snap Clap | Hip-Hop, Clap, Dry, Snappy | Energy / Tone / Grit / Room | Dry, short clap with a hard snap for rap and boom bap. |  |
+| 249 | Soft Egg Shaker | House, Shaker, Soft, Organic | Energy / Tone / Swell / Room | Gentle, round shaker with a slow swell, for deep and organic house. |  |
+| 250 | Tech Kick | House, Kick, Tech House, Clicky | Energy / Click / Tune / Room | Short, clicky tech house kick with a hard transient and almost no tail. |  |
+| 251 | Tight Rim Snare | House, Snare, Tight, Minimal | Energy / Ring / Snap / Room | Short, snappy snare with a rim-like tone for tech and minimal house. |  |
+| 252 | Trap Clap | Hip-Hop, Trap, Clap, Crunchy | Energy / Tone / Width / Room | Loud, crunchy trap clap that sits on top of the snare. |  |
+| 253 | Trap Hat Roll | Hip-Hop, Trap, Hi-Hat, Roll | Energy / Tone / Metal / Room | Short, bright hat that stays clean in fast rolls and triplets. |  |
+| 254 | Trap Kick Punch | Hip-Hop, Trap, Kick, Clipped | Energy / Click / Tune / Room | Short, clipped trap kick that cuts through a long 808. |  |
+| 255 | Trap Open Hat | Hip-Hop, Trap, Hi-Hat, Open | Energy / Tone / Metal / Room | Sizzling open hat with a hard top, for trap bounces and fills. |  |
+| 256 | Trap Snare | Hip-Hop, Trap, Snare, Bright | Energy / Body / Snap / Room | Bright, tight trap snare with a fast noise burst and a short tuned body. |  |
+| 257 | Wide Disco Clap | House, Clap, Disco, Wide | Energy / Tone / Width / Room | Big, wide clap with a long bright room for disco and filter house. |  |
+| 258 | Wood Block Knock | House, Wood Block, Wood, Percussion | Energy / Tone / Click / Room | Short, hollow wood block knock for syncopated house and afro grooves. |  |
+
 ## FX (6)
 
 Efekty: zapy, przemiatania i uderzenia.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 227 | Choir Hit | Hip-Hop, Choir, Hit, Dramatic | Choir / Tone / Width / Hall | Huge choir 'ahh' hit with a cathedral tail, for dramatic drops. |  |
-| 228 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
-| 229 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
-| 230 | Impact Downlifter | House, Downlifter, Impact, Transition | Fall / Noise / Tone / Space | Hit followed by a falling sweep, for the first beat after a drop. |  |
-| 231 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
-| 232 | White Noise Riser | House, Riser, Build-Up, Transition | Rise / Pitch / Space / Echo | Build-up riser: filtered noise climbing in pitch and brightness over two seconds. |  |
+| 259 | Choir Hit | Hip-Hop, Choir, Hit, Dramatic | Choir / Tone / Width / Hall | Huge choir 'ahh' hit with a cathedral tail, for dramatic drops. |  |
+| 260 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
+| 261 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
+| 262 | Impact Downlifter | House, Downlifter, Impact, Transition | Fall / Noise / Tone / Space | Hit followed by a falling sweep, for the first beat after a drop. |  |
+| 263 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
+| 264 | White Noise Riser | House, Riser, Build-Up, Transition | Rise / Pitch / Space / Echo | Build-up riser: filtered noise climbing in pitch and brightness over two seconds. |  |
 
 ## Liczba presetów w kategoriach
 
@@ -348,5 +387,5 @@ Efekty: zapy, przemiatania i uderzenia.
 | Brass | 6 |
 | Woodwind | 8 |
 | Arp | 10 |
-| Drums | 0 |
+| Drums | 32 |
 | FX | 6 |

@@ -25,6 +25,14 @@ def mood_offset(mood):
     return MOOD_OFFSET_DB.get(mood or "", 0.0)
 
 
+DRUM_PEAK_DB = -1.0   # drums are trimmed by peak, like one-shot samples (VOLT_Render checks the peak instead of LUFS)
+
+
+def level_offset(p):
+    """Mood loudness offset, none for drums (peak-normalised)."""
+    return 0.0 if p.get("category") == "Drums" else mood_offset(p.get("mood"))
+
+
 def clamp_gain(db):
     """out_gain range of the plugin (-24 .. +12 dB)."""
     return max(-24.0, min(12.0, db))
@@ -47,7 +55,7 @@ def end(start):
 
 def preset_doc(p, trims):
     params = dict(p["params"])
-    gain = clamp_gain(trims.get(p["name"], 0.0) + mood_offset(p.get("mood")))
+    gain = clamp_gain(trims.get(p["name"], 0.0) + level_offset(p))
     if abs(gain) > 0.05:
         params["out_gain"] = round(gain, 1)
     sparse = {k: (round(params[k], 5) if isinstance(params[k], float) else params[k])
@@ -87,11 +95,15 @@ def write(batch, candidates):
     trims = json.load(open(trim_file)) if os.path.exists(trim_file) else {}
     if len(sys.argv) > 2 and sys.argv[1] == "--trim":
         report = json.load(open(sys.argv[2]))
-        moods = {p["name"]: p.get("mood") for p in candidates}
+        by_name = {p["name"]: p for p in candidates}
         for r in report["presets"]:
-            if r["name"] in moods:
-                target = TARGET_LUFS + mood_offset(moods[r["name"]])
-                trims[r["name"]] = round(max(-24.0, min(12.0, trims.get(r["name"], 0.0) + target - r["loudness_lufs"])), 1)
+            if r["name"] in by_name:
+                p = by_name[r["name"]]
+                if p["category"] == "Drums":
+                    delta = DRUM_PEAK_DB - r["peak_dbfs"]
+                else:
+                    delta = TARGET_LUFS + mood_offset(p.get("mood")) - r["loudness_lufs"]
+                trims[r["name"]] = round(max(-24.0, min(12.0, trims.get(r["name"], 0.0) + delta)), 1)
         os.makedirs(os.path.dirname(trim_file), exist_ok=True)
         json.dump(dict(sorted(trims.items())), open(trim_file, "w"), indent=1)
 
