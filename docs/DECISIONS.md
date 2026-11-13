@@ -389,3 +389,9 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
 - Zmieniamy tylko to, co widzi użytkownik. Identyfikatory, od których zależą zapisane projekty (kody VST3,
   znacznik stanu, ID parametrów), zostają – zmiana nazwy nie może zepsuć starych projektów.
 - Instalator ma tę samą AppId, więc traktuje Vonar jako aktualizację VOLT i usuwa stary `VOLT.vst3`.
+
+## Wydanie 1.0.0 (2026-11-13)
+- Pliki wydania buduje CI na zdarzenie „release published”, a nie ręcznie z artefaktów: to, co pobierają ludzie,
+  zawsze pochodzi z kodu oznaczonego tagiem.
+- Instalator bez płatnego podpisu kodu; ostrzeżenie SmartScreen opisane w README i w opisie wydania.
+- Repo zostaje prywatne do chwili publikacji 1.0, żeby ludzie od razu zobaczyli gotową wersję.

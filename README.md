@@ -42,12 +42,13 @@ Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
 
 ## Instalacja w FL Studio (Windows x64)
 
-1. Pobierz instalator **`Vonar-<wersja>-Setup.exe`**: na GitHubie wejdź w zakładkę **Actions**, otwórz najnowszy
-   zielony przebieg workflow **CI** i w sekcji **Artifacts** kliknij `Vonar-windows-installer` (trzeba być
-   zalogowanym na GitHubie), potem rozpakuj ZIP.
+1. Pobierz instalator **`Vonar-<wersja>-Setup.exe`** ze strony
+   [**Releases**](https://github.com/itsXami/vst/releases/latest) (sekcja *Assets*). Windows może pokazać
+   ostrzeżenie SmartScreen, bo instalator nie ma płatnego podpisu: kliknij **More info → Run anyway**.
 2. Uruchom instalator i przejdź kreator (po angielsku): licencja → instalacja → koniec. Plugin trafia do
    `C:\Program Files\Common Files\VST3\Vonar.vst3`; odinstalujesz go w **Ustawienia → Aplikacje**.
-   Bez instalatora: z artefaktu `Vonar-windows-x64` skopiuj cały folder `Vonar.vst3` w to samo miejsce.
+   Bez instalatora: pobierz z tej samej strony `Vonar-<wersja>-Windows-x64.zip` i skopiuj cały folder
+   `Vonar.vst3` w to samo miejsce.
 3. W FL Studio otwórz **Options → Manage plugins** i kliknij **Find installed plugins** (skanowanie).
    Vonar pojawi się w kategorii **Generators** (producent: *Vonar*). Zaznacz gwiazdkę, żeby był widoczny w menu
    dodawania instrumentów.
@@ -127,7 +128,7 @@ klawisze ją przestrajają. Lista w menu presetów jest ułożona według katego
   RMS, szczyt, głośność (LUFS), centroid widmowy i czas ogona (artefakt `Vonar-render-report`),
 - **pluginval** (strictness 5) na Linuksie i Windows, w tym otwieranie edytora, zapis/odczyt stanu i automatyzacja
   parametrów,
-- artefakty **`Vonar-windows-x64.zip`** (folder `Vonar.vst3` + `Vonar.exe`) i **`Vonar-preset-previews.zip`**
+- artefakty **`Vonar-windows-x64.zip`** (folder `Vonar.vst3`, licencja i informacje o składnikach) i **`Vonar-preset-previews.zip`**
   (krótkie podglądy FLAC każdego presetu).
 
 **Wymaga odsłuchu i ręcznego testu (nie da się tego sprawdzić w chmurze na Linuksie):**

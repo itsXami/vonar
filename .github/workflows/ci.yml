@@ -5,6 +5,9 @@ name: CI
 on:
   push:
   workflow_dispatch:
+  # Publishing a GitHub Release builds the Windows files again and attaches them to that release.
+  release:
+    types: [published]
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -77,7 +80,9 @@ jobs:
             --validate build/VOLT_artefacts/Release/VST3/Vonar.vst3
 
   windows:
-    name: Windows x64 (VST3 + Standalone, pluginval)
+    name: Windows x64 (VST3, pluginval, installer)
+    permissions:
+      contents: write
     runs-on: windows-latest
     timeout-minutes: 60
     steps:
@@ -86,8 +91,8 @@ jobs:
       - name: Configure
         run: cmake -S . -B build -A x64 -DVOLT_BUILD_TOOLS=OFF
 
-      - name: Build VST3 and Standalone
-        run: cmake --build build --config Release --parallel --target VOLT_VST3 VOLT_Standalone
+      - name: Build VST3
+        run: cmake --build build --config Release --parallel --target VOLT_VST3
 
       - name: pluginval (strictness 5)
         shell: bash
@@ -102,7 +107,8 @@ jobs:
         run: |
           mkdir -p dist
           cp -r "build/VOLT_artefacts/Release/VST3/Vonar.vst3" dist/
-          cp README.md dist/ || true
+          cp LICENSE dist/LICENSE.txt
+          cp installer/THIRD-PARTY-NOTICES.txt dist/
 
       - name: Upload Vonar-windows-x64
         uses: actions/upload-artifact@v4
@@ -129,3 +135,14 @@ jobs:
           path: installer/Output/*.exe
           if-no-files-found: error
           retention-days: 30
+
+      # Only when a release is published: attach the installer and a ZIP of the plugin to it.
+      - name: Attach files to the release
+        if: github.event_name == 'release'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $v = (Select-String -Path CMakeLists.txt -Pattern 'project\(VOLT VERSION ([0-9.]+)').Matches[0].Groups[1].Value
+          Compress-Archive -Path dist\* -DestinationPath "Vonar-$v-Windows-x64.zip"
+          gh release upload "${{ github.event.release.tag_name }}" (Get-Item installer\Output\*.exe).FullName "Vonar-$v-Windows-x64.zip" --clobber --repo "${{ github.repository }}"

@@ -114,8 +114,8 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
-| D. Biblioteka ok. 300 presetów | ✅ zamknięta 2026-11-13: 335 presetów + Init, odsłuchane przez użytkownika |
-| E. Wydanie | – |
+| D. Biblioteka ok. 300 presetów | ✅ zamknięta 2026-11-13: 327 presetów + Init, odsłuchane przez użytkownika |
+| E. Wydanie | 🔶 przygotowane 2026-11-13 (wersja 1.0.0); czeka na merge PR #1 i opublikowanie Release przez użytkownika |
 
 **Etap A – co zrobiono:**
 - Usunięte wszystkie nazwy artystów i albumów z tagów presetów (biblioteka i 100 kandydatów), generatorów,
@@ -417,6 +417,17 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
 - Podpis: **„Vonar by Xami”** (pseudonim użytkownika). Bez prawdziwego imienia, wieku i miasta w czymkolwiek
   publicznym. README: copyright Xami + sekcja „How Vonar was made” (pomoc AI Claude); okno „O programie” i wydawca
   w instalatorze: Xami.
-- Do zrobienia przed upublicznieniem repo: usunąć adres e-mail użytkownika z „Initial commit” (przepisanie historii
-  wszystkich gałęzi i wypchnięcie na siłę, także `main` – czeka na wyraźną zgodę użytkownika w sesji), zmienić login
-  GitHub na pseudonim, włączyć „Keep my email addresses private”, porozmawiać z rodzicem/opiekunem o publikacji.
+- Zrobione: login GitHub `itsXami`; adres e-mail usunięty z historii (`main` i `feature/volt-synth` przepisane i
+  wypchnięte za zgodą użytkownika; pliki identyczne). Stara kopia PR-a (`refs/pull/1/head`) zostaje po stronie
+  GitHuba – użytkownik zdecydował, że nie zgłasza tego do pomocy GitHuba.
+- Zalecone użytkownikowi: „Keep my email addresses private” i blokada pushy z adresem.
+
+## Etap E – wydanie 1.0.0 (2026-11-13)
+- Wersja **1.0.0** (`CMakeLists.txt`, okno „O programie”, nazwa instalatora).
+- `installer/THIRD-PARTY-NOTICES.txt` (EN): JUCE (AGPLv3), VST3 SDK (MIT, znak towarowy Steinberg), Oxanium (OFL 1.1).
+  Instalator kopiuje go z licencją do `Program Files\Vonar`; ZIP zawiera `Vonar.vst3`, `LICENSE.txt` i ten plik.
+- CI: build Windows bez Standalone (zgodnie z decyzją „b”); po opublikowaniu GitHub Release CI buduje pliki od nowa
+  i sam dołącza `Vonar-1.0.0-Setup.exe` oraz `Vonar-1.0.0-Windows-x64.zip`.
+- Opis wydania (EN): `docs/releases/v1.0.0.md`. README: instalacja ze strony Releases + uwaga o SmartScreen.
+- Kolejność do końca: zielone CI → squash-merge PR #1 do `main` → użytkownik tworzy Release `v1.0.0` z `main`
+  (opis z `docs/releases/v1.0.0.md`) → CI dołącza pliki → repo publiczne.

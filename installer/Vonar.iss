@@ -1,12 +1,12 @@
 ; Vonar Windows installer (Inno Setup 6). Built by CI (.github/workflows/ci.yml, Windows job):
-;   iscc /DAppVersion=0.9.0 /DSourceDir=<folder with Vonar.vst3> installer\Vonar.iss
+;   iscc /DAppVersion=1.0.0 /DSourceDir=<folder with Vonar.vst3> installer\Vonar.iss
 ; Output: installer\Output\Vonar-<version>-Setup.exe
 ; The plugin was called VOLT until 2026-11-13: the same AppId upgrades an old install, and the old VOLT.vst3 is
 ; removed so the host does not list the plugin twice (projects still open: the plugin's internal ID is unchanged).
 ;
 ; Wizard (English): welcome -> licence (AGPLv3) -> install -> finish. Installs the VST3 plugin only (the
 ; standalone app was dropped at the user's request) into the standard folder every host scans
-; (Common Files\VST3), so FL Studio finds it. A licence copy goes to Program Files\Vonar.
+; (Common Files\VST3), so FL Studio finds it. The licence and third-party notices go to Program Files\Vonar.
 ; Factory presets are built into the plugin; user presets in %APPDATA%\Vonar are never touched by uninstall.
 
 #ifndef AppVersion
@@ -51,6 +51,7 @@ Name: "en"; MessagesFile: "compiler:Default.isl"
 Source: "{#SourceDir}\Vonar.vst3\*"; DestDir: "{commoncf64}\VST3\Vonar.vst3"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "volt.ico"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\LICENSE"; DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
+Source: "THIRD-PARTY-NOTICES.txt"; DestDir: "{app}"; Flags: ignoreversion
 
 [InstallDelete]
 Type: filesandordirs; Name: "{commoncf64}\VST3\VOLT.vst3"
