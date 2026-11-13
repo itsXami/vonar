@@ -1,5 +1,5 @@
 {
- "comment": "User verdicts from the two listening pages (keep / fix / remove). Fix = kept for now, to be reworked later. fixes_accepted = reworked versions (generate_fixes.py) chosen by the user instead of the old ones. 2026-11-12: besides the user's own clicks (Doom Drop Guitar, Octave Shimmer Pad, Xylophone Bright, Vibraphone Motor ~ Rosewood Marimba), flute-type, game-like and lo-fi presets were removed on the user's general direction (too much lo-fi / game sounds, fewer flutes). review_2026_11_12_removed: calm presets with a close neighbour, proposed on the review page (tools/presets/review_2026-11-12.json) and accepted by the user except Acid Bath and Fingerpicked Pattern Guitar; applied to every batch.",
+ "comment": "User verdicts from the two listening pages (keep / fix / remove). Fix = kept for now, to be reworked later. fixes_accepted = reworked versions (generate_fixes.py) chosen by the user instead of the old ones. 2026-11-12: besides the user's own clicks (Doom Drop Guitar, Octave Shimmer Pad, Xylophone Bright, Vibraphone Motor ~ Rosewood Marimba), flute-type, game-like and lo-fi presets were removed on the user's general direction (too much lo-fi / game sounds, fewer flutes). review_2026_11_12_removed: calm presets with a close neighbour, proposed on the review page (tools/presets/review_2026-11-12.json) and accepted by the user except Acid Bath and Fingerpicked Pattern Guitar; applied to every batch. review_2026_11_13_removed: final listening pass over the whole library (https://claude.ai/artifact/9tbnCmuGkTDJETBNWieChi, collection review3).",
  "batch1_removed": [
   "Air Raid",
   "Alarm Pulse",
@@ -300,5 +300,14 @@
   "Warm Sine Keys",
   "Warm String Section",
   "Whispered Vowels"
- ]
+ ],
+ "review_2026_11_13_removed": [
+  "Acid Burn Bass",
+  "Bass House Wobble",
+  "Clockwork Arp",
+  "Static Throat"
+ ],
+ "review_2026_11_13_liked": {
+  "Church Bell Toll": "zajebiste"
+ }
 }

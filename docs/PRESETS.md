@@ -1,6 +1,6 @@
 # VOLT – presety fabryczne
 
-340 presetów: **Init** + 339 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
+336 presetów: **Init** + 335 brzmień wybranych po odsłuchu. Lista jest ułożona według kategorii
 brzmienia, a w kategorii alfabetycznie – tak samo jak w menu presetów pluginu. Presety oznaczone w kolumnie
 *Uwaga* jako „do poprawki” zostały wybrane do poprawienia w kolejnym kroku.
 
@@ -17,110 +17,107 @@ Każdy preset ma podpięte cztery makra. Opisy są po angielsku, bo tak wyświet
 |---|---|---|---|---|
 | 000 | Init | Lead | Bright / Morph / Grit / Space | Neutral starting point with one saw oscillator and the four macros pre-wired to tone, morph, grit and space. |
 
-## Bass (55)
+## Bass (53)
 
 Suby i 808, basy przesterowane, acid, reese, FM, funkowe i analogowe.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
 | 001 | Acid Bath | Industrial, Acid, Aggressive | Squelch / Open / Dirt / Wobble | Screaming acid line with a self-resonant ladder and a hard-driven filter stage. |  |
-| 002 | Acid Burn Bass | House, Rave, Acid, Squelch, Distorted | Energy / Acid / Env / Slide | Screaming acid line pushed into a hard clipper, resonance biting through. |  |
-| 003 | Audible 808 Glide | Cold, 808, Glide, Hip-Hop | Grit / Tone / Harm / Sub | Long gliding 808 with added harmonics so it stays audible on small speakers. |  |
-| 004 | Bass House Snarl | House, Bass House, Growl, Formant | Energy / Talk / Res / Sub | Talking, snarling bass-house growl with a hard-clipped top and a clean sub under it. |  |
-| 005 | Bass House Wobble | House, Bass House, Wobble, Growl | Talk / Grit / Res / Sub | Gritty bass-house growl that talks in eighth notes. |  |
-| 006 | Big Room Saw Bass | Stadium, Supersaw | Bright / Stack / Sub / Drive | Stacked saw bass with a solid sub that fills a stadium. |  |
-| 007 | Bitcrush Sub | Industrial, Lo-Fi, 808, Hip-Hop | Bits / Tone / Harm / Mix | Sub bass broken into crunchy bits for lo-fi aggression. |  |
-| 008 | Boogie Bass | Analog, Funk, Disco | Tone / Bounce / Drive / Sub | Round, bouncy square bass for funky disco lines. |  |
-| 009 | Cathedral Low End | Epic | Open / Drive / Sub / Hall | Enormous saw and sub bass with a slow-opening filter for epic drops. |  |
-| 010 | Clean 808 | Basic, 808, Clean, Long, Hip-Hop | Energy / Punch / Tail / Glide | Plain 808: a sine with a short pitch drop and a long tail, no distortion. |  |
-| 011 | Clipped 808 | Hip-Hop, Trap, 808, Clipped, Loud | Energy / Punch / Tone / Sub | Hard-clipped 808 whose upper harmonics read on phone speakers while the sub stays clean. |  |
-| 012 | Concrete Saw | Industrial, Distorted, Aggressive | Grit / Snarl / Sync / Crush | Buzzing mono bass driven through hard clipping and a snarling ladder filter. |  |
-| 013 | Crushed Rage 808 | Hip-Hop, Rage, 808, Bitcrush | Energy / Buzz / Crush / Sub | Bitcrushed, buzzing 808 with a square edge for rage beats. |  |
-| 014 | Deep House Organ Bass | House, Deep House, Organ, Punchy | Click / Tone / Sub / Pump | Short organ bass with a click and a round sub, the backbone of deep house. |  |
-| 015 | Distorted Reese | Industrial, Reese, Distorted | Detune / Tone / Heat / Sub | Dark detuned reese bass torn by tube distortion. |  |
-| 016 | Drill Slide 808 | Hip-Hop, Trap, 808, Drill, Slide | Energy / Slide / Grit / Length | Short, gritty 808 with a fast downward slide into every note, for drill patterns. |  |
-| 017 | Filter House Bass | House, Disco, Pump, Filter House | Filter / Grit / Res / Sub | Round octave saw bass that pumps behind the kick. |  |
-| 018 | FM Snarl Bass | Industrial, FM, Metallic, Snarl | Energy / Index / Fold / Sub | Metallic FM bass whose index jumps on every hit, folded into a snarl. |  |
-| 019 | Fold Glide 808 | Hip-Hop, Trap, 808, Glide, Fold | Energy / Fold / Slide / Sub | Wavefolded 808 that growls as it slides, the fold sweeping with every note. |  |
-| 020 | French Disco Bass | House, Disco, Pump | Tone / Octave / Grit / Sub | Octave-bouncing disco bass that pumps with the groove. |  |
-| 021 | Funk Slap Bass | Analog, Funk, Slap | Pop / Snap / Thump / Room | Snappy slap bass with a pitch pop and percussive ladder. |  |
-| 022 | Furnace Sub | Industrial, 808, Distorted, Hip-Hop | Heat / Body / Growl / Click | Saturated sub bass with a fast pitch drop and tube heat on top. |  |
-| 023 | Future House Bass | House, Future House, Metallic, Bouncy | Metal / Bounce / Tone / Grit | Bouncy metallic future-house bass with a quick pitch drop on every hit. |  |
-| 024 | Fuzz Bassline | House, Raw, Distorted | Fuzz / Tone / Buzz / Sub | Buzzy fuzz bass with a short filter snap. |  |
-| 025 | G-Funk Rubber Bass | Hip-Hop, G-Funk, Analog, Rubber | Rubber / Tone / Slide / Drive | Round, rubbery analog bass that slides between notes, West Coast style. |  |
-| 026 | Grid FM Pulse | Cinematic, Pulse, FM | Index / Tone / Drive / Hall | Pulsing FM bass ticking in tight sixteenths. |  |
-| 027 | Grid Pulse Bass | Cinematic, Pulse, Synthwave | Pulse / Drive / Sub / Hall | Relentless sixteenth-note bass pulse with a cutting filter envelope. |  |
-| 028 | Grind Square Bass | Industrial, Square, Bitcrush, Heavy | Energy / Width / Crush / Sub | Crushed square bass with a buzzing top end for dark, heavy grooves. |  |
-| 029 | Gutter Growl | Industrial, Wobble | Growl / Speed / Heat / Sub | FM bass that growls in eighth-note pulses under heavy saturation. |  |
-| 030 | Kick Sub Smash | Industrial, 808, Punch, Hip-Hop | Punch / Clip / Tone / Tail | Punchy kick-like 808 with a steep pitch dive and clipped transient. |  |
-| 031 | Long Glide 808 | Cold, 808, Glide, Hip-Hop | Drive / Tone / Growl / Sub | Gliding 808 with a folded upper growl that stays audible on laptop speakers. |  |
-| 032 | Mechanic Bass | Mechanical | Crunch / Tone / Buzz / Sub | Clanky buzz bass with a crunchy bite for repetitive riffs. |  |
-| 033 | Modular Pluck Bass | Analog, Modular, Funk | Snap / Res / Drive / Sub | Woody modular bass pluck with a snappy ladder envelope. |  |
-| 034 | Overload 808 | Industrial, 808, Distorted, Hip-Hop | Drive / Tone / Rasp / Sub | Long 808 that breaks up into a raspy, clipped tail. |  |
-| 035 | Phaser Sweep Bass | House, Raw, Filter House | Phase / Tone / Grit / Sub | Raw saw bass smeared by a slow, deep phaser. |  |
-| 036 | Praise Bass | Gospel, Organ | Drawbars / Tone / Sub / Grit | Round organ bass with a clean sub for gospel bass lines. |  |
-| 037 | Pulse Engine Bass | Cinematic, Pulse, Synthwave | Gate / Drive / Sub / Grit | Bass gated by a square LFO into a driving sixteenth-note engine. |  |
-| 038 | Pure Sub | Basic, Sub, Clean, Sine | Energy / Click / Warmth / Glide | Clean sine sub with a soft click, sits under anything without colouring it. |  |
-| 039 | Rage 808 Distorted | Hip-Hop, Trap, 808, Rage, Distorted | Fold / Buzz / Tone / Sub | Blown-out 808 folded until it buzzes, for rage and hard trap. |  |
-| 040 | Rivet Gun | Industrial, Lo-Fi, Aggressive | Bits / Bite / Metal / Mix | Bit-crushed square bass with a metallic attack that rattles like machinery. |  |
-| 041 | Rolling Tech Bass | House, Tech House, FM, Rolling | Index / Tone / Sub / Drive | Tight FM pluck bass that rolls under the kick, ducking on every beat. |  |
-| 042 | Round Analog Bass | Analog, Warm | Tone / Res / Drive / Sub | Warm round analog bass with a soft ladder pluck. |  |
-| 043 | Rubber Square Line | House, Raw, Acid, Bouncy | Squelch / Open / Drive / Echo | Bouncy resonant square bassline with gentle slide. |  |
-| 044 | Rust Bass | Industrial, Distorted | PWM / Rust / Pluck / Sub | Pulse-width bass with a rusty tube edge and a quick filter pluck. |  |
-| 045 | Shock Collar | Industrial, Lo-Fi, Aggressive | Fold / Crush / Bite / Width | Wavefolded bass with a bit-crushed bite that jumps out of the mix. |  |
-| 046 | Shredder Reese | Industrial, Reese, Distorted, Wide | Energy / Tear / Motion / Sub | Wide, tearing reese with heavy clipping on the mids and a solid mono sub. |  |
-| 047 | Simple Saw Bass | Basic, Saw, Analog, Plain | Energy / Env / Res / Sub | Classic saw bass with a filter that opens on each note, for any groove. |  |
-| 048 | Sliding 808 | Hip-Hop, Trap, 808, Glide | Slide / Warmth / Tone / Sub | Long, clean 808 built for slides: every overlapping note glides into the next. |  |
-| 049 | Slow Tears 808 | Hip-Hop, Trap, 808, Glide, Melodic | Energy / Glide / Warmth / Tail | Warm, slightly saturated 808 with a long slow glide, for sad melodic trap. |  |
-| 050 | Squelch Box | House, Raw, Acid | Squelch / Open / Dirt / Echo | Classic acid squelch with a resonant ladder, accent-like envelope and slide. |  |
-| 051 | Sync Punch Bass | House, Bassline, Sync, Punchy | Energy / Sync / Snap / Sub | Bright sync bass that snaps open on every note, for speed garage and bassline. |  |
-| 052 | Tom Drop 808 | Cold, 808, Punch, Hip-Hop | Drop / Drive / Tone / Room | Round tom-like 808 whose pitch falls a full octave and rings on with a tube growl. |  |
-| 053 | Trap 808 Punch | Hip-Hop, Trap, 808, Hard | Knock / Drive / Tone / Sub | Hard trap 808 with a knock on top and a saturated tail you can hear on a phone. |  |
-| 054 | Velvet Rope Bass | Epic, Glide | Weight / Tone / Drive / Sub | Smooth FM bass that slides between notes with a rich low mid. |  |
-| 055 | Warehouse Filter Bass | House, Raw, Filter House | Sweep / Grit / Res / Sub | Raw saw bass whose filter sweeps every two beats under a pump. |  |
+| 002 | Audible 808 Glide | Cold, 808, Glide, Hip-Hop | Grit / Tone / Harm / Sub | Long gliding 808 with added harmonics so it stays audible on small speakers. |  |
+| 003 | Bass House Snarl | House, Bass House, Growl, Formant | Energy / Talk / Res / Sub | Talking, snarling bass-house growl with a hard-clipped top and a clean sub under it. |  |
+| 004 | Big Room Saw Bass | Stadium, Supersaw | Bright / Stack / Sub / Drive | Stacked saw bass with a solid sub that fills a stadium. |  |
+| 005 | Bitcrush Sub | Industrial, Lo-Fi, 808, Hip-Hop | Bits / Tone / Harm / Mix | Sub bass broken into crunchy bits for lo-fi aggression. |  |
+| 006 | Boogie Bass | Analog, Funk, Disco | Tone / Bounce / Drive / Sub | Round, bouncy square bass for funky disco lines. |  |
+| 007 | Cathedral Low End | Epic | Open / Drive / Sub / Hall | Enormous saw and sub bass with a slow-opening filter for epic drops. |  |
+| 008 | Clean 808 | Basic, 808, Clean, Long, Hip-Hop | Energy / Punch / Tail / Glide | Plain 808: a sine with a short pitch drop and a long tail, no distortion. |  |
+| 009 | Clipped 808 | Hip-Hop, Trap, 808, Clipped, Loud | Energy / Punch / Tone / Sub | Hard-clipped 808 whose upper harmonics read on phone speakers while the sub stays clean. |  |
+| 010 | Concrete Saw | Industrial, Distorted, Aggressive | Grit / Snarl / Sync / Crush | Buzzing mono bass driven through hard clipping and a snarling ladder filter. |  |
+| 011 | Crushed Rage 808 | Hip-Hop, Rage, 808, Bitcrush | Energy / Buzz / Crush / Sub | Bitcrushed, buzzing 808 with a square edge for rage beats. |  |
+| 012 | Deep House Organ Bass | House, Deep House, Organ, Punchy | Click / Tone / Sub / Pump | Short organ bass with a click and a round sub, the backbone of deep house. |  |
+| 013 | Distorted Reese | Industrial, Reese, Distorted | Detune / Tone / Heat / Sub | Dark detuned reese bass torn by tube distortion. |  |
+| 014 | Drill Slide 808 | Hip-Hop, Trap, 808, Drill, Slide | Energy / Slide / Grit / Length | Short, gritty 808 with a fast downward slide into every note, for drill patterns. |  |
+| 015 | Filter House Bass | House, Disco, Pump, Filter House | Filter / Grit / Res / Sub | Round octave saw bass that pumps behind the kick. |  |
+| 016 | FM Snarl Bass | Industrial, FM, Metallic, Snarl | Energy / Index / Fold / Sub | Metallic FM bass whose index jumps on every hit, folded into a snarl. |  |
+| 017 | Fold Glide 808 | Hip-Hop, Trap, 808, Glide, Fold | Energy / Fold / Slide / Sub | Wavefolded 808 that growls as it slides, the fold sweeping with every note. |  |
+| 018 | French Disco Bass | House, Disco, Pump | Tone / Octave / Grit / Sub | Octave-bouncing disco bass that pumps with the groove. |  |
+| 019 | Funk Slap Bass | Analog, Funk, Slap | Pop / Snap / Thump / Room | Snappy slap bass with a pitch pop and percussive ladder. |  |
+| 020 | Furnace Sub | Industrial, 808, Distorted, Hip-Hop | Heat / Body / Growl / Click | Saturated sub bass with a fast pitch drop and tube heat on top. |  |
+| 021 | Future House Bass | House, Future House, Metallic, Bouncy | Metal / Bounce / Tone / Grit | Bouncy metallic future-house bass with a quick pitch drop on every hit. |  |
+| 022 | Fuzz Bassline | House, Raw, Distorted | Fuzz / Tone / Buzz / Sub | Buzzy fuzz bass with a short filter snap. |  |
+| 023 | G-Funk Rubber Bass | Hip-Hop, G-Funk, Analog, Rubber | Rubber / Tone / Slide / Drive | Round, rubbery analog bass that slides between notes, West Coast style. |  |
+| 024 | Grid FM Pulse | Cinematic, Pulse, FM | Index / Tone / Drive / Hall | Pulsing FM bass ticking in tight sixteenths. |  |
+| 025 | Grid Pulse Bass | Cinematic, Pulse, Synthwave | Pulse / Drive / Sub / Hall | Relentless sixteenth-note bass pulse with a cutting filter envelope. |  |
+| 026 | Grind Square Bass | Industrial, Square, Bitcrush, Heavy | Energy / Width / Crush / Sub | Crushed square bass with a buzzing top end for dark, heavy grooves. |  |
+| 027 | Gutter Growl | Industrial, Wobble | Growl / Speed / Heat / Sub | FM bass that growls in eighth-note pulses under heavy saturation. |  |
+| 028 | Kick Sub Smash | Industrial, 808, Punch, Hip-Hop | Punch / Clip / Tone / Tail | Punchy kick-like 808 with a steep pitch dive and clipped transient. |  |
+| 029 | Long Glide 808 | Cold, 808, Glide, Hip-Hop | Drive / Tone / Growl / Sub | Gliding 808 with a folded upper growl that stays audible on laptop speakers. |  |
+| 030 | Mechanic Bass | Mechanical | Crunch / Tone / Buzz / Sub | Clanky buzz bass with a crunchy bite for repetitive riffs. |  |
+| 031 | Modular Pluck Bass | Analog, Modular, Funk | Snap / Res / Drive / Sub | Woody modular bass pluck with a snappy ladder envelope. |  |
+| 032 | Overload 808 | Industrial, 808, Distorted, Hip-Hop | Drive / Tone / Rasp / Sub | Long 808 that breaks up into a raspy, clipped tail. |  |
+| 033 | Phaser Sweep Bass | House, Raw, Filter House | Phase / Tone / Grit / Sub | Raw saw bass smeared by a slow, deep phaser. |  |
+| 034 | Praise Bass | Gospel, Organ | Drawbars / Tone / Sub / Grit | Round organ bass with a clean sub for gospel bass lines. |  |
+| 035 | Pulse Engine Bass | Cinematic, Pulse, Synthwave | Gate / Drive / Sub / Grit | Bass gated by a square LFO into a driving sixteenth-note engine. |  |
+| 036 | Pure Sub | Basic, Sub, Clean, Sine | Energy / Click / Warmth / Glide | Clean sine sub with a soft click, sits under anything without colouring it. |  |
+| 037 | Rage 808 Distorted | Hip-Hop, Trap, 808, Rage, Distorted | Fold / Buzz / Tone / Sub | Blown-out 808 folded until it buzzes, for rage and hard trap. |  |
+| 038 | Rivet Gun | Industrial, Lo-Fi, Aggressive | Bits / Bite / Metal / Mix | Bit-crushed square bass with a metallic attack that rattles like machinery. |  |
+| 039 | Rolling Tech Bass | House, Tech House, FM, Rolling | Index / Tone / Sub / Drive | Tight FM pluck bass that rolls under the kick, ducking on every beat. |  |
+| 040 | Round Analog Bass | Analog, Warm | Tone / Res / Drive / Sub | Warm round analog bass with a soft ladder pluck. |  |
+| 041 | Rubber Square Line | House, Raw, Acid, Bouncy | Squelch / Open / Drive / Echo | Bouncy resonant square bassline with gentle slide. |  |
+| 042 | Rust Bass | Industrial, Distorted | PWM / Rust / Pluck / Sub | Pulse-width bass with a rusty tube edge and a quick filter pluck. |  |
+| 043 | Shock Collar | Industrial, Lo-Fi, Aggressive | Fold / Crush / Bite / Width | Wavefolded bass with a bit-crushed bite that jumps out of the mix. |  |
+| 044 | Shredder Reese | Industrial, Reese, Distorted, Wide | Energy / Tear / Motion / Sub | Wide, tearing reese with heavy clipping on the mids and a solid mono sub. |  |
+| 045 | Simple Saw Bass | Basic, Saw, Analog, Plain | Energy / Env / Res / Sub | Classic saw bass with a filter that opens on each note, for any groove. |  |
+| 046 | Sliding 808 | Hip-Hop, Trap, 808, Glide | Slide / Warmth / Tone / Sub | Long, clean 808 built for slides: every overlapping note glides into the next. |  |
+| 047 | Slow Tears 808 | Hip-Hop, Trap, 808, Glide, Melodic | Energy / Glide / Warmth / Tail | Warm, slightly saturated 808 with a long slow glide, for sad melodic trap. |  |
+| 048 | Squelch Box | House, Raw, Acid | Squelch / Open / Dirt / Echo | Classic acid squelch with a resonant ladder, accent-like envelope and slide. |  |
+| 049 | Sync Punch Bass | House, Bassline, Sync, Punchy | Energy / Sync / Snap / Sub | Bright sync bass that snaps open on every note, for speed garage and bassline. |  |
+| 050 | Tom Drop 808 | Cold, 808, Punch, Hip-Hop | Drop / Drive / Tone / Room | Round tom-like 808 whose pitch falls a full octave and rings on with a tube growl. |  |
+| 051 | Trap 808 Punch | Hip-Hop, Trap, 808, Hard | Knock / Drive / Tone / Sub | Hard trap 808 with a knock on top and a saturated tail you can hear on a phone. |  |
+| 052 | Velvet Rope Bass | Epic, Glide | Weight / Tone / Drive / Sub | Smooth FM bass that slides between notes with a rich low mid. |  |
+| 053 | Warehouse Filter Bass | House, Raw, Filter House | Sweep / Grit / Res / Sub | Raw saw bass whose filter sweeps every two beats under a pump. |  |
 
-## Lead (36)
+## Lead (35)
 
 Leady mono i poly: supersaw, sync, formantowe, miękkie sinusy, flety i brzmienia solowe.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 056 | Acid Scream Lead | House, Rave, Acid, Squeal | Energy / Squeal / Env / Echo | High, squealing acid lead with the resonance near self-oscillation. |  |
-| 057 | Bit Riot Lead | Industrial, Bitcrush, Square, Digital | Energy / Crush / Pulse / Echo | Bitcrushed square lead that sputters on loud notes, raw and digital. |  |
-| 058 | Chain Link Scream | Industrial, Distorted, Aggressive | Sync / Clip / Tone / Slap | Hard-synced lead that tears upward as the sync sweep opens. |  |
-| 059 | Choir Solo Lead | Epic, Choir, Dramatic | Vowel / Vibrato / Echo / Hall | Solo choir voice lead with expressive vibrato for dramatic toplines. |  |
-| 060 | Distorted Riff Saw | House, Raw, Distorted | Crunch / Tone / Width / Echo | Overdriven saw riff tone with tube crunch and a tight filter. |  |
-| 061 | Eighties Solo Lead | House, Disco, 80s, Solo | Sync / Vibrato / Echo / Hall | Bright synced lead with portamento and delayed vibrato for solos. |  |
-| 062 | Emo Saw Lead | Hip-Hop, Saw, Emotional, Vibrato | Energy / Cry / Vibrato / Echo | Bright, crying saw lead with a slow vibrato and a little grit, for melodic rap hooks. |  |
-| 063 | Festival Saw Stab | House, Big Room, Supersaw, Drop | Width / Bright / Octave / Hall | Huge, bright seven-voice saw stab for big-room drops. |  |
-| 064 | Festival Sync Lead | House, Big Room, Sync, Bright | Energy / Sync / Width / Space | Bright, punchy sync lead for big-room house hooks, loud but clean. |  |
-| 065 | Filter Sweep Lead | House, Raw, Filter, Movement | Sweep / Res / Grit / Echo | Raw saw lead whose resonant filter opens over a whole bar. |  |
-| 066 | Formant Whistle | Cold, Whistle, Soft | Air / Vowel / Vibrato / Hall | Airy whistle lead shaped by an 'oo' formant with gentle vibrato. |  |
-| 067 | Glide Sine Lead | Basic, Sine, Smooth, Glide | Energy / Breath / Vibrato / Space | Soft sine lead with a slow glide and a gentle vibrato on the mod wheel. |  |
-| 068 | Gritty Riff Saw | Mechanical, Rock, Distorted | Gain / Tone / Chug / Room | Overdriven saw riff that chugs like a distorted guitar. |  |
-| 069 | Hoover Lead | House, Rave, Hoover, Classic | Swoop / Width / Tone / Room | Classic rave hoover: detuned pulses swooping down into every note. |  |
-| 070 | Hyper Pluck Lead | Hip-Hop, Bright, Bouncy, Catchy | Flick / Bright / Body / Echo | Bright, bouncy pluck-lead with a quick pitch flick, for catchy rap melodies. |  |
-| 071 | Laser Harp | House, Disco, 80s, Pluck | Zap / Bright / Echo / Hall | Plucked-string harp with a laser zap on the attack and dotted ping-pong echoes. |  |
-| 072 | Lonely Whistle Lead | Hip-Hop, Trap, Whistle, Thin, Lonely | Energy / Breath / Vibrato / Echo | Thin, high whistle lead with a breathy edge, lonely over a sparse beat. |  |
-| 073 | Machine Riff | Mechanical, Lo-Fi | Bits / Tone / Pulse / Echo | Bit-crushed square riff with a cold, mechanical edge. |  |
-| 074 | Neon Anthem | Stadium, Bright, Sync | Bright / Edge / Pulse / Echo | Synced saw lead whose edge snaps open at every note and settles as it holds. |  |
-| 075 | Octave Bounce Lead | Stadium, Arp Lead, Bright | Bright / Width / Echo / Hall | Lead that bounces between two octaves in sixteenths when you hold a note. |  |
-| 076 | Phase Mod Lead | Analog, FM, Movement | Index / Phase / Tone / Echo | FM lead whose brightness breathes slowly through a phaser. |  |
-| 077 | Plain Saw Lead | Basic, Saw, Mono, Plain | Energy / Tone / Width / Echo | A single bright saw with a touch of glide, the lead every track starts from. |  |
-| 078 | Portamento Whine Lead | Hip-Hop, G-Funk, Portamento, Whistle | Whine / Slide / Vibrato / Echo | High, whistling portamento lead that slides around the melody, G-funk style. |  |
-| 079 | Pulse Lead | Basic, PWM, Analog, Plain | Energy / Width / Tone / Echo | Pulse-width lead that slowly thins and thickens as you hold it. |  |
-| 080 | Rage Synth Lead | Hip-Hop, Trap, Rage, Supersaw, Distorted | Clip / Width / Bright / Echo | Screaming, clipped supersaw lead for rage beats. |  |
-| 081 | Rave Siren Lead | House, Rave, Siren, Detuned | Energy / Siren / Width / Hall | Detuned octave saws wailing like a siren, with a fast vibrato for old-school rave. |  |
-| 082 | Raw Filter Lead | House, Raw, Filter | Filter / Res / Grit / Echo | Gritty square lead with a slowly moving resonant ladder. |  |
-| 083 | Sinister Choir Lead | Cinematic, Choir, Sinister, Glide | Energy / Vowel / Bend / Hall | Dark choir voice that bends between notes, menacing and low. |  |
-| 084 | Sinister Saw Lead | Hip-Hop, Dark, Lead, Menacing | Menace / Tone / Grit / Echo | Dark, detuned saw lead for menacing rap hooks. |  |
-| 085 | Square Lead | Basic, Square, Hollow, Plain | Energy / Tone / Pulse / Echo | Hollow square lead, clean and direct, for hooks and counter-melodies. |  |
-| 086 | Static Throat | Industrial, Vocal, Distorted | Vowel / Fold / Scream / Space | Fuzzy formant lead that growls through vowel shapes and folded distortion. |  |
-| 087 | Supersaw Lead | Basic, Supersaw, Wide, Anthem | Energy / Tone / Width / Space | Wide seven-voice supersaw for anthems and big hooks. |  |
-| 088 | Tin Croon | Cold, Vocal | Vowel / Steps / Echo / Hall | Nasal, robotic-sounding sung tone with stepped vowel changes. |  |
-| 089 | Trance Gate Lead | House, Disco, Gated, Rhythmic | Soft / Tone / Echo / Hall | Saw lead chopped into a sixteenth-note gate for rhythmic hooks. |  |
-| 090 | Vocal Chop Stab | House, Vocal Chop, Stab | Vowel / Pitch / Air / Echo | Short vocal 'hey' chops that pitch up through the vowel, like a sliced acapella. |  |
-| 091 | Zap Drop Lead | Industrial, Distorted, Zap | Zap / Buzz / Grit / Echo | Buzz lead whose every note starts with a laser-like downward zap. |  |
+| 054 | Acid Scream Lead | House, Rave, Acid, Squeal | Energy / Squeal / Env / Echo | High, squealing acid lead with the resonance near self-oscillation. |  |
+| 055 | Bit Riot Lead | Industrial, Bitcrush, Square, Digital | Energy / Crush / Pulse / Echo | Bitcrushed square lead that sputters on loud notes, raw and digital. |  |
+| 056 | Chain Link Scream | Industrial, Distorted, Aggressive | Sync / Clip / Tone / Slap | Hard-synced lead that tears upward as the sync sweep opens. |  |
+| 057 | Choir Solo Lead | Epic, Choir, Dramatic | Vowel / Vibrato / Echo / Hall | Solo choir voice lead with expressive vibrato for dramatic toplines. |  |
+| 058 | Distorted Riff Saw | House, Raw, Distorted | Crunch / Tone / Width / Echo | Overdriven saw riff tone with tube crunch and a tight filter. |  |
+| 059 | Eighties Solo Lead | House, Disco, 80s, Solo | Sync / Vibrato / Echo / Hall | Bright synced lead with portamento and delayed vibrato for solos. |  |
+| 060 | Emo Saw Lead | Hip-Hop, Saw, Emotional, Vibrato | Energy / Cry / Vibrato / Echo | Bright, crying saw lead with a slow vibrato and a little grit, for melodic rap hooks. |  |
+| 061 | Festival Saw Stab | House, Big Room, Supersaw, Drop | Width / Bright / Octave / Hall | Huge, bright seven-voice saw stab for big-room drops. |  |
+| 062 | Festival Sync Lead | House, Big Room, Sync, Bright | Energy / Sync / Width / Space | Bright, punchy sync lead for big-room house hooks, loud but clean. |  |
+| 063 | Filter Sweep Lead | House, Raw, Filter, Movement | Sweep / Res / Grit / Echo | Raw saw lead whose resonant filter opens over a whole bar. |  |
+| 064 | Formant Whistle | Cold, Whistle, Soft | Air / Vowel / Vibrato / Hall | Airy whistle lead shaped by an 'oo' formant with gentle vibrato. |  |
+| 065 | Glide Sine Lead | Basic, Sine, Smooth, Glide | Energy / Breath / Vibrato / Space | Soft sine lead with a slow glide and a gentle vibrato on the mod wheel. |  |
+| 066 | Gritty Riff Saw | Mechanical, Rock, Distorted | Gain / Tone / Chug / Room | Overdriven saw riff that chugs like a distorted guitar. |  |
+| 067 | Hoover Lead | House, Rave, Hoover, Classic | Swoop / Width / Tone / Room | Classic rave hoover: detuned pulses swooping down into every note. |  |
+| 068 | Hyper Pluck Lead | Hip-Hop, Bright, Bouncy, Catchy | Flick / Bright / Body / Echo | Bright, bouncy pluck-lead with a quick pitch flick, for catchy rap melodies. |  |
+| 069 | Laser Harp | House, Disco, 80s, Pluck | Zap / Bright / Echo / Hall | Plucked-string harp with a laser zap on the attack and dotted ping-pong echoes. |  |
+| 070 | Lonely Whistle Lead | Hip-Hop, Trap, Whistle, Thin, Lonely | Energy / Breath / Vibrato / Echo | Thin, high whistle lead with a breathy edge, lonely over a sparse beat. |  |
+| 071 | Machine Riff | Mechanical, Lo-Fi | Bits / Tone / Pulse / Echo | Bit-crushed square riff with a cold, mechanical edge. |  |
+| 072 | Neon Anthem | Stadium, Bright, Sync | Bright / Edge / Pulse / Echo | Synced saw lead whose edge snaps open at every note and settles as it holds. |  |
+| 073 | Octave Bounce Lead | Stadium, Arp Lead, Bright | Bright / Width / Echo / Hall | Lead that bounces between two octaves in sixteenths when you hold a note. |  |
+| 074 | Phase Mod Lead | Analog, FM, Movement | Index / Phase / Tone / Echo | FM lead whose brightness breathes slowly through a phaser. |  |
+| 075 | Plain Saw Lead | Basic, Saw, Mono, Plain | Energy / Tone / Width / Echo | A single bright saw with a touch of glide, the lead every track starts from. |  |
+| 076 | Portamento Whine Lead | Hip-Hop, G-Funk, Portamento, Whistle | Whine / Slide / Vibrato / Echo | High, whistling portamento lead that slides around the melody, G-funk style. |  |
+| 077 | Pulse Lead | Basic, PWM, Analog, Plain | Energy / Width / Tone / Echo | Pulse-width lead that slowly thins and thickens as you hold it. |  |
+| 078 | Rage Synth Lead | Hip-Hop, Trap, Rage, Supersaw, Distorted | Clip / Width / Bright / Echo | Screaming, clipped supersaw lead for rage beats. |  |
+| 079 | Rave Siren Lead | House, Rave, Siren, Detuned | Energy / Siren / Width / Hall | Detuned octave saws wailing like a siren, with a fast vibrato for old-school rave. |  |
+| 080 | Raw Filter Lead | House, Raw, Filter | Filter / Res / Grit / Echo | Gritty square lead with a slowly moving resonant ladder. |  |
+| 081 | Sinister Choir Lead | Cinematic, Choir, Sinister, Glide | Energy / Vowel / Bend / Hall | Dark choir voice that bends between notes, menacing and low. |  |
+| 082 | Sinister Saw Lead | Hip-Hop, Dark, Lead, Menacing | Menace / Tone / Grit / Echo | Dark, detuned saw lead for menacing rap hooks. |  |
+| 083 | Square Lead | Basic, Square, Hollow, Plain | Energy / Tone / Pulse / Echo | Hollow square lead, clean and direct, for hooks and counter-melodies. |  |
+| 084 | Supersaw Lead | Basic, Supersaw, Wide, Anthem | Energy / Tone / Width / Space | Wide seven-voice supersaw for anthems and big hooks. |  |
+| 085 | Tin Croon | Cold, Vocal | Vowel / Steps / Echo / Hall | Nasal, robotic-sounding sung tone with stepped vowel changes. |  |
+| 086 | Trance Gate Lead | House, Disco, Gated, Rhythmic | Soft / Tone / Echo / Hall | Saw lead chopped into a sixteenth-note gate for rhythmic hooks. |  |
+| 087 | Vocal Chop Stab | House, Vocal Chop, Stab | Vowel / Pitch / Air / Echo | Short vocal 'hey' chops that pitch up through the vowel, like a sliced acapella. |  |
+| 088 | Zap Drop Lead | Industrial, Distorted, Zap | Zap / Buzz / Grit / Echo | Buzz lead whose every note starts with a laser-like downward zap. |  |
 
 ## Guitar (34)
 
@@ -128,40 +125,40 @@ Brzmienia gitarowe: przester, palm mute, czyste funkowe, slide i sustain.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 092 | Banjo Pluck | Acoustic, Banjo, Bright, Folk | Ring / Bright / Roll / Room | Bright, short banjo twang with a metallic ring from its drum head. |  |
-| 093 | Bit Crushed Riff | Industrial, Guitar, Lo-Fi | Bits / Tone / Crush / Echo | Lo-fi riff guitar chewed by a bitcrusher for gritty loops. |  |
-| 094 | Bossa Nylon Guitar | Acoustic, Nylon, Soft, Dry | Thumb / Body / Ring / Room | Soft nylon strings plucked with the thumb, close and dry. |  |
-| 095 | Chorused Clean Guitar | Acoustic, Clean, Chorus, Wide | Depth / Bright / Echo / Hall | Glassy clean guitar spread wide by a slow, deep chorus. |  |
-| 096 | Clean Bridge Guitar | Acoustic, Clean, Bright | Pick / Body / Chorus / Room | Bright bridge-pickup clean tone with a snappy pick and a short room. |  |
-| 097 | Clean Delay Lead Guitar | Warm, Clean, Delay, Lead | Echo / Tone / Vibrato / Hall | Clean singing lead with dotted-eighth echoes that fill the space between notes. |  |
-| 098 | Country Twang Guitar | Vintage, Clean, Twang, Slapback | Twang / Snap / Slap / Room | Compressed, twangy single-coil picking with a quick slapback echo. |  |
-| 099 | Crunch Rhythm Guitar | Vintage, Crunch, Rhythm | Gain / Tone / Body / Room | Edge-of-breakup amp crunch that cleans up when you play softly. |  |
-| 100 | Emo Guitar Pluck | Hip-Hop, Guitar, Emo, Driven | Energy / Drive / Echo / Room | Lightly driven guitar pluck with a dotted echo, for emo rap and sad rock beats. |  |
-| 101 | Feedback Sustain Guitar | Mechanical, Guitar, Lead | Feedback / Gain / Bloom / Echo | Endless sustaining guitar that blooms into a resonant feedback whine. |  |
-| 102 | Fingerpicked Pattern Guitar | Acoustic, Fingerpicking, Nylon, Pattern | Thumb / Ring / Echo / Room | Held chords turn into a gentle fingerpicked pattern on nylon strings. |  |
-| 103 | Funk Scratch Guitar | Vintage, Muted, Funk, Percussive | Mute / Bite / Grit / Room | Muted, percussive scratch strums with a tight high-passed bite. |  |
-| 104 | Fuzz Octave Lead | Electronic, Fuzz, Octave, Lead | Octave / Fuzz / Tone / Echo | Gated fuzz with an octave-up layer that spits on every note. |  |
-| 105 | Fuzzbox Bass Guitar | House, Raw, Guitar, Fuzz | Fuzz / Tone / Low / Room | Plucked low string driven into a hard fuzz that spits harder the harder you play. |  |
-| 106 | Gospel Slide Guitar | Gospel, Guitar, Slide | Slide / Warm / Gain / Room | Warm sliding lead guitar for church-style fills with expressive vibrato. |  |
-| 107 | Harmonics Chime Guitar | Metallic, Harmonics, Chime, Clean | Chime / Bright / Echo / Hall | Natural harmonics plucked high on the neck, chiming like small bells. |  |
-| 108 | Harmony Twin Lead | Warm, Lead, Harmony | Harmony / Gain / Tone / Echo | Two guitars in harmony a major third apart, singing one melody together. |  |
-| 109 | High Gain Lead Guitar | Electronic, Lead, Distorted, Sustain | Gain / Tone / Vibrato / Echo | Saturated singing lead that sustains forever, with mod-wheel vibrato. |  |
-| 110 | Industrial Guitar Wall | Industrial, Guitar, Distorted | Wall / Gain / Rasp / Tone | Wide wall of buzzing, raspy saws crushed by clipping and multiband squash. |  |
-| 111 | Lap Steel Glide | Warm, Slide, Steel, Smooth | Glide / Tone / Swell / Hall | Clean lap steel sliding smoothly between chords with a gentle vibrato. |  |
-| 112 | Mandolin Tremolo | Acoustic, Mandolin, Tremolo, Folk | Speed / Bright / Width / Room | Mandolin played with fast tremolo picking on every held note. |  |
-| 113 | Muted Disco Picking | House, Disco, Guitar | Mute / Grit / Echo / Room | Palm-muted string picking in sixteenths, chorused and pushed by the groove. |  |
-| 114 | Nylon Pluck | Cold, Guitar, Acoustic | Body / Pick / Tone / Room | Soft nylon-string pluck with a woody body and short room. |  |
-| 115 | Overdrive Rhythm Guitar | Mechanical, Guitar, Rock | Gain / Tone / Bite / Room | Two detuned saws through a tube amp stage for crunchy rhythm chords. |  |
-| 116 | Palm Mute Chug | Industrial, Guitar, Distorted | Gain / Mute / Low / Room | Tight palm-muted chug with a hard-clipped bite for industrial riffs. |  |
-| 117 | Pedal Wah Lead | Vintage, Wah, Lead, Expressive | Wah / Gain / Peak / Echo | Overdriven lead with a wah pedal on the mod wheel, from heel-down growl to toe-down squeal. |  |
-| 118 | Phaser Rhythm Guitar | Analog, Guitar, Funk | Phase / Tone / Gain / Room | Seventies rhythm guitar swirling through a slow phaser. |  |
-| 119 | Rage Guitar Lead | Hip-Hop, Rage, Guitar, Overdrive, Lead | Energy / Bright / Slide / Echo | Overdriven plucked-string lead with a slide, cutting like a rage hook. |  |
-| 120 | Rubber Bridge Guitar | Vintage, Muted, Round | Thud / Tone / Ring / Room | Thuddy vintage guitar muted with foam at the bridge: short, round notes. |  |
-| 121 | Searing Sustain Lead | Electronic, Lead, Distorted, Sync | Scream / Gain / Tone / Echo | Synced, screaming lead tone that bends up into its notes and holds them. |  |
-| 122 | Sitar Buzz | Metallic, Sitar, Drone, Buzz | Buzz / Bend / Drone / Room | Droning plucked strings with the buzzing bridge of a sitar and a slow bend. |  |
-| 123 | Slide Blues Guitar | Vintage, Slide, Blues | Slide / Grit / Tone / Room | Bottleneck slide guitar that glides between notes and hums with a little grit. |  |
-| 124 | Ukulele Strum | Acoustic, Ukulele, Nylon, Bright | Bright / Body / Strum / Room | Small, bright nylon ukulele with a soft body and quick decay. |  |
-| 125 | Weeping Guitar | Hip-Hop, Nylon, Vibrato, Melancholy | Energy / Tone / Vibrato / Room | Nylon-string melody with a slow vibrato, for sad intros and hooks. |  |
+| 089 | Banjo Pluck | Acoustic, Banjo, Bright, Folk | Ring / Bright / Roll / Room | Bright, short banjo twang with a metallic ring from its drum head. |  |
+| 090 | Bit Crushed Riff | Industrial, Guitar, Lo-Fi | Bits / Tone / Crush / Echo | Lo-fi riff guitar chewed by a bitcrusher for gritty loops. |  |
+| 091 | Bossa Nylon Guitar | Acoustic, Nylon, Soft, Dry | Thumb / Body / Ring / Room | Soft nylon strings plucked with the thumb, close and dry. |  |
+| 092 | Chorused Clean Guitar | Acoustic, Clean, Chorus, Wide | Depth / Bright / Echo / Hall | Glassy clean guitar spread wide by a slow, deep chorus. |  |
+| 093 | Clean Bridge Guitar | Acoustic, Clean, Bright | Pick / Body / Chorus / Room | Bright bridge-pickup clean tone with a snappy pick and a short room. |  |
+| 094 | Clean Delay Lead Guitar | Warm, Clean, Delay, Lead | Echo / Tone / Vibrato / Hall | Clean singing lead with dotted-eighth echoes that fill the space between notes. |  |
+| 095 | Country Twang Guitar | Vintage, Clean, Twang, Slapback | Twang / Snap / Slap / Room | Compressed, twangy single-coil picking with a quick slapback echo. |  |
+| 096 | Crunch Rhythm Guitar | Vintage, Crunch, Rhythm | Gain / Tone / Body / Room | Edge-of-breakup amp crunch that cleans up when you play softly. |  |
+| 097 | Emo Guitar Pluck | Hip-Hop, Guitar, Emo, Driven | Energy / Drive / Echo / Room | Lightly driven guitar pluck with a dotted echo, for emo rap and sad rock beats. |  |
+| 098 | Feedback Sustain Guitar | Mechanical, Guitar, Lead | Feedback / Gain / Bloom / Echo | Endless sustaining guitar that blooms into a resonant feedback whine. |  |
+| 099 | Fingerpicked Pattern Guitar | Acoustic, Fingerpicking, Nylon, Pattern | Thumb / Ring / Echo / Room | Held chords turn into a gentle fingerpicked pattern on nylon strings. |  |
+| 100 | Funk Scratch Guitar | Vintage, Muted, Funk, Percussive | Mute / Bite / Grit / Room | Muted, percussive scratch strums with a tight high-passed bite. |  |
+| 101 | Fuzz Octave Lead | Electronic, Fuzz, Octave, Lead | Octave / Fuzz / Tone / Echo | Gated fuzz with an octave-up layer that spits on every note. |  |
+| 102 | Fuzzbox Bass Guitar | House, Raw, Guitar, Fuzz | Fuzz / Tone / Low / Room | Plucked low string driven into a hard fuzz that spits harder the harder you play. |  |
+| 103 | Gospel Slide Guitar | Gospel, Guitar, Slide | Slide / Warm / Gain / Room | Warm sliding lead guitar for church-style fills with expressive vibrato. |  |
+| 104 | Harmonics Chime Guitar | Metallic, Harmonics, Chime, Clean | Chime / Bright / Echo / Hall | Natural harmonics plucked high on the neck, chiming like small bells. |  |
+| 105 | Harmony Twin Lead | Warm, Lead, Harmony | Harmony / Gain / Tone / Echo | Two guitars in harmony a major third apart, singing one melody together. |  |
+| 106 | High Gain Lead Guitar | Electronic, Lead, Distorted, Sustain | Gain / Tone / Vibrato / Echo | Saturated singing lead that sustains forever, with mod-wheel vibrato. |  |
+| 107 | Industrial Guitar Wall | Industrial, Guitar, Distorted | Wall / Gain / Rasp / Tone | Wide wall of buzzing, raspy saws crushed by clipping and multiband squash. |  |
+| 108 | Lap Steel Glide | Warm, Slide, Steel, Smooth | Glide / Tone / Swell / Hall | Clean lap steel sliding smoothly between chords with a gentle vibrato. |  |
+| 109 | Mandolin Tremolo | Acoustic, Mandolin, Tremolo, Folk | Speed / Bright / Width / Room | Mandolin played with fast tremolo picking on every held note. |  |
+| 110 | Muted Disco Picking | House, Disco, Guitar | Mute / Grit / Echo / Room | Palm-muted string picking in sixteenths, chorused and pushed by the groove. |  |
+| 111 | Nylon Pluck | Cold, Guitar, Acoustic | Body / Pick / Tone / Room | Soft nylon-string pluck with a woody body and short room. |  |
+| 112 | Overdrive Rhythm Guitar | Mechanical, Guitar, Rock | Gain / Tone / Bite / Room | Two detuned saws through a tube amp stage for crunchy rhythm chords. |  |
+| 113 | Palm Mute Chug | Industrial, Guitar, Distorted | Gain / Mute / Low / Room | Tight palm-muted chug with a hard-clipped bite for industrial riffs. |  |
+| 114 | Pedal Wah Lead | Vintage, Wah, Lead, Expressive | Wah / Gain / Peak / Echo | Overdriven lead with a wah pedal on the mod wheel, from heel-down growl to toe-down squeal. |  |
+| 115 | Phaser Rhythm Guitar | Analog, Guitar, Funk | Phase / Tone / Gain / Room | Seventies rhythm guitar swirling through a slow phaser. |  |
+| 116 | Rage Guitar Lead | Hip-Hop, Rage, Guitar, Overdrive, Lead | Energy / Bright / Slide / Echo | Overdriven plucked-string lead with a slide, cutting like a rage hook. |  |
+| 117 | Rubber Bridge Guitar | Vintage, Muted, Round | Thud / Tone / Ring / Room | Thuddy vintage guitar muted with foam at the bridge: short, round notes. |  |
+| 118 | Searing Sustain Lead | Electronic, Lead, Distorted, Sync | Scream / Gain / Tone / Echo | Synced, screaming lead tone that bends up into its notes and holds them. |  |
+| 119 | Sitar Buzz | Metallic, Sitar, Drone, Buzz | Buzz / Bend / Drone / Room | Droning plucked strings with the buzzing bridge of a sitar and a slow bend. |  |
+| 120 | Slide Blues Guitar | Vintage, Slide, Blues | Slide / Grit / Tone / Room | Bottleneck slide guitar that glides between notes and hums with a little grit. |  |
+| 121 | Ukulele Strum | Acoustic, Ukulele, Nylon, Bright | Bright / Body / Strum / Room | Small, bright nylon ukulele with a soft body and quick decay. |  |
+| 122 | Weeping Guitar | Hip-Hop, Nylon, Vibrato, Melancholy | Energy / Tone / Vibrato / Room | Nylon-string melody with a slow vibrato, for sad intros and hooks. |  |
 
 ## Pluck (30)
 
@@ -169,36 +166,36 @@ Krótkie, szarpane i uderzane brzmienia do melodii i rytmów.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 126 | Bossa Organ Pluck | Warm, Organ, Percussive | Perc / Tone / Spin / Room | Percussive organ blip with a quick decay, like a short drawbar stab. |  |
-| 127 | Breath Bubble Pluck | Ambient, Bubbles, Breathy | Bubble / Breath / Echo / Hall | Breathy resonant bubbles that land on a slightly different pitch each time. |  |
-| 128 | Classic Saw Pluck | Electronic, Saw, Snappy | Snap / Res / Echo / Hall | Bright saw pluck with a snappy filter envelope, the everyday workhorse. |  |
-| 129 | Clave Click Pluck | Acoustic, Percussive, Dry, Wood | Click / Wood / Length / Room | Dry, clicky hollow-wood pluck for tight percussive melodies. |  |
-| 130 | Comb Tube Pluck | Electronic, Comb, Resonator, Tube | Ring / Tone / Noise / Room | Noise burst ringing through a tuned comb filter like a struck metal tube. |  |
-| 131 | Concert Harp | Orchestral, Harp, Sweet | Ring / Bright / Width / Hall | Concert harp strings that ring long and sweet in a wide hall. |  |
-| 132 | Detroit Bounce Pluck | Hip-Hop, Detroit, Bouncy, Hard | Bounce / High / Grit / Echo | Hard, high square pluck that bounces over Detroit-style beats. |  |
-| 133 | Digital Bell Pluck | Metallic, Digital, FM, Bright | Sparkle / Tone / Echo / Room | Short digital FM blip with a metallic sparkle on top. |  |
-| 134 | Double Course Pluck | Acoustic, Lute, Shimmer, Plucked | Shimmer / Bright / Echo / Hall | Paired strings tuned a hair apart, so every note shimmers like a lute. |  |
-| 135 | Dub Echo Pluck | Ambient, Dub, Echo, Dark | Echo / Tone / Grit / Space | Dark, short pluck feeding a long ping-pong echo that carries the groove. |  |
-| 136 | FM Glass Pluck | Metallic, FM, Glassy | Index / Tone / Echo / Hall | Clear FM pluck at a three-to-one ratio: glassy attack, round tail. |  |
-| 137 | Future House Pluck | House, Future House, Metallic, Drop | Metal / Bend / Bright / Echo | Bright metallic pluck that bends up into the note, made for drops. |  |
-| 138 | Kalimba Thumb | Acoustic, Kalimba, Tine, Sweet | Tine / Body / Echo / Room | Thumb piano tine: a bright click, a hollow body and a short, sweet ring. |  |
-| 139 | Koto Bend Pluck | Acoustic, Koto, Bend, Plucked | Bend / Bright / Ring / Room | Koto-like silk string plucked hard, with the pitch pushed up a touch at the attack. |  |
-| 140 | Metal Smash Stab | Industrial, Metallic, Hit, Ring Mod | Energy / Ring / Tail / Pitch | Ring-modulated metallic hit with a clipped attack, like hitting sheet metal. |  |
-| 141 | Mirror Hollow Pluck | Warm, Hollow, Woody | Hollow / Tone / Echo / Room | Hollow, woody pluck folded by mirror warp, somewhere between a flute and a marimba. |  |
-| 142 | Pain Pluck | Hip-Hop, Trap, Pluck, Emotional, Melody | Energy / Tone / Echo / Room | Bright, aching pluck with a triplet echo, the melody of an emotional trap beat. |  |
-| 143 | Pizz Hollow Pluck | Acoustic, Pizzicato, Hollow | Pop / Body / Echo / Hall | Short band-passed pizzicato pop with a hollow wooden body. |  |
-| 144 | Plectrum Synth Pluck | Acoustic, Bright, Thin, Plucked | Pick / Thin / Echo / Room | Saw-excited string with a hard plastic pick and a thin, cutting body. |  |
-| 145 | PWM Pluck | Electronic, PWM, Analog | Width / Tone / Echo / Room | Pulse pluck whose width wobbles slowly, so held phrases shimmer. |  |
-| 146 | Ring Clang Pluck | Metallic, Ring Mod | Clang / Ratio / Tone / Room | Ring-modulated pluck with clanging, out-of-tune partials. |  |
-| 147 | Round Pluck | Basic, Round, Warm, Plain | Energy / Tone / Tail / Room | Soft, round pluck with a warm tail, for chords and gentle melodies. |  |
-| 148 | Rubber Ladder Pluck | Electronic, Resonant, Squelch | Squelch / Open / Drive / Echo | Resonant ladder pluck that bounces with a rubbery squelch. |  |
-| 149 | Square Pluck | Basic, Square, Short, Plain | Energy / Snap / Tail / Room | Short square pluck with a quick filter snap, dry enough for fast melodies. |  |
-| 150 | Sub Sine Pluck | Warm, Deep, Round, Bass | Sub / Click / Drive / Room | Deep round pluck with a sine sub, made for melodic bass lines and low hooks. |  |
-| 151 | Sync Zap Pluck | Electronic, Sync, Zap, Aggressive | Zap / Tone / Grit / Echo | Hard-synced pluck whose overtones zap downward on every hit. |  |
-| 152 | Tech Perc Pluck | House, Tech House, Percussive, Dry | Click / Tone / Pump / Echo | Dry, clicky FM blip that sits between hi-hats in a tech house groove. |  |
-| 153 | Vowel Pluck | Electronic, Vocal, Formant | Vowel / Peak / Echo / Room | Pluck that says 'wah' as the formant envelope closes on every note. |  |
-| 154 | Water Drop Pluck | Ambient, Water, Drop | Drop / Echo / Cave / Tone | Sine droplet whose pitch falls as it lands, echoing in a cave. |  |
-| 155 | Wooden Pluck | Warm, Wood, Dark, Dry | Wood / Tone / Length / Room | Short, dark plucked wood with almost no ring. |  |
+| 123 | Bossa Organ Pluck | Warm, Organ, Percussive | Perc / Tone / Spin / Room | Percussive organ blip with a quick decay, like a short drawbar stab. |  |
+| 124 | Breath Bubble Pluck | Ambient, Bubbles, Breathy | Bubble / Breath / Echo / Hall | Breathy resonant bubbles that land on a slightly different pitch each time. |  |
+| 125 | Classic Saw Pluck | Electronic, Saw, Snappy | Snap / Res / Echo / Hall | Bright saw pluck with a snappy filter envelope, the everyday workhorse. |  |
+| 126 | Clave Click Pluck | Acoustic, Percussive, Dry, Wood | Click / Wood / Length / Room | Dry, clicky hollow-wood pluck for tight percussive melodies. |  |
+| 127 | Comb Tube Pluck | Electronic, Comb, Resonator, Tube | Ring / Tone / Noise / Room | Noise burst ringing through a tuned comb filter like a struck metal tube. |  |
+| 128 | Concert Harp | Orchestral, Harp, Sweet | Ring / Bright / Width / Hall | Concert harp strings that ring long and sweet in a wide hall. |  |
+| 129 | Detroit Bounce Pluck | Hip-Hop, Detroit, Bouncy, Hard | Bounce / High / Grit / Echo | Hard, high square pluck that bounces over Detroit-style beats. |  |
+| 130 | Digital Bell Pluck | Metallic, Digital, FM, Bright | Sparkle / Tone / Echo / Room | Short digital FM blip with a metallic sparkle on top. |  |
+| 131 | Double Course Pluck | Acoustic, Lute, Shimmer, Plucked | Shimmer / Bright / Echo / Hall | Paired strings tuned a hair apart, so every note shimmers like a lute. |  |
+| 132 | Dub Echo Pluck | Ambient, Dub, Echo, Dark | Echo / Tone / Grit / Space | Dark, short pluck feeding a long ping-pong echo that carries the groove. |  |
+| 133 | FM Glass Pluck | Metallic, FM, Glassy | Index / Tone / Echo / Hall | Clear FM pluck at a three-to-one ratio: glassy attack, round tail. |  |
+| 134 | Future House Pluck | House, Future House, Metallic, Drop | Metal / Bend / Bright / Echo | Bright metallic pluck that bends up into the note, made for drops. |  |
+| 135 | Kalimba Thumb | Acoustic, Kalimba, Tine, Sweet | Tine / Body / Echo / Room | Thumb piano tine: a bright click, a hollow body and a short, sweet ring. |  |
+| 136 | Koto Bend Pluck | Acoustic, Koto, Bend, Plucked | Bend / Bright / Ring / Room | Koto-like silk string plucked hard, with the pitch pushed up a touch at the attack. |  |
+| 137 | Metal Smash Stab | Industrial, Metallic, Hit, Ring Mod | Energy / Ring / Tail / Pitch | Ring-modulated metallic hit with a clipped attack, like hitting sheet metal. |  |
+| 138 | Mirror Hollow Pluck | Warm, Hollow, Woody | Hollow / Tone / Echo / Room | Hollow, woody pluck folded by mirror warp, somewhere between a flute and a marimba. |  |
+| 139 | Pain Pluck | Hip-Hop, Trap, Pluck, Emotional, Melody | Energy / Tone / Echo / Room | Bright, aching pluck with a triplet echo, the melody of an emotional trap beat. |  |
+| 140 | Pizz Hollow Pluck | Acoustic, Pizzicato, Hollow | Pop / Body / Echo / Hall | Short band-passed pizzicato pop with a hollow wooden body. |  |
+| 141 | Plectrum Synth Pluck | Acoustic, Bright, Thin, Plucked | Pick / Thin / Echo / Room | Saw-excited string with a hard plastic pick and a thin, cutting body. |  |
+| 142 | PWM Pluck | Electronic, PWM, Analog | Width / Tone / Echo / Room | Pulse pluck whose width wobbles slowly, so held phrases shimmer. |  |
+| 143 | Ring Clang Pluck | Metallic, Ring Mod | Clang / Ratio / Tone / Room | Ring-modulated pluck with clanging, out-of-tune partials. |  |
+| 144 | Round Pluck | Basic, Round, Warm, Plain | Energy / Tone / Tail / Room | Soft, round pluck with a warm tail, for chords and gentle melodies. |  |
+| 145 | Rubber Ladder Pluck | Electronic, Resonant, Squelch | Squelch / Open / Drive / Echo | Resonant ladder pluck that bounces with a rubbery squelch. |  |
+| 146 | Square Pluck | Basic, Square, Short, Plain | Energy / Snap / Tail / Room | Short square pluck with a quick filter snap, dry enough for fast melodies. |  |
+| 147 | Sub Sine Pluck | Warm, Deep, Round, Bass | Sub / Click / Drive / Room | Deep round pluck with a sine sub, made for melodic bass lines and low hooks. |  |
+| 148 | Sync Zap Pluck | Electronic, Sync, Zap, Aggressive | Zap / Tone / Grit / Echo | Hard-synced pluck whose overtones zap downward on every hit. |  |
+| 149 | Tech Perc Pluck | House, Tech House, Percussive, Dry | Click / Tone / Pump / Echo | Dry, clicky FM blip that sits between hi-hats in a tech house groove. |  |
+| 150 | Vowel Pluck | Electronic, Vocal, Formant | Vowel / Peak / Echo / Room | Pluck that says 'wah' as the formant envelope closes on every note. |  |
+| 151 | Water Drop Pluck | Ambient, Water, Drop | Drop / Echo / Cave / Tone | Sine droplet whose pitch falls as it lands, echoing in a cave. |  |
+| 152 | Wooden Pluck | Warm, Wood, Dark, Dry | Wood / Tone / Length / Room | Short, dark plucked wood with almost no ring. |  |
 
 ## Keys (55)
 
@@ -206,61 +203,61 @@ Pianina, pianina elektryczne, organy, staby i klawisze perkusyjne.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 156 | Bellows Harmonium | Organ, Reed, Acoustic | Breath / Reed / Sway / Room | Pumped reed organ that breathes in with each chord and sways with the bellows. |  |
-| 157 | Boom Bap Jazz EP | Hip-Hop, Boom Bap, Electric Piano, Jazz | Bark / Tone / Chorus / Room | Clean, punchy jazz electric piano for boom bap chords, no dust. |  |
-| 158 | Breaker Keys | Industrial, Stab, Digital | Index / Crush / Tone / Room | FM stab that starts as clean glass and breaks into bit-crushed grit as it decays. |  |
-| 159 | Buzzy Combo Organ | Organ, Garage, Buzzy | Buzz / Vibrato / Tone / Echo | Thin, buzzy transistor organ with a quick vibrato, built for surf and garage. |  |
-| 160 | Chicago Organ Stab | House, Raw, Organ | Drawbars / Tone / Grit / Room | Short house organ stab with a punchy decay. |  |
-| 161 | Chord Memory Stab | House, Raw, Stab | Snap / Res / Dub / Room | Classic house chord stab with a snappy filter and a dub echo. |  |
-| 162 | Chorus Tine EP | Warm, Electric Piano, Chorus, Soft | Bark / Wave / Tone / Room | Soft FM tine piano drifting through a slow, deep chorus. |  |
-| 163 | Classic EP | Basic, Electric Piano, Tremolo, Plain | Energy / Bell / Trem / Chorus | Bell-like electric piano with a soft tremolo, the everyday tine sound. |  |
-| 164 | Cross Mod Keys | Vintage, Metallic, Dark, Ring Mod | Metal / Ratio / Tone / Room | Dark ring-modulated keys with a metallic edge that wobbles between the oscillators. |  |
-| 165 | Crystal Keys | House, Disco, Bright, Keys | Crystal / Tone / Width / Hall | Bright FM keys with a crisp attack and silky tail. |  |
-| 166 | Dark Ballad Piano | Epic, Piano, Dramatic | Dark / Hammer / Echo / Hall | Dark, distant piano with a cathedral tail for dramatic intros. |  |
-| 167 | Dark Trap Piano | Hip-Hop, Trap, Piano, Dark, Moody | Hit / Body / Tail / Echo | Hard-hit, clean piano with a long dark tail for moody trap. |  |
-| 168 | Deep Echo Keys | Warm, Delay, Dark, Rhythmic | Echo / Tone / Length / Space | Short, dark keys whose dotted echoes carry the rhythm. |  |
-| 169 | Dream Keys | House, Disco, Keys, Sweet | Haze / Tone / Echo / Hall | Hazy, sweet keys smeared with chorus and ping-pong echoes. |  |
-| 170 | Dub Chord Stab | House, Deep House, Dub, Stab | Snap / Echo / Res / Space | Deep house chord stab dissolving into dotted echoes. |  |
-| 171 | Dulcimer Keys | Warm, Plucked, Folk, Shimmer | Shimmer / Bright / Ring / Hall | Hammered dulcimer: doubled strings that beat against each other and ring on. |  |
-| 172 | Electric Tine Keys | Analog, Keys, Vintage | Bark / Tone / Trem / Room | Soft electric-piano-like tines with a velocity-driven bark. |  |
-| 173 | Felt Tine EP | Warm, Electric Piano, Soft, Dark | Felt / Tine / Width / Hall | Muffled electric piano with a slow felt attack, made for quiet late-night chords. |  |
-| 174 | Full Drawbar Organ | Basic, Organ, Drawbar, Plain | Energy / Drawbar / Rotor / Room | All-drawbars-out organ with a rotary wobble, straight from the stage. |  |
-| 175 | Funeral Organ | Cinematic, Organ, Pipe, Cold | Energy / Pipes / Weight / Hall | Low pipe organ in a cold stone room, dark and heavy. |  |
-| 176 | Funk Clav Keys | Analog, Funk, Keys | Bite / Pulse / Phase / Room | Tight funky clav tone with a percussive filter bite. |  |
-| 177 | Funky Filter Keys | House, Raw, Funk | Wah / Pulse / Phase / Room | Clav-style pulse keys with a resonant envelope wah. |  |
-| 178 | Garage Organ Stab | House, Garage, Organ, Stab | Click / Bite / Drive / Room | Bright, percussive organ stab with a hard click for garage and speed house. |  |
-| 179 | Glass Piano | Cinematic, Piano | Glass / Shimmer / Echo / Hall | Struck glass strings that ring like a piano and shimmer with a high bell overtone. |  |
-| 180 | Gloss Pluck | Stadium, Pluck, Bright | Gloss / Body / Echo / Hall | Glassy FM pluck layered with a soft triangle for shiny chords. |  |
-| 181 | Grand Synth Keys | Epic, Keys, Warm | Attack / Body / Tone / Hall | Piano-like synth keys mixing a soft bell attack and a warm square body. |  |
-| 182 | Hard House Stab | House, Rave, Hard House, Stab, Clipped | Energy / Snap / Pump / Echo | Clipped saw chord stab with a punchy attack, ducking hard under the kick. |  |
-| 183 | Honky Tonk Bar | Gospel, Piano, Vintage | Detune / Bright / Room / Grit | Out-of-tune saloon piano with two strings per note beating against each other. |  |
-| 184 | Hoover Stab | House, Rave, Hoover, Detuned | Energy / Bend / Width / Hall | Thick, detuned pulse stab that bends down on every chord, the rave hoover. |  |
-| 185 | House Piano Stab | House, Raw, Piano | Bright / Grit / Width / Room | Bright stacked house piano that cuts through a dance mix and pumps. |  |
-| 186 | Marimba Keys | Stadium, Mallet, Bright | Knock / Tone / Echo / Room | Woody mallet keys with a quick knock and short ring. |  |
-| 187 | Muted Felt Upright | Warm, Piano, Dark, Intimate | Felt / Ring / Air / Room | Upright piano with felt over the strings: short, dark and intimate. |  |
-| 188 | Nineties House Piano | House, Piano, Bright, Classic | Bright / Organ / Pump / Room | Bright, stacked piano for big house chords, pumping with the kick. |  |
-| 189 | Ooh Vowel Keys | Warm, Vocal, Soft, Formant | Vowel / Air / Width / Hall | Keys that sing a soft 'ooh' and open towards 'ah' the harder you play. |  |
-| 190 | Overdrive Rock Organ | Organ, Rock, Driven | Drive / Spin / Bite / Room | Organ through a cranked amp and a spinning phaser, snarling on held chords. |  |
-| 191 | Phaser Tremolo EP | Warm, Electric Piano, Phaser, Tremolo | Trem / Phase / Tone / Room | Round electric piano pulsing with a four-hertz tremolo inside a slow phaser. |  |
-| 192 | Polysynth Chords | Basic, Polysynth, Chords, Plain | Energy / Tone / Width / Room | Plain two-saw polysynth for chords, the sound of a hundred records. |  |
-| 193 | Rainy Day EP | Hip-Hop, Electric Piano, Melancholy, Soft | Energy / Bell / Wobble / Room | Soft electric piano with a slow wobble and a sigh of detune, for sad rap verses. |  |
-| 194 | Rap Synth Stab | Hip-Hop, Stab, Dark, Punchy | Snap / Grit / Octave / Room | Short, dark saw stab for punchy rap beats. |  |
-| 195 | Rave Piano Stab | House, Rave, Stab, Bright | Saw / Bright / Grit / Room | Early-nineties rave stab: piano and saw octaves hit hard together. |  |
-| 196 | Reed Electric Piano | Analog, Electric Piano, Vintage | Bark / Reed / Soft / Room | Reedy, slightly barking electric piano with tube grit when played hard. |  |
-| 197 | Reed Growl Keys | Vintage, Electric Piano, Reed, Nasal | Growl / Body / Vibe / Room | Nasal reed piano squeezed into a vocal growl that opens with velocity. |  |
-| 198 | Sad Trap Piano | Hip-Hop, Trap, Piano, Emotional, Minor | Energy / Bright / Echo / Room | Hushed piano with a long damped room, for slow, emotional trap chords. |  |
-| 199 | Saturated Keys Stab | Industrial, Stab, Distorted | Drive / Bite / Tone / Room | Overdriven brassy key stab that hits like a slap. |  |
-| 200 | Sidechain Organ | House, Disco, Pump, Organ | Drawbars / Tone / Phase / Hall | House organ chords breathing with a strong quarter-note pump. |  |
-| 201 | Slow Phaser Chords | Warm, Phaser, Chords, Analog | Phase / Warmth / Width / Hall | Warm analog major-seventh chords washed by a deep phaser that takes four seconds per sweep. |  |
-| 202 | Smoky Lounge Keys | Lo-Fi, Dark, Bar, Warm | Smoke / Warmth / Wear / Room | Dark, warm bar keys with a rounded attack, a little hiss and a tired, slightly detuned body. |  |
-| 203 | Steel String Synth | Mechanical, Rock, Pluck | Pick / Fuzz / Pulse / Room | Plucky pulse tone with fuzz that mimics a picked electric guitar. |  |
-| 204 | String Clav | Vintage, Clav, Funk, Plucked | Pick / Thin / Phase / Room | Thin plucked-string clav with a bright pick and a tight high-passed body. |  |
-| 205 | Sunday Drawbars | Gospel, Organ | Drawbars / Rotor / Drive / Hall | Classic drawbar organ with a gentle rotary-style chorus. |  |
-| 206 | Synth Piano | Basic, Piano, Clean, Plain | Energy / Bright / Body / Room | Clean, bright synth piano for chords in any style, with velocity on the tone. |  |
-| 207 | Talk Synth Chords | House, Disco, Talkbox, Vocal | Vowel / Grit / Width / Hall | Chords that say a vowel on every hit, like a talkbox section. |  |
-| 208 | Varsity Stabs | Stadium, Supersaw, Stab | Pluck / Width / Echo / Hall | Bright supersaw chord stab with a short pluck and stereo delay. |  |
-| 209 | Wah Clav | Vintage, Clav, Funk, Wah | Wah / Quack / Grit / Echo | Clav that says 'wow' on every note as a formant envelope sweeps through it. |  |
-| 210 | Warm Percussion Organ | Organ, Percussion, Drawbar | Perc / Drawbar / Rotor / Room | Drawbar organ with a decaying third-harmonic click on every chord. |  |
+| 153 | Bellows Harmonium | Organ, Reed, Acoustic | Breath / Reed / Sway / Room | Pumped reed organ that breathes in with each chord and sways with the bellows. |  |
+| 154 | Boom Bap Jazz EP | Hip-Hop, Boom Bap, Electric Piano, Jazz | Bark / Tone / Chorus / Room | Clean, punchy jazz electric piano for boom bap chords, no dust. |  |
+| 155 | Breaker Keys | Industrial, Stab, Digital | Index / Crush / Tone / Room | FM stab that starts as clean glass and breaks into bit-crushed grit as it decays. |  |
+| 156 | Buzzy Combo Organ | Organ, Garage, Buzzy | Buzz / Vibrato / Tone / Echo | Thin, buzzy transistor organ with a quick vibrato, built for surf and garage. |  |
+| 157 | Chicago Organ Stab | House, Raw, Organ | Drawbars / Tone / Grit / Room | Short house organ stab with a punchy decay. |  |
+| 158 | Chord Memory Stab | House, Raw, Stab | Snap / Res / Dub / Room | Classic house chord stab with a snappy filter and a dub echo. |  |
+| 159 | Chorus Tine EP | Warm, Electric Piano, Chorus, Soft | Bark / Wave / Tone / Room | Soft FM tine piano drifting through a slow, deep chorus. |  |
+| 160 | Classic EP | Basic, Electric Piano, Tremolo, Plain | Energy / Bell / Trem / Chorus | Bell-like electric piano with a soft tremolo, the everyday tine sound. |  |
+| 161 | Cross Mod Keys | Vintage, Metallic, Dark, Ring Mod | Metal / Ratio / Tone / Room | Dark ring-modulated keys with a metallic edge that wobbles between the oscillators. |  |
+| 162 | Crystal Keys | House, Disco, Bright, Keys | Crystal / Tone / Width / Hall | Bright FM keys with a crisp attack and silky tail. |  |
+| 163 | Dark Ballad Piano | Epic, Piano, Dramatic | Dark / Hammer / Echo / Hall | Dark, distant piano with a cathedral tail for dramatic intros. |  |
+| 164 | Dark Trap Piano | Hip-Hop, Trap, Piano, Dark, Moody | Hit / Body / Tail / Echo | Hard-hit, clean piano with a long dark tail for moody trap. |  |
+| 165 | Deep Echo Keys | Warm, Delay, Dark, Rhythmic | Echo / Tone / Length / Space | Short, dark keys whose dotted echoes carry the rhythm. |  |
+| 166 | Dream Keys | House, Disco, Keys, Sweet | Haze / Tone / Echo / Hall | Hazy, sweet keys smeared with chorus and ping-pong echoes. |  |
+| 167 | Dub Chord Stab | House, Deep House, Dub, Stab | Snap / Echo / Res / Space | Deep house chord stab dissolving into dotted echoes. |  |
+| 168 | Dulcimer Keys | Warm, Plucked, Folk, Shimmer | Shimmer / Bright / Ring / Hall | Hammered dulcimer: doubled strings that beat against each other and ring on. |  |
+| 169 | Electric Tine Keys | Analog, Keys, Vintage | Bark / Tone / Trem / Room | Soft electric-piano-like tines with a velocity-driven bark. |  |
+| 170 | Felt Tine EP | Warm, Electric Piano, Soft, Dark | Felt / Tine / Width / Hall | Muffled electric piano with a slow felt attack, made for quiet late-night chords. |  |
+| 171 | Full Drawbar Organ | Basic, Organ, Drawbar, Plain | Energy / Drawbar / Rotor / Room | All-drawbars-out organ with a rotary wobble, straight from the stage. |  |
+| 172 | Funeral Organ | Cinematic, Organ, Pipe, Cold | Energy / Pipes / Weight / Hall | Low pipe organ in a cold stone room, dark and heavy. |  |
+| 173 | Funk Clav Keys | Analog, Funk, Keys | Bite / Pulse / Phase / Room | Tight funky clav tone with a percussive filter bite. |  |
+| 174 | Funky Filter Keys | House, Raw, Funk | Wah / Pulse / Phase / Room | Clav-style pulse keys with a resonant envelope wah. |  |
+| 175 | Garage Organ Stab | House, Garage, Organ, Stab | Click / Bite / Drive / Room | Bright, percussive organ stab with a hard click for garage and speed house. |  |
+| 176 | Glass Piano | Cinematic, Piano | Glass / Shimmer / Echo / Hall | Struck glass strings that ring like a piano and shimmer with a high bell overtone. |  |
+| 177 | Gloss Pluck | Stadium, Pluck, Bright | Gloss / Body / Echo / Hall | Glassy FM pluck layered with a soft triangle for shiny chords. |  |
+| 178 | Grand Synth Keys | Epic, Keys, Warm | Attack / Body / Tone / Hall | Piano-like synth keys mixing a soft bell attack and a warm square body. |  |
+| 179 | Hard House Stab | House, Rave, Hard House, Stab, Clipped | Energy / Snap / Pump / Echo | Clipped saw chord stab with a punchy attack, ducking hard under the kick. |  |
+| 180 | Honky Tonk Bar | Gospel, Piano, Vintage | Detune / Bright / Room / Grit | Out-of-tune saloon piano with two strings per note beating against each other. |  |
+| 181 | Hoover Stab | House, Rave, Hoover, Detuned | Energy / Bend / Width / Hall | Thick, detuned pulse stab that bends down on every chord, the rave hoover. |  |
+| 182 | House Piano Stab | House, Raw, Piano | Bright / Grit / Width / Room | Bright stacked house piano that cuts through a dance mix and pumps. |  |
+| 183 | Marimba Keys | Stadium, Mallet, Bright | Knock / Tone / Echo / Room | Woody mallet keys with a quick knock and short ring. |  |
+| 184 | Muted Felt Upright | Warm, Piano, Dark, Intimate | Felt / Ring / Air / Room | Upright piano with felt over the strings: short, dark and intimate. |  |
+| 185 | Nineties House Piano | House, Piano, Bright, Classic | Bright / Organ / Pump / Room | Bright, stacked piano for big house chords, pumping with the kick. |  |
+| 186 | Ooh Vowel Keys | Warm, Vocal, Soft, Formant | Vowel / Air / Width / Hall | Keys that sing a soft 'ooh' and open towards 'ah' the harder you play. |  |
+| 187 | Overdrive Rock Organ | Organ, Rock, Driven | Drive / Spin / Bite / Room | Organ through a cranked amp and a spinning phaser, snarling on held chords. |  |
+| 188 | Phaser Tremolo EP | Warm, Electric Piano, Phaser, Tremolo | Trem / Phase / Tone / Room | Round electric piano pulsing with a four-hertz tremolo inside a slow phaser. |  |
+| 189 | Polysynth Chords | Basic, Polysynth, Chords, Plain | Energy / Tone / Width / Room | Plain two-saw polysynth for chords, the sound of a hundred records. |  |
+| 190 | Rainy Day EP | Hip-Hop, Electric Piano, Melancholy, Soft | Energy / Bell / Wobble / Room | Soft electric piano with a slow wobble and a sigh of detune, for sad rap verses. |  |
+| 191 | Rap Synth Stab | Hip-Hop, Stab, Dark, Punchy | Snap / Grit / Octave / Room | Short, dark saw stab for punchy rap beats. |  |
+| 192 | Rave Piano Stab | House, Rave, Stab, Bright | Saw / Bright / Grit / Room | Early-nineties rave stab: piano and saw octaves hit hard together. |  |
+| 193 | Reed Electric Piano | Analog, Electric Piano, Vintage | Bark / Reed / Soft / Room | Reedy, slightly barking electric piano with tube grit when played hard. |  |
+| 194 | Reed Growl Keys | Vintage, Electric Piano, Reed, Nasal | Growl / Body / Vibe / Room | Nasal reed piano squeezed into a vocal growl that opens with velocity. |  |
+| 195 | Sad Trap Piano | Hip-Hop, Trap, Piano, Emotional, Minor | Energy / Bright / Echo / Room | Hushed piano with a long damped room, for slow, emotional trap chords. |  |
+| 196 | Saturated Keys Stab | Industrial, Stab, Distorted | Drive / Bite / Tone / Room | Overdriven brassy key stab that hits like a slap. |  |
+| 197 | Sidechain Organ | House, Disco, Pump, Organ | Drawbars / Tone / Phase / Hall | House organ chords breathing with a strong quarter-note pump. |  |
+| 198 | Slow Phaser Chords | Warm, Phaser, Chords, Analog | Phase / Warmth / Width / Hall | Warm analog major-seventh chords washed by a deep phaser that takes four seconds per sweep. |  |
+| 199 | Smoky Lounge Keys | Lo-Fi, Dark, Bar, Warm | Smoke / Warmth / Wear / Room | Dark, warm bar keys with a rounded attack, a little hiss and a tired, slightly detuned body. |  |
+| 200 | Steel String Synth | Mechanical, Rock, Pluck | Pick / Fuzz / Pulse / Room | Plucky pulse tone with fuzz that mimics a picked electric guitar. |  |
+| 201 | String Clav | Vintage, Clav, Funk, Plucked | Pick / Thin / Phase / Room | Thin plucked-string clav with a bright pick and a tight high-passed body. |  |
+| 202 | Sunday Drawbars | Gospel, Organ | Drawbars / Rotor / Drive / Hall | Classic drawbar organ with a gentle rotary-style chorus. |  |
+| 203 | Synth Piano | Basic, Piano, Clean, Plain | Energy / Bright / Body / Room | Clean, bright synth piano for chords in any style, with velocity on the tone. |  |
+| 204 | Talk Synth Chords | House, Disco, Talkbox, Vocal | Vowel / Grit / Width / Hall | Chords that say a vowel on every hit, like a talkbox section. |  |
+| 205 | Varsity Stabs | Stadium, Supersaw, Stab | Pluck / Width / Echo / Hall | Bright supersaw chord stab with a short pluck and stereo delay. |  |
+| 206 | Wah Clav | Vintage, Clav, Funk, Wah | Wah / Quack / Grit / Echo | Clav that says 'wow' on every note as a formant envelope sweeps through it. |  |
+| 207 | Warm Percussion Organ | Organ, Percussion, Drawbar | Perc / Drawbar / Rotor / Room | Drawbar organ with a decaying third-harmonic click on every chord. |  |
 
 ## Bell (17)
 
@@ -268,23 +265,23 @@ Dzwony, dzwonki, mallety i metaliczne, szklane barwy.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 211 | Balafon Buzz | Acoustic, Balafon, Wood, Buzz | Buzz / Mallet / Wood / Room | Wooden mallet bars with gourd resonators that add a soft buzz. |  |
-| 212 | Bowed Cymbal | Metallic, Cymbal, Bowed, Eerie | Bow / Metal / Air / Hall | A bow drawn across a cymbal edge: a rising metallic shimmer with no attack. |  |
-| 213 | Broken Bell | Hip-Hop, Trap, Bell, Distorted | Energy / Metal / Tail / Echo | Bell melody driven into a clipper so the strike cracks, for dark, hard trap. |  |
-| 214 | Church Bell Toll | Metallic, Church, Dark, Heavy | Clang / Weight / Tone / Hall | Heavy tower bell with a dark, beating hum under clanging partials. |  |
-| 215 | Classic FM Bell | Electronic, FM, Digital, Clean | Index / Tone / Echo / Hall | Clean digital FM bell with a bright strike that rounds off into a pure tail. |  |
-| 216 | Crotale Ring | Orchestral, Crotale, High, Pure | Ring / Bright / Shimmer / Hall | Small antique cymbals tuned high: a piercing, pure ring. |  |
-| 217 | Detuned Lullaby | Hip-Hop, Celesta, Detuned, Melancholy | Energy / Tone / Wobble / Room | Childlike celesta slightly out of tune, sweet and sad at once. |  |
-| 218 | Drill Bell | Hip-Hop, Trap, Bell, Drill, Cold | Energy / Metal / Glide / Room | Cold, hard bell with a quick metallic strike, for drill and dark trap melodies. |  |
-| 219 | Eerie Music Box | Hip-Hop, Trap, Music Box, Eerie, Detuned | Energy / Detune / Echo / Room | Detuned music box ringing in a dark room, the eerie top line of a horror beat. |  |
-| 220 | Gamelan Gong | Metallic, Gamelan, Gong, Bronze | Bronze / Waver / Knock / Hall | Bronze gamelan gong: a soft knock and a deep, wavering tone. |  |
-| 221 | Glockenspiel | Acoustic, Glockenspiel, Sparkle, High | Sparkle / Tone / Echo / Hall | Steel-bar glockenspiel, high and sparkling, with a crisp metal mallet. |  |
-| 222 | Rosewood Marimba | Acoustic, Marimba, Wood, Warm | Mallet / Wood / Ring / Room | Warm wooden marimba bars with soft yarn mallets and a short resonator ring. |  |
-| 223 | Simple Bell | Basic, Bell, FM, Plain | Energy / Metal / Tail / Echo | Clear FM bell with a medium tail, for melodies that need to ring. |  |
-| 224 | Steel Pan Melody | Metallic, Steel Pan, Caribbean | Pan / Tone / Echo / Room | Caribbean steel pan with its hollow, slightly detuned overtones and short sustain. |  |
-| 225 | Temple Bell Strike | Metallic, Temple, Deep | Ring / Thud / Beat / Hall | Deep temple bell hit with a wooden beam: soft thud, then a slow, wide ring. |  |
-| 226 | Trap Bell Melody | Hip-Hop, Trap, Bell, Bright | Shine / Tone / Echo / Room | Bright, short FM bell for trap and drill melodies. |  |
-| 227 | Tubular Bell | Orchestral, Tubular | Strike / Tone / Hum / Hall | Orchestral tubular bell: a bright strike and a long, slightly out-of-tune hum. |  |
+| 208 | Balafon Buzz | Acoustic, Balafon, Wood, Buzz | Buzz / Mallet / Wood / Room | Wooden mallet bars with gourd resonators that add a soft buzz. |  |
+| 209 | Bowed Cymbal | Metallic, Cymbal, Bowed, Eerie | Bow / Metal / Air / Hall | A bow drawn across a cymbal edge: a rising metallic shimmer with no attack. |  |
+| 210 | Broken Bell | Hip-Hop, Trap, Bell, Distorted | Energy / Metal / Tail / Echo | Bell melody driven into a clipper so the strike cracks, for dark, hard trap. |  |
+| 211 | Church Bell Toll | Metallic, Church, Dark, Heavy | Clang / Weight / Tone / Hall | Heavy tower bell with a dark, beating hum under clanging partials. |  |
+| 212 | Classic FM Bell | Electronic, FM, Digital, Clean | Index / Tone / Echo / Hall | Clean digital FM bell with a bright strike that rounds off into a pure tail. |  |
+| 213 | Crotale Ring | Orchestral, Crotale, High, Pure | Ring / Bright / Shimmer / Hall | Small antique cymbals tuned high: a piercing, pure ring. |  |
+| 214 | Detuned Lullaby | Hip-Hop, Celesta, Detuned, Melancholy | Energy / Tone / Wobble / Room | Childlike celesta slightly out of tune, sweet and sad at once. |  |
+| 215 | Drill Bell | Hip-Hop, Trap, Bell, Drill, Cold | Energy / Metal / Glide / Room | Cold, hard bell with a quick metallic strike, for drill and dark trap melodies. |  |
+| 216 | Eerie Music Box | Hip-Hop, Trap, Music Box, Eerie, Detuned | Energy / Detune / Echo / Room | Detuned music box ringing in a dark room, the eerie top line of a horror beat. |  |
+| 217 | Gamelan Gong | Metallic, Gamelan, Gong, Bronze | Bronze / Waver / Knock / Hall | Bronze gamelan gong: a soft knock and a deep, wavering tone. |  |
+| 218 | Glockenspiel | Acoustic, Glockenspiel, Sparkle, High | Sparkle / Tone / Echo / Hall | Steel-bar glockenspiel, high and sparkling, with a crisp metal mallet. |  |
+| 219 | Rosewood Marimba | Acoustic, Marimba, Wood, Warm | Mallet / Wood / Ring / Room | Warm wooden marimba bars with soft yarn mallets and a short resonator ring. |  |
+| 220 | Simple Bell | Basic, Bell, FM, Plain | Energy / Metal / Tail / Echo | Clear FM bell with a medium tail, for melodies that need to ring. |  |
+| 221 | Steel Pan Melody | Metallic, Steel Pan, Caribbean | Pan / Tone / Echo / Room | Caribbean steel pan with its hollow, slightly detuned overtones and short sustain. |  |
+| 222 | Temple Bell Strike | Metallic, Temple, Deep | Ring / Thud / Beat / Hall | Deep temple bell hit with a wooden beam: soft thud, then a slow, wide ring. |  |
+| 223 | Trap Bell Melody | Hip-Hop, Trap, Bell, Bright | Shine / Tone / Echo / Room | Bright, short FM bell for trap and drill melodies. |  |
+| 224 | Tubular Bell | Orchestral, Tubular | Strike / Tone / Hum / Hall | Orchestral tubular bell: a bright strike and a long, slightly out-of-tune hum. |  |
 
 ## Pad (22)
 
@@ -292,28 +289,28 @@ Pady, chóry i smyczki – od zimnych i oszczędnych po szerokie, pompujące i e
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 228 | Bowed Metal Pad | Metallic, Bowed, Comb | Bow / Ring / Tone / Hall | Noise through a tuned comb filter, singing like bowed metal plates. |  |
-| 229 | Bright Poly Pad | Basic, Bright, Chords, Plain | Energy / Tone / Width / Pump | Open, bright pad with a fast attack, for house chords and choruses. |  |
-| 230 | Choir Pad | Basic, Choir, Vocal, Plain | Energy / Vowel / Width / Space | Simple 'aah' choir pad, wide and soft, for hooks and intros. |  |
-| 231 | Choir Vowel Pad | Gospel, Choir, Movement | Vowel / Choir / Width / Hall | Choir pad that slowly sings through vowels like a congregation. |  |
-| 232 | Dark Pad | Basic, Dark, Low, Plain | Energy / Open / Motion / Space | Low, dark pad with a closed filter, a bed for night-time beats. |  |
-| 233 | Deep Sub Pad | Warm, Dark, Low, Sub | Sub / Tone / Drive / Hall | Dark, low pad built on a sub and a soft square, felt more than heard. |  |
-| 234 | Distant Choir Pad | Ambient, Choir, Distant, Cathedral | Distance / Choir / Blur / Hall | Choir heard from the far end of a cathedral, soft and blurred. |  |
-| 235 | Empty Room Pad | Hip-Hop, Hollow, Night, Melancholy | Energy / Shimmer / Width / Space | Hollow pad that feels like an empty room at night, with a faint distant shimmer. |  |
-| 236 | Filter Sweep Pad | Basic, Sweep, Moving, Plain | Energy / Sweep / Width / Space | Saw pad whose filter slowly sweeps open and closed over two bars. |  |
-| 237 | Ghost Vocal Pad | Hip-Hop, Vocal, Breathy, Melancholy | Energy / Breath / Vowel / Space | Breathy, airy 'ooh' that hangs behind a sad hook like a memory. |  |
-| 238 | Glass Pad | Basic, Glass, Airy, Bright | Energy / Air / Shine / Space | Thin, glassy pad high above the mix, airy but not dull. |  |
-| 239 | Haunted Choir Pad | Hip-Hop, Trap, Choir, Ghostly, Horror | Energy / Vowel / Ghost / Space | Low, ghostly choir drifting between vowels, the dark bed of a horror beat. |  |
-| 240 | House Pump Pad | Basic, Deep House, Pump, Chords | Energy / Pump / Tone / Space | Deep house chord pad pumping in quarter notes, ready for a four-on-the-floor kick. |  |
-| 241 | Lilting Voice Pad | Ambient, Vocal, Gentle, Wide | Voice / Lilt / Width / Hall | Voice and synth layered in a gentle, swaying lilt with a soft vibrato. |  |
-| 242 | Neon Grid Pad | Cinematic, Synthwave, Dark | Glow / Pulse / Width / Hall | Dark pulsing pad whose filter moves on a slow tempo-synced triangle. |  |
-| 243 | Notch Phaser Pad | House, Raw, Movement, Filter | Sweep / Width / Res / Hall | Saw pad carved by a sweeping notch filter for a hollow jet motion. |  |
-| 244 | Phaser Wash Pad | Warm, Phaser, Wash | Phase / Warmth / Width / Hall | Warm major-seventh pad washed by a deep, slow phaser. |  |
-| 245 | Vocal Ahh Pad | Hip-Hop, Vocal, Bright, Hook | Vowel / Air / Width / Hall | Bright, wide 'ahh' vocal pad for rap hooks and choruses. |  |
-| 246 | Vocoded Chords | House, Disco, Vocal, Talkbox | Vowel / Voice / Width / Hall | Vocoder-like chord pad built from vowel tables and formants. |  |
-| 247 | Warm Saw Pad | Basic, Saw, Warm, Plain | Energy / Tone / Width / Space | Basic warm pad from detuned saws, slow in and slow out. |  |
-| 248 | Wavetable Drift Pad | Cinematic, Movement | Drift / Phase / Tone / Hall | Pad whose formant peak drifts slowly through the spectrum. |  |
-| 249 | Winter Choir | Cold, Choir, Vocal | Vowel / Air / Width / Hall | Breathy synthetic choir drifting through vowels in the cold. |  |
+| 225 | Bowed Metal Pad | Metallic, Bowed, Comb | Bow / Ring / Tone / Hall | Noise through a tuned comb filter, singing like bowed metal plates. |  |
+| 226 | Bright Poly Pad | Basic, Bright, Chords, Plain | Energy / Tone / Width / Pump | Open, bright pad with a fast attack, for house chords and choruses. |  |
+| 227 | Choir Pad | Basic, Choir, Vocal, Plain | Energy / Vowel / Width / Space | Simple 'aah' choir pad, wide and soft, for hooks and intros. |  |
+| 228 | Choir Vowel Pad | Gospel, Choir, Movement | Vowel / Choir / Width / Hall | Choir pad that slowly sings through vowels like a congregation. |  |
+| 229 | Dark Pad | Basic, Dark, Low, Plain | Energy / Open / Motion / Space | Low, dark pad with a closed filter, a bed for night-time beats. |  |
+| 230 | Deep Sub Pad | Warm, Dark, Low, Sub | Sub / Tone / Drive / Hall | Dark, low pad built on a sub and a soft square, felt more than heard. |  |
+| 231 | Distant Choir Pad | Ambient, Choir, Distant, Cathedral | Distance / Choir / Blur / Hall | Choir heard from the far end of a cathedral, soft and blurred. |  |
+| 232 | Empty Room Pad | Hip-Hop, Hollow, Night, Melancholy | Energy / Shimmer / Width / Space | Hollow pad that feels like an empty room at night, with a faint distant shimmer. |  |
+| 233 | Filter Sweep Pad | Basic, Sweep, Moving, Plain | Energy / Sweep / Width / Space | Saw pad whose filter slowly sweeps open and closed over two bars. |  |
+| 234 | Ghost Vocal Pad | Hip-Hop, Vocal, Breathy, Melancholy | Energy / Breath / Vowel / Space | Breathy, airy 'ooh' that hangs behind a sad hook like a memory. |  |
+| 235 | Glass Pad | Basic, Glass, Airy, Bright | Energy / Air / Shine / Space | Thin, glassy pad high above the mix, airy but not dull. |  |
+| 236 | Haunted Choir Pad | Hip-Hop, Trap, Choir, Ghostly, Horror | Energy / Vowel / Ghost / Space | Low, ghostly choir drifting between vowels, the dark bed of a horror beat. |  |
+| 237 | House Pump Pad | Basic, Deep House, Pump, Chords | Energy / Pump / Tone / Space | Deep house chord pad pumping in quarter notes, ready for a four-on-the-floor kick. |  |
+| 238 | Lilting Voice Pad | Ambient, Vocal, Gentle, Wide | Voice / Lilt / Width / Hall | Voice and synth layered in a gentle, swaying lilt with a soft vibrato. |  |
+| 239 | Neon Grid Pad | Cinematic, Synthwave, Dark | Glow / Pulse / Width / Hall | Dark pulsing pad whose filter moves on a slow tempo-synced triangle. |  |
+| 240 | Notch Phaser Pad | House, Raw, Movement, Filter | Sweep / Width / Res / Hall | Saw pad carved by a sweeping notch filter for a hollow jet motion. |  |
+| 241 | Phaser Wash Pad | Warm, Phaser, Wash | Phase / Warmth / Width / Hall | Warm major-seventh pad washed by a deep, slow phaser. |  |
+| 242 | Vocal Ahh Pad | Hip-Hop, Vocal, Bright, Hook | Vowel / Air / Width / Hall | Bright, wide 'ahh' vocal pad for rap hooks and choruses. |  |
+| 243 | Vocoded Chords | House, Disco, Vocal, Talkbox | Vowel / Voice / Width / Hall | Vocoder-like chord pad built from vowel tables and formants. |  |
+| 244 | Warm Saw Pad | Basic, Saw, Warm, Plain | Energy / Tone / Width / Space | Basic warm pad from detuned saws, slow in and slow out. |  |
+| 245 | Wavetable Drift Pad | Cinematic, Movement | Drift / Phase / Tone / Hall | Pad whose formant peak drifts slowly through the spectrum. |  |
+| 246 | Winter Choir | Cold, Choir, Vocal | Vowel / Air / Width / Hall | Breathy synthetic choir drifting through vowels in the cold. |  |
 
 ## Strings (15)
 
@@ -321,21 +318,21 @@ Smyczki: zespoły, solo, pizzicato, tremolo i syntetyczne sekcje.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 250 | Col Legno Taps | Orchestral, Col Legno, Percussive, Dry | Wood / Pitch / Length / Hall | Strings struck with the wood of the bow, ticking in eighth notes while you hold the chord. |  |
-| 251 | Crescendo Swell Strings | Orchestral, Swell, Crescendo, Cinematic | Swell / Force / Ensemble / Hall | Strings that start in a whisper and swell to full force over three seconds. |  |
-| 252 | Dark Cello Line | Cinematic, Cello, Solo, Tense | Energy / Bite / Vibrato / Room | Solo cello biting into low notes, a dark and tense melodic line. |  |
-| 253 | Disco String Stab | House, Disco, Stab, Strings | Bright / Ensemble / Pump / Hall | Short, bright disco string stabs that pump with the beat. |  |
-| 254 | Fiddle Folk | Acoustic, Fiddle, Folk, Nasal | Nasal / Rasp / Slide / Room | Rough folk fiddle with a nasal bow and quick slides into notes. |  |
-| 255 | Grieving Strings | Cinematic, Strings, Slow, Melancholy | Energy / Bow / Vibrato / Hall | Slow string section swelling with a weary vibrato, for sad endings. |  |
-| 256 | Low Octave Strings | Orchestral, Low, Dark, Cinematic | Growl / Weight / Tone / Hall | Celli and basses in octaves: dark, heavy and growling in the low end. |  |
-| 257 | Low String Section | Basic, Strings, Cello, Low | Energy / Bow / Weight / Hall | Cellos and basses together, a dark low line for drama. |  |
-| 258 | Pizzicato Section | Orchestral, Pizzicato, Plucked | Pop / Body / Length / Hall | Plucked string section: short, round pops with a wooden body. |  |
-| 259 | Solo Cello | Orchestral, Solo, Cello, Expressive | Bite / Bow / Body / Hall | Expressive solo cello: legato bowing, mod-wheel vibrato and velocity on the bite. |  |
-| 260 | Solo Violin | Orchestral, Solo, Violin, Lyrical | Bite / Rosin / Vibrato / Hall | Singing solo violin with a quick bow, a touch of rosin and a lyrical vibrato. |  |
-| 261 | Staccato Strings | Orchestral, Staccato, Punchy, Rhythmic | Punch / Length / Ensemble / Hall | Short, punchy string stabs for rhythmic orchestral parts. |  |
-| 262 | String Ensemble | Basic, Strings, Ensemble, Plain | Energy / Bow / Width / Hall | Full string section with a gentle attack, for chords and swells. |  |
-| 263 | Sul Ponticello | Metallic, Ponticello, Ghostly, Thin | Bridge / Metal / Bow / Hall | Bow played right at the bridge: thin, metallic, ghostly overtones. |  |
-| 264 | Synth Strings | Basic, Synth Strings, Chorus, Bright | Energy / Tone / Chorus / Hall | Bright, chorused synth strings with a quick attack, the classic disco sound. |  |
+| 247 | Col Legno Taps | Orchestral, Col Legno, Percussive, Dry | Wood / Pitch / Length / Hall | Strings struck with the wood of the bow, ticking in eighth notes while you hold the chord. |  |
+| 248 | Crescendo Swell Strings | Orchestral, Swell, Crescendo, Cinematic | Swell / Force / Ensemble / Hall | Strings that start in a whisper and swell to full force over three seconds. |  |
+| 249 | Dark Cello Line | Cinematic, Cello, Solo, Tense | Energy / Bite / Vibrato / Room | Solo cello biting into low notes, a dark and tense melodic line. |  |
+| 250 | Disco String Stab | House, Disco, Stab, Strings | Bright / Ensemble / Pump / Hall | Short, bright disco string stabs that pump with the beat. |  |
+| 251 | Fiddle Folk | Acoustic, Fiddle, Folk, Nasal | Nasal / Rasp / Slide / Room | Rough folk fiddle with a nasal bow and quick slides into notes. |  |
+| 252 | Grieving Strings | Cinematic, Strings, Slow, Melancholy | Energy / Bow / Vibrato / Hall | Slow string section swelling with a weary vibrato, for sad endings. |  |
+| 253 | Low Octave Strings | Orchestral, Low, Dark, Cinematic | Growl / Weight / Tone / Hall | Celli and basses in octaves: dark, heavy and growling in the low end. |  |
+| 254 | Low String Section | Basic, Strings, Cello, Low | Energy / Bow / Weight / Hall | Cellos and basses together, a dark low line for drama. |  |
+| 255 | Pizzicato Section | Orchestral, Pizzicato, Plucked | Pop / Body / Length / Hall | Plucked string section: short, round pops with a wooden body. |  |
+| 256 | Solo Cello | Orchestral, Solo, Cello, Expressive | Bite / Bow / Body / Hall | Expressive solo cello: legato bowing, mod-wheel vibrato and velocity on the bite. |  |
+| 257 | Solo Violin | Orchestral, Solo, Violin, Lyrical | Bite / Rosin / Vibrato / Hall | Singing solo violin with a quick bow, a touch of rosin and a lyrical vibrato. |  |
+| 258 | Staccato Strings | Orchestral, Staccato, Punchy, Rhythmic | Punch / Length / Ensemble / Hall | Short, punchy string stabs for rhythmic orchestral parts. |  |
+| 259 | String Ensemble | Basic, Strings, Ensemble, Plain | Energy / Bow / Width / Hall | Full string section with a gentle attack, for chords and swells. |  |
+| 260 | Sul Ponticello | Metallic, Ponticello, Ghostly, Thin | Bridge / Metal / Bow / Hall | Bow played right at the bridge: thin, metallic, ghostly overtones. |  |
+| 261 | Synth Strings | Basic, Synth Strings, Chorus, Bright | Energy / Tone / Chorus / Hall | Bright, chorused synth strings with a quick attack, the classic disco sound. |  |
 
 ## Brass (11)
 
@@ -343,17 +340,17 @@ Sekcje dęte, fanfary, miękkie rogi i syntetyczne brassy.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 265 | Brass Section | Basic, Brass, Section, Plain | Energy / Blare / Width / Hall | Punchy brass section for stabs and fanfares, opening with velocity. |  |
-| 266 | Cinematic Low Brass | Cinematic, Brass | Blare / Tone / Grit / Hall | Short, heavy low-brass stab for trailer hits. |  |
-| 267 | Cold Brass Swell | Cinematic, Brass, Swell, Ominous | Energy / Swell / Weight / Hall | Low brass swelling in slowly, cold and ominous. |  |
-| 268 | Distorted Fanfare | Industrial, Brass, Distorted | Clip / Blare / Tone / Hall | Brass fanfare smashed through hard clipping and squash. |  |
-| 269 | Gilded Horns | Epic, Brass, Stab | Gold / Bite / Width / Hall | Punchy FM horn stab with a bright, golden edge. |  |
-| 270 | Orchestral Brass Stab | Hip-Hop, Brass, Epic, Stab | Blast / Section / Grit / Hall | Big, bright brass section hit for epic rap intros. |  |
-| 271 | Riot Horn | Industrial, Stab | Blare / Bite / Open / Room | Blaring distorted brass stab with a nasal tube bite. |  |
-| 272 | Soft French Horn | Epic, Brass, Soft | Swell / Warm / Width / Hall | Mellow distant horn with a slow, warm swell. |  |
-| 273 | Soft Horns | Basic, Horns, Mellow, Plain | Energy / Tone / Breath / Hall | Mellow horn section for warm backing chords. |  |
-| 274 | Synth Brass | Basic, Synth Brass, Saw, Plain | Energy / Swell / Width / Hall | Saw synth brass with the filter swelling in, for big chords. |  |
-| 275 | Trap Brass Hit | Hip-Hop, Trap, Brass, Hit | Energy / Blare / Low / Hall | Short, distorted brass blast for trap intros and hard hooks. |  |
+| 262 | Brass Section | Basic, Brass, Section, Plain | Energy / Blare / Width / Hall | Punchy brass section for stabs and fanfares, opening with velocity. |  |
+| 263 | Cinematic Low Brass | Cinematic, Brass | Blare / Tone / Grit / Hall | Short, heavy low-brass stab for trailer hits. |  |
+| 264 | Cold Brass Swell | Cinematic, Brass, Swell, Ominous | Energy / Swell / Weight / Hall | Low brass swelling in slowly, cold and ominous. |  |
+| 265 | Distorted Fanfare | Industrial, Brass, Distorted | Clip / Blare / Tone / Hall | Brass fanfare smashed through hard clipping and squash. |  |
+| 266 | Gilded Horns | Epic, Brass, Stab | Gold / Bite / Width / Hall | Punchy FM horn stab with a bright, golden edge. |  |
+| 267 | Orchestral Brass Stab | Hip-Hop, Brass, Epic, Stab | Blast / Section / Grit / Hall | Big, bright brass section hit for epic rap intros. |  |
+| 268 | Riot Horn | Industrial, Stab | Blare / Bite / Open / Room | Blaring distorted brass stab with a nasal tube bite. |  |
+| 269 | Soft French Horn | Epic, Brass, Soft | Swell / Warm / Width / Hall | Mellow distant horn with a slow, warm swell. |  |
+| 270 | Soft Horns | Basic, Horns, Mellow, Plain | Energy / Tone / Breath / Hall | Mellow horn section for warm backing chords. |  |
+| 271 | Synth Brass | Basic, Synth Brass, Saw, Plain | Energy / Swell / Width / Hall | Saw synth brass with the filter swelling in, for big chords. |  |
+| 272 | Trap Brass Hit | Hip-Hop, Trap, Brass, Hit | Energy / Blare / Low / Hall | Short, distorted brass blast for trap intros and hard hooks. |  |
 
 ## Woodwind (8)
 
@@ -361,35 +358,34 @@ Instrumenty dęte drewniane i stroikowe: flety, klarnety, obój, saksofon, harmo
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 276 | Bassoon Low | Orchestral, Bassoon, Low, Reedy | Buzz / Tone / Nasal / Hall | Low, buzzy bassoon with a dry, slightly comic reed. |  |
-| 277 | Blues Harmonica | Vintage, Harmonica, Blues, Driven | Cup / Drive / Bend / Room | Cupped blues harp: reedy, overdriven and bending down into notes. |  |
-| 278 | Concert Flute | Orchestral, Flute, Breathy, Lyrical | Breath / Tone / Vibrato / Hall | Pure concert flute with a soft breath, a chiff on the attack and a lyrical vibrato. |  |
-| 279 | Duduk Lament | Ambient, Double Reed, Dark, Mournful | Mourn / Bend / Breath / Hall | Dark, mournful double reed with a slow breath and long, bending notes. |  |
-| 280 | Musette Accordion | Acoustic, Accordion, Musette, Wavering | Musette / Bellows / Tone / Room | French musette accordion: three reeds tuned apart for that wavering shimmer. |  |
-| 281 | Oboe Solo | Orchestral, Oboe, Nasal, Solo | Nasal / Reed / Vibrato / Hall | Nasal, singing oboe with a focused reed tone and gentle vibrato. |  |
-| 282 | Soprano Sax Smooth | Warm, Saxophone, Smooth, Sweet | Sweet / Reed / Vibrato / Hall | Smooth, sweet soprano sax with a bright reed and long vibrato. |  |
-| 283 | Tenor Sax Growl | Warm, Saxophone, Breathy, Growl | Growl / Breath / Tone / Room | Breathy tenor sax that growls when you play harder. |  |
+| 273 | Bassoon Low | Orchestral, Bassoon, Low, Reedy | Buzz / Tone / Nasal / Hall | Low, buzzy bassoon with a dry, slightly comic reed. |  |
+| 274 | Blues Harmonica | Vintage, Harmonica, Blues, Driven | Cup / Drive / Bend / Room | Cupped blues harp: reedy, overdriven and bending down into notes. |  |
+| 275 | Concert Flute | Orchestral, Flute, Breathy, Lyrical | Breath / Tone / Vibrato / Hall | Pure concert flute with a soft breath, a chiff on the attack and a lyrical vibrato. |  |
+| 276 | Duduk Lament | Ambient, Double Reed, Dark, Mournful | Mourn / Bend / Breath / Hall | Dark, mournful double reed with a slow breath and long, bending notes. |  |
+| 277 | Musette Accordion | Acoustic, Accordion, Musette, Wavering | Musette / Bellows / Tone / Room | French musette accordion: three reeds tuned apart for that wavering shimmer. |  |
+| 278 | Oboe Solo | Orchestral, Oboe, Nasal, Solo | Nasal / Reed / Vibrato / Hall | Nasal, singing oboe with a focused reed tone and gentle vibrato. |  |
+| 279 | Soprano Sax Smooth | Warm, Saxophone, Smooth, Sweet | Sweet / Reed / Vibrato / Hall | Smooth, sweet soprano sax with a bright reed and long vibrato. |  |
+| 280 | Tenor Sax Growl | Warm, Saxophone, Breathy, Growl | Growl / Breath / Tone / Room | Breathy tenor sax that growls when you play harder. |  |
 
-## Arp (14)
+## Arp (13)
 
 Brzmienia z włączonym arpeggiatorem i sekwencje zsynchronizowane z tempem.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 284 | Acid Line Arp | House, Raw, Acid, Arp | Squelch / Open / Dirt / Echo | Random acid arpeggio with squelching accents and slapback echo. |  |
-| 285 | Acid Rave Arp | House, Rave, Acid, Random | Energy / Acid / Env / Echo | Random acid arp with a screaming resonant filter and a crushed edge. |  |
-| 286 | Clockwork Arp | Mechanical, Arp | Tick / Crunch / Pulse / Echo | Distorted square arpeggio ticking in tight eighth notes. |  |
-| 287 | Dark Trap Arp | Hip-Hop, Trap, Arp, Triplets | Bell / Tone / Echo / Hall | Minor triplet arpeggio with a short bell-pluck, the classic trap melody loop. |  |
-| 288 | Disco Octave Arp | House, Disco, Octave | Phase / Tone / Res / Echo | Phased saw arpeggio bouncing octaves for disco breakdowns. |  |
-| 289 | Hard Trance Gate | House, Rave, Trance, Gate, Driven | Energy / Gate / Width / Echo | Driven saw arp in sixteenths with a tight gate, for hard trance and rave builds. |  |
-| 290 | House Groove Arp | House, Arp, Groove | Snap / Echo / Pump / Res | Plucky up-down arp with ping-pong echoes, pumping under the kick. |  |
-| 291 | Night Drive Arp | Hip-Hop, Trap, Arp, Night, Triplets | Energy / Tone / Echo / Space | Dark minor-key arp gliding in eighth-note triplets through a ping-pong echo. |  |
-| 292 | Plucked Sequence | Cinematic, Sequence | Index / Tone / Echo / Hall | FM pluck sequence whose bell tone changes on every step. |  |
-| 293 | Pulsing String Ostinato | Cinematic, Strings | Bow / Tone / Ensemble / Hall | Spiccato strings bowing a tight ostinato, each stroke a little different. |  |
-| 294 | Racing Saw Arp | Cinematic, Arp, Synthwave | Glow / Width / Echo / Hall | Glowing supersaw arpeggio racing upward with dotted echoes. |  |
-| 295 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Ring / Echo | Metallic comb-filtered buzz arpeggio that rings like a spinning blade. |  |
-| 296 | Simple Up Arp | Basic, Arp, Saw, Plain | Energy / Tone / Gate / Echo | Plain saw arpeggio going up in sixteenths, ready to drop on any chord. |  |
-| 297 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Octave / Echo / Hall | Short supersaw plucks racing over three octaves, with an octave layer that grows as you hold. |  |
+| 281 | Acid Line Arp | House, Raw, Acid, Arp | Squelch / Open / Dirt / Echo | Random acid arpeggio with squelching accents and slapback echo. |  |
+| 282 | Acid Rave Arp | House, Rave, Acid, Random | Energy / Acid / Env / Echo | Random acid arp with a screaming resonant filter and a crushed edge. |  |
+| 283 | Dark Trap Arp | Hip-Hop, Trap, Arp, Triplets | Bell / Tone / Echo / Hall | Minor triplet arpeggio with a short bell-pluck, the classic trap melody loop. |  |
+| 284 | Disco Octave Arp | House, Disco, Octave | Phase / Tone / Res / Echo | Phased saw arpeggio bouncing octaves for disco breakdowns. |  |
+| 285 | Hard Trance Gate | House, Rave, Trance, Gate, Driven | Energy / Gate / Width / Echo | Driven saw arp in sixteenths with a tight gate, for hard trance and rave builds. |  |
+| 286 | House Groove Arp | House, Arp, Groove | Snap / Echo / Pump / Res | Plucky up-down arp with ping-pong echoes, pumping under the kick. |  |
+| 287 | Night Drive Arp | Hip-Hop, Trap, Arp, Night, Triplets | Energy / Tone / Echo / Space | Dark minor-key arp gliding in eighth-note triplets through a ping-pong echo. |  |
+| 288 | Plucked Sequence | Cinematic, Sequence | Index / Tone / Echo / Hall | FM pluck sequence whose bell tone changes on every step. |  |
+| 289 | Pulsing String Ostinato | Cinematic, Strings | Bow / Tone / Ensemble / Hall | Spiccato strings bowing a tight ostinato, each stroke a little different. |  |
+| 290 | Racing Saw Arp | Cinematic, Arp, Synthwave | Glow / Width / Echo / Hall | Glowing supersaw arpeggio racing upward with dotted echoes. |  |
+| 291 | Sawblade Arp | Industrial, Arp, Distorted | Edge / Grind / Ring / Echo | Metallic comb-filtered buzz arpeggio that rings like a spinning blade. |  |
+| 292 | Simple Up Arp | Basic, Arp, Saw, Plain | Energy / Tone / Gate / Echo | Plain saw arpeggio going up in sixteenths, ready to drop on any chord. |  |
+| 293 | Skyline Arp | Stadium, Supersaw, Arp | Shine / Octave / Echo / Hall | Short supersaw plucks racing over three octaves, with an octave layer that grows as you hold. |  |
 
 ## Drums (32)
 
@@ -397,38 +393,38 @@ Perkusja z syntezy do house i hip-hopu: kicki, werble, klaśnięcia, hi-haty, sh
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 298 | 808 Boom Kick | Hip-Hop, Trap, Kick, 808, Long | Energy / Click / Length / Room | Long, booming kick that doubles as a short 808, tuned to the note you play. |  |
-| 299 | Boom Bap Kick | Hip-Hop, Kick, Boom Bap, Knock | Energy / Knock / Tune / Room | Thick, slightly saturated kick with a knock on top for boom bap beats. |  |
-| 300 | Boom Bap Snare | Hip-Hop, Snare, Boom Bap, Fat | Energy / Body / Crack / Room | Fat, cracking snare with a thick body and a dirty top for boom bap. |  |
-| 301 | Closed Hat Tick | House, Hi-Hat, Closed, Crisp | Energy / Tone / Metal / Room | Tight, crisp closed hat for sixteenth-note house grooves. |  |
-| 302 | Crunchy Shaker | Hip-Hop, Trap, Shaker, Gritty | Energy / Tone / Grit / Room | Gritty, clipped shaker for trap and drill hi-hat patterns. |  |
-| 303 | Dark Room Snare | Hip-Hop, Trap, Snare, Dark, Room | Energy / Body / Tail / Snap | Low, heavy snare drowned in a dark room for slow, sinister beats. |  |
-| 304 | Deep Thud Kick | House, Kick, Deep, Round | Energy / Click / Tune / Room | Soft, deep kick with a long round tail for deep house and late-night grooves. |  |
-| 305 | Dirty Crack Snare | Hip-Hop, Snare, Distorted, Hard | Energy / Body / Crack / Room | Distorted, ringing snare that hits hard and breaks up on loud notes. |  |
-| 306 | Dry Tambourine | Hip-Hop, Tambourine, Jingle, Soul | Energy / Tone / Jingle / Room | Jingly tambourine hit with metal rings over a short shake. |  |
-| 307 | Dusty Closed Hat | Hip-Hop, Hi-Hat, Closed, Boom Bap | Energy / Tone / Grit / Room | Soft, dark closed hat with a gritty edge, like an old drum machine. |  |
-| 308 | Dusty Knock Kick | Hip-Hop, Kick, Boom Bap, Dark | Energy / Knock / Tune / Crush | Dark, short kick with a muffled thump, like it was bounced to tape. |  |
-| 309 | Finger Snap | Hip-Hop, Snap, Dry, R&B | Energy / Tone / Body / Room | Dry, close finger snap for slow rap and r&b beats. |  |
-| 310 | Four Floor Kick | House, Kick, Punchy, Dry | Energy / Click / Tune / Room | Tight, punchy house kick with a short click and a round low thump. |  |
-| 311 | Groove Shaker | House, Shaker, Groove, Bright | Energy / Tone / Width / Room | Bright, quick shaker that keeps sixteenths moving in a house groove. |  |
-| 312 | Hard Clipped Kick | House, Kick, Hard, Distorted | Energy / Click / Tune / Tail | Loud, square-clipped kick for hard house and peak-time techno drops. |  |
-| 313 | Haunted Clap | Hip-Hop, Trap, Clap, Dark, Hall | Energy / Tone / Echo / Hall | Dark clap fading into a long, damped hall for eerie, slow beats. |  |
-| 314 | House Clap | House, Clap, Classic, Bright | Energy / Tone / Spread / Room | Classic layered clap with a short burst and a small bright room. |  |
-| 315 | House Snare | House, Snare, Bright, Classic | Energy / Body / Snap / Room | Crisp, bright snare with a short tone body for classic house backbeats. |  |
-| 316 | Metal Hat | House, Hi-Hat, Metallic, Tech House | Energy / Tone / Ring / Room | Ringing, metallic hat with a clear pitch, for tech and minimal grooves. |  |
-| 317 | Open Hat Shimmer | House, Hi-Hat, Open, Offbeat | Energy / Tone / Metal / Room | Bright open hat on the offbeat, the classic house lift. |  |
-| 318 | Pedal Hat Chick | Hip-Hop, Hi-Hat, Pedal, Soft | Energy / Tone / Body / Room | Soft, closed pedal hat with a short chick sound for laid-back beats. |  |
-| 319 | Snap Clap | Hip-Hop, Clap, Dry, Snappy | Energy / Tone / Grit / Room | Dry, short clap with a hard snap for rap and boom bap. |  |
-| 320 | Soft Egg Shaker | House, Shaker, Soft, Organic | Energy / Tone / Swell / Room | Gentle, round shaker with a slow swell, for deep and organic house. |  |
-| 321 | Tech Kick | House, Kick, Tech House, Clicky | Energy / Click / Tune / Room | Short, clicky tech house kick with a hard transient and almost no tail. |  |
-| 322 | Tight Rim Snare | House, Snare, Tight, Minimal | Energy / Ring / Snap / Room | Short, snappy snare with a rim-like tone for tech and minimal house. |  |
-| 323 | Trap Clap | Hip-Hop, Trap, Clap, Crunchy | Energy / Tone / Width / Room | Loud, crunchy trap clap that sits on top of the snare. |  |
-| 324 | Trap Hat Roll | Hip-Hop, Trap, Hi-Hat, Roll | Energy / Tone / Metal / Room | Short, bright hat that stays clean in fast rolls and triplets. |  |
-| 325 | Trap Kick Punch | Hip-Hop, Trap, Kick, Clipped | Energy / Click / Tune / Room | Short, clipped trap kick that cuts through a long 808. |  |
-| 326 | Trap Open Hat | Hip-Hop, Trap, Hi-Hat, Open | Energy / Tone / Metal / Room | Sizzling open hat with a hard top, for trap bounces and fills. |  |
-| 327 | Trap Snare | Hip-Hop, Trap, Snare, Bright | Energy / Body / Snap / Room | Bright, tight trap snare with a fast noise burst and a short tuned body. |  |
-| 328 | Wide Disco Clap | House, Clap, Disco, Wide | Energy / Tone / Width / Room | Big, wide clap with a long bright room for disco and filter house. |  |
-| 329 | Wood Block Knock | House, Wood Block, Wood, Percussion | Energy / Tone / Click / Room | Short, hollow wood block knock for syncopated house and afro grooves. |  |
+| 294 | 808 Boom Kick | Hip-Hop, Trap, Kick, 808, Long | Energy / Click / Length / Room | Long, booming kick that doubles as a short 808, tuned to the note you play. |  |
+| 295 | Boom Bap Kick | Hip-Hop, Kick, Boom Bap, Knock | Energy / Knock / Tune / Room | Thick, slightly saturated kick with a knock on top for boom bap beats. |  |
+| 296 | Boom Bap Snare | Hip-Hop, Snare, Boom Bap, Fat | Energy / Body / Crack / Room | Fat, cracking snare with a thick body and a dirty top for boom bap. |  |
+| 297 | Closed Hat Tick | House, Hi-Hat, Closed, Crisp | Energy / Tone / Metal / Room | Tight, crisp closed hat for sixteenth-note house grooves. |  |
+| 298 | Crunchy Shaker | Hip-Hop, Trap, Shaker, Gritty | Energy / Tone / Grit / Room | Gritty, clipped shaker for trap and drill hi-hat patterns. |  |
+| 299 | Dark Room Snare | Hip-Hop, Trap, Snare, Dark, Room | Energy / Body / Tail / Snap | Low, heavy snare drowned in a dark room for slow, sinister beats. |  |
+| 300 | Deep Thud Kick | House, Kick, Deep, Round | Energy / Click / Tune / Room | Soft, deep kick with a long round tail for deep house and late-night grooves. |  |
+| 301 | Dirty Crack Snare | Hip-Hop, Snare, Distorted, Hard | Energy / Body / Crack / Room | Distorted, ringing snare that hits hard and breaks up on loud notes. |  |
+| 302 | Dry Tambourine | Hip-Hop, Tambourine, Jingle, Soul | Energy / Tone / Jingle / Room | Jingly tambourine hit with metal rings over a short shake. |  |
+| 303 | Dusty Closed Hat | Hip-Hop, Hi-Hat, Closed, Boom Bap | Energy / Tone / Grit / Room | Soft, dark closed hat with a gritty edge, like an old drum machine. |  |
+| 304 | Dusty Knock Kick | Hip-Hop, Kick, Boom Bap, Dark | Energy / Knock / Tune / Crush | Dark, short kick with a muffled thump, like it was bounced to tape. |  |
+| 305 | Finger Snap | Hip-Hop, Snap, Dry, R&B | Energy / Tone / Body / Room | Dry, close finger snap for slow rap and r&b beats. |  |
+| 306 | Four Floor Kick | House, Kick, Punchy, Dry | Energy / Click / Tune / Room | Tight, punchy house kick with a short click and a round low thump. |  |
+| 307 | Groove Shaker | House, Shaker, Groove, Bright | Energy / Tone / Width / Room | Bright, quick shaker that keeps sixteenths moving in a house groove. |  |
+| 308 | Hard Clipped Kick | House, Kick, Hard, Distorted | Energy / Click / Tune / Tail | Loud, square-clipped kick for hard house and peak-time techno drops. |  |
+| 309 | Haunted Clap | Hip-Hop, Trap, Clap, Dark, Hall | Energy / Tone / Echo / Hall | Dark clap fading into a long, damped hall for eerie, slow beats. |  |
+| 310 | House Clap | House, Clap, Classic, Bright | Energy / Tone / Spread / Room | Classic layered clap with a short burst and a small bright room. |  |
+| 311 | House Snare | House, Snare, Bright, Classic | Energy / Body / Snap / Room | Crisp, bright snare with a short tone body for classic house backbeats. |  |
+| 312 | Metal Hat | House, Hi-Hat, Metallic, Tech House | Energy / Tone / Ring / Room | Ringing, metallic hat with a clear pitch, for tech and minimal grooves. |  |
+| 313 | Open Hat Shimmer | House, Hi-Hat, Open, Offbeat | Energy / Tone / Metal / Room | Bright open hat on the offbeat, the classic house lift. |  |
+| 314 | Pedal Hat Chick | Hip-Hop, Hi-Hat, Pedal, Soft | Energy / Tone / Body / Room | Soft, closed pedal hat with a short chick sound for laid-back beats. |  |
+| 315 | Snap Clap | Hip-Hop, Clap, Dry, Snappy | Energy / Tone / Grit / Room | Dry, short clap with a hard snap for rap and boom bap. |  |
+| 316 | Soft Egg Shaker | House, Shaker, Soft, Organic | Energy / Tone / Swell / Room | Gentle, round shaker with a slow swell, for deep and organic house. |  |
+| 317 | Tech Kick | House, Kick, Tech House, Clicky | Energy / Click / Tune / Room | Short, clicky tech house kick with a hard transient and almost no tail. |  |
+| 318 | Tight Rim Snare | House, Snare, Tight, Minimal | Energy / Ring / Snap / Room | Short, snappy snare with a rim-like tone for tech and minimal house. |  |
+| 319 | Trap Clap | Hip-Hop, Trap, Clap, Crunchy | Energy / Tone / Width / Room | Loud, crunchy trap clap that sits on top of the snare. |  |
+| 320 | Trap Hat Roll | Hip-Hop, Trap, Hi-Hat, Roll | Energy / Tone / Metal / Room | Short, bright hat that stays clean in fast rolls and triplets. |  |
+| 321 | Trap Kick Punch | Hip-Hop, Trap, Kick, Clipped | Energy / Click / Tune / Room | Short, clipped trap kick that cuts through a long 808. |  |
+| 322 | Trap Open Hat | Hip-Hop, Trap, Hi-Hat, Open | Energy / Tone / Metal / Room | Sizzling open hat with a hard top, for trap bounces and fills. |  |
+| 323 | Trap Snare | Hip-Hop, Trap, Snare, Bright | Energy / Body / Snap / Room | Bright, tight trap snare with a fast noise burst and a short tuned body. |  |
+| 324 | Wide Disco Clap | House, Clap, Disco, Wide | Energy / Tone / Width / Room | Big, wide clap with a long bright room for disco and filter house. |  |
+| 325 | Wood Block Knock | House, Wood Block, Wood, Percussion | Energy / Tone / Click / Room | Short, hollow wood block knock for syncopated house and afro grooves. |  |
 
 ## FX (10)
 
@@ -436,23 +432,23 @@ Efekty: zapy, przemiatania i uderzenia.
 
 | # | Preset | Tagi | Makra | Opis | Uwaga |
 |---|---|---|---|---|---|
-| 330 | Choir Hit | Hip-Hop, Choir, Hit, Dramatic | Choir / Tone / Width / Hall | Huge choir 'ahh' hit with a cathedral tail, for dramatic drops. |  |
-| 331 | Dark Drone | Cinematic, Drone, Tense, Metallic | Energy / Metal / Beat / Space | Low, slowly beating drone with a metallic undertone for tense intros. |  |
-| 332 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
-| 333 | Distorted Impact | Hip-Hop, Trap, Impact, Drop, Sub | Energy / Blast / Drop / Hall | Huge clipped impact: a sub drop and a noise blast for the first beat of a drop. |  |
-| 334 | Glitch Stutter | Industrial, Glitch, Stutter, S&H | Energy / Chop / Crush / Echo | Random sample-and-hold stutter that chops pitch and tone into crushed bits. |  |
-| 335 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
-| 336 | Impact Downlifter | House, Downlifter, Impact, Transition | Fall / Noise / Tone / Space | Hit followed by a falling sweep, for the first beat after a drop. |  |
-| 337 | Laser Gun Zap | House, Zap, Laser, Fill | Energy / Dive / Echo / Room | Short, hard laser zap diving three octaves, for fills and drop accents. |  |
-| 338 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
-| 339 | White Noise Riser | House, Riser, Build-Up, Transition | Rise / Pitch / Space / Echo | Build-up riser: filtered noise climbing in pitch and brightness over two seconds. |  |
+| 326 | Choir Hit | Hip-Hop, Choir, Hit, Dramatic | Choir / Tone / Width / Hall | Huge choir 'ahh' hit with a cathedral tail, for dramatic drops. |  |
+| 327 | Dark Drone | Cinematic, Drone, Tense, Metallic | Energy / Metal / Beat / Space | Low, slowly beating drone with a metallic undertone for tense intros. |  |
+| 328 | Dark Orchestra Hit | Epic, Impact, Dramatic | Brass / Tone / Air / Hall | Brass and low strings slam together with a burst of air and a deep thump. |  |
+| 329 | Distorted Impact | Hip-Hop, Trap, Impact, Drop, Sub | Energy / Blast / Drop / Hall | Huge clipped impact: a sub drop and a noise blast for the first beat of a drop. |  |
+| 330 | Glitch Stutter | Industrial, Glitch, Stutter, S&H | Energy / Chop / Crush / Echo | Random sample-and-hold stutter that chops pitch and tone into crushed bits. |  |
+| 331 | Grinding Sweep | House, Raw, Noise, Sweep | Sweep / Grind / Ring / Echo | Comb-filtered noise sweep that rises into a pitched metallic whine and falls back. |  |
+| 332 | Impact Downlifter | House, Downlifter, Impact, Transition | Fall / Noise / Tone / Space | Hit followed by a falling sweep, for the first beat after a drop. |  |
+| 333 | Laser Gun Zap | House, Zap, Laser, Fill | Energy / Dive / Echo / Room | Short, hard laser zap diving three octaves, for fills and drop accents. |  |
+| 334 | Laser Zap | Cinematic, Zap, Sci-Fi | Zap / Tone / Echo / Hall | Classic laser zap diving four octaves in a split second. |  |
+| 335 | White Noise Riser | House, Riser, Build-Up, Transition | Rise / Pitch / Space / Echo | Build-up riser: filtered noise climbing in pitch and brightness over two seconds. |  |
 
 ## Liczba presetów w kategoriach
 
 | Kategoria | Presety |
 |---|---|
-| Bass | 55 |
-| Lead | 37 |
+| Bass | 53 |
+| Lead | 36 |
 | Guitar | 34 |
 | Pluck | 30 |
 | Keys | 55 |
@@ -461,6 +457,6 @@ Efekty: zapy, przemiatania i uderzenia.
 | Strings | 15 |
 | Brass | 11 |
 | Woodwind | 8 |
-| Arp | 14 |
+| Arp | 13 |
 | Drums | 32 |
 | FX | 10 |

@@ -87,7 +87,7 @@ def library():
     for p, trim in batch_candidates(sel):
         chosen.append(p)
         trims[p["name"]] = trim
-    reviewed_out = set(sel.get("review_2026_11_12_removed", []))
+    reviewed_out = set(sel.get("review_2026_11_12_removed", [])) | set(sel.get("review_2026_11_13_removed", []))
     chosen = [p for p in chosen if p["name"] not in reviewed_out]
     names = [p["name"] for p in chosen]
     assert len(names) == len(set(names)), "duplicate preset names"
