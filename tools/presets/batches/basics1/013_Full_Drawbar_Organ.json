@@ -1,0 +1,47 @@
+{
+  "name": "Full Drawbar Organ",
+  "category": "Keys",
+  "tags": [
+    "Basic",
+    "Organ",
+    "Drawbar",
+    "Plain"
+  ],
+  "description": "All-drawbars-out organ with a rotary wobble, straight from the stage.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Drawbar",
+    "Rotor",
+    "Room"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Drawbars",
+    "oscA_pos": 0.8,
+    "amp_release": 0.06,
+    "lfo1_rate": 6.0,
+    "mfx_rate": 5.5,
+    "mfx_depth": 0.4,
+    "mfx_mix": 0.3,
+    "out_gain": -0.7,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "WT Pos A",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Mod FX Mix",
+    "mod4_amt": 0.4,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Reverb Mix",
+    "mod5_amt": 0.25,
+    "mod6_src": "LFO 1",
+    "mod6_dst": "Pan A",
+    "mod6_amt": 0.4
+  }
+}

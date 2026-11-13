@@ -195,7 +195,7 @@
   "drums1": {
    "removed": [],
    "similar": {},
-   "source": "generate_batch_drums1.py"
+   "source": "https://claude.ai/artifact/N9pTkbj8dkoWF9VMLTgx6J (collection review2)"
   },
   "hard1": {
    "removed": [],
@@ -203,7 +203,19 @@
     "Fuzz Wall Riff": "Industrial Guitar Wall (0.63)",
     "Blown Supersaw": "Rage Synth Lead (0.82)"
    },
-   "source": "generate_batch_hard1.py"
+   "source": "https://claude.ai/artifact/N9pTkbj8dkoWF9VMLTgx6J (collection review2)"
+  },
+  "basics1": {
+   "removed": [],
+   "similar": {},
+   "source": "https://claude.ai/artifact/N9pTkbj8dkoWF9VMLTgx6J (collection review2)",
+   "note": "Exempt from the novelty rule (plain sounds); near neighbours accepted: Plain Saw Lead~Rage Synth Lead 0.92, Pulse Lead~Machine Riff 0.99, Synth Piano~Honky Tonk Bar 0.92, Polysynth Chords~Disco String Stab 0.95, Warm Saw Pad~Slow Phaser Chords 1.14."
+  },
+  "sad1": {
+   "removed": [],
+   "similar": {},
+   "source": "https://claude.ai/artifact/N9pTkbj8dkoWF9VMLTgx6J (collection review2)",
+   "note": "Near neighbours left for the user to judge on the listening page: Sad Trap Piano~Phaser Tremolo EP 1.10, Eerie Music Box~Tubular Bell 1.12, Weeping Guitar~Clean Delay Lead Guitar 1.09, Emo Guitar Pluck~Mandolin Tremolo 0.98, Emo Saw Lead~Eighties Solo Lead 1.08, Dark Cello Line~Solo Cello 1.01, Night Drive Arp~Funk Clav Keys 0.85."
   }
  },
  "review_2026_11_12_removed": [

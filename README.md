@@ -1,8 +1,9 @@
 # VOLT
 
 Syntezator wavetable (VST3 + Standalone) z czytelnym interfejsem, wykresami wszystkiego, co kształtuje dźwięk, i biblioteką
-310 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia
-i efekty.
+342 presetów: basy, leady, gitary, plucki, klawisze, dzwony i mallety, pady, smyczki, brassy, instrumenty dęte, arpeggia,
+perkusja (kicki, werble, klaśnięcia, hi-haty, shakery do house i hip-hopu) i efekty – od spokojnych po mocno uderzające,
+w pięciu nastrojach (Soft, Medium, Sad, Dark, Aggressive).
 Główny cel: **Windows x64 i FL Studio**. Darmowy i otwarty (AGPLv3), bez rejestracji.
 
 ![Interfejs VOLT – zakładka SYNTH](docs/ui-snapshot.png)
@@ -25,7 +26,7 @@ Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
   Key Track, Env Amount.
 - **Obwiednie:** Amp ADSR, Filter ADSR, Mod Env (wolna obwiednia do dowolnego celu), Pitch Env (Amount, Decay)
   do 808 i zjazdów wysokości.
-- **2 LFO** (sine, tri, saw, square, S&H; tempo sync, Rate, Depth, Retrigger).
+- **2 LFO** (sine, tri, saw, square, S&H; tempo sync, Rate do 100 Hz, Depth, Retrigger).
 - **Macierz modulacji:** 12 slotów (źródło, cel, ilość) wybieranych z list; źródła m.in. LFO, obwiednie, Velocity,
   Mod Wheel, Aftertouch, Key Track, Random (inna wartość dla każdej nuty), makra.
 - **4 makra** z etykietami zapisywanymi w presecie.
@@ -73,7 +74,8 @@ któreś makro.
 **Układ okna:** u góry znak VOLT (kliknięcie: informacje o programie i licencji), zakładki i pasek presetów; na dole
 zawsze widoczne MACROS, OUTPUT i oscyloskop.
 1. **Pasek presetów:** kliknięcie nazwy otwiera menu presetów pogrupowane w kategorie, strzałki `<` `>` to
-   poprzedni/następny (w obrębie aktywnego filtra), dalej filtry kategorii i tagów, wyszukiwarka (nazwa, tagi, opis),
+   poprzedni/następny (w obrębie aktywnego filtra), dalej filtry kategorii, nastroju (Soft, Medium, Sad, Dark,
+   Aggressive) i tagów, wyszukiwarka (nazwa, tagi, opis, nastrój),
    **SAVE** zapisuje preset użytkownika, lista **75–200%** zmienia rozmiar okna (można też przeciągnąć narożnik).
 2. **Zakładka SYNTH:** OSC A / OSC B (wavetable, typ Wavetable/String, podgląd tablicy jako powierzchni, duże
    pokrętło Position, Warp i tryb warp, Octave, Semi, Fine, Level, Pan, Unison), FILTER (typ, krzywa, duże pokrętło
@@ -84,7 +86,8 @@ zawsze widoczne MACROS, OUTPUT i oscyloskop.
 3. **Zakładka MODULATION:** LFO 1 i LFO 2 z dużymi pokrętłami i przełącznikiem Retrigger, MOD ENVELOPE oraz
    MODULATION MATRIX: 12 slotów źródło → cel z suwakiem ilości −100…+100%.
 4. **Zakładka EFFECTS:** sześć efektów w kolejności łańcucha: 1 Distortion, 2 Mod FX, 3 Pump, 4 Delay, 5 Reverb,
-   6 Squash.
+   6 Squash. Przełącznik **KEEP LOW** przy Distortion przesterowuje tylko pasmo powyżej ok. 160 Hz – sub basu
+   zostaje czysty i mocny.
 5. **MACROS:** obok każdego pokrętła jest jego nazwa (dwuklik zmienia ją), cel albo cele, którymi steruje, i wartość.
 
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).
@@ -95,7 +98,8 @@ pedał sustain (CC64, działa też z arpeggiatorem), Mod Wheel i Aftertouch (jak
 All Notes/Sound Off.
 
 Lista presetów z opisami: [`docs/PRESETS.md`](docs/PRESETS.md). Kategorie: Bass, Lead, Guitar, Pluck, Keys, Bell, Pad,
-Strings, Brass, Woodwind, Arp, FX. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,
+Strings, Brass, Woodwind, Arp, Drums, FX. Każdy preset ma nastrój (filtr Mood). Perkusja jest strojona pod C3, inne
+klawisze ją przestrajają. Lista w menu presetów jest ułożona według kategorii, a w kategorii alfabetycznie; styl (np. „Industrial”,
 „House”, „Cinematic”, „Lo-Fi”) wybierzesz w filtrze tagów.
 
 ## Co zostało zweryfikowane automatycznie, a co wymaga odsłuchu i testu w FL Studio

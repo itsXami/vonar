@@ -1,0 +1,53 @@
+{
+  "name": "Filter Sweep Pad",
+  "category": "Pad",
+  "tags": [
+    "Basic",
+    "Sweep",
+    "Moving",
+    "Plain"
+  ],
+  "description": "Saw pad whose filter slowly sweeps open and closed over two bars.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Sweep",
+    "Width",
+    "Space"
+  ],
+  "version": 1,
+  "params": {
+    "oscA_table": "Saw Octaves",
+    "oscA_pos": 0.3,
+    "oscA_voices": 4,
+    "uni_detune": 0.18,
+    "flt_cutoff": 1200.0,
+    "flt_res": 0.35,
+    "amp_attack": 0.3,
+    "amp_release": 1.0,
+    "lfo1_shape": "Triangle",
+    "lfo1_sync": true,
+    "lfo1_div": "2/1",
+    "rev_size": 0.55,
+    "rev_mix": 0.15,
+    "out_gain": -4.6,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Resonance",
+    "mod3_amt": 0.3,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "Detune",
+    "mod4_amt": 0.3,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Reverb Mix",
+    "mod5_amt": 0.25,
+    "mod6_src": "LFO 1",
+    "mod6_dst": "Cutoff",
+    "mod6_amt": 0.3
+  }
+}

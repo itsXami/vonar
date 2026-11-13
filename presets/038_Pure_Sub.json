@@ -1,0 +1,49 @@
+{
+  "name": "Pure Sub",
+  "category": "Bass",
+  "tags": [
+    "Basic",
+    "Sub",
+    "Clean",
+    "Sine"
+  ],
+  "description": "Clean sine sub with a soft click, sits under anything without colouring it.",
+  "mood": "Medium",
+  "macros": [
+    "Energy",
+    "Click",
+    "Warmth",
+    "Glide"
+  ],
+  "version": 1,
+  "params": {
+    "voice_mode": "Mono",
+    "oscA_table": "Basic Shapes",
+    "oscA_level": 0.95,
+    "flt_cutoff": 1200.0,
+    "amp_release": 0.08,
+    "menv_decay": 0.006,
+    "out_gain": -0.8,
+    "mod1_src": "Macro 1",
+    "mod1_dst": "Dist Mix",
+    "mod1_amt": 0.35,
+    "mod2_src": "Macro 1",
+    "mod2_dst": "Cutoff",
+    "mod2_amt": 0.25,
+    "mod3_src": "Macro 2",
+    "mod3_dst": "Noise Level",
+    "mod3_amt": 0.15,
+    "mod4_src": "Macro 3",
+    "mod4_dst": "WT Pos A",
+    "mod4_amt": 0.25,
+    "mod5_src": "Macro 4",
+    "mod5_dst": "Pitch A",
+    "mod5_amt": 0.02,
+    "mod6_src": "Mod Env",
+    "mod6_dst": "Noise Level",
+    "mod6_amt": 0.08,
+    "mod7_src": "Velocity",
+    "mod7_dst": "Level A",
+    "mod7_amt": 0.15
+  }
+}

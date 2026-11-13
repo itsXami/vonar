@@ -324,3 +324,33 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
   Propozycja usunięć (78, jeszcze niezastosowana) w `tools/presets/review_2026-11-12.json`. Biblioteka w repo:
   310 presetów (bez zmian względem commitu z partią `urban1`).
 
+
+## Naprawa różnorodności i perkusja (2026-11-13)
+Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na prośbę użytkownika.
+- **Silnik:** przełącznik **Keep Low** w Distortion (`dist_keep_low`, zwrotnica Linkwitz-Riley ~160 Hz: przester tylko
+  góry, sub czysty; test: przesterowany sinus 50 Hz ma 0,0001 energii harmonicznych zamiast 0,22). LFO do 100 Hz.
+  Kategoria **Drums**, pole **mood** w presetach, filtr **Mood** w pasku presetów, nastrój w oknie zapisu.
+- **Pomiar z dźwięku:** renderer liczy udział pasma 1–8 kHz, „air”, gęstość harmonicznych, crest i ostrość ataku;
+  `energy_mood.py` ocenia energię z audio (nie z ustawień) i z bezwzględnej jasności. Wniosek: z 309 starych
+  presetów tylko ~37 naprawdę mocno uderzało; „przesterowane” basy za ciemnym filtrem wychodzą spokojne.
+- **Głośność wg nastroju:** Aggressive +2,5 dB … Soft −2 dB wokół −15 LUFS; Aggressive może dociskać limiter do 5 dB.
+  Perkusja normalizowana szczytem (−1 dBFS) jak sample one-shot – renderer sprawdza dla niej szczyt zamiast LUFS.
+- **Usunięcia:** 77 spokojnych z bliskim sąsiadem (propozycja ze strony przeglądu; Acid Bath i Fingerpicked
+  Pattern Guitar zostały na życzenie użytkownika) – `selection.json` → `review_2026_11_12_removed`.
+- **Nastroje starych presetów:** `tools/presets/moods.json` (pomiar + ręczna korekta, np. czyste dzwonki FM nie są
+  Aggressive, miękkie EP nie są Dark). Nowe partie mają nastrój w generatorze.
+- **Nowe partie** (strona odsłuchu z klawiaturą: https://claude.ai/artifact/N9pTkbj8dkoWF9VMLTgx6J, kolekcja
+  `review2`, wszystkie domyślnie zostają):
+  - `drums1` (32): 8 kicków, 6 werbli, 5 klaśnięć (prawdziwe 2–4 uderzenia: LFO 90 Hz bramkowany Mod Env),
+    7 hi-hatów, 4 shakery/tamburyn, wood block, finger snap – house i hip-hop/trap.
+  - `hard1` (30, 28 w bibliotece; 2 prawie-duplikaty odrzucone): 808 clipped/fold/drill/crushed, basy z Keep Low,
+    leady sync/fold/bitcrush/formant, staby, gitary, arpy, FX. 19/30 na energii 4–5.
+  - `basics1` (29): czysty sub, zwykłe 808, saw/square/supersaw/pulse lead, piano, EP, organy, pady, smyczki, brass.
+    Zwolnione z wymogu „oryginalności” (bliscy sąsiedzi zapisani w `selection.json`).
+  - `sad1` (21): smutne/mroczne do emocjonalnego rapu i trapu, energia 1–4.
+- **Każdy nowy preset ma makro 1 „Energy”** (drive + jasność) – ten sam preset od spokojnego do mocnego.
+- **Biblioteka: 342 presety** (+ Init). Energia 1–5 = 61 / 69 / 105 / 59 / 48 (18 / 20 / 31 / 17 / 14 %).
+  Nastroje: Medium 39 %, Dark 23 %, Aggressive 17 %, Soft 14 %, Sad 7 %. Test pilnuje Soft ≤ 30 %.
+- **Do sprawdzenia przez użytkownika:** odsłuch nowych partii na stronie (Usuń / nastrój / Brzmi jak…), szczególnie
+  perkusja (kicki, klapy) i presety oznaczone „Blisko”. Sad jest wciąż najmniejszy (7 %) – kolejna partia albo
+  zmiana nastroju części Dark na Sad po odsłuchu.
