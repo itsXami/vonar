@@ -198,7 +198,11 @@
    "source": "https://claude.ai/artifact/N9pTkbj8dkoWF9VMLTgx6J (collection review2)"
   },
   "hard1": {
-   "removed": [],
+   "removed": [
+    "Rage Sync Screamer",
+    "Shouting Formant Lead",
+    "Siren Riser"
+   ],
    "similar": {
     "Fuzz Wall Riff": "Industrial Guitar Wall (0.63)",
     "Blown Supersaw": "Rage Synth Lead (0.82)"

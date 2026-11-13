@@ -114,7 +114,7 @@ etapie commit + push, aktualizacja tego pliku i krótki raport dla użytkownika 
 | A. Neutralizacja + licencja | ✅ zrobione 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika |
 | B. Profesjonalny wygląd | ✅ wdrożone w kodzie 2026-11-12 (opis niżej), czeka na sprawdzenie przez użytkownika na Windows |
 | C. Silnik: pitch bend, sustain, 14 presetów „Popraw” | ✅ zrobione 2026-11-12 (opis niżej) |
-| D. Biblioteka ok. 300 presetów | ⏳ 310 presetów; partia House i Hip-Hop (35) czeka na odsłuch |
+| D. Biblioteka ok. 300 presetów | ✅ 339 presetów (2026-11-13), odsłuchane przez użytkownika: „dobrze się słucha” |
 | E. Wydanie | – |
 
 **Etap A – co zrobiono:**
@@ -354,3 +354,6 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
 - **Do sprawdzenia przez użytkownika:** odsłuch nowych partii na stronie (Usuń / nastrój / Brzmi jak…), szczególnie
   perkusja (kicki, klapy) i presety oznaczone „Blisko”. Sad jest wciąż najmniejszy (7 %) – kolejna partia albo
   zmiana nastroju części Dark na Sad po odsłuchu.
+- **Odsłuch użytkownika (2026-11-13):** „dobrze się słucha”, „trochę za dużo sad, reszta okej”. Usunięte z partii
+  hard1 na stronie: Rage Sync Screamer, Shouting Formant Lead, Siren Riser → biblioteka 339 presetów.
+  Perkusja strojona pod C3 = C4 w FL Studio (FL liczy oktawy o jedną wyżej, środkowe C to C5).
