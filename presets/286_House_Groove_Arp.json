@@ -14,7 +14,7 @@
     "Pump",
     "Res"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Analog Square",
     "oscA_pos": 0.4,
@@ -35,6 +35,8 @@
     "dly_time": "1/8D",
     "dly_mix": 0.16,
     "out_gain": 4.3,
+    "fx_pump_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

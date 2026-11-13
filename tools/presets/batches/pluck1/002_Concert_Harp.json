@@ -13,7 +13,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_pos": 0.45,
@@ -28,6 +28,8 @@
     "rev_mix": 0.24,
     "squash": 0.3,
     "out_gain": -3.2,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.3,

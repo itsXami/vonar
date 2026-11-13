@@ -14,7 +14,7 @@
     "Grit",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.04,
@@ -29,6 +29,9 @@
     "dly_mix": 0.12,
     "rev_mix": 0.08,
     "out_gain": -1.8,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Detune",
     "mod1_amt": 0.3,

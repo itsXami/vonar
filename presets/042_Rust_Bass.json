@@ -13,7 +13,7 @@
     "Pluck",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "PWM",
@@ -31,6 +31,7 @@
     "dist_drive": 0.5,
     "dist_mix": 0.75,
     "out_gain": 5.9,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.5,

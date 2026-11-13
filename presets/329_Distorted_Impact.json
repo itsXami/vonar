@@ -16,7 +16,7 @@
     "Drop",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Sine Drive",
     "oscA_pos": 0.4,
@@ -37,6 +37,8 @@
     "rev_size": 0.8,
     "rev_mix": 0.15,
     "out_gain": 3.1,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

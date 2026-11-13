@@ -282,60 +282,12 @@ void MainPanel::buildModTab()
 void MainPanel::buildFxTab()
 {
     target = &fxPage;
-    const int h = 264, y2 = 268;
-    const R big[3] = { { 20, 62, 108, 134 }, { 140, 62, 108, 134 }, { 260, 62, 108, 134 } };
-    auto at = [] (R panel, R slot) { return slot.translated (panel.getX(), panel.getY()); };
-    {
-        const R r { 6, 2, 392, h };
-        section ("1  DISTORTION", r, colours::fx);
-        combo (DistType, { r.getX() + 150, r.getY() + 7, 120, 22 }).setTooltip ("Distortion type");
-        auto& keep = toggle (DistKeepLow, "KEEP LOW", { r.getX() + 280, r.getY() + 7, 96, 22 });
-        VoltLookAndFeel::setStyle (keep, "seg");
-        keep.setTooltip ("Distort only above ~160 Hz: the sub stays clean and solid");
-        marks (choices::DstDistDrive, knob (DistDrive, "Drive", at (r, big[0]), Knob::Hero));
-        knob (DistTone, "Tone", at (r, big[1]), Knob::Hero);
-        marks (choices::DstDistMix, knob (DistMix, "Mix", at (r, big[2]), Knob::Hero));
-    }
-    {
-        const R r { 400, 2, 392, h };
-        section ("2  MOD FX", r, colours::fx);
-        combo (MfxType, { r.getX() + 110, r.getY() + 7, 120, 22 }).setTooltip ("Chorus / Phaser / Flanger");
-        knob (MfxRate, "Rate", at (r, big[0]), Knob::Hero);
-        knob (MfxDepth, "Depth", at (r, big[1]), Knob::Hero);
-        marks (choices::DstModFxMix, knob (MfxMix, "Mix", at (r, big[2]), Knob::Hero));
-    }
-    {
-        const R r { 794, 2, 400, h };
-        section ("3  PUMP", r, colours::fx);
-        knob (PumpAmount, "Pump", at (r, big[0]), Knob::Hero);
-        note ("Rate (tempo synced)", { r.getX() + 160, r.getY() + 66, 200, 16 }, colours::dimText);
-        combo (PumpRate, { r.getX() + 160, r.getY() + 86, 150, 26 }).setTooltip ("Pump rate");
-        note ("Sidechain-style ducking locked to the host tempo, like a kick pushing the sound down on every beat.",
-              { r.getX() + 160, r.getY() + 124, 220, 70 }, colours::faint);
-    }
-    {
-        const R r { 6, y2, 392, h };
-        section ("4  DELAY", r, colours::fx);
-        combo (DlyMode, { r.getX() + 100, r.getY() + 7, 120, 22 }).setTooltip ("Stereo / Ping-pong");
-        marks (choices::DstDelayMix, knob (DlyMix, "Mix", at (r, big[0]), Knob::Hero));
-        knob (DlyFeedback, "Feedback", at (r, big[1]), Knob::Hero);
-        note ("Time (tempo synced)", { r.getX() + 264, r.getY() + 66, 120, 16 }, colours::dimText);
-        combo (DlyTime, { r.getX() + 264, r.getY() + 86, 112, 26 }).setTooltip ("Delay time");
-    }
-    {
-        const R r { 400, y2, 392, h };
-        section ("5  REVERB", r, colours::fx);
-        marks (choices::DstReverbMix, knob (RevMix, "Mix", at (r, big[0]), Knob::Hero));
-        knob (RevSize, "Size", at (r, big[1]), Knob::Hero);
-        knob (RevDamp, "Damping", at (r, big[2]), Knob::Hero);
-    }
-    {
-        const R r { 794, y2, 400, h };
-        section ("6  SQUASH", r, colours::fx);
-        knob (Squash, "Amount", at (r, big[0]), Knob::Hero);
-        note ("Three-band compressor on one knob: glues and thickens the sound; high values bring quiet details up.",
-              { r.getX() + 160, r.getY() + 80, 220, 80 }, colours::faint);
-    }
+    auto rack = std::make_unique<FxRack> (state);
+    fxRack = rack.get();
+    for (auto* p : fxRack->panels())
+        for (auto& [dest, k] : p->macroTargets)
+            marks (dest, *k);
+    add (std::move (rack), { 0, 0, kWidth, 534 });
 }
 
 void MainPanel::buildBottom()
@@ -457,6 +409,8 @@ void MainPanel::refresh()
         v->refresh();
     if (scope != nullptr)
         scope->refresh();
+    if (fxRack != nullptr && fxPage.isVisible())
+        fxRack->refresh();
     if (meter != nullptr)
         meter->refresh();
     presetBar.refresh();

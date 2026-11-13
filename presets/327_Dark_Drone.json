@@ -15,7 +15,7 @@
     "Beat",
     "Space"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Metal Comb",
     "oscA_pos": 0.3,
@@ -34,6 +34,8 @@
     "rev_damping": 0.6,
     "rev_mix": 0.25,
     "out_gain": 7.4,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

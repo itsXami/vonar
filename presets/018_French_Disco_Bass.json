@@ -14,7 +14,7 @@
     "Grit",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Analog Square",
@@ -32,6 +32,8 @@
     "fenv_sustain": 0.3,
     "pump_amount": 0.4,
     "out_gain": 6.2,
+    "fx_dist_on": true,
+    "fx_pump_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.4,

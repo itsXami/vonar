@@ -14,7 +14,7 @@
     "Sync",
     "Crush"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Buzz",
@@ -39,6 +39,8 @@
     "dist_mix": 1.0,
     "squash": 0.45,
     "out_gain": -3.3,
+    "fx_dist_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

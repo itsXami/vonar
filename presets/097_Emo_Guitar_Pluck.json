@@ -15,7 +15,7 @@
     "Echo",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_type": "String",
     "str_decay": 1.6,
@@ -34,6 +34,9 @@
     "dly_mix": 0.18,
     "rev_mix": 0.1,
     "out_gain": 3.2,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

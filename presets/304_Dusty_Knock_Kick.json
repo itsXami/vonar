@@ -15,7 +15,7 @@
     "Tune",
     "Crush"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_oct": -1,
@@ -35,6 +35,7 @@
     "dist_tone": 0.3,
     "dist_mix": 0.35,
     "out_gain": 8.3,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.4,

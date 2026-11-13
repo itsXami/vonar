@@ -14,7 +14,7 @@
     "Body",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_pos": 0.25,
     "oscA_type": "String",
@@ -32,6 +32,9 @@
     "rev_mix": 0.08,
     "squash": 0.25,
     "out_gain": -3.6,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

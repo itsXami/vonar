@@ -12,6 +12,10 @@ inline ParamSnapshot defaults()
     ParamSnapshot s;
     for (int p = 0; p < NumParams; ++p)
         s.v[(size_t) p] = spec (p).defaultValue;
+    // Tests set an effect's mix / amount to use it: switch the classic effects on, so mix 0 = silent as before.
+    for (int p : { FxDistOn, FxChorusOn, FxPhaserOn, FxFlangerOn, FxPumpOn, FxDelayOn, FxReverbOn, FxCompOn })
+        s.v[(size_t) p] = 1.0f;
+    s.v[ChoMix] = s.v[PhaMix] = s.v[FlaMix] = 0.0f;
     return s;
 }
 

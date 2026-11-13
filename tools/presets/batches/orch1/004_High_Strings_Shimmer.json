@@ -14,7 +14,7 @@
     "Soft",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Strings",
     "oscA_pos": 0.3,
@@ -30,6 +30,7 @@
     "rev_size": 0.85,
     "rev_mix": 0.3,
     "out_gain": -5.5,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Detune",
     "mod1_amt": 0.3,

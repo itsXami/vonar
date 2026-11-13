@@ -15,7 +15,7 @@
     "Strum",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Pluck Body",
     "oscA_pos": 0.2,
@@ -31,6 +31,8 @@
     "rev_mix": 0.08,
     "squash": 0.4,
     "out_gain": 0.7,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

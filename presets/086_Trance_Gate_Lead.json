@@ -15,7 +15,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Hyper Saw",
     "oscA_pos": 0.3,
@@ -32,6 +32,8 @@
     "dly_time": "1/8D",
     "dly_mix": 0.15,
     "out_gain": 1.7,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level A",
     "mod1_amt": -0.3,

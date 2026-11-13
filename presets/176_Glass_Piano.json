@@ -13,7 +13,7 @@
     "Echo",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Glass Harmonics",
     "oscA_pos": 0.6,
@@ -33,6 +33,10 @@
     "dly_mix": 0.2,
     "rev_mix": 0.12,
     "out_gain": 3.9,
+    "fx_chorus_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

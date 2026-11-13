@@ -14,7 +14,7 @@
     "Drive",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_pos": 0.15,
@@ -30,6 +30,8 @@
     "dist_drive": 0.25,
     "dist_mix": 0.4,
     "out_gain": 6.2,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Sub Level",
     "mod1_amt": 0.3,

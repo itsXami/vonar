@@ -15,7 +15,7 @@
     "Harm",
     "Mix"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.05,
@@ -31,6 +31,7 @@
     "dist_drive": 0.35,
     "dist_mix": 0.55,
     "out_gain": 2.4,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

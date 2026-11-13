@@ -14,7 +14,7 @@
     "Tone",
     "Grit"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Sync Square",
@@ -34,6 +34,8 @@
     "dist_mix": 0.5,
     "squash": 0.35,
     "out_gain": -3.5,
+    "fx_dist_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,

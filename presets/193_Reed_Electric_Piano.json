@@ -14,7 +14,7 @@
     "Soft",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Hollow",
     "oscA_pos": 0.45,
@@ -29,6 +29,8 @@
     "dist_mix": 0.5,
     "rev_mix": 0.12,
     "out_gain": -5.7,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

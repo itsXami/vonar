@@ -15,7 +15,7 @@
     "Crush",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Digital",
     "oscA_pos": 0.4,
@@ -40,6 +40,8 @@
     "dly_feedback": 0.4,
     "dly_mix": 0.15,
     "out_gain": -4.7,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

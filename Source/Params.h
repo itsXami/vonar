@@ -57,6 +57,18 @@ enum P : int
     BendRange,
     DistKeepLow,
 
+    // Effects rack (2026-11-13): an on switch per effect, separate chorus / phaser / flanger, a filter, a 3-band EQ,
+    // reverb tone and a compressor stage. MfxType/Rate/Depth/Mix above are legacy (read only to migrate old
+    // presets and projects, see migrateLegacyFx).
+    FxDistOn, FxChorusOn, FxPhaserOn, FxFlangerOn, FxFilterOn, FxEqOn, FxPumpOn, FxDelayOn, FxReverbOn, FxCompOn,
+    ChoRate, ChoDepth, ChoMix,
+    PhaRate, PhaDepth, PhaMix,
+    FlaRate, FlaDepth, FlaMix,
+    FxfType, FxfCutoff, FxfRes, FxfMix,
+    EqLowFreq, EqLowGain, EqMidFreq, EqMidGain, EqMidQ, EqHighFreq, EqHighGain,
+    RevLowCut, RevHighCut,
+    CompThreshold, CompRatio, CompAttack, CompRelease, CompGain,
+
     NumParams
 };
 
@@ -96,6 +108,7 @@ namespace choices
     enum ArpModes { Up, Down, UpDown, Random };
     enum DistTypes { Soft, Tube, Hard, Fold, Bitcrush };
     enum ModFxTypes { Chorus, Phaser, Flanger };
+    enum FxFilterTypes { FxLowPass, FxHighPass, FxBandPass, FxNotch };
     enum DelayModes { Stereo, PingPong };
 
     enum ModSources { SrcNone, SrcLfo1, SrcLfo2, SrcFilterEnv, SrcVelocity, SrcModWheel, SrcAftertouch,
@@ -111,6 +124,20 @@ namespace choices
     const juce::StringArray& arpRates();
     const juce::StringArray& delayTimes();
     const juce::StringArray& pumpRates();
+}
+
+// The effects rack. The enum order is the default chain order (the order of the old fixed chain, with the new
+// effects off by default, so old presets sound the same). Presets store the order as names in "fx_order".
+namespace fx
+{
+    enum Id { Distortion, Chorus, Phaser, Flanger, Filter, Eq, Pump, Delay, Reverb, Compressor, NumEffects };
+    const juce::StringArray& ids();          // "distortion", "chorus", ... (preset files, state)
+    const juce::StringArray& names();        // "Distortion", "Chorus", ... (interface)
+    int onParam (int effect);                // the effect's on switch (P enum)
+    using Order = std::array<int, NumEffects>;
+    Order defaultOrder();
+    juce::String orderToString (const Order&);
+    Order orderFromString (const juce::String&);   // unknown or missing entries fall back to the default order
 }
 
 // Real-time safe snapshot of all parameter values (plain units) for one audio block.

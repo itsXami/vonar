@@ -371,3 +371,16 @@ Użytkownik zauważył, że wiele brzmień jest do siebie podobnych, i poprosił
   2–4 szybkie uderzenia i gładki ogon; dlatego LFO dostał zakres do 100 Hz (środek skali nadal 2 Hz).
 - **Partia Basics zwolniona z wymogu oryginalności**; metryka podobieństwa to sito, bliskie pary o innym
   zastosowaniu zostają do oceny uchem (zapisane w `selection.json`).
+
+## Efekty jako rack (2026-11-13)
+- **Wyłączony efekt = mix/amount wymuszone na 0** (a nie pominięcie wywołania): efekt wycisza się płynnie (rampa),
+  zasypia jak dotąd, a stare presety brzmią identycznie.
+- **Kolejność efektów nie jest parametrem automatyzacji**, tylko właściwością stanu (`fxOrder`) i polem presetu
+  (`fx_order`); procesor przekazuje ją do silnika atomowo (4 bity na slot).
+- **Stare parametry Mod FX (`mfx_*`) zostają** (stabilne ID dla hostów), oznaczone „(legacy)”, nieużywane przez
+  silnik; służą tylko do przeróbki starych presetów/projektów. Cel modulacji „Mod FX Mix” steruje mixem chorusa,
+  phasera i flangera naraz.
+- **Format presetu 2** odróżnia nowe presety od starych (zapis rzadki nie zawiera pól równych domyślnym, więc
+  brak pola nie może być sygnałem).
+- Kropki na wykresach to standardowy sposób obsługi EQ/filtrów (jak w korektorach DAW), rysowane po swojemu;
+  kolory i ikony efektów własne VOLT.

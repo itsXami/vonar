@@ -15,7 +15,7 @@
     "Air",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Hammer Piano",
     "oscA_pos": 0.6,
@@ -32,6 +32,9 @@
     "rev_mix": 0.12,
     "squash": 0.45,
     "out_gain": 0.2,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": -0.3,

@@ -14,7 +14,7 @@
     "Nasal",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.03,
@@ -28,6 +28,7 @@
     "amp_attack": 0.05,
     "rev_mix": 0.14,
     "out_gain": 10.5,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

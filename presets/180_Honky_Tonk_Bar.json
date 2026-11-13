@@ -14,7 +14,7 @@
     "Room",
     "Grit"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Bell",
     "oscA_pos": 0.25,
@@ -30,6 +30,8 @@
     "dist_drive": 0.2,
     "rev_mix": 0.12,
     "out_gain": -2.8,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch B",
     "mod1_amt": 0.006,

@@ -15,7 +15,7 @@
     "Dirt",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Acid",
@@ -37,6 +37,8 @@
     "dly_time": "1/8D",
     "dly_mix": 0.12,
     "out_gain": 7.2,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.15,

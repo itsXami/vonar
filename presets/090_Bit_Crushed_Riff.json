@@ -14,7 +14,7 @@
     "Crush",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Crush",
     "oscA_pos": 0.3,
@@ -31,6 +31,8 @@
     "dist_drive": 0.35,
     "dist_mix": 0.6,
     "out_gain": -4.3,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

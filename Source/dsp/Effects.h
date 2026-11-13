@@ -14,8 +14,20 @@ struct FxParams
     int distType = 0;
     float distDrive = 0.3f, distTone = 0.7f, distMix = 0.0f;
     bool distKeepLow = false;   // distort only above ~160 Hz, the sub passes clean
-    int mfxType = 0;
-    float mfxRate = 0.4f, mfxDepth = 0.5f, mfxMix = 0.0f;
+    float choRate = 0.4f, choDepth = 0.5f, choMix = 0.0f;
+    float phaRate = 0.3f, phaDepth = 0.6f, phaMix = 0.0f;
+    float flaRate = 0.2f, flaDepth = 0.5f, flaMix = 0.0f;
+    int fxfType = 0;
+    float fxfCutoff = 2000.0f, fxfRes = 0.2f, fxfMix = 0.0f;
+    float eqLowFreq = 120.0f, eqLowGain = 0.0f, eqMidFreq = 1000.0f, eqMidGain = 0.0f, eqMidQ = 1.0f,
+          eqHighFreq = 6000.0f, eqHighGain = 0.0f;
+    bool eqOn = false;
+    float revLowCut = 20.0f, revHighCut = 20000.0f;
+    float compThreshold = 0.0f, compRatio = 1.0f, compAttack = 0.01f, compRelease = 0.15f, compGain = 0.0f;
+    bool compOn = false;
+    fx::Order order = fx::defaultOrder();
+    // Effects that are switched off get their mix / amount forced to zero by the engine, so they fade out
+    // smoothly and cost nothing once silent.
     float pumpAmount = 0.0f;
     double pumpBeats = 1.0;
     int dlyMode = 0;
@@ -81,6 +93,72 @@ private:
     bool active = false;
 };
 
+// State-variable filter (12 dB/oct, TPT) as an effect: low-pass, high-pass, band-pass or notch, with dry/wet mix.
+class FilterFx
+{
+public:
+    void prepare (double sr);
+    void reset();
+    void process (float* L, float* R, int n, int type, float cutoff, float res, float mix) noexcept;
+
+private:
+    float ic1[2] {}, ic2[2] {};
+    Ramp mixRamp;
+    float smoothCut = -1.0f;
+    double sampleRate = 44100.0;
+    bool active = false;
+};
+
+// Three-band EQ: low shelf, peak (with Q), high shelf. Bands at 0 dB are skipped.
+struct Biquad
+{
+    float b0 = 1, b1 = 0, b2 = 0, a1 = 0, a2 = 0;
+    float z1[2] {}, z2[2] {};
+    inline float process (float x, int c) noexcept
+    {
+        const float y = b0 * x + z1[c];
+        z1[c] = b1 * x - a1 * y + z2[c];
+        z2[c] = b2 * x - a2 * y;
+        return y;
+    }
+    void reset() { z1[0] = z1[1] = z2[0] = z2[1] = 0.0f; }
+    void setLowShelf (double sr, double f, double gainDb);
+    void setHighShelf (double sr, double f, double gainDb);
+    void setPeak (double sr, double f, double gainDb, double q);
+    void setHighPass (double sr, double f);
+    void setLowPass (double sr, double f);
+};
+
+class EqFx
+{
+public:
+    void prepare (double sr);
+    void reset();
+    void process (float* L, float* R, int n, const FxParams& p) noexcept;
+    // Magnitude response in dB of the three bands at frequency f (used by the interface curve).
+    static float responseDb (const FxParams& p, double sampleRate, float f);
+
+private:
+    Biquad band[3];
+    float last[7] { -1, -1, -1, -1, -1, -1, -1 };
+    bool bandOn[3] {};
+    double sampleRate = 44100.0;
+};
+
+// Feed-forward compressor with a soft knee; ratio 1:1 and 0 dB gain = bypass.
+class CompStage
+{
+public:
+    void prepare (double sr);
+    void reset();
+    void process (float* L, float* R, int n, float thresholdDb, float ratio, float attack, float release, float gainDb) noexcept;
+
+private:
+    float envDb = 0.0f;
+    Ramp gainRamp;
+    double sampleRate = 44100.0;
+};
+
 class Pump
 {
 public:
@@ -113,10 +191,14 @@ class ReverbFx
 public:
     void prepare (double sr);
     void reset();
-    void process (float* L, float* R, int n, float size, float damp, float mix) noexcept;
+    void process (float* L, float* R, int n, float size, float damp, float mix, float lowCut = 20.0f,
+                  float highCut = 20000.0f) noexcept;
 
 private:
     juce::Reverb reverb;
+    Biquad lowCutF, highCutF;     // tone of the reverb tail (wet only); bypassed at 20 Hz / 20 kHz
+    float lastLow = -1.0f, lastHigh = -1.0f;
+    double sampleRate = 44100.0;
     std::vector<float> wetL, wetR;
     float lastSize = -1.0f, lastDamp = -1.0f;
     Ramp mixRamp;
@@ -171,11 +253,14 @@ public:
 private:
     double sampleRate = 44100.0;
     Distortion dist;
-    ModFx modFx;
+    ModFx chorus, phaser, flanger;
+    FilterFx filter;
+    EqFx eq;
     Pump pump;
     StereoDelay delay;
     ReverbFx reverb;
     SquashCompressor squash;
+    CompStage comp;
     OutputStage output;
 };
 } // namespace volt

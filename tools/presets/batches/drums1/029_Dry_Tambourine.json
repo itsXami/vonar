@@ -15,7 +15,7 @@
     "Jingle",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_level": 0.0,
     "oscB_table": "Metal Comb",
@@ -34,6 +34,8 @@
     "lfo1_rate": 28.0,
     "lfo1_retrig": true,
     "out_gain": 10.4,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.3,

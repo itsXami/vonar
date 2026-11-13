@@ -15,7 +15,7 @@
     "Body",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Hammer Piano",
     "oscA_pos": 0.2,
@@ -28,6 +28,8 @@
     "rev_size": 0.4,
     "rev_mix": 0.1,
     "out_gain": 4.1,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

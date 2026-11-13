@@ -43,8 +43,8 @@ jobs:
       - name: Build
         run: cmake --build build --parallel
 
-      - name: Unit tests
-        run: ctest --test-dir build --output-on-failure
+      - name: Unit tests (interface tests need a display: xvfb)
+        run: xvfb-run -a ctest --test-dir build --output-on-failure
 
       - name: Render all presets (offline report + previews)
         run: ./build/VOLT_Render_artefacts/Release/VOLT_Render --out render-out

@@ -15,7 +15,7 @@
     "Width",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Pluck Body",
     "oscA_pos": 0.3,
@@ -35,6 +35,8 @@
     "rev_mix": 0.12,
     "squash": 0.35,
     "out_gain": -3.5,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level A",
     "mod1_amt": 0.2,

@@ -15,7 +15,7 @@
     "Octave",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_voices": 2,
     "oscB_table": "Analog Saw",
@@ -34,6 +34,9 @@
     "dist_mix": 0.6,
     "squash": 0.5,
     "out_gain": -2.8,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

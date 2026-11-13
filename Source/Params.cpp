@@ -45,6 +45,69 @@ double divisionToBeats (const juce::String& name)
 }
 } // namespace choices
 
+namespace fx
+{
+const juce::StringArray& ids()
+{
+    static const juce::StringArray s { "distortion", "chorus", "phaser", "flanger", "filter", "eq", "pump", "delay",
+                                       "reverb", "compressor" };
+    return s;
+}
+
+const juce::StringArray& names()
+{
+    static const juce::StringArray s { "Distortion", "Chorus", "Phaser", "Flanger", "Filter", "EQ", "Pump", "Delay",
+                                       "Reverb", "Compressor" };
+    return s;
+}
+
+int onParam (int effect)
+{
+    static const int p[NumEffects] = { FxDistOn, FxChorusOn, FxPhaserOn, FxFlangerOn, FxFilterOn, FxEqOn, FxPumpOn,
+                                       FxDelayOn, FxReverbOn, FxCompOn };
+    return p[juce::jlimit (0, NumEffects - 1, effect)];
+}
+
+Order defaultOrder()
+{
+    Order o {};
+    for (int i = 0; i < NumEffects; ++i)
+        o[(size_t) i] = i;
+    return o;
+}
+
+juce::String orderToString (const Order& o)
+{
+    juce::StringArray s;
+    for (int e : o)
+        s.add (ids()[e]);
+    return s.joinIntoString (",");
+}
+
+Order orderFromString (const juce::String& text)
+{
+    juce::StringArray tokens;
+    tokens.addTokens (text, ",", "");
+    tokens.trim();
+    Order o {};
+    bool used[NumEffects] {};
+    int n = 0;
+    for (const auto& t : tokens)
+    {
+        const int e = ids().indexOf (t);
+        if (e >= 0 && ! used[e] && n < NumEffects)
+        {
+            used[e] = true;
+            o[(size_t) n++] = e;
+        }
+    }
+    for (int e = 0; e < NumEffects; ++e)   // anything missing goes to the end, in default order
+        if (! used[e])
+            o[(size_t) n++] = e;
+    return o;
+}
+} // namespace fx
+
 namespace
 {
 const juce::StringArray modSourceNames { "None", "LFO 1", "LFO 2", "Filter Env", "Velocity", "Mod Wheel",
@@ -183,10 +246,10 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (DistTone, F ("dist_tone", "Distortion Tone", 0.0f, 1.0f, 0.7f));
     set (DistMix, F ("dist_mix", "Distortion Mix", 0.0f, 1.0f, 0.0f));
 
-    set (MfxType, C ("mfx_type", "Mod FX Type", { "Chorus", "Phaser", "Flanger" }, 0));
-    set (MfxRate, F ("mfx_rate", "Mod FX Rate", 0.02f, 10.0f, 0.4f, 1.0f, "Hz"));
-    set (MfxDepth, F ("mfx_depth", "Mod FX Depth", 0.0f, 1.0f, 0.5f));
-    set (MfxMix, F ("mfx_mix", "Mod FX Mix", 0.0f, 1.0f, 0.0f));
+    set (MfxType, C ("mfx_type", "Mod FX Type (legacy)", { "Chorus", "Phaser", "Flanger" }, 0));
+    set (MfxRate, F ("mfx_rate", "Mod FX Rate (legacy)", 0.02f, 10.0f, 0.4f, 1.0f, "Hz"));
+    set (MfxDepth, F ("mfx_depth", "Mod FX Depth (legacy)", 0.0f, 1.0f, 0.5f));
+    set (MfxMix, F ("mfx_mix", "Mod FX Mix (legacy)", 0.0f, 1.0f, 0.0f));
 
     set (PumpAmount, F ("pump_amount", "Pump Amount", 0.0f, 1.0f, 0.0f));
     set (PumpRate, C ("pump_rate", "Pump Rate", choices::pumpRates(), 1));
@@ -204,6 +267,44 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (OutGain, F ("out_gain", "Output Gain", -24.0f, 12.0f, 0.0f, 0.0f, "dB"));
     set (BendRange, I ("bend_range", "Pitch Bend Range", 0, 24, 2, "st"));
     set (DistKeepLow, B ("dist_keep_low", "Distortion Keep Low", false));
+
+    set (FxDistOn, B ("fx_dist_on", "Distortion On", false));
+    set (FxChorusOn, B ("fx_chorus_on", "Chorus On", false));
+    set (FxPhaserOn, B ("fx_phaser_on", "Phaser On", false));
+    set (FxFlangerOn, B ("fx_flanger_on", "Flanger On", false));
+    set (FxFilterOn, B ("fx_filter_on", "FX Filter On", false));
+    set (FxEqOn, B ("fx_eq_on", "EQ On", false));
+    set (FxPumpOn, B ("fx_pump_on", "Pump On", false));
+    set (FxDelayOn, B ("fx_delay_on", "Delay On", false));
+    set (FxReverbOn, B ("fx_reverb_on", "Reverb On", false));
+    set (FxCompOn, B ("fx_comp_on", "Compressor On", false));
+    set (ChoRate, F ("chorus_rate", "Chorus Rate", 0.02f, 10.0f, 0.4f, 1.0f, "Hz"));
+    set (ChoDepth, F ("chorus_depth", "Chorus Depth", 0.0f, 1.0f, 0.5f));
+    set (ChoMix, F ("chorus_mix", "Chorus Mix", 0.0f, 1.0f, 0.5f));
+    set (PhaRate, F ("phaser_rate", "Phaser Rate", 0.02f, 10.0f, 0.3f, 1.0f, "Hz"));
+    set (PhaDepth, F ("phaser_depth", "Phaser Depth", 0.0f, 1.0f, 0.6f));
+    set (PhaMix, F ("phaser_mix", "Phaser Mix", 0.0f, 1.0f, 0.5f));
+    set (FlaRate, F ("flanger_rate", "Flanger Rate", 0.02f, 10.0f, 0.2f, 1.0f, "Hz"));
+    set (FlaDepth, F ("flanger_depth", "Flanger Depth", 0.0f, 1.0f, 0.5f));
+    set (FlaMix, F ("flanger_mix", "Flanger Mix", 0.0f, 1.0f, 0.5f));
+    set (FxfType, C ("fxf_type", "FX Filter Type", { "Low-pass", "High-pass", "Band-pass", "Notch" }, 0));
+    set (FxfCutoff, F ("fxf_cutoff", "FX Filter Cutoff", 20.0f, 20000.0f, 2000.0f, 1000.0f, "Hz"));
+    set (FxfRes, F ("fxf_res", "FX Filter Resonance", 0.0f, 1.0f, 0.2f));
+    set (FxfMix, F ("fxf_mix", "FX Filter Mix", 0.0f, 1.0f, 1.0f));
+    set (EqLowFreq, F ("eq_low_freq", "EQ Low Frequency", 20.0f, 1000.0f, 120.0f, 150.0f, "Hz"));
+    set (EqLowGain, F ("eq_low_gain", "EQ Low Gain", -18.0f, 18.0f, 0.0f, 0.0f, "dB"));
+    set (EqMidFreq, F ("eq_mid_freq", "EQ Mid Frequency", 100.0f, 10000.0f, 1000.0f, 1000.0f, "Hz"));
+    set (EqMidGain, F ("eq_mid_gain", "EQ Mid Gain", -18.0f, 18.0f, 0.0f, 0.0f, "dB"));
+    set (EqMidQ, F ("eq_mid_q", "EQ Mid Q", 0.3f, 6.0f, 1.0f, 1.0f, "q"));
+    set (EqHighFreq, F ("eq_high_freq", "EQ High Frequency", 1000.0f, 20000.0f, 6000.0f, 5000.0f, "Hz"));
+    set (EqHighGain, F ("eq_high_gain", "EQ High Gain", -18.0f, 18.0f, 0.0f, 0.0f, "dB"));
+    set (RevLowCut, F ("rev_low_cut", "Reverb Low Cut", 20.0f, 1000.0f, 20.0f, 150.0f, "Hz"));
+    set (RevHighCut, F ("rev_high_cut", "Reverb High Cut", 1000.0f, 20000.0f, 20000.0f, 6000.0f, "Hz"));
+    set (CompThreshold, F ("comp_threshold", "Compressor Threshold", -48.0f, 0.0f, 0.0f, 0.0f, "dB"));
+    set (CompRatio, F ("comp_ratio", "Compressor Ratio", 1.0f, 20.0f, 1.0f, 4.0f, "ratio"));
+    set (CompAttack, F ("comp_attack", "Compressor Attack", 0.0002f, 0.2f, 0.01f, 0.01f, "s"));
+    set (CompRelease, F ("comp_release", "Compressor Release", 0.01f, 1.5f, 0.15f, 0.15f, "s"));
+    set (CompGain, F ("comp_gain", "Compressor Gain", 0.0f, 24.0f, 0.0f, 0.0f, "dB"));
 
     for ([[maybe_unused]] auto& p : s)
         jassert (p.id.isNotEmpty());
@@ -226,6 +327,10 @@ static juce::String formatValue (const ParamSpec& s, float v)
         return v < 1.0f ? juce::String (juce::roundToInt (v * 1000.0f)) + " ms" : juce::String (v, 2) + " s";
     if (unit == "dB")
         return juce::String (v, 1) + " dB";
+    if (unit == "ratio")
+        return juce::String (v, v < 10.0f ? 1 : 0) + ":1";
+    if (unit == "q")
+        return "Q " + juce::String (v, 2);
     if (unit == "st")
         return juce::String (v, 1) + " st";
     if (unit == "ct")

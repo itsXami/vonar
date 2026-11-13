@@ -15,7 +15,7 @@
     "Harm",
     "Sub"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.2,
@@ -33,6 +33,7 @@
     "dist_drive": 0.45,
     "dist_mix": 0.6,
     "out_gain": 1.7,
+    "fx_dist_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

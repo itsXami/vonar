@@ -14,7 +14,7 @@
     "Sway",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Reed",
     "oscA_pos": 0.5,
@@ -31,6 +31,7 @@
     "rev_size": 0.45,
     "rev_mix": 0.14,
     "out_gain": -7.6,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Noise Level",
     "mod1_amt": 0.1,

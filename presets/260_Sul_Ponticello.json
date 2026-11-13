@@ -15,7 +15,7 @@
     "Bow",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Strings",
     "oscA_pos": 0.95,
@@ -31,6 +31,7 @@
     "rev_size": 0.75,
     "rev_mix": 0.26,
     "out_gain": -0.8,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Resonance",
     "mod1_amt": 0.3,

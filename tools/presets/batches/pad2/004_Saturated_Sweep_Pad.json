@@ -12,7 +12,7 @@
     "Drive",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Even Saturate",
     "oscA_pos": 0.1,
@@ -29,6 +29,8 @@
     "rev_size": 0.6,
     "rev_mix": 0.2,
     "out_gain": -7.6,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

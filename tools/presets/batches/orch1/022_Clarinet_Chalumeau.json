@@ -14,7 +14,7 @@
     "Breath",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.03,
@@ -30,6 +30,7 @@
     "rev_size": 0.55,
     "rev_mix": 0.16,
     "out_gain": -4.9,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

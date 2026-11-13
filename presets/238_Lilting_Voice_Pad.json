@@ -15,7 +15,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Vowels",
     "oscA_pos": 0.6,
@@ -35,6 +35,7 @@
     "rev_size": 0.75,
     "rev_mix": 0.24,
     "out_gain": -4.4,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level A",
     "mod1_amt": 0.2,

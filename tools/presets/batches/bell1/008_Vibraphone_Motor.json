@@ -14,7 +14,7 @@
     "Width",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscB_oct": 2,
@@ -32,6 +32,7 @@
     "rev_size": 0.45,
     "rev_mix": 0.14,
     "out_gain": -1.7,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level A",
     "mod1_amt": -0.3,

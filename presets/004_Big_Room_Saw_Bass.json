@@ -13,7 +13,7 @@
     "Sub",
     "Drive"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "Hyper Saw",

@@ -15,7 +15,7 @@
     "Res",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_voices": 3,
     "uni_detune": 0.3,
@@ -27,9 +27,11 @@
     "lfo1_shape": "Triangle",
     "lfo1_sync": true,
     "lfo1_div": "1/1",
-    "mfx_mix": 0.3,
     "rev_mix": 0.2,
     "out_gain": -2.2,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.3,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

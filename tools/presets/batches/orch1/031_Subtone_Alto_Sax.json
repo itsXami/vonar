@@ -14,7 +14,7 @@
     "Vibrato",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.07,
@@ -29,6 +29,7 @@
     "rev_size": 0.45,
     "rev_mix": 0.14,
     "out_gain": -2.2,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Noise Level",
     "mod1_amt": 0.15,

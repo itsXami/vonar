@@ -14,7 +14,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Choir",
     "oscA_pos": 0.5,
@@ -27,10 +27,12 @@
     "amp_attack": 0.7,
     "amp_release": 2.0,
     "lfo1_rate": 0.08,
-    "mfx_mix": 0.3,
     "rev_size": 0.85,
     "rev_mix": 0.3,
     "out_gain": -5.8,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.3,
     "mod1_src": "Macro 1",
     "mod1_dst": "Formant",
     "mod1_amt": 0.4,

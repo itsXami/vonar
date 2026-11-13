@@ -14,7 +14,7 @@
     "Slide",
     "Drive"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.08,

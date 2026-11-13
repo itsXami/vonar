@@ -14,7 +14,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Brass",
     "oscA_pos": 0.25,
@@ -33,6 +33,9 @@
     "rev_size": 0.8,
     "rev_mix": 0.25,
     "out_gain": -7.9,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

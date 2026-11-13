@@ -14,7 +14,7 @@
     "Ring",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Bell Metal",
     "oscA_pos": 0.8,
@@ -30,6 +30,7 @@
     "rev_size": 0.4,
     "rev_mix": 0.12,
     "out_gain": 6.0,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Noise Level",
     "mod1_amt": 0.15,

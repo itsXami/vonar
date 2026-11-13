@@ -14,7 +14,7 @@
     "Width",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Choir",
     "oscA_pos": 0.35,
@@ -32,6 +32,7 @@
     "rev_size": 0.7,
     "rev_mix": 0.2,
     "out_gain": 9.1,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Formant",
     "mod1_amt": 0.35,

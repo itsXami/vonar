@@ -375,3 +375,22 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   SignPath Foundation (darmowy dla open source), Certum Open Source Code Signing.
 - Użytkownik zainstalował 0.9.0 – działa. Następne: efekty w stylu „lista efektów z włącznikami i panelami”
   (inspiracja Vitalem, bez kopiowania) – najpierw makiety.
+
+## Efekty jak rack (2026-11-13)
+- Makiety: https://claude.ai/artifact/2CEEDny2kbQquTsLittGkz – użytkownik wybrał wariant A (lista + panele) z
+  przeciąganymi punktami na wykresach.
+- Silnik: 10 efektów z włącznikami i zmienną kolejnością (`fx_*_on`, `fxOrder` w stanie / `fx_order` w presecie):
+  Distortion, Chorus, Phaser, Flanger (osobno, mogą grać naraz), Filter (SVF LP/HP/BP/Notch), EQ (low shelf, peak
+  z Q, high shelf), Pump, Delay, Reverb (+ Low Cut / High Cut ogona), Compressor (Squash + próg/ratio/attack/
+  release/gain). Wyłączony efekt wycisza się płynnie i nie kosztuje CPU.
+- Zgodność: stare presety (format 1) i projekty (bez `fx_dist_on`) są przerabiane przy wczytaniu
+  (`PresetManager::migrateLegacyFx`, ta sama reguła w `batch_common.modernize_fx`). Presety fabryczne zapisane
+  w formacie 2. Render całej biblioteki przed/po: różnica ≤ 3·10⁻⁵ (1 LSB 16 bit) – brzmią tak samo.
+- Błąd znaleziony i naprawiony w trakcie: nowe presety bez włączonego przesteru były brane za stare (migracja
+  wyłączała chorus) → rozpoznawanie po numerze formatu; test regresji w `tests/RackTests.cpp`.
+- Testy (68 grup, 0 błędów): kolejność, EQ (+6 dB = +6 dB, płaski = bypass), Filter (−40 dB 3,3 okt. nad
+  cutoff), Compressor (4:1 przy −20 dB), barwa pogłosu, włączniki, migracja presetów i projektów, kolejność w
+  presetach użytkownika, interfejs (przeciąganie punktu EQ i filtra, włącznik, zmiana kolejności). CI uruchamia
+  testy pod xvfb.
+- Do sprawdzenia przez użytkownika w FL Studio: przeciąganie punktów, zmiana kolejności, włączniki, automatyzacja
+  nowych parametrów, otwarcie starego projektu z VOLT 0.9.0.

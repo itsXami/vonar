@@ -15,7 +15,7 @@
     "Width",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.03,
@@ -25,6 +25,8 @@
     "amp_attack": 0.001,
     "amp_release": 0.12,
     "out_gain": 1.2,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

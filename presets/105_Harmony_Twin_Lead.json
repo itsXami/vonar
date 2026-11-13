@@ -14,7 +14,7 @@
     "Tone",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.04,
@@ -40,6 +40,9 @@
     "dly_mix": 0.1,
     "rev_mix": 0.08,
     "out_gain": 4.8,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level B",
     "mod1_amt": 0.3,

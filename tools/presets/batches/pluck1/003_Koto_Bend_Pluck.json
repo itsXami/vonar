@@ -14,7 +14,7 @@
     "Ring",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Pluck Body",
     "oscA_pos": 0.25,
@@ -30,6 +30,8 @@
     "rev_size": 0.2,
     "rev_mix": 0.05,
     "squash": 0.35,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch A",
     "mod1_amt": 0.02,

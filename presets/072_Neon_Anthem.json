@@ -14,7 +14,7 @@
     "Pulse",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.06,
@@ -34,6 +34,8 @@
     "dly_mix": 0.15,
     "rev_mix": 0.12,
     "out_gain": -0.8,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.4,

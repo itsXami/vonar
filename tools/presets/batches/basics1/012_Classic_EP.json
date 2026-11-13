@@ -15,7 +15,7 @@
     "Trem",
     "Chorus"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Basic Shapes",
     "oscA_warp": "FM",
@@ -30,8 +30,10 @@
     "amp_sustain": 0.2,
     "amp_release": 0.35,
     "lfo1_rate": 4.0,
-    "mfx_mix": 0.15,
     "out_gain": -2.4,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "chorus_mix": 0.15,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

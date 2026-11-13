@@ -33,6 +33,35 @@ def level_offset(p):
     return 0.0 if p.get("category") == "Drums" else mood_offset(p.get("mood"))
 
 
+def modernize_fx(params):
+    """Old single Mod FX + implicit effects -> effects rack with on switches. Same rules as
+    PresetManager::migrateLegacyFx (Source/PresetManager.cpp): an effect is on when its mix / amount is above zero
+    or the modulation matrix moves it; the Mod FX settings move to the chorus, phaser or flanger of its type."""
+    full = dict(gp.DEFAULTS)
+    full.update(params)
+    out = dict(params)
+    targeted = set()
+    for i in range(1, 13):
+        if full[f"mod{i}_src"] != "None" and full[f"mod{i}_dst"] != "None" and abs(full[f"mod{i}_amt"]) > 1e-5:
+            targeted.add(full[f"mod{i}_dst"])
+    on = lambda amount, dest=None: amount > 1e-4 or (dest is not None and dest in targeted)
+    kind = {"Chorus": "chorus", "Phaser": "phaser", "Flanger": "flanger"}[full["mfx_type"]]
+    for k in ("chorus", "phaser", "flanger"):
+        out[f"fx_{k}_on"] = kind == k and on(full["mfx_mix"], "Mod FX Mix")
+    if out[f"fx_{kind}_on"]:   # only an effect in use takes the old settings; the others keep usable defaults
+        out[f"{kind}_rate"] = full["mfx_rate"]
+        out[f"{kind}_depth"] = full["mfx_depth"]
+        out[f"{kind}_mix"] = full["mfx_mix"]
+    out["fx_dist_on"] = on(full["dist_mix"], "Dist Mix")
+    out["fx_pump_on"] = on(full["pump_amount"])
+    out["fx_delay_on"] = on(full["dly_mix"], "Delay Mix")
+    out["fx_reverb_on"] = on(full["rev_mix"], "Reverb Mix")
+    out["fx_comp_on"] = on(full["squash"])
+    for k in ("mfx_type", "mfx_rate", "mfx_depth", "mfx_mix"):
+        out.pop(k, None)
+    return out
+
+
 def clamp_gain(db):
     """out_gain range of the plugin (-24 .. +12 dB)."""
     return max(-24.0, min(12.0, db))
@@ -54,7 +83,7 @@ def end(start):
 
 
 def preset_doc(p, trims):
-    params = dict(p["params"])
+    params = modernize_fx(p["params"])
     gain = clamp_gain(trims.get(p["name"], 0.0) + level_offset(p))
     if abs(gain) > 0.05:
         params["out_gain"] = round(gain, 1)
@@ -63,7 +92,7 @@ def preset_doc(p, trims):
     doc = {"name": p["name"], "category": p["category"], "tags": p["tags"], "description": p["description"]}
     if p.get("mood"):
         doc["mood"] = p["mood"]
-    return dict(doc, macros=p["macros"], version=1, params=sparse)
+    return dict(doc, macros=p["macros"], version=2, params=sparse)
 
 
 def other_names(exclude_batch):

@@ -15,7 +15,7 @@
     "Tone",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.05,
@@ -33,6 +33,9 @@
     "dist_mix": 0.6,
     "squash": 0.3,
     "out_gain": -4.7,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Pitch A",
     "mod1_amt": 0.04,

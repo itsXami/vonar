@@ -14,7 +14,7 @@
     "Peak",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.03,
@@ -34,6 +34,8 @@
     "dly_time": "1/8D",
     "dly_mix": 0.1,
     "out_gain": 8.8,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Formant",
     "mod1_amt": 0.35,

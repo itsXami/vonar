@@ -14,7 +14,7 @@
     "Drive",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Mono",
     "oscA_table": "FM Bass",
@@ -30,6 +30,7 @@
     "arp_on": true,
     "arp_gate": 0.35,
     "out_gain": 9.3,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

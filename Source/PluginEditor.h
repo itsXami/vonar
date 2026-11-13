@@ -4,6 +4,7 @@
 #include "ui/Controls.h"
 #include "ui/Views.h"
 #include "ui/PresetBar.h"
+#include "ui/FxRack.h"
 
 namespace volt::ui
 {
@@ -39,6 +40,7 @@ public:
     void setTab (int tab);
     int getTab() const noexcept { return currentTab; }
     void setEnvelope (int env);
+    FxRack* getFxRack() noexcept { return fxRack; }
 
     PresetBar presetBar;
 
@@ -79,6 +81,7 @@ private:
     EnvelopeView* envView = nullptr;
     std::vector<LfoView*> lfoViews;
     ScopeView* scope = nullptr;
+    FxRack* fxRack = nullptr;
     LevelMeter* meter = nullptr;
     MacroCell* macroCells[kNumMacros] {};
     std::vector<Knob*> envKnobs[4];

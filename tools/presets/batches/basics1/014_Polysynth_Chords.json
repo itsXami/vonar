@@ -15,7 +15,7 @@
     "Width",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_voices": 2,
     "oscB_table": "Analog Square",
@@ -29,8 +29,11 @@
     "amp_release": 0.35,
     "fenv_decay": 0.5,
     "fenv_sustain": 0.4,
-    "mfx_mix": 0.2,
     "out_gain": -1.8,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.2,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Mix",
     "mod1_amt": 0.35,

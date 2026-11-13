@@ -31,9 +31,10 @@ Zakładki [MODULATION](docs/ui-modulation.png) i [EFFECTS](docs/ui-effects.png).
   Mod Wheel, Aftertouch, Key Track, Random (inna wartość dla każdej nuty), makra.
 - **4 makra** z etykietami zapisywanymi w presecie.
 - **Arpeggiator:** Up, Down, UpDown, Random; tempo, oktawy, gate.
-- **Efekty (w tej kolejności):** Distortion (Soft, Tube, Hard, Fold, Bitcrush; 4× oversampling) → Mod FX
-  (Chorus, Phaser, Flanger) → Pump (ducking zsynchronizowany z tempem) → Delay (stereo / ping-pong, sync) →
-  Reverb → Squash (3-pasmowy kompresor na jednym pokrętle) → Output Gain + limiter ochronny.
+- **Efekty – dziesięć, w dowolnej kolejności, każdy z włącznikiem:** Distortion (Soft, Tube, Hard, Fold, Bitcrush;
+  4× oversampling, Keep Low), Chorus, Phaser, Flanger, Filter (LP / HP / BP / Notch), EQ (3 pasma), Pump (ducking
+  zsynchronizowany z tempem), Delay (stereo / ping-pong, sync), Reverb (z barwą: Low Cut / High Cut), Compressor
+  (Squash – 3-pasmowy na jednym pokrętle – oraz próg, ratio, attack, release, gain). Na końcu Output Gain + limiter.
 - **Interfejs:** okno 1200×740 (skalowanie 75–200%) z zakładkami SYNTH / MODULATION / EFFECTS. Na zakładce SYNTH
   widać naraz oscylatory z podglądem wavetable, filtr z krzywą, obwiednie z wykresem, oba LFO, głos i arpeggiator.
   Makra, wyjście z miernikiem poziomu i oscyloskop są zawsze widoczne na dole. Każda sekcja ma własny kolor
@@ -85,9 +86,12 @@ zawsze widoczne MACROS, OUTPUT i oscyloskop.
    ARP. W VOICE jest też **Bend**: zakres pitch bendu w półtonach.
 3. **Zakładka MODULATION:** LFO 1 i LFO 2 z dużymi pokrętłami i przełącznikiem Retrigger, MOD ENVELOPE oraz
    MODULATION MATRIX: 12 slotów źródło → cel z suwakiem ilości −100…+100%.
-4. **Zakładka EFFECTS:** sześć efektów w kolejności łańcucha: 1 Distortion, 2 Mod FX, 3 Pump, 4 Delay, 5 Reverb,
-   6 Squash. Przełącznik **KEEP LOW** przy Distortion przesterowuje tylko pasmo powyżej ok. 160 Hz – sub basu
-   zostaje czysty i mocny.
+4. **Zakładka EFFECTS:** po lewej lista dziesięciu efektów w kolejności łańcucha – kropka włącza i wyłącza efekt,
+   kliknięcie nazwy przewija do jego panelu, przeciągnięcie uchwytu ⋮⋮ zmienia kolejność. Po prawej panel każdego
+   efektu z żywym wykresem (wyłączone są zwinięte). Na wykresach **EQ, Filter, Reverb i Compressor** są punkty do
+   przeciągania myszą: EQ – częstotliwość i wzmocnienie pasm (kółko myszy na środkowym: Q), Filter – Cutoff i
+   Resonance, Reverb – Low Cut i High Cut, Compressor – próg (w górę/w dół: ratio). Dwuklik na punkcie przywraca
+   wartość domyślną. Przełącznik **KEEP LOW** przy Distortion przesterowuje tylko pasmo powyżej ok. 160 Hz.
 5. **MACROS:** obok każdego pokrętła jest jego nazwa (dwuklik zmienia ją), cel albo cele, którymi steruje, i wartość.
 
 **Presety użytkownika** zapisują się jako JSON w `%APPDATA%\VOLT\Presets` (na Linuksie `~/.config/VOLT/Presets`).

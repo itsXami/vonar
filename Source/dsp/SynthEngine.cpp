@@ -422,10 +422,34 @@ void SynthEngine::renderChunk (float* L, float* R, int n) noexcept
     fp.distDrive = sm[DistDrive] + gdst[choices::DstDistDrive];
     fp.distTone = sm[DistTone];
     fp.distMix = sm[DistMix] + gdst[choices::DstDistMix];
-    fp.mfxType = raw.i (MfxType);
-    fp.mfxRate = sm[MfxRate];
-    fp.mfxDepth = sm[MfxDepth];
-    fp.mfxMix = sm[MfxMix] + gdst[choices::DstModFxMix];
+    // "Mod FX Mix" in the matrix moves the mix of chorus, phaser and flanger (old presets used one of them).
+    fp.choRate = sm[ChoRate];
+    fp.choDepth = sm[ChoDepth];
+    fp.choMix = sm[ChoMix] + gdst[choices::DstModFxMix];
+    fp.phaRate = sm[PhaRate];
+    fp.phaDepth = sm[PhaDepth];
+    fp.phaMix = sm[PhaMix] + gdst[choices::DstModFxMix];
+    fp.flaRate = sm[FlaRate];
+    fp.flaDepth = sm[FlaDepth];
+    fp.flaMix = sm[FlaMix] + gdst[choices::DstModFxMix];
+    fp.fxfType = raw.i (FxfType);
+    fp.fxfCutoff = sm[FxfCutoff];
+    fp.fxfRes = sm[FxfRes];
+    fp.fxfMix = sm[FxfMix];
+    fp.eqLowFreq = sm[EqLowFreq];
+    fp.eqLowGain = sm[EqLowGain];
+    fp.eqMidFreq = sm[EqMidFreq];
+    fp.eqMidGain = sm[EqMidGain];
+    fp.eqMidQ = sm[EqMidQ];
+    fp.eqHighFreq = sm[EqHighFreq];
+    fp.eqHighGain = sm[EqHighGain];
+    fp.revLowCut = sm[RevLowCut];
+    fp.revHighCut = sm[RevHighCut];
+    fp.compThreshold = sm[CompThreshold];
+    fp.compRatio = sm[CompRatio];
+    fp.compAttack = raw[CompAttack];
+    fp.compRelease = raw[CompRelease];
+    fp.compGain = sm[CompGain];
     fp.pumpAmount = sm[PumpAmount];
     fp.pumpBeats = pumpBeats[(size_t) juce::jlimit (0, (int) pumpBeats.size() - 1, raw.i (PumpRate))];
     fp.dlyMode = raw.i (DlyMode);
@@ -437,6 +461,23 @@ void SynthEngine::renderChunk (float* L, float* R, int n) noexcept
     fp.revMix = sm[RevMix] + gdst[choices::DstReverbMix];
     fp.squash = sm[Squash];
     fp.outGainDb = sm[OutGain];
+    // Switched-off effects: mix / amount forced to zero (they fade out and stop costing CPU).
+    if (! raw.b (FxDistOn)) fp.distMix = 0.0f;
+    if (! raw.b (FxChorusOn)) fp.choMix = 0.0f;
+    if (! raw.b (FxPhaserOn)) fp.phaMix = 0.0f;
+    if (! raw.b (FxFlangerOn)) fp.flaMix = 0.0f;
+    if (! raw.b (FxFilterOn)) fp.fxfMix = 0.0f;
+    fp.eqOn = raw.b (FxEqOn);
+    if (! raw.b (FxPumpOn)) fp.pumpAmount = 0.0f;
+    if (! raw.b (FxDelayOn)) fp.dlyMix = 0.0f;
+    if (! raw.b (FxReverbOn)) fp.revMix = 0.0f;
+    fp.compOn = raw.b (FxCompOn);
+    if (! fp.compOn) fp.squash = 0.0f;
+    {
+        const auto packed = fxOrderPacked.load (std::memory_order_relaxed);
+        for (int i = 0; i < fx::NumEffects; ++i)
+            fp.order[(size_t) i] = (int) ((packed >> (4 * i)) & 0xF);
+    }
     fp.ppq = chunkPpq;
     fp.bpm = transport.bpm;
     fx.process (L, R, n, fp);

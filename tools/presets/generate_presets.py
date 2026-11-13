@@ -56,6 +56,15 @@ DEFAULTS = {
     "dly_mode": "Stereo", "dly_time": "1/4", "dly_feedback": 0.35, "dly_mix": 0.0,
     "rev_size": 0.5, "rev_damping": 0.5, "rev_mix": 0.0,
     "squash": 0.0, "out_gain": 0.0, "bend_range": 2, "dist_keep_low": False,
+    # effects rack (2026-11-13); generators still write mfx_* - batch_common.modernize_fx converts them
+    "fx_dist_on": False, "fx_chorus_on": False, "fx_phaser_on": False, "fx_flanger_on": False, "fx_filter_on": False,
+    "fx_eq_on": False, "fx_pump_on": False, "fx_delay_on": False, "fx_reverb_on": False, "fx_comp_on": False,
+    "chorus_rate": 0.4, "chorus_depth": 0.5, "chorus_mix": 0.5, "phaser_rate": 0.3, "phaser_depth": 0.6,
+    "phaser_mix": 0.5, "flanger_rate": 0.2, "flanger_depth": 0.5, "flanger_mix": 0.5,
+    "fxf_type": "Low-pass", "fxf_cutoff": 2000.0, "fxf_res": 0.2, "fxf_mix": 1.0,
+    "eq_low_freq": 120.0, "eq_low_gain": 0.0, "eq_mid_freq": 1000.0, "eq_mid_gain": 0.0, "eq_mid_q": 1.0,
+    "eq_high_freq": 6000.0, "eq_high_gain": 0.0, "rev_low_cut": 20.0, "rev_high_cut": 20000.0,
+    "comp_threshold": 0.0, "comp_ratio": 1.0, "comp_attack": 0.01, "comp_release": 0.15, "comp_gain": 0.0,
 }
 for i in range(1, 13):
     DEFAULTS[f"mod{i}_src"] = "None"

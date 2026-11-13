@@ -14,7 +14,7 @@
     "Freeze",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Glass Harmonics",
     "oscA_pos": 0.5,
@@ -26,6 +26,8 @@
     "rev_damping": 0.7,
     "rev_mix": 0.42,
     "out_gain": 0.3,
+    "fx_delay_on": true,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "WT Pos A",
     "mod1_amt": 0.4,

@@ -116,14 +116,14 @@ def write_presets(chosen, trims):
         if f.endswith(".json") and not f.startswith("000_"):
             os.remove(os.path.join(gp.PRESET_DIR, f))
     for i, p in enumerate(chosen, start=1):
-        params = dict(p["params"])
+        params = bc.modernize_fx(p["params"])
         gain = bc.clamp_gain(trims.get(p["name"], 0.0) + bc.level_offset(p) + LEVEL_ADJUST.get(p["name"], 0.0))
         if abs(gain) > 0.05:
             params["out_gain"] = round(gain, 1)
         sparse = {k: (round(params[k], 5) if isinstance(params[k], float) else params[k])
                   for k in gp.DEFAULTS if k in params and params[k] != gp.DEFAULTS[k]}
         doc = {"name": p["name"], "category": p["category"], "tags": p["tags"], "description": p["description"],
-               "mood": p["mood"], "macros": p["macros"], "version": 1, "params": sparse}
+               "mood": p["mood"], "macros": p["macros"], "version": 2, "params": sparse}
         with open(os.path.join(gp.PRESET_DIR, f"{i:03d}_{gp.slug(p['name'])}.json"), "w") as f:
             json.dump(doc, f, indent=2)
             f.write("\n")

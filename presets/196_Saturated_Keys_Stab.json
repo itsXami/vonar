@@ -14,7 +14,7 @@
     "Tone",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "FM Brass",
     "oscA_pos": 0.5,
@@ -28,6 +28,9 @@
     "dist_mix": 0.7,
     "squash": 0.3,
     "out_gain": -3.5,
+    "fx_dist_on": true,
+    "fx_reverb_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Dist Drive",
     "mod1_amt": 0.35,

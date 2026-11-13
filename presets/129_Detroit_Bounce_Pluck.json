@@ -15,7 +15,7 @@
     "Grit",
     "Echo"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Analog Square",
     "oscA_pos": 0.5,
@@ -31,6 +31,9 @@
     "fenv_sustain": 0.0,
     "squash": 0.5,
     "out_gain": -1.8,
+    "fx_dist_on": true,
+    "fx_delay_on": true,
+    "fx_comp_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Cutoff",
     "mod1_amt": 0.35,

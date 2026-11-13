@@ -14,7 +14,7 @@
     "Tone",
     "Hall"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "voice_mode": "Legato",
     "glide": 0.01,
@@ -33,6 +33,7 @@
     "rev_size": 0.6,
     "rev_mix": 0.16,
     "out_gain": 8.3,
+    "fx_reverb_on": true,
     "mod1_src": "Macro 1",
     "mod1_dst": "Level B",
     "mod1_amt": 0.3,

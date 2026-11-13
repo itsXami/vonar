@@ -15,7 +15,7 @@
     "Vibe",
     "Room"
   ],
-  "version": 1,
+  "version": 2,
   "params": {
     "oscA_table": "Reed",
     "oscA_pos": 0.3,
@@ -35,6 +35,10 @@
     "rev_size": 0.3,
     "rev_mix": 0.06,
     "out_gain": 1.2,
+    "fx_dist_on": true,
+    "fx_chorus_on": true,
+    "fx_reverb_on": true,
+    "chorus_mix": 0.0,
     "mod1_src": "Macro 1",
     "mod1_dst": "Warp A",
     "mod1_amt": 0.35,
