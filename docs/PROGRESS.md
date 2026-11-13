@@ -366,3 +366,12 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   Granie: mediana 1,8 %, najcięższy 5 % jednego rdzenia (Xeon 2,1 GHz) – bez problemu dla słabych laptopów.
 - Uśpienie bezczynnego pluginu: koszt bezczynnej instancji 0,45 % → 0,04 % (mediana). Render bez zmian.
 - Do sprawdzenia przez użytkownika: CPU okna pluginu (oscyloskop, mierniki) w FL Studio na słabszym laptopie.
+
+## Instalator (2026-11-13)
+- `installer/VOLT.iss` (Inno Setup), budowany w CI na Windowsie → artefakt `VOLT-windows-installer`
+  (`VOLT-<wersja>-Setup.exe`). Wersja testowa 0.9.0. Kreator po angielsku, instaluje tylko VST3 do
+  `Common Files\VST3` (aplikację Standalone użytkownik odrzucił; nie trafia do instalatora ani paczki ZIP).
+- Ostrzeżenie SmartScreen bez podpisu: na razie zostaje; ewentualnie informacja na stronie. Opcje na później:
+  SignPath Foundation (darmowy dla open source), Certum Open Source Code Signing.
+- Użytkownik zainstalował 0.9.0 – działa. Następne: efekty w stylu „lista efektów z włącznikami i panelami”
+  (inspiracja Vitalem, bez kopiowania) – najpierw makiety.
