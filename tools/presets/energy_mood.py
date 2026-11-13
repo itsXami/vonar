@@ -10,7 +10,7 @@ dark filter only warms a sound, so it scores nothing here. What counts:
   punch     how steeply the notes strike (5 ms envelope rise);
   density   low crest factor (a dense wall) - only when there is bite;
   sub hit   a strong low end that strikes hard (808s, kicks);
-minus what softens it: reverb wash and a slow swell. Mood is a proposal; the preset's own mood tag wins.
+minus what softens it: reverb wash and a slow swell. Mood is a proposal; the preset's own mood field wins.
 """
 import argparse
 import glob
@@ -35,9 +35,9 @@ def _db(x):
     return 10.0 * math.log10(x + 1.0e-6)
 
 
-def presets():
+def presets(preset_dir=None):
     out = {}
-    for f in glob.glob(os.path.join(ROOT, "presets", "*.json")):
+    for f in glob.glob(os.path.join(preset_dir or os.path.join(ROOT, "presets"), "*.json")):
         d = json.load(open(f))
         out[d["name"]] = d
     return out
@@ -61,7 +61,8 @@ def level(e):
 
 
 def tagged_mood(p):
-    return next((t for t in p.get("tags", []) if t in MOODS), None)
+    """The mood stored in the preset (the "mood" field), if any."""
+    return p.get("mood") if p.get("mood") in MOODS else None
 
 
 def mood(p, lvl, feat):
@@ -80,10 +81,10 @@ def mood(p, lvl, feat):
     return "Medium"
 
 
-def analyse(report_path):
+def analyse(report_path, preset_dir=None):
     rep = {p["name"]: p for p in json.load(open(report_path))["presets"]}
     out = []
-    for name, p in presets().items():
+    for name, p in presets(preset_dir).items():
         if name == "Init" or name not in rep:
             continue
         feat = rep[name]["features"]
@@ -100,8 +101,9 @@ def main():
     ap.add_argument("report")
     ap.add_argument("--json")
     ap.add_argument("--list", action="store_true", help="print every preset with its level and mood")
+    ap.add_argument("--dir", help="preset JSON folder (default presets/), e.g. a batch folder")
     a = ap.parse_args()
-    rows = sorted(analyse(a.report), key=lambda r: r["energy"])
+    rows = sorted(analyse(a.report, a.dir), key=lambda r: r["energy"])
     n = len(rows)
     if a.list:
         for r in rows:
