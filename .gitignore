@@ -7,3 +7,4 @@ CMakeUserPresets.json
 *.user
 render-out/
 __pycache__/
+installer/Output/

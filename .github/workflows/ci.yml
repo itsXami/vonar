@@ -112,3 +112,21 @@ jobs:
           path: dist/
           if-no-files-found: error
           retention-days: 14
+
+      # Installer with a wizard (Inno Setup, installer/VOLT.iss); the version comes from CMakeLists.txt.
+      - name: Build installer
+        shell: pwsh
+        run: |
+          $iscc = "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) { choco install innosetup -y --no-progress }
+          $v = (Select-String -Path CMakeLists.txt -Pattern 'project\(VOLT VERSION ([0-9.]+)').Matches[0].Groups[1].Value
+          & $iscc "/DAppVersion=$v" "/DSourceDir=$PWD\dist" installer\VOLT.iss
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload VOLT-windows-installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: VOLT-windows-installer
+          path: installer/Output/*.exe
+          if-no-files-found: error
+          retention-days: 30
