@@ -203,6 +203,7 @@ std::array<ParamSpec, NumParams> buildSpecs()
     set (Squash, F ("squash", "Squash", 0.0f, 1.0f, 0.0f));
     set (OutGain, F ("out_gain", "Output Gain", -24.0f, 12.0f, 0.0f, 0.0f, "dB"));
     set (BendRange, I ("bend_range", "Pitch Bend Range", 0, 24, 2, "st"));
+    set (DistKeepLow, B ("dist_keep_low", "Distortion Keep Low", false));
 
     for ([[maybe_unused]] auto& p : s)
         jassert (p.id.isNotEmpty());

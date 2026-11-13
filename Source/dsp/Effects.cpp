@@ -20,6 +20,10 @@ void Distortion::prepare (double sr, int maxBlock)
     os->initProcessing ((size_t) juce::jmax (maxBlock, 64));
     dryL.assign ((size_t) juce::jmax (maxBlock, 64), 0.0f);
     dryR.assign ((size_t) juce::jmax (maxBlock, 64), 0.0f);
+    lowL.assign ((size_t) juce::jmax (maxBlock, 64), 0.0f);
+    lowR.assign ((size_t) juce::jmax (maxBlock, 64), 0.0f);
+    split.prepare ({ sr, (juce::uint32) juce::jmax (maxBlock, 64), 2 });
+    split.setCutoffFrequency (160.0f);
     dcL.prepare (sr, 8.0f);
     dcR.prepare (sr, 8.0f);
     reset();
@@ -31,6 +35,7 @@ void Distortion::reset()
         os->reset();
     toneL.reset();
     toneR.reset();
+    split.reset();
     dcL.reset();
     dcR.reset();
     crushHoldL = crushHoldR = crushCount = 0.0f;
@@ -38,7 +43,7 @@ void Distortion::reset()
     driveRamp = {};
 }
 
-void Distortion::process (float* L, float* R, int n, int type, float drive, float tone, float mix) noexcept
+void Distortion::process (float* L, float* R, int n, int type, float drive, float tone, float mix, bool keepLow) noexcept
 {
     float m0, dm, d0, dd;
     mixRamp.set (mix, n, m0, dm);
@@ -60,6 +65,22 @@ void Distortion::process (float* L, float* R, int n, int type, float drive, floa
 
     std::copy (L, L + n, dryL.data());
     std::copy (R, R + n, dryR.data());
+
+    // Keep low: a Linkwitz-Riley crossover at ~160 Hz splits the signal, only the upper band is distorted and the
+    // low band is added back clean (low + high sums to an all-pass, so the sub keeps its level and stays pure).
+    if (keepLow)
+        for (int i = 0; i < n; ++i)
+        {
+            float lo = 0.0f, hi = 0.0f;
+            split.processSample (0, L[i], lo, hi);
+            lowL[(size_t) i] = lo;
+            dryL[(size_t) i] = lo + hi;   // the dry path gets the same all-pass phase, so a partial mix does not comb
+            L[i] = hi;
+            split.processSample (1, R[i], lo, hi);
+            lowR[(size_t) i] = lo;
+            dryR[(size_t) i] = lo + hi;
+            R[i] = hi;
+        }
 
     const float cut = 600.0f * std::exp2 (clampf (tone, 0.0f, 1.0f) * 5.0f);
     toneL.setCutoff (cut, sampleRate);
@@ -124,8 +145,13 @@ void Distortion::process (float* L, float* R, int n, int type, float drive, floa
     for (int i = 0; i < n; ++i)
     {
         m += dm;
-        const float wl = dcL.process (toneL.process (L[i]));
-        const float wr = dcR.process (toneR.process (R[i]));
+        float wl = dcL.process (toneL.process (L[i]));
+        float wr = dcR.process (toneR.process (R[i]));
+        if (keepLow)
+        {
+            wl += lowL[(size_t) i];
+            wr += lowR[(size_t) i];
+        }
         L[i] = dryL[(size_t) i] + m * (wl - dryL[(size_t) i]);
         R[i] = dryR[(size_t) i] + m * (wr - dryR[(size_t) i]);
     }
@@ -585,7 +611,7 @@ void FxChain::process (float* L, float* R, int n, const FxParams& p) noexcept
     const double bpm = juce::jlimit (20.0, 999.0, p.bpm);
     const double beatsPerSample = bpm / 60.0 / sampleRate;
 
-    dist.process (L, R, n, p.distType, clampf (p.distDrive, 0.0f, 1.0f), p.distTone, clampf (p.distMix, 0.0f, 1.0f));
+    dist.process (L, R, n, p.distType, clampf (p.distDrive, 0.0f, 1.0f), p.distTone, clampf (p.distMix, 0.0f, 1.0f), p.distKeepLow);
     modFx.process (L, R, n, p.mfxType, p.mfxRate, p.mfxDepth, clampf (p.mfxMix, 0.0f, 1.0f));
     pump.process (L, R, n, p.pumpAmount, p.ppq, beatsPerSample, p.pumpBeats);
     delay.process (L, R, n, p.dlyMode, p.dlyBeats * 60.0 / bpm * sampleRate, p.dlyFeedback, clampf (p.dlyMix, 0.0f, 1.0f));

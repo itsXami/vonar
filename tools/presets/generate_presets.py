@@ -55,7 +55,7 @@ DEFAULTS = {
     "pump_amount": 0.0, "pump_rate": "1/4",
     "dly_mode": "Stereo", "dly_time": "1/4", "dly_feedback": 0.35, "dly_mix": 0.0,
     "rev_size": 0.5, "rev_damping": 0.5, "rev_mix": 0.0,
-    "squash": 0.0, "out_gain": 0.0, "bend_range": 2,
+    "squash": 0.0, "out_gain": 0.0, "bend_range": 2, "dist_keep_low": False,
 }
 for i in range(1, 13):
     DEFAULTS[f"mod{i}_src"] = "None"

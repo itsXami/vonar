@@ -402,6 +402,7 @@ void SynthEngine::renderChunk (float* L, float* R, int n) noexcept
 
     FxParams fp;
     fp.distType = raw.i (DistType);
+    fp.distKeepLow = raw.b (DistKeepLow);
     fp.distDrive = sm[DistDrive] + gdst[choices::DstDistDrive];
     fp.distTone = sm[DistTone];
     fp.distMix = sm[DistMix] + gdst[choices::DstDistMix];

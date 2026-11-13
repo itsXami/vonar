@@ -289,6 +289,9 @@ void MainPanel::buildFxTab()
         const R r { 6, 2, 392, h };
         section ("1  DISTORTION", r, colours::fx);
         combo (DistType, { r.getX() + 150, r.getY() + 7, 120, 22 }).setTooltip ("Distortion type");
+        auto& keep = toggle (DistKeepLow, "KEEP LOW", { r.getX() + 280, r.getY() + 7, 96, 22 });
+        VoltLookAndFeel::setStyle (keep, "seg");
+        keep.setTooltip ("Distort only above ~160 Hz: the sub stays clean and solid");
         marks (choices::DstDistDrive, knob (DistDrive, "Drive", at (r, big[0]), Knob::Hero));
         knob (DistTone, "Tone", at (r, big[1]), Knob::Hero);
         marks (choices::DstDistMix, knob (DistMix, "Mix", at (r, big[2]), Knob::Hero));

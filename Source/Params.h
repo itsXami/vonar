@@ -55,6 +55,7 @@ enum P : int
     Squash,
     OutGain,
     BendRange,
+    DistKeepLow,
 
     NumParams
 };
