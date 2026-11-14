@@ -435,3 +435,5 @@ Plan z `docs/DIAGNOZA_2026-11-12.md` wykonany w całości, plus perkusja na pro�
   (opis z `docs/releases/v1.0.0.md`) → CI dołącza pliki → repo publiczne.
 - README po angielsku (decyzja użytkownika: wariant B – tylko angielskie, bez polskiej kopii). Notatki projektu
   (`docs/`, `CONTRIBUTING.md`) zostają po polsku; README to zaznacza.
+- 2026-11-14 (prośba użytkownika, zmiana decyzji): `CONTRIBUTING.md` po angielsku, bo linkują do niego angielskie
+  README i strona `xami-sound.pages.dev`; polska treść w `CONTRIBUTING.pl.md`. Notatki w `docs/` zostają po polsku.

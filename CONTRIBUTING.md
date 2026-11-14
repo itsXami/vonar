@@ -1,29 +1,31 @@
-# Wkład w Vonar
+# Contributing to Vonar
 
-Dziękujemy za zainteresowanie! Na tym etapie projekt przyjmuje od innych **wyłącznie presety**. Zmiany w kodzie
-(pull requesty z kodem, przeróbki silnika lub interfejsu) nie są na razie przyjmowane – błędy i pomysły zgłaszaj
-jako *issue*.
+Thank you for your interest! At this stage the project accepts **presets only** from others. Code changes
+(pull requests with code, changes to the engine or the interface) are not accepted for now. Please report bugs
+and ideas as an *issue*.
 
-## Jak zgłosić preset
+Polish version: [`CONTRIBUTING.pl.md`](CONTRIBUTING.pl.md).
 
-1. Zrób brzmienie w Vonar i zapisz je przyciskiem **SAVE** (nazwa, kategoria, tagi, opis). Plik JSON znajdziesz
-   w `%APPDATA%\Vonar\Presets`.
-2. Otwórz *issue* z tytułem „Preset: nazwa” i dołącz plik JSON (albo kilka plików).
-3. Preset przechodzi ten sam proces co fabryczne: render offline, kontrola poziomu, pomiar podobieństwa do
-   istniejących brzmień i odsłuch. Do biblioteki trafiają presety, które wnoszą coś nowego.
+## How to submit a preset
 
-## Wymagania dla presetu
+1. Make a sound in Vonar and save it with the **SAVE** button (name, category, tags, description). You will find
+   the JSON file in `%APPDATA%\Vonar\Presets`.
+2. Open an *issue* titled "Preset: name" and attach the JSON file (or several files).
+3. The preset goes through the same process as the factory presets: offline render, level check, a similarity
+   check against existing sounds, and listening. Presets that add something new make it into the library.
 
-- Zrobiony od zera w Vonar. Nie odtwarzaj presetów, wavetable ani nazw z innych syntezatorów.
-- **Żadnych nazw artystów, albumów, utworów ani marek** w nazwie, tagach i opisie. Tagi opisują dźwięk
-  (np. `Warm`, `Plucky`, `Dark`, `Wide`, `Lo-Fi`).
-- Nazwa: 1–3 słowa, unikalna w bibliotece. Opis: jedno zdanie po angielsku, kończące się kropką.
-- Wszystkie cztery makra są podpięte i mają etykiety mówiące, co robią.
-- Preset reaguje na siłę uderzenia (velocity), a Mod Wheel robi coś słyszalnego.
-- Głośność podobna do presetów fabrycznych (ok. −15 LUFS); limiter wyjściowy nie powinien stale pracować.
+## Preset requirements
 
-## Licencja wkładu
+- Made from scratch in Vonar. Do not recreate presets, wavetables or names from other synthesizers.
+- **No names of artists, albums, songs or brands** in the name, tags or description. Tags describe the sound
+  (for example `Warm`, `Plucky`, `Dark`, `Wide`, `Lo-Fi`).
+- Name: 1–3 words, unique in the library. Description: one sentence in English, ending with a full stop.
+- All four macros are assigned and have labels that say what they do.
+- The preset responds to velocity, and the Mod Wheel does something audible.
+- Loudness similar to the factory presets (about −15 LUFS); the output limiter should not be working all the time.
 
-Zgłaszając preset, potwierdzasz, że jesteś jego autorem i zgadzasz się na jego włączenie do Vonar oraz
-rozpowszechnianie na licencji projektu (AGPLv3, plik `LICENSE`). Autor presetu może zostać wymieniony
-w dokumentacji, jeśli sobie tego życzy.
+## Licence of contributions
+
+By submitting a preset, you confirm that you made it and agree to its inclusion in Vonar and its distribution
+under the project's licence (AGPLv3, see `LICENSE`). The author of a preset can be credited in the
+documentation if they wish.
